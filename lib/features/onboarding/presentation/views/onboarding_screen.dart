@@ -49,10 +49,14 @@ class OnboardingScreenState extends State<OnboardingScreen> {
               OnboardingPage(imageAsset: 'assets/background.png'),
             ],
           ),
-          SkipButton(
-            onPressed: () {
-              GoRouter.of(context).pushReplacement(AppRoutes.kLoginRoute);
-            },
+          Positioned(
+            top: 40,
+            right: 20,
+            child: SkipButton(
+              onPressed: () {
+                GoRouter.of(context).pushReplacement(AppRoutes.kLoginRoute);
+              },
+            ),
           ),
           OnboardingFixedContainer(
             currentPage: _currentPage,
