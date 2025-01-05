@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:movie_app/core/themes/app_styles.dart';
 import 'package:movie_app/core/utils/constants.dart';
 
 import '../../../../core/themes/app_colors.dart';
@@ -7,9 +8,12 @@ import '../../../../core/themes/app_colors.dart';
 class SkipButton extends StatelessWidget {
   const SkipButton({
     super.key,
-    required this.pageController,
+    this.onPressed,
+    this.icon,
   });
-  final PageController pageController;
+
+  final void Function()? onPressed;
+  final Widget? icon;
 
   @override
   Widget build(BuildContext context) {
@@ -22,23 +26,18 @@ class SkipButton extends StatelessWidget {
         top: 40,
         right: 20,
         child: TextButton(
-          onPressed: () {
-            pageController.animateToPage(
-              2,
-              duration: const Duration(milliseconds: 400),
-              curve: Curves.easeInOut,
-            );
-          },
+          onPressed: onPressed,
           style: TextButton.styleFrom(
+            minimumSize: const Size(40, 40),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(kBorderRadius),
             ),
             backgroundColor: AppColors.kSecondaryColor,
           ),
-          child: Text(
-            'Skip',
-            style: TextStyle(color: AppColors.kPrimaryColor),
-          ),
+          child: icon ??
+              Text('Skip',
+                  style: Styles.textStyle14
+                      .copyWith(color: AppColors.kPrimaryColor)),
         ));
   }
 }

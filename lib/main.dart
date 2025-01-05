@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/core/themes/app_colors.dart';
 
 import 'core/routing/routes.dart';
 
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Marvel Movies',
       theme: ThemeData(
+        scaffoldBackgroundColor: AppColors.kSecondaryColor,
         fontFamily: 'Montserrat',
         brightness: Brightness.dark,
         useMaterial3: true,

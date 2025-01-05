@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:movie_app/core/routing/routes.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../../core/component/widgets/custom_elevated_button.dart';
@@ -66,10 +68,12 @@ class OnboardingFixedContainer extends StatelessWidget {
               text: currentPage == 2 ? 'Get Started' : 'Continue',
               backgroundColor: AppColors.kPrimaryColor,
               textColor: Colors.black,
-              onPressed: () => pageController.nextPage(
-                duration: const Duration(milliseconds: 300),
-                curve: Curves.easeInToLinear,
-              ),
+              onPressed: () => currentPage == 2
+                  ? GoRouter.of(context).pushReplacement(AppRoutes.kLoginRoute)
+                  : pageController.nextPage(
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeInToLinear,
+                    ),
             ),
             const SizedBox(height: 20),
             SmoothPageIndicator(

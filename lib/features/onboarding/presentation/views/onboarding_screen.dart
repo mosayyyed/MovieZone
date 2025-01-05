@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../core/routing/routes.dart';
 import '../../../../core/themes/app_colors.dart';
 import '../widgets/onboarding_fixed_container.dart';
 import '../widgets/onboarding_page.dart';
@@ -48,7 +50,9 @@ class OnboardingScreenState extends State<OnboardingScreen> {
             ],
           ),
           SkipButton(
-            pageController: _pageController,
+            onPressed: () {
+              GoRouter.of(context).pushReplacement(AppRoutes.kLoginRoute);
+            },
           ),
           OnboardingFixedContainer(
             currentPage: _currentPage,
