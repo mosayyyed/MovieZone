@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Marvel Movies',
       theme: ThemeData(
+        primaryColor: AppColors.kPrimaryColor,
         scaffoldBackgroundColor: AppColors.kSecondaryColor,
         fontFamily: 'Montserrat',
         brightness: Brightness.dark,

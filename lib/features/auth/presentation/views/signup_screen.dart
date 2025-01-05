@@ -3,7 +3,6 @@ import 'package:go_router/go_router.dart';
 import 'package:movie_app/core/component/widgets/custom_elevated_button.dart';
 import 'package:movie_app/core/routing/routes.dart';
 import 'package:movie_app/core/themes/app_styles.dart';
-import 'package:movie_app/features/onboarding/presentation/widgets/skip_button.dart';
 
 import '../../../../core/component/widgets/custom_phone_field.dart';
 import '../../../../core/component/widgets/custom_text_button.dart';
@@ -20,18 +19,6 @@ class SignupScreen extends StatelessWidget {
           backgroundColor: Colors.transparent,
           elevation: 0,
           scrolledUnderElevation: 0,
-          automaticallyImplyLeading: false,
-          title: SkipButton(
-            onPressed: () {
-              GoRouter.of(context).pop(context);
-            },
-            icon: Icon(
-              Icons.arrow_back_ios,
-              color: AppColors.kGreyColor,
-              size: 24,
-            ),
-            hasBorderSide: true,
-          ),
         ),
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 16),
