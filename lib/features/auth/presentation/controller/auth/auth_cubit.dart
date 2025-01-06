@@ -45,14 +45,11 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   String? phoneValidator(String? value) {
-    if (value == null || value.isEmpty) {
+    final strippedNumber =
+        value?.replaceFirst(RegExp(r'^\+\d{1,3}'), '').trim();
+
+    if (strippedNumber == null || strippedNumber.isEmpty) {
       return 'Phone number is required';
-    }
-
-    final strippedNumber = value.replaceFirst(RegExp(r'^\+\d{1,3}'), '');
-
-    if (strippedNumber.isEmpty) {
-      return 'Phone number is required without country code';
     }
 
     if (!AppRegExp.isPhoneValid(strippedNumber)) {

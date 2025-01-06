@@ -29,7 +29,9 @@ class CustomPhoneField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IntlPhoneField(
+      initialValue: "01",
       validator: validator,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       controller: controller,
       onChanged: onChanged,
       onSubmitted: onSubmitted,
@@ -54,7 +56,7 @@ class CustomPhoneField extends StatelessWidget {
       ),
       dropdownIcon: const Icon(
         Icons.keyboard_arrow_down_rounded,
-        color: AppColors.kSecondaryColor,
+        color: AppColors.kGreyColor,
       ),
     );
   }

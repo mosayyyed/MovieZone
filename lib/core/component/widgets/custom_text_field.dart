@@ -37,6 +37,7 @@ class CustomTextField extends StatelessWidget {
       controller: controller,
       onChanged: onChanged,
       validator: validator,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       keyboardType: keyboardType,
       obscureText: obscureText,
       style: Styles.textStyle16,

@@ -27,7 +27,7 @@ class SignupForm extends StatelessWidget {
               CustomTextField(
                 labelText: 'Full Name',
                 keyboardType: TextInputType.name,
-                controller: signupCubit.nicknameController,
+                controller: signupCubit.fullNameController,
                 validator: authCubit.nicknameValidator,
               ),
               CustomTextField(
@@ -57,6 +57,7 @@ class SignupForm extends StatelessWidget {
               ),
               CustomPhoneField(
                 labelText: 'Phone Number',
+                controller: signupCubit.phoneController..text = '01',
                 validator: (value) =>
                     authCubit.phoneValidator(value?.completeNumber),
                 onChanged: (phone) {
@@ -68,12 +69,14 @@ class SignupForm extends StatelessWidget {
                 textColor: Colors.black,
                 backgroundColor: AppColors.kPrimaryColor,
                 onPressed: () {
+                  print(
+                      "---------------${signupCubit.phoneController.text.isEmpty} ");
                   if (signupCubit.formKey.currentState!.validate()) {
                     authCubit.resendEmailVerification();
                     signupCubit.signup(
                         signupRequestModel: RegisterRequestModel(
                       email: signupCubit.emailController.text,
-                      fullName: signupCubit.nicknameController.text,
+                      fullName: signupCubit.fullNameController.text,
                       password: signupCubit.passwordController.text.trim(),
                       phone: signupCubit.phoneController.text,
                     ));

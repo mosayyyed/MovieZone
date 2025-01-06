@@ -9,7 +9,7 @@ part 'signup_state.dart';
 class SignupCubit extends Cubit<SignupState> {
   final AuthRepo authRepo;
   final emailController = TextEditingController();
-  final nicknameController = TextEditingController();
+  final fullNameController = TextEditingController();
   final loginPasswordController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
@@ -39,7 +39,7 @@ class SignupCubit extends Cubit<SignupState> {
   @override
   Future<void> close() {
     emailController.dispose();
-    nicknameController.dispose();
+    fullNameController.dispose();
     passwordController.dispose();
     confirmPasswordController.dispose();
     phoneController.dispose();
