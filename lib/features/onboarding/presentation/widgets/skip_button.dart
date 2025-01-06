@@ -21,7 +21,9 @@ class SkipButton extends StatelessWidget {
     return TextButton(
       onPressed: onPressed,
       style: TextButton.styleFrom(
-        minimumSize: const Size(40, 40),
+        alignment: Alignment.center,
+        padding: EdgeInsets.all(0),
+        minimumSize: const Size(55, 55),
         shape: RoundedRectangleBorder(
           side: hasBorderSide
               ? BorderSide(color: AppColors.kGreyColor, width: 1)

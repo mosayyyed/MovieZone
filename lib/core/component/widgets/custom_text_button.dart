@@ -5,21 +5,24 @@ import '../../../../core/themes/app_styles.dart';
 import '../../../../core/utils/constants.dart';
 
 class CustomTextButton extends StatelessWidget {
+  final String text;
+  final String? highlightText;
+  final VoidCallback? onPressed;
+  final AlignmentGeometry? alignment;
+
   const CustomTextButton({
     super.key,
     required this.text,
-    required this.highlightText,
+    this.highlightText,
     this.onPressed,
+    this.alignment,
   });
-
-  final String text;
-  final String highlightText;
-  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
       style: ButtonStyle(
+        alignment: alignment,
         minimumSize: WidgetStateProperty.all<Size>(
           const Size(double.infinity, 0),
         ),
