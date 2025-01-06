@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../core/component/widgets/custom_text_button.dart';
-import '../../../../../core/component/widgets/my_single_child_scroll_view.dart';
-import '../../../../../core/routing/routes.dart';
-import '../../../../../core/themes/app_colors.dart';
-import '../../../../../core/themes/app_styles.dart';
+import '../../../../../../core/component/widgets/custom_text_button.dart';
+import '../../../../../../core/component/widgets/my_single_child_scroll_view.dart';
+import '../../../../../../core/routing/routes.dart';
+import '../../../../../../core/themes/app_colors.dart';
+import '../../../../../../core/themes/app_styles.dart';
 import 'signup_form.dart';
 import 'terms_and_conditions.dart';
 

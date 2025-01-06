@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../core/component/widgets/custom_text_button.dart';
-import '../../../../../core/component/widgets/my_single_child_scroll_view.dart';
-import '../../../../../core/routing/routes.dart';
-import '../../../../../core/themes/app_colors.dart';
+import '../../../../../../core/component/widgets/custom_text_button.dart';
+import '../../../../../../core/component/widgets/my_single_child_scroll_view.dart';
+import '../../../../../../core/routing/routes.dart';
+import '../../../../../../core/themes/app_colors.dart';
 import '../or_divider.dart';
 import 'login_form.dart';
 import 'signup_with_social_row.dart';

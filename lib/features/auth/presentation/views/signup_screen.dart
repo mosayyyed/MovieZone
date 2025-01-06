@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:movie_app/features/onboarding/presentation/widgets/skip_button.dart';
 
 import '../../../../core/themes/app_colors.dart';
-import '../widgets/signup/signup_body.dart';
+import '../../../onboarding/presentation/widgets/skip_button.dart';
+import 'widgets/signup/signup_body.dart';
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
