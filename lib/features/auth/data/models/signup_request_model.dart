@@ -4,10 +4,10 @@ class RegisterRequestModel {
   final String password;
   final String phone;
 
-  RegisterRequestModel(
-    this.fullName,
-    this.email,
-    this.password,
-    this.phone,
-  );
+  RegisterRequestModel({
+    required this.fullName,
+    required this.email,
+    required this.password,
+    required this.phone,
+  });
 }

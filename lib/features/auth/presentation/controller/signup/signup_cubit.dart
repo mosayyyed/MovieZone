@@ -10,7 +10,9 @@ class SignupCubit extends Cubit<SignupState> {
   final AuthRepo authRepo;
   final emailController = TextEditingController();
   final nicknameController = TextEditingController();
+  final loginPasswordController = TextEditingController();
   final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
   final phoneController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
@@ -39,6 +41,7 @@ class SignupCubit extends Cubit<SignupState> {
     emailController.dispose();
     nicknameController.dispose();
     passwordController.dispose();
+    confirmPasswordController.dispose();
     phoneController.dispose();
     return super.close();
   }

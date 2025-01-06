@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/country_picker_dialog.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
@@ -13,6 +15,7 @@ class CustomPhoneField extends StatelessWidget {
   final TextEditingController? controller;
   final Function(PhoneNumber)? onChanged;
   final void Function(String)? onSubmitted;
+  final FutureOr<String?> Function(PhoneNumber?)? validator;
 
   const CustomPhoneField({
     super.key,
@@ -21,10 +24,12 @@ class CustomPhoneField extends StatelessWidget {
     this.controller,
     this.onChanged,
     this.onSubmitted,
+    this.validator,
   });
   @override
   Widget build(BuildContext context) {
     return IntlPhoneField(
+      validator: validator,
       controller: controller,
       onChanged: onChanged,
       onSubmitted: onSubmitted,

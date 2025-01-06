@@ -10,6 +10,7 @@ class AuthCubit extends Cubit<AuthState> {
   final AuthRepo authRepo;
 
   bool isPasswordVisible = false;
+  bool isConfirmPasswordVisible = false;
 
   AuthCubit(this.authRepo) : super(AuthInitial());
   String? nicknameValidator(String? value) {
@@ -37,17 +38,38 @@ class AuthCubit extends Cubit<AuthState> {
     return null;
   }
 
+  String? confirmPasswordValidator(String? value, String password) {
+    if (value == null || value.isEmpty) return 'Confirm password is required';
+    if (value != password) return 'Passwords do not match';
+    return null;
+  }
+
   String? phoneValidator(String? value) {
-    if (value == null || value.isEmpty) return 'Phone number is required';
-    if (!AppRegExp.isPhoneValid(value)) {
+    if (value == null || value.isEmpty) {
+      return 'Phone number is required';
+    }
+
+    final strippedNumber = value.replaceFirst(RegExp(r'^\+\d{1,3}'), '');
+
+    if (strippedNumber.isEmpty) {
+      return 'Phone number is required without country code';
+    }
+
+    if (!AppRegExp.isPhoneValid(strippedNumber)) {
       return 'Enter a valid phone number';
     }
+
     return null;
   }
 
   void togglePasswordVisibility() {
     isPasswordVisible = !isPasswordVisible;
     emit(PasswordVisibilityChanged(isPasswordVisible));
+  }
+
+  void toggleConfirmPasswordVisibility() {
+    isConfirmPasswordVisible = !isConfirmPasswordVisible;
+    emit(PasswordVisibilityChanged(isConfirmPasswordVisible));
   }
 
   Future<void> resendEmailVerification() async {
