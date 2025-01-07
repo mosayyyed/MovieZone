@@ -50,8 +50,8 @@ class CustomPhoneField extends StatelessWidget {
           color: AppColors.kSecondaryColor,
         ),
         searchFieldCursorColor: AppColors.kPrimaryColor,
-        searchFieldInputDecoration:
-            buildInputDecoration(labelText: 'Search', hintText: ''),
+        searchFieldInputDecoration: buildInputDecoration(
+            labelText: 'Search', hintText: 'code or country name'),
         backgroundColor: AppColors.kSecondaryColor,
       ),
       dropdownIcon: const Icon(
