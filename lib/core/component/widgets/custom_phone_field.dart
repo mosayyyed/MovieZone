@@ -30,7 +30,7 @@ class CustomPhoneField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IntlPhoneField(
-      initialValue: "01",
+      initialValue: "",
       validator: validator,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       controller: controller,
@@ -39,7 +39,7 @@ class CustomPhoneField extends StatelessWidget {
       decoration:
           buildInputDecoration(labelText: labelText, hintText: hintText),
       initialCountryCode: 'EG',
-      languageCode: 'ar',
+      languageCode: Localizations.localeOf(context).languageCode,
       dropdownTextStyle: Styles.textStyle16,
       pickerDialogStyle: PickerDialogStyle(
         searchFieldPadding: const EdgeInsets.all(10),
@@ -48,12 +48,13 @@ class CustomPhoneField extends StatelessWidget {
         listTileDivider: const Divider(
           indent: 20,
           endIndent: 20,
-          color: AppColors.kSecondaryColor,
+          color: AppColors.kGreyColor,
         ),
         searchFieldCursorColor: AppColors.kPrimaryColor,
         searchFieldInputDecoration: buildInputDecoration(
           labelText: S.of(context).phoneSearchLabel,
           hintText: S.of(context).phoneSearchHint,
+          prefixIcon: const Icon(Icons.search_rounded),
         ),
         backgroundColor: AppColors.kSecondaryColor,
       ),
