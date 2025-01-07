@@ -15,6 +15,7 @@ class AuthCubit extends Cubit<AuthState> {
   bool isConfirmPasswordVisible = false;
 
   AuthCubit(this.authRepo) : super(AuthInitial());
+
   String? nicknameValidator(String? value, BuildContext context) {
     if (value == null || value.isEmpty) {
       return S.of(context).fullNameRequiredError;

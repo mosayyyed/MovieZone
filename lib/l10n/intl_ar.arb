@@ -44,11 +44,11 @@
   "emailRequiredError": "البريد الإلكتروني مطلوب",
   "emailInvalidError": "البريد الإلكتروني غير صحيح",
 
-  "passwordRequiredError": "كلمة المرور مطلوبة",
-  "passwordInvalidError": "كلمة المرور يجب أن تكون 8 أحرف على الأقل وتحتوي على حروف كبيرة وصغيرة وأرقام ورموز خاصة",
+  "passwordRequiredError": "كلمة السر مطلوبة",
+  "passwordInvalidError": "كلمة السر يجب أن تكون 8 أحرف على الأقل وتحتوي على حروف كبيرة وصغيرة وأرقام ورموز خاصة",
 
-  "confirmPasswordRequiredError": "تأكيد كلمة المرور مطلوب",
-  "passwordsDoNotMatchError": "كلمات المرور غير متطابقة",
+  "confirmPasswordRequiredError": "تأكيد كلمة السر مطلوب",
+  "passwordsDoNotMatchError": "كلمات السر غير متطابقة",
 
   "phoneNumberRequiredError": "رقم الهاتف مطلوب",
   "phoneNumberInvalidError": "رقم الهاتف غير صحيح"

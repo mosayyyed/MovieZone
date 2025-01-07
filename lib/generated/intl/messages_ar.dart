@@ -25,7 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة السر"),
         "confirmPasswordRequiredError":
-            MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور مطلوب"),
+            MessageLookupByLibrary.simpleMessage("تأكيد كلمة السر مطلوب"),
         "createAccountText": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
         "email": MessageLookupByLibrary.simpleMessage("الإيميل"),
         "emailInvalidError":
@@ -65,11 +65,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("السينما في جيبك"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة السر"),
         "passwordInvalidError": MessageLookupByLibrary.simpleMessage(
-            "كلمة المرور يجب أن تكون 8 أحرف على الأقل وتحتوي على حروف كبيرة وصغيرة وأرقام ورموز خاصة"),
+            "كلمة السر يجب أن تكون 8 أحرف على الأقل وتحتوي على حروف كبيرة وصغيرة وأرقام ورموز خاصة"),
         "passwordRequiredError":
-            MessageLookupByLibrary.simpleMessage("كلمة المرور مطلوبة"),
+            MessageLookupByLibrary.simpleMessage("كلمة السر مطلوبة"),
         "passwordsDoNotMatchError":
-            MessageLookupByLibrary.simpleMessage("كلمات المرور غير متطابقة"),
+            MessageLookupByLibrary.simpleMessage("كلمات السر غير متطابقة"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم التليفون"),
         "phoneNumberInvalidError":
             MessageLookupByLibrary.simpleMessage("رقم الهاتف غير صحيح"),
