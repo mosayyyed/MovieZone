@@ -310,10 +310,10 @@ class S {
     );
   }
 
-  /// `By logging in, you agree to `
+  /// `By creating an account, you agree to the `
   String get termsAndConditionsText1 {
     return Intl.message(
-      'By logging in, you agree to ',
+      'By creating an account, you agree to the ',
       name: 'termsAndConditionsText1',
       desc: '',
       args: [],

@@ -65,7 +65,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "signupHaveAccText":
             MessageLookupByLibrary.simpleMessage("Already have an account? "),
         "termsAndConditionsText1": MessageLookupByLibrary.simpleMessage(
-            "By logging in, you agree to "),
+            "By creating an account, you agree to the "),
         "termsAndConditionsText2":
             MessageLookupByLibrary.simpleMessage("Terms & Conditions"),
         "termsAndConditionsText3":
