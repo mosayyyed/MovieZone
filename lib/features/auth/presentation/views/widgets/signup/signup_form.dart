@@ -57,7 +57,6 @@ class SignupForm extends StatelessWidget {
               ),
               CustomPhoneField(
                 labelText: 'Phone Number',
-                controller: signupCubit.phoneController..text = '01',
                 validator: (value) =>
                     authCubit.phoneValidator(value?.completeNumber),
                 onChanged: (phone) {
