@@ -40,7 +40,7 @@ class CustomTextButton extends StatelessWidget {
               text: text,
               style: Styles.textStyle14.copyWith(
                 color: Colors.white,
-                fontFamily: 'Montserrat',
+                fontFamily: 'Cairo',
               ),
             ),
             TextSpan(
@@ -48,7 +48,7 @@ class CustomTextButton extends StatelessWidget {
               style: Styles.textStyle14.copyWith(
                 color: AppColors.kPrimaryColor,
                 fontWeight: FontWeight.bold,
-                fontFamily: 'Montserrat',
+                fontFamily: 'Cairo',
               ),
             ),
           ],

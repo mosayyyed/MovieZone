@@ -22,6 +22,18 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "confirmPassword":
+            MessageLookupByLibrary.simpleMessage("Confirm Password"),
+        "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "fullName": MessageLookupByLibrary.simpleMessage("Full Name"),
+        "loginDontHaveAccHighlightText":
+            MessageLookupByLibrary.simpleMessage("Register"),
+        "loginDontHaveAccText":
+            MessageLookupByLibrary.simpleMessage("Don\'t have an account? "),
+        "loginForgotPassword":
+            MessageLookupByLibrary.simpleMessage("Forgot Password?"),
+        "loginOrDivider": MessageLookupByLibrary.simpleMessage("OR"),
+        "loginSignIn": MessageLookupByLibrary.simpleMessage("Sign In"),
         "onboardingContinue": MessageLookupByLibrary.simpleMessage("Continue"),
         "onboardingDescription1": MessageLookupByLibrary.simpleMessage(
             "Unlock the world of entertainment with LetsSee. Stream your favorite films from wherever you are, whenever you want."),
@@ -37,6 +49,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "onboardingTitle2": MessageLookupByLibrary.simpleMessage(
             "Your Unlimited Movie Destination"),
         "onboardingTitle3":
-            MessageLookupByLibrary.simpleMessage("Cinema in Your Pocket")
+            MessageLookupByLibrary.simpleMessage("Cinema in Your Pocket"),
+        "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number")
       };
 }

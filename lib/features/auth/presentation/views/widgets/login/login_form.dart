@@ -4,6 +4,7 @@ import '../../../../../../core/component/widgets/custom_elevated_button.dart';
 import '../../../../../../core/component/widgets/custom_text_button.dart';
 import '../../../../../../core/component/widgets/custom_text_field.dart';
 import '../../../../../../core/themes/app_colors.dart';
+import '../../../../../../generated/l10n.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
@@ -16,23 +17,23 @@ class LoginForm extends StatelessWidget {
       spacing: 16,
       children: [
         CustomTextField(
-          labelText: 'Email',
+          labelText: S.of(context).email,
           keyboardType: TextInputType.emailAddress,
         ),
         CustomTextField(
-          labelText: 'Password',
+          labelText: S.of(context).password,
           obscureText: true,
           suffixIconVisibility: true,
           onSuffixIconPressed: () {},
           keyboardType: TextInputType.visiblePassword,
         ),
         CustomTextButton(
-          text: 'Forgot Password?',
+          text: S.of(context).loginForgotPassword,
           alignment: Alignment.centerRight,
           onPressed: () {},
         ),
         CustomElevatedButton(
-          text: 'Signin',
+          text: S.of(context).loginSignIn,
           textColor: AppColors.kSecondaryColor,
           backgroundColor: AppColors.kPrimaryColor,
           onPressed: () {},

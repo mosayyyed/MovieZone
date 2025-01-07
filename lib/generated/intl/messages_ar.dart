@@ -22,6 +22,18 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "confirmPassword":
+            MessageLookupByLibrary.simpleMessage("تأكيد كلمة السر"),
+        "email": MessageLookupByLibrary.simpleMessage("الإيميل"),
+        "fullName": MessageLookupByLibrary.simpleMessage("الاسم الكامل"),
+        "loginDontHaveAccHighlightText":
+            MessageLookupByLibrary.simpleMessage("سجل"),
+        "loginDontHaveAccText":
+            MessageLookupByLibrary.simpleMessage("مفيش حساب؟ "),
+        "loginForgotPassword":
+            MessageLookupByLibrary.simpleMessage("نسيت كلمة السر؟"),
+        "loginOrDivider": MessageLookupByLibrary.simpleMessage("أو"),
+        "loginSignIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "onboardingContinue": MessageLookupByLibrary.simpleMessage("إستمر"),
         "onboardingDescription1": MessageLookupByLibrary.simpleMessage(
             "افتح عالم الترفيه مع LetsSee. شغّل أفلامك المفضلة من أي مكان وفي أي وقت."),
@@ -37,6 +49,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "onboardingTitle2":
             MessageLookupByLibrary.simpleMessage("وجهتك الوحيدة لعالم الأفلام"),
         "onboardingTitle3":
-            MessageLookupByLibrary.simpleMessage("السينما في جيبك")
+            MessageLookupByLibrary.simpleMessage("السينما في جيبك"),
+        "password": MessageLookupByLibrary.simpleMessage("كلمة السر"),
+        "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم التليفون")
       };
 }

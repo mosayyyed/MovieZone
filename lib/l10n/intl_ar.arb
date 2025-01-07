@@ -7,5 +7,19 @@
   "onboardingDescription3": "خلّي سحر السينما معاك على طول. مع LetsSee هتقدر تتفرج على الأفلام في أي وقت وأي مكان وتعيش المغامرة السينمائية.",
   "onboardingContinue": "إستمر",
   "onboardingGetStarted": "يلا نبدأ",
-  "onboardingSkip": "تخطي"
+  "onboardingSkip": "تخطي",
+
+  "fullName" : "الاسم الكامل",
+  "email" : "الإيميل",
+  "password" : "كلمة السر",
+  "confirmPassword" : "تأكيد كلمة السر",
+  "phoneNumber" : "رقم التليفون",
+
+  "loginDontHaveAccText" : "مفيش حساب؟ ",
+  "loginDontHaveAccHighlightText" : "سجل",
+
+  "loginForgotPassword" : "نسيت كلمة السر؟",
+  "loginSignIn" : "تسجيل الدخول",
+  "loginOrDivider" : "أو"
+
 }

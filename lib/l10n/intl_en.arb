@@ -7,5 +7,18 @@
   "onboardingDescription3" : "Carry the magic of the movies with you. LetsSee lets you watch films on the go, connecting you to cinematic adventures.",
   "onboardingContinue" : "Continue",
   "onboardingGetStarted" : "Get Started",
-  "onboardingSkip" : "Skip"
+  "onboardingSkip" : "Skip",
+
+  "fullName" : "Full Name",
+  "email" : "Email",
+  "password" : "Password",
+  "confirmPassword" : "Confirm Password",
+  "phoneNumber" : "Phone Number",
+
+  "loginDontHaveAccText" : "Don't have an account? ",
+  "loginDontHaveAccHighlightText" : "Register",
+
+  "loginForgotPassword" : "Forgot Password?",
+  "loginSignIn" : "Sign In",
+  "loginOrDivider" : "OR"
 }

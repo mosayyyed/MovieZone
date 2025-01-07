@@ -139,6 +139,106 @@ class S {
       args: [],
     );
   }
+
+  /// `Full Name`
+  String get fullName {
+    return Intl.message(
+      'Full Name',
+      name: 'fullName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get email {
+    return Intl.message(
+      'Email',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get password {
+    return Intl.message(
+      'Password',
+      name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm Password`
+  String get confirmPassword {
+    return Intl.message(
+      'Confirm Password',
+      name: 'confirmPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone Number`
+  String get phoneNumber {
+    return Intl.message(
+      'Phone Number',
+      name: 'phoneNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don't have an account? `
+  String get loginDontHaveAccText {
+    return Intl.message(
+      'Don\'t have an account? ',
+      name: 'loginDontHaveAccText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Register`
+  String get loginDontHaveAccHighlightText {
+    return Intl.message(
+      'Register',
+      name: 'loginDontHaveAccHighlightText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forgot Password?`
+  String get loginForgotPassword {
+    return Intl.message(
+      'Forgot Password?',
+      name: 'loginForgotPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign In`
+  String get loginSignIn {
+    return Intl.message(
+      'Sign In',
+      name: 'loginSignIn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `OR`
+  String get loginOrDivider {
+    return Intl.message(
+      'OR',
+      name: 'loginOrDivider',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

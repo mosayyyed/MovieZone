@@ -6,6 +6,7 @@ import '../../../../../../core/component/widgets/custom_text_button.dart';
 import '../../../../../../core/component/widgets/my_single_child_scroll_view.dart';
 import '../../../../../../core/routing/routes.dart';
 import '../../../../../../core/themes/app_colors.dart';
+import '../../../../../../generated/l10n.dart';
 import '../or_divider.dart';
 import 'login_form.dart';
 import 'signup_with_social_row.dart';
@@ -33,8 +34,8 @@ class LoginBody extends StatelessWidget {
           OrDivider(),
           SignupWithSocialRow(),
           CustomTextButton(
-            text: 'Don\'t have an account? ',
-            highlightText: 'Register',
+            text: S.of(context).loginDontHaveAccText,
+            highlightText: S.of(context).loginDontHaveAccHighlightText,
             onPressed: () {
               GoRouter.of(context).push(AppRoutes.kSignupRoute);
             },

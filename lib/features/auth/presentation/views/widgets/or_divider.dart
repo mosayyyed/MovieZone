@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../generated/l10n.dart';
+
 class OrDivider extends StatelessWidget {
   const OrDivider({super.key});
 
@@ -15,7 +17,7 @@ class OrDivider extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 8.0),
-          child: Text('OR'),
+          child: Text(S.of(context).loginOrDivider),
         ),
         Expanded(
           child: Divider(
