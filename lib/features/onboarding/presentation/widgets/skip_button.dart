@@ -3,6 +3,7 @@ import 'package:movie_app/core/themes/app_styles.dart';
 import 'package:movie_app/core/utils/constants.dart';
 
 import '../../../../core/themes/app_colors.dart';
+import '../../../../generated/l10n.dart';
 
 class SkipButton extends StatelessWidget {
   const SkipButton({
@@ -35,7 +36,7 @@ class SkipButton extends StatelessWidget {
       ),
       child: icon ??
           Text(
-            'Skip',
+            S.of(context).onboardingSkip,
             style: Styles.textStyle14.copyWith(color: AppColors.kPrimaryColor),
           ),
     );
