@@ -6,6 +6,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../../core/component/widgets/custom_elevated_button.dart';
 import '../../../../core/themes/app_colors.dart';
 import '../../../../core/themes/app_styles.dart';
+import '../../../../generated/l10n.dart';
 
 class OnboardingFixedContainer extends StatelessWidget {
   final int currentPage;
@@ -20,15 +21,15 @@ class OnboardingFixedContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final titles = [
-      'Movies Anywhere, Anytime',
-      'Your Unlimited Movie Destination',
-      'Cinema in Your Pocket',
+      S.of(context).onboardingTitle1,
+      S.of(context).onboardingTitle2,
+      S.of(context).onboardingTitle3,
     ];
 
     final descriptions = [
-      'Unlock the world of entertainment with LetsSee. Stream your favorite films from wherever you are, whenever you want.',
-      'Where movie magic knows no boundaries. Experience a seamless cinematic journey at your fingertips.',
-      'Carry the magic of the movies with you. LetsSee lets you watch films on the go, connecting you to cinematic adventures.',
+      S.of(context).onboardingDescription1,
+      S.of(context).onboardingDescription2,
+      S.of(context).onboardingDescription3,
     ];
 
     return Positioned(
@@ -65,7 +66,9 @@ class OnboardingFixedContainer extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             CustomElevatedButton(
-              text: currentPage == 2 ? 'Get Started' : 'Continue',
+              text: currentPage == 2
+                  ? S.of(context).onboardingGetStarted
+                  : S.of(context).onboardingContinue,
               backgroundColor: AppColors.kPrimaryColor,
               textColor: Colors.black,
               onPressed: () => currentPage == 2
