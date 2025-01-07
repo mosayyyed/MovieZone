@@ -18,7 +18,22 @@
   "loginDontHaveAccText" : "Don't have an account? ",
   "loginDontHaveAccHighlightText" : "Register",
 
+  "signupHaveAccText": "Already have an account? ",
+  "signupHaveAccHighlightText": "Log In",
+
+
   "loginForgotPassword" : "Forgot Password?",
-  "loginSignIn" : "Sign In",
-  "loginOrDivider" : "OR"
+  "loginButton" : "Log In",
+  "signupButton" : "Create Account",
+  "phoneSearchLabel" : "Search",
+  "phoneSearchHint" : "Code or country name",
+  "loginOrDivider" : "OR",
+
+  "createAccountText" : "Create an account",
+  "registerDescriptionText" : "Register now and start exploring all that our app has to offer. We’re excited to welcome you to our community!",
+
+  "termsAndConditionsText1": "By logging in, you agree to ",
+  "termsAndConditionsText2": "Terms & Conditions",
+  "termsAndConditionsText3": " and ",
+  "termsAndConditionsText4": "Privacy Policy."
 }

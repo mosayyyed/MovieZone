@@ -24,8 +24,10 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة السر"),
+        "createAccountText": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
         "email": MessageLookupByLibrary.simpleMessage("الإيميل"),
         "fullName": MessageLookupByLibrary.simpleMessage("الاسم الكامل"),
+        "loginButton": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "loginDontHaveAccHighlightText":
             MessageLookupByLibrary.simpleMessage("سجل"),
         "loginDontHaveAccText":
@@ -33,7 +35,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "loginForgotPassword":
             MessageLookupByLibrary.simpleMessage("نسيت كلمة السر؟"),
         "loginOrDivider": MessageLookupByLibrary.simpleMessage("أو"),
-        "loginSignIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "onboardingContinue": MessageLookupByLibrary.simpleMessage("إستمر"),
         "onboardingDescription1": MessageLookupByLibrary.simpleMessage(
             "افتح عالم الترفيه مع LetsSee. شغّل أفلامك المفضلة من أي مكان وفي أي وقت."),
@@ -51,6 +52,23 @@ class MessageLookup extends MessageLookupByLibrary {
         "onboardingTitle3":
             MessageLookupByLibrary.simpleMessage("السينما في جيبك"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة السر"),
-        "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم التليفون")
+        "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم التليفون"),
+        "phoneSearchHint":
+            MessageLookupByLibrary.simpleMessage("الكود أو اسم البلد"),
+        "phoneSearchLabel": MessageLookupByLibrary.simpleMessage("بحث"),
+        "registerDescriptionText": MessageLookupByLibrary.simpleMessage(
+            "سجل الآن وابدأ في استكشاف كل ما يقدمه تطبيقنا. نحن متحمسون للترحيب بك في مجتمعنا!"),
+        "signupButton": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+        "signupHaveAccHighlightText":
+            MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+        "signupHaveAccText":
+            MessageLookupByLibrary.simpleMessage("عندك حساب؟ "),
+        "termsAndConditionsText1": MessageLookupByLibrary.simpleMessage(
+            "بتسجيل الدخول، انت بتوافق على "),
+        "termsAndConditionsText2":
+            MessageLookupByLibrary.simpleMessage("الشروط والأحكام"),
+        "termsAndConditionsText3": MessageLookupByLibrary.simpleMessage(" و "),
+        "termsAndConditionsText4":
+            MessageLookupByLibrary.simpleMessage("سياسة الخصوصية.")
       };
 }

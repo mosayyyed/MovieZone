@@ -5,6 +5,7 @@ import '../../../../../../core/component/widgets/custom_elevated_button.dart';
 import '../../../../../../core/component/widgets/custom_phone_field.dart';
 import '../../../../../../core/component/widgets/custom_text_field.dart';
 import '../../../../../../core/themes/app_colors.dart';
+import '../../../../../../generated/l10n.dart';
 import '../../../../data/models/signup_request_model.dart';
 import '../../../controller/auth/auth_cubit.dart';
 import '../../../controller/signup/signup_cubit.dart';
@@ -25,19 +26,19 @@ class SignupForm extends StatelessWidget {
             spacing: 16,
             children: [
               CustomTextField(
-                labelText: 'Full Name',
+                labelText: S.of(context).fullName,
                 keyboardType: TextInputType.name,
                 controller: signupCubit.fullNameController,
                 validator: authCubit.nicknameValidator,
               ),
               CustomTextField(
-                labelText: 'Email',
+                labelText: S.of(context).email,
                 keyboardType: TextInputType.emailAddress,
                 validator: authCubit.emailValidator,
                 controller: signupCubit.emailController,
               ),
               CustomTextField(
-                labelText: 'Password',
+                labelText: S.of(context).password,
                 keyboardType: TextInputType.visiblePassword,
                 controller: signupCubit.passwordController,
                 validator: (value) => authCubit.passwordValidator(value),
@@ -46,7 +47,7 @@ class SignupForm extends StatelessWidget {
                 onSuffixIconPressed: authCubit.togglePasswordVisibility,
               ),
               CustomTextField(
-                labelText: 'Confirm Password',
+                labelText: S.of(context).confirmPassword,
                 keyboardType: TextInputType.visiblePassword,
                 controller: signupCubit.confirmPasswordController,
                 obscureText: !authCubit.isConfirmPasswordVisible,
@@ -56,7 +57,7 @@ class SignupForm extends StatelessWidget {
                 onSuffixIconPressed: authCubit.toggleConfirmPasswordVisibility,
               ),
               CustomPhoneField(
-                labelText: 'Phone Number',
+                labelText: S.of(context).phoneNumber,
                 validator: (value) =>
                     authCubit.phoneValidator(value?.completeNumber),
                 onChanged: (phone) {
@@ -64,7 +65,7 @@ class SignupForm extends StatelessWidget {
                 },
               ),
               CustomElevatedButton(
-                text: 'Create Account',
+                text: S.of(context).signupButton,
                 textColor: Colors.black,
                 backgroundColor: AppColors.kPrimaryColor,
                 onPressed: () {

@@ -24,8 +24,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("Confirm Password"),
+        "createAccountText":
+            MessageLookupByLibrary.simpleMessage("Create an account"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "fullName": MessageLookupByLibrary.simpleMessage("Full Name"),
+        "loginButton": MessageLookupByLibrary.simpleMessage("Log In"),
         "loginDontHaveAccHighlightText":
             MessageLookupByLibrary.simpleMessage("Register"),
         "loginDontHaveAccText":
@@ -33,7 +36,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "loginForgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot Password?"),
         "loginOrDivider": MessageLookupByLibrary.simpleMessage("OR"),
-        "loginSignIn": MessageLookupByLibrary.simpleMessage("Sign In"),
         "onboardingContinue": MessageLookupByLibrary.simpleMessage("Continue"),
         "onboardingDescription1": MessageLookupByLibrary.simpleMessage(
             "Unlock the world of entertainment with LetsSee. Stream your favorite films from wherever you are, whenever you want."),
@@ -51,6 +53,24 @@ class MessageLookup extends MessageLookupByLibrary {
         "onboardingTitle3":
             MessageLookupByLibrary.simpleMessage("Cinema in Your Pocket"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
-        "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number")
+        "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
+        "phoneSearchHint":
+            MessageLookupByLibrary.simpleMessage("Code or country name"),
+        "phoneSearchLabel": MessageLookupByLibrary.simpleMessage("Search"),
+        "registerDescriptionText": MessageLookupByLibrary.simpleMessage(
+            "Register now and start exploring all that our app has to offer. We’re excited to welcome you to our community!"),
+        "signupButton": MessageLookupByLibrary.simpleMessage("Create Account"),
+        "signupHaveAccHighlightText":
+            MessageLookupByLibrary.simpleMessage("Log In"),
+        "signupHaveAccText":
+            MessageLookupByLibrary.simpleMessage("Already have an account? "),
+        "termsAndConditionsText1": MessageLookupByLibrary.simpleMessage(
+            "By logging in, you agree to "),
+        "termsAndConditionsText2":
+            MessageLookupByLibrary.simpleMessage("Terms & Conditions"),
+        "termsAndConditionsText3":
+            MessageLookupByLibrary.simpleMessage(" and "),
+        "termsAndConditionsText4":
+            MessageLookupByLibrary.simpleMessage("Privacy Policy.")
       };
 }

@@ -210,6 +210,26 @@ class S {
     );
   }
 
+  /// `Already have an account? `
+  String get signupHaveAccText {
+    return Intl.message(
+      'Already have an account? ',
+      name: 'signupHaveAccText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Log In`
+  String get signupHaveAccHighlightText {
+    return Intl.message(
+      'Log In',
+      name: 'signupHaveAccHighlightText',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Forgot Password?`
   String get loginForgotPassword {
     return Intl.message(
@@ -220,11 +240,41 @@ class S {
     );
   }
 
-  /// `Sign In`
-  String get loginSignIn {
+  /// `Log In`
+  String get loginButton {
     return Intl.message(
-      'Sign In',
-      name: 'loginSignIn',
+      'Log In',
+      name: 'loginButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create Account`
+  String get signupButton {
+    return Intl.message(
+      'Create Account',
+      name: 'signupButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search`
+  String get phoneSearchLabel {
+    return Intl.message(
+      'Search',
+      name: 'phoneSearchLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Code or country name`
+  String get phoneSearchHint {
+    return Intl.message(
+      'Code or country name',
+      name: 'phoneSearchHint',
       desc: '',
       args: [],
     );
@@ -235,6 +285,66 @@ class S {
     return Intl.message(
       'OR',
       name: 'loginOrDivider',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create an account`
+  String get createAccountText {
+    return Intl.message(
+      'Create an account',
+      name: 'createAccountText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Register now and start exploring all that our app has to offer. We’re excited to welcome you to our community!`
+  String get registerDescriptionText {
+    return Intl.message(
+      'Register now and start exploring all that our app has to offer. We’re excited to welcome you to our community!',
+      name: 'registerDescriptionText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `By logging in, you agree to `
+  String get termsAndConditionsText1 {
+    return Intl.message(
+      'By logging in, you agree to ',
+      name: 'termsAndConditionsText1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Terms & Conditions`
+  String get termsAndConditionsText2 {
+    return Intl.message(
+      'Terms & Conditions',
+      name: 'termsAndConditionsText2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` and `
+  String get termsAndConditionsText3 {
+    return Intl.message(
+      ' and ',
+      name: 'termsAndConditionsText3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Privacy Policy.`
+  String get termsAndConditionsText4 {
+    return Intl.message(
+      'Privacy Policy.',
+      name: 'termsAndConditionsText4',
       desc: '',
       args: [],
     );

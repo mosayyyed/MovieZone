@@ -6,6 +6,7 @@ import '../../../../../../core/component/widgets/my_single_child_scroll_view.dar
 import '../../../../../../core/routing/routes.dart';
 import '../../../../../../core/themes/app_colors.dart';
 import '../../../../../../core/themes/app_styles.dart';
+import '../../../../../../generated/l10n.dart';
 import 'signup_form.dart';
 import 'terms_and_conditions.dart';
 
@@ -22,12 +23,12 @@ class SignupBody extends StatelessWidget {
         children: [
           SizedBox(height: MediaQuery.of(context).size.height * 0.1),
           Text(
-            'Create Account',
+            S.of(context).createAccountText,
             style: Styles.textStyle32.copyWith(
                 color: AppColors.kPrimaryColor, fontWeight: FontWeight.w600),
           ),
           Text(
-            'Register now and start exploring all that our app has to offer. We’re excited to welcome you to our community!',
+            S.of(context).registerDescriptionText,
             style: Styles.textStyle12.copyWith(),
           ),
           SizedBox(
@@ -42,8 +43,8 @@ class SignupBody extends StatelessWidget {
             height: 22,
           ),
           CustomTextButton(
-            text: 'Already have an account? ',
-            highlightText: 'Signin',
+            text: S.of(context).signupHaveAccText,
+            highlightText: S.of(context).signupHaveAccHighlightText,
             onPressed: () {
               GoRouter.of(context).pop(AppRoutes.kLoginRoute);
             },

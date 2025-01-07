@@ -5,6 +5,7 @@ import 'package:intl_phone_field/country_picker_dialog.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:intl_phone_field/phone_number.dart';
 
+import '../../../generated/l10n.dart';
 import '../../themes/app_colors.dart';
 import '../../themes/app_styles.dart';
 import '../../utils/build_input_decoration.dart';
@@ -38,7 +39,7 @@ class CustomPhoneField extends StatelessWidget {
       decoration:
           buildInputDecoration(labelText: labelText, hintText: hintText),
       initialCountryCode: 'EG',
-      languageCode: 'EN',
+      languageCode: 'ar',
       dropdownTextStyle: Styles.textStyle16,
       pickerDialogStyle: PickerDialogStyle(
         searchFieldPadding: const EdgeInsets.all(10),
@@ -51,7 +52,9 @@ class CustomPhoneField extends StatelessWidget {
         ),
         searchFieldCursorColor: AppColors.kPrimaryColor,
         searchFieldInputDecoration: buildInputDecoration(
-            labelText: 'Search', hintText: 'code or country name'),
+          labelText: S.of(context).phoneSearchLabel,
+          hintText: S.of(context).phoneSearchHint,
+        ),
         backgroundColor: AppColors.kSecondaryColor,
       ),
       dropdownIcon: const Icon(

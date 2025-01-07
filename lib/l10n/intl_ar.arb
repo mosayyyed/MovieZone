@@ -18,8 +18,22 @@
   "loginDontHaveAccText" : "مفيش حساب؟ ",
   "loginDontHaveAccHighlightText" : "سجل",
 
-  "loginForgotPassword" : "نسيت كلمة السر؟",
-  "loginSignIn" : "تسجيل الدخول",
-  "loginOrDivider" : "أو"
+  "signupHaveAccText": "عندك حساب؟ ",
+  "signupHaveAccHighlightText": "تسجيل الدخول",
 
+
+  "loginForgotPassword" : "نسيت كلمة السر؟",
+  "loginButton" : "تسجيل الدخول",
+  "signupButton" : "إنشاء حساب",
+  "phoneSearchLabel" : "بحث",
+  "phoneSearchHint" : "الكود أو اسم البلد",
+  "loginOrDivider" : "أو",
+
+  "createAccountText" : "إنشاء حساب",
+  "registerDescriptionText" : "سجل الآن وابدأ في استكشاف كل ما يقدمه تطبيقنا. نحن متحمسون للترحيب بك في مجتمعنا!",
+
+  "termsAndConditionsText1": "بتسجيل الدخول، انت بتوافق على ",
+  "termsAndConditionsText2": "الشروط والأحكام",
+  "termsAndConditionsText3": " و ",
+  "termsAndConditionsText4": "سياسة الخصوصية."
 }
