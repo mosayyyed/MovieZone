@@ -30,7 +30,12 @@ class CustomPhoneField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IntlPhoneField(
-      initialValue: null,
+      disableAutoFillHints: false,
+      keyboardType: TextInputType.phone,
+      cursorColor: AppColors.kPrimaryColor,
+      textAlign: TextAlign.start,
+      invalidNumberMessage: S.of(context).phoneNumberInvalidError,
+      initialValue: "01",
       validator: validator,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       controller: controller,
