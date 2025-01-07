@@ -1,3 +1,11 @@
 {
-
+  "onboardingTitle1" : "Movies Anywhere, Anytime",
+  "onboardingTitle2" : "Your Unlimited Movie Destination",
+  "onboardingTitle3" : "Cinema in Your Pocket",
+  "onboardingDescription1" : "Unlock the world of entertainment with LetsSee. Stream your favorite films from wherever you are, whenever you want.",
+  "onboardingDescription2" : "Where movie magic knows no boundaries. Experience a seamless cinematic journey at your fingertips.",
+  "onboardingDescription3" : "Carry the magic of the movies with you. LetsSee lets you watch films on the go, connecting you to cinematic adventures.",
+  "onboardingContinue" : "Continue",
+  "onboardingGetStarted" : "Get Started",
+  "onboardingSkip" : "Skip"
 }

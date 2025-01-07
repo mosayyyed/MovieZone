@@ -49,6 +49,96 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// `Movies Anywhere, Anytime`
+  String get onboardingTitle1 {
+    return Intl.message(
+      'Movies Anywhere, Anytime',
+      name: 'onboardingTitle1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your Unlimited Movie Destination`
+  String get onboardingTitle2 {
+    return Intl.message(
+      'Your Unlimited Movie Destination',
+      name: 'onboardingTitle2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cinema in Your Pocket`
+  String get onboardingTitle3 {
+    return Intl.message(
+      'Cinema in Your Pocket',
+      name: 'onboardingTitle3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unlock the world of entertainment with LetsSee. Stream your favorite films from wherever you are, whenever you want.`
+  String get onboardingDescription1 {
+    return Intl.message(
+      'Unlock the world of entertainment with LetsSee. Stream your favorite films from wherever you are, whenever you want.',
+      name: 'onboardingDescription1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Where movie magic knows no boundaries. Experience a seamless cinematic journey at your fingertips.`
+  String get onboardingDescription2 {
+    return Intl.message(
+      'Where movie magic knows no boundaries. Experience a seamless cinematic journey at your fingertips.',
+      name: 'onboardingDescription2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Carry the magic of the movies with you. LetsSee lets you watch films on the go, connecting you to cinematic adventures.`
+  String get onboardingDescription3 {
+    return Intl.message(
+      'Carry the magic of the movies with you. LetsSee lets you watch films on the go, connecting you to cinematic adventures.',
+      name: 'onboardingDescription3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue`
+  String get onboardingContinue {
+    return Intl.message(
+      'Continue',
+      name: 'onboardingContinue',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get Started`
+  String get onboardingGetStarted {
+    return Intl.message(
+      'Get Started',
+      name: 'onboardingGetStarted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Skip`
+  String get onboardingSkip {
+    return Intl.message(
+      'Skip',
+      name: 'onboardingSkip',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

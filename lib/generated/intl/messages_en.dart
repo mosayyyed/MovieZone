@@ -21,5 +21,22 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "onboardingContinue": MessageLookupByLibrary.simpleMessage("Continue"),
+        "onboardingDescription1": MessageLookupByLibrary.simpleMessage(
+            "Unlock the world of entertainment with LetsSee. Stream your favorite films from wherever you are, whenever you want."),
+        "onboardingDescription2": MessageLookupByLibrary.simpleMessage(
+            "Where movie magic knows no boundaries. Experience a seamless cinematic journey at your fingertips."),
+        "onboardingDescription3": MessageLookupByLibrary.simpleMessage(
+            "Carry the magic of the movies with you. LetsSee lets you watch films on the go, connecting you to cinematic adventures."),
+        "onboardingGetStarted":
+            MessageLookupByLibrary.simpleMessage("Get Started"),
+        "onboardingSkip": MessageLookupByLibrary.simpleMessage("Skip"),
+        "onboardingTitle1":
+            MessageLookupByLibrary.simpleMessage("Movies Anywhere, Anytime"),
+        "onboardingTitle2": MessageLookupByLibrary.simpleMessage(
+            "Your Unlimited Movie Destination"),
+        "onboardingTitle3":
+            MessageLookupByLibrary.simpleMessage("Cinema in Your Pocket")
+      };
 }

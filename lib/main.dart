@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      locale: const Locale('en'),
+      locale: const Locale('ar'),
       localizationsDelegates: [
         S.delegate,
         GlobalMaterialLocalizations.delegate,
@@ -31,11 +31,12 @@ class MyApp extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: S.delegate.supportedLocales,
-      title: 'Marvel Movies',
+      title: 'Movie App',
       theme: ThemeData(
         primaryColor: AppColors.kPrimaryColor,
         scaffoldBackgroundColor: AppColors.kSecondaryColor,
-        fontFamily: 'Montserrat',
+        // TODO: Add dynamic font based on locale after loading Localizations
+        fontFamily: 'Cairo',
         brightness: Brightness.dark,
         useMaterial3: true,
       ),

@@ -21,5 +21,22 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "onboardingContinue": MessageLookupByLibrary.simpleMessage("إستمر"),
+        "onboardingDescription1": MessageLookupByLibrary.simpleMessage(
+            "افتح عالم الترفيه مع LetsSee. شغّل أفلامك المفضلة من أي مكان وفي أي وقت."),
+        "onboardingDescription2": MessageLookupByLibrary.simpleMessage(
+            "سحر الأفلام من غير أي حدود. استمتع بتجربة سينمائية سهلة وممتعة في إيديك."),
+        "onboardingDescription3": MessageLookupByLibrary.simpleMessage(
+            "خلّي سحر السينما معاك على طول. مع LetsSee هتقدر تتفرج على الأفلام في أي وقت وأي مكان وتعيش المغامرة السينمائية."),
+        "onboardingGetStarted":
+            MessageLookupByLibrary.simpleMessage("يلا نبدأ"),
+        "onboardingSkip": MessageLookupByLibrary.simpleMessage("تخطي"),
+        "onboardingTitle1": MessageLookupByLibrary.simpleMessage(
+            "الأفلام معاك في أي مكان وأي وقت"),
+        "onboardingTitle2":
+            MessageLookupByLibrary.simpleMessage("وجهتك الوحيدة لعالم الأفلام"),
+        "onboardingTitle3":
+            MessageLookupByLibrary.simpleMessage("السينما في جيبك")
+      };
 }
