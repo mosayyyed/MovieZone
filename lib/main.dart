@@ -34,6 +34,12 @@ class MyApp extends StatelessWidget {
       title: 'Movie App',
       theme: ThemeData(
         primaryColor: AppColors.kPrimaryColor,
+        textSelectionTheme: TextSelectionThemeData(
+          cursorColor: AppColors.kPrimaryColor,
+          selectionColor: AppColors.kPrimaryColor.withAlpha(100),
+          selectionHandleColor: AppColors.kPrimaryColor,
+        ),
+
         scaffoldBackgroundColor: AppColors.kSecondaryColor,
         // TODO: Add dynamic font based on locale after loading Localizations
         fontFamily: 'Cairo',
