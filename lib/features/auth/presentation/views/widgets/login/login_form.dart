@@ -33,7 +33,7 @@ class LoginForm extends StatelessWidget {
           onPressed: () {},
         ),
         CustomElevatedButton(
-          text: S.of(context).loginSignIn,
+          text: S.of(context).loginButton,
           textColor: AppColors.kSecondaryColor,
           backgroundColor: AppColors.kPrimaryColor,
           onPressed: () {},
