@@ -349,6 +349,116 @@ class S {
       args: [],
     );
   }
+
+  /// `Full Name is required`
+  String get fullNameRequiredError {
+    return Intl.message(
+      'Full Name is required',
+      name: 'fullNameRequiredError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Full Name is too short`
+  String get fullNameTooShortError {
+    return Intl.message(
+      'Full Name is too short',
+      name: 'fullNameTooShortError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Nickname can only contain letters, numbers, and #`
+  String get fullNameInvalidError {
+    return Intl.message(
+      'Nickname can only contain letters, numbers, and #',
+      name: 'fullNameInvalidError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email is required`
+  String get emailRequiredError {
+    return Intl.message(
+      'Email is required',
+      name: 'emailRequiredError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Full Name is too short`
+  String get emailInvalidError {
+    return Intl.message(
+      'Full Name is too short',
+      name: 'emailInvalidError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password is required`
+  String get passwordRequiredError {
+    return Intl.message(
+      'Password is required',
+      name: 'passwordRequiredError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must be at least 8 characters long and include uppercase letters, lowercase letters, numbers, and special characters`
+  String get passwordInvalidError {
+    return Intl.message(
+      'Password must be at least 8 characters long and include uppercase letters, lowercase letters, numbers, and special characters',
+      name: 'passwordInvalidError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm Password is required`
+  String get confirmPasswordRequiredError {
+    return Intl.message(
+      'Confirm Password is required',
+      name: 'confirmPasswordRequiredError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Passwords do not match`
+  String get passwordsDoNotMatchError {
+    return Intl.message(
+      'Passwords do not match',
+      name: 'passwordsDoNotMatchError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone Number is required`
+  String get phoneNumberRequiredError {
+    return Intl.message(
+      'Phone Number is required',
+      name: 'phoneNumberRequiredError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone Number is invalid`
+  String get phoneNumberInvalidError {
+    return Intl.message(
+      'Phone Number is invalid',
+      name: 'phoneNumberInvalidError',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

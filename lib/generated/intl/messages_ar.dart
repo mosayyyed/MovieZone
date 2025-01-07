@@ -24,9 +24,21 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة السر"),
+        "confirmPasswordRequiredError":
+            MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور مطلوب"),
         "createAccountText": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
         "email": MessageLookupByLibrary.simpleMessage("الإيميل"),
+        "emailInvalidError":
+            MessageLookupByLibrary.simpleMessage("البريد الإلكتروني غير صحيح"),
+        "emailRequiredError":
+            MessageLookupByLibrary.simpleMessage("البريد الإلكتروني مطلوب"),
         "fullName": MessageLookupByLibrary.simpleMessage("الاسم الكامل"),
+        "fullNameInvalidError": MessageLookupByLibrary.simpleMessage(
+            "الاسم يجب أن يحتوي فقط على حروف، أرقام، أو #"),
+        "fullNameRequiredError":
+            MessageLookupByLibrary.simpleMessage("الاسم الكامل مطلوب"),
+        "fullNameTooShortError":
+            MessageLookupByLibrary.simpleMessage("الاسم الكامل قصير جدًا"),
         "loginButton": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "loginDontHaveAccHighlightText":
             MessageLookupByLibrary.simpleMessage("سجل"),
@@ -52,7 +64,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "onboardingTitle3":
             MessageLookupByLibrary.simpleMessage("السينما في جيبك"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة السر"),
+        "passwordInvalidError": MessageLookupByLibrary.simpleMessage(
+            "كلمة المرور يجب أن تكون 8 أحرف على الأقل وتحتوي على حروف كبيرة وصغيرة وأرقام ورموز خاصة"),
+        "passwordRequiredError":
+            MessageLookupByLibrary.simpleMessage("كلمة المرور مطلوبة"),
+        "passwordsDoNotMatchError":
+            MessageLookupByLibrary.simpleMessage("كلمات المرور غير متطابقة"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم التليفون"),
+        "phoneNumberInvalidError":
+            MessageLookupByLibrary.simpleMessage("رقم الهاتف غير صحيح"),
+        "phoneNumberRequiredError":
+            MessageLookupByLibrary.simpleMessage("رقم الهاتف مطلوب"),
         "phoneSearchHint":
             MessageLookupByLibrary.simpleMessage("الكود أو اسم البلد"),
         "phoneSearchLabel": MessageLookupByLibrary.simpleMessage("بحث"),

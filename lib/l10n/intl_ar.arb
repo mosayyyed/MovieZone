@@ -35,5 +35,23 @@
   "termsAndConditionsText1": "بإنشاء حساب، أنت توافق على ",
   "termsAndConditionsText2": "الشروط والأحكام",
   "termsAndConditionsText3": " و ",
-  "termsAndConditionsText4": "سياسة الخصوصية."
+  "termsAndConditionsText4": "سياسة الخصوصية.",
+
+  "fullNameRequiredError": "الاسم الكامل مطلوب",
+  "fullNameTooShortError": "الاسم الكامل قصير جدًا",
+  "fullNameInvalidError": "الاسم يجب أن يحتوي فقط على حروف، أرقام، أو #",
+
+  "emailRequiredError": "البريد الإلكتروني مطلوب",
+  "emailInvalidError": "البريد الإلكتروني غير صحيح",
+
+  "passwordRequiredError": "كلمة المرور مطلوبة",
+  "passwordInvalidError": "كلمة المرور يجب أن تكون 8 أحرف على الأقل وتحتوي على حروف كبيرة وصغيرة وأرقام ورموز خاصة",
+
+  "confirmPasswordRequiredError": "تأكيد كلمة المرور مطلوب",
+  "passwordsDoNotMatchError": "كلمات المرور غير متطابقة",
+
+  "phoneNumberRequiredError": "رقم الهاتف مطلوب",
+  "phoneNumberInvalidError": "رقم الهاتف غير صحيح"
+
+
 }

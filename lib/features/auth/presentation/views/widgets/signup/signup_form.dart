@@ -29,19 +29,21 @@ class SignupForm extends StatelessWidget {
                 labelText: S.of(context).fullName,
                 keyboardType: TextInputType.name,
                 controller: signupCubit.fullNameController,
-                validator: authCubit.nicknameValidator,
+                validator: (value) =>
+                    authCubit.nicknameValidator(value, context),
               ),
               CustomTextField(
                 labelText: S.of(context).email,
                 keyboardType: TextInputType.emailAddress,
-                validator: authCubit.emailValidator,
+                validator: (value) => authCubit.emailValidator(value, context),
                 controller: signupCubit.emailController,
               ),
               CustomTextField(
                 labelText: S.of(context).password,
                 keyboardType: TextInputType.visiblePassword,
                 controller: signupCubit.passwordController,
-                validator: (value) => authCubit.passwordValidator(value),
+                validator: (value) =>
+                    authCubit.passwordValidator(value, context),
                 obscureText: !authCubit.isPasswordVisible,
                 suffixIconVisibility: true,
                 onSuffixIconPressed: authCubit.togglePasswordVisibility,
@@ -52,14 +54,14 @@ class SignupForm extends StatelessWidget {
                 controller: signupCubit.confirmPasswordController,
                 obscureText: !authCubit.isConfirmPasswordVisible,
                 validator: (value) => authCubit.confirmPasswordValidator(
-                    value, signupCubit.passwordController.text),
+                    value, signupCubit.passwordController.text, context),
                 suffixIconVisibility: true,
                 onSuffixIconPressed: authCubit.toggleConfirmPasswordVisibility,
               ),
               CustomPhoneField(
                 labelText: S.of(context).phoneNumber,
                 validator: (value) =>
-                    authCubit.phoneValidator(value?.completeNumber),
+                    authCubit.phoneValidator(value?.completeNumber, context),
                 onChanged: (phone) {
                   signupCubit.phoneController.text = phone.completeNumber;
                 },

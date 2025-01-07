@@ -24,10 +24,22 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("Confirm Password"),
+        "confirmPasswordRequiredError": MessageLookupByLibrary.simpleMessage(
+            "Confirm Password is required"),
         "createAccountText":
             MessageLookupByLibrary.simpleMessage("Create an account"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "emailInvalidError":
+            MessageLookupByLibrary.simpleMessage("Full Name is too short"),
+        "emailRequiredError":
+            MessageLookupByLibrary.simpleMessage("Email is required"),
         "fullName": MessageLookupByLibrary.simpleMessage("Full Name"),
+        "fullNameInvalidError": MessageLookupByLibrary.simpleMessage(
+            "Nickname can only contain letters, numbers, and #"),
+        "fullNameRequiredError":
+            MessageLookupByLibrary.simpleMessage("Full Name is required"),
+        "fullNameTooShortError":
+            MessageLookupByLibrary.simpleMessage("Full Name is too short"),
         "loginButton": MessageLookupByLibrary.simpleMessage("Log In"),
         "loginDontHaveAccHighlightText":
             MessageLookupByLibrary.simpleMessage("Register"),
@@ -53,7 +65,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "onboardingTitle3":
             MessageLookupByLibrary.simpleMessage("Cinema in Your Pocket"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "passwordInvalidError": MessageLookupByLibrary.simpleMessage(
+            "Password must be at least 8 characters long and include uppercase letters, lowercase letters, numbers, and special characters"),
+        "passwordRequiredError":
+            MessageLookupByLibrary.simpleMessage("Password is required"),
+        "passwordsDoNotMatchError":
+            MessageLookupByLibrary.simpleMessage("Passwords do not match"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
+        "phoneNumberInvalidError":
+            MessageLookupByLibrary.simpleMessage("Phone Number is invalid"),
+        "phoneNumberRequiredError":
+            MessageLookupByLibrary.simpleMessage("Phone Number is required"),
         "phoneSearchHint":
             MessageLookupByLibrary.simpleMessage("Code or country name"),
         "phoneSearchLabel": MessageLookupByLibrary.simpleMessage("Search"),

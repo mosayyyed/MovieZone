@@ -35,5 +35,21 @@
   "termsAndConditionsText1": "By creating an account, you agree to the ",
   "termsAndConditionsText2": "Terms & Conditions",
   "termsAndConditionsText3": " and ",
-  "termsAndConditionsText4": "Privacy Policy."
+  "termsAndConditionsText4": "Privacy Policy.",
+
+  "fullNameRequiredError" : "Full Name is required",
+  "fullNameTooShortError" : "Full Name is too short",
+  "fullNameInvalidError" : "Nickname can only contain letters, numbers, and #",
+
+  "emailRequiredError" : "Email is required",
+  "emailInvalidError" : "Full Name is too short",
+
+  "passwordRequiredError" : "Password is required",
+  "passwordInvalidError" : "Password must be at least 8 characters long and include uppercase letters, lowercase letters, numbers, and special characters",
+
+  "confirmPasswordRequiredError" : "Confirm Password is required",
+  "passwordsDoNotMatchError" : "Passwords do not match",
+
+  "phoneNumberRequiredError" : "Phone Number is required",
+  "phoneNumberInvalidError" : "Phone Number is invalid"
 }
