@@ -30,7 +30,7 @@ class CustomPhoneField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IntlPhoneField(
-      initialValue: "",
+      initialValue: null,
       validator: validator,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       controller: controller,
@@ -48,7 +48,7 @@ class CustomPhoneField extends StatelessWidget {
         listTileDivider: const Divider(
           indent: 20,
           endIndent: 20,
-          color: AppColors.kGreyColor,
+          color: Colors.transparent,
         ),
         searchFieldCursorColor: AppColors.kPrimaryColor,
         searchFieldInputDecoration: buildInputDecoration(
