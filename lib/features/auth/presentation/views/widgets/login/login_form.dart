@@ -29,7 +29,9 @@ class LoginForm extends StatelessWidget {
         ),
         CustomTextButton(
           text: S.of(context).loginForgotPassword,
-          alignment: Alignment.centerRight,
+          alignment: Localizations.localeOf(context).languageCode == 'ar'
+              ? Alignment.centerLeft
+              : Alignment.centerRight,
           onPressed: () {},
         ),
         CustomElevatedButton(
