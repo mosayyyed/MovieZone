@@ -22,6 +22,7 @@ class SignupCubit extends Cubit<SignupState> {
     required RegisterRequestModel signupRequestModel,
   }) async {
     emit(SignupLoading());
+    authRepo.verifyEmail();
     final response = await authRepo.signUpWithEmailAndPassword(
       email: signupRequestModel.email,
       password: signupRequestModel.password,
