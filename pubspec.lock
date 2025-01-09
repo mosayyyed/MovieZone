@@ -179,6 +179,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_progress_hud:
+    dependency: "direct main"
+    description:
+      name: flutter_progress_hud
+      sha256: "19a4889460b7482c5026a936b768996dade4daad8570e8c0493e292d57121dbb"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.2"
   flutter_svg:
     dependency: "direct main"
     description:
@@ -205,6 +213,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "14.6.2"
+  hero_animation:
+    dependency: "direct main"
+    description:
+      name: hero_animation
+      sha256: e862b27e3bddea486923922bd436cf52b9a28d1a35a342f150e91367647f3215
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.4"
   http:
     dependency: transitive
     description:
@@ -410,6 +426,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.7.3"
+  top_snackbar_flutter:
+    dependency: "direct main"
+    description:
+      name: top_snackbar_flutter
+      sha256: "22d14664a13db6ac714934c3382bd8d4daa57fb888a672f922df71981c5a5cb2"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.1.0"
   typed_data:
     dependency: transitive
     description:

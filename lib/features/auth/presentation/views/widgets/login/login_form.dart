@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/core/utils/constants.dart';
+import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 import 'package:movie_app/features/auth/data/models/login_request_model.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 import '../../../../../../core/component/widgets/custom_elevated_button.dart';
 import '../../../../../../core/component/widgets/custom_text_button.dart';
@@ -20,49 +22,28 @@ class LoginForm extends StatelessWidget {
   Widget build(BuildContext context) {
     final authCubit = BlocProvider.of<AuthCubit>(context);
     final loginCubit = BlocProvider.of<LoginCubit>(context);
+    final progress = ProgressHUD.of(context);
 
     return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
-        if (state is LoginError) {
-          ScaffoldMessenger.of(context)
-            ..hideCurrentSnackBar()
-            ..showSnackBar(
-              SnackBar(
-                action: SnackBarAction(
-                  label: 'Close',
-                  textColor: AppColors.kSecondaryColor,
-                  backgroundColor: AppColors.kWarningColor,
-                  onPressed: () {
-                    ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                  },
-                ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(kBorderRadius),
-                ),
-                content: Text(state.message),
-                backgroundColor: AppColors.kErrorColor,
-              ),
-            );
+        if (state is LoginLoading) {
+          progress?.show();
+        } else if (state is LoginError) {
+          showTopSnackBar(
+            Overlay.of(context),
+            CustomSnackBar.error(
+              message: state.message,
+            ),
+          );
+          progress?.dismiss();
         } else if (state is LoginSuccess) {
-          ScaffoldMessenger.of(context)
-            ..hideCurrentSnackBar()
-            ..showSnackBar(
-              SnackBar(
-                action: SnackBarAction(
-                  label: 'Close',
-                  textColor: AppColors.kSecondaryColor,
-                  backgroundColor: AppColors.kSuccessColor,
-                  onPressed: () {
-                    ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                  },
-                ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(kBorderRadius),
-                ),
-                content: Text('Login Success'),
-                backgroundColor: AppColors.kSuccessColor,
-              ),
-            );
+          progress?.dismiss();
+          showTopSnackBar(
+            Overlay.of(context),
+            CustomSnackBar.success(
+              message: state.token,
+            ),
+          );
         }
       },
       builder: (context, state) {
@@ -104,6 +85,7 @@ class LoginForm extends StatelessWidget {
                     backgroundColor: AppColors.kPrimaryColor,
                     onPressed: () {
                       if (loginCubit.formKey.currentState!.validate()) {
+                        progress?.show();
                         loginCubit.login(
                             loginRequestModel: LoginRequestModel(
                                 email: loginCubit.emailController.text,
