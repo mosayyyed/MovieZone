@@ -40,7 +40,6 @@ class LoginBody extends StatelessWidget {
               GoRouter.of(context).push(AppRoutes.kSignupRoute);
             },
           ),
-          SizedBox(height: MediaQuery.of(context).size.height * 0.1),
         ],
       ),
     );

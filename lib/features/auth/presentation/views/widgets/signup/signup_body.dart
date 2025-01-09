@@ -21,7 +21,7 @@ class SignupBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.01),
           Text(
             S.of(context).createAccountText,
             style: Styles.textStyle32.copyWith(
@@ -49,7 +49,7 @@ class SignupBody extends StatelessWidget {
               GoRouter.of(context).pop(AppRoutes.kLoginRoute);
             },
           ),
-          SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+          // SizedBox(height: MediaQuery.of(context).size.height * 0.1),
         ],
       ),
     );
