@@ -35,7 +35,7 @@ InputDecoration buildInputDecoration({
 
   return InputDecoration(
     hintText: hintText,
-    hintStyle: Styles.textStyle14,
+    hintStyle: Styles.textStyle14.copyWith(color: AppColors.kGreyColor),
     label: Text(
       labelText.toUpperCase(),
       style: Styles.textStyle12.copyWith(color: AppColors.kGreyColor),
