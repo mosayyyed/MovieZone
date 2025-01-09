@@ -48,8 +48,7 @@ class CustomPhoneField extends StatelessWidget {
       dropdownTextStyle: Styles.textStyle16,
       pickerDialogStyle: PickerDialogStyle(
         searchFieldPadding: const EdgeInsets.all(10),
-        countryCodeStyle:
-            Styles.textStyle14.copyWith(color: AppColors.kSecondaryColor),
+        countryCodeStyle: Styles.textStyle14,
         listTileDivider: const Divider(
           indent: 20,
           endIndent: 20,
