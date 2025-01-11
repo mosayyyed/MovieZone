@@ -51,7 +51,18 @@
   "passwordsDoNotMatchError": "كلمات السر غير متطابقة",
 
   "phoneNumberRequiredError": "رقم الهاتف مطلوب",
-  "phoneNumberInvalidError": "رقم الهاتف غير صحيح"
+  "phoneNumberInvalidError": "رقم الهاتف غير صحيح",
 
+  "networkRequestFailed": "يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى.",
+  "invalidCredential": "البيانات غير صحيحة. تأكد من المعلومات وحاول مرة أخرى.",
+  "wrongPassword": "كلمة المرور غير صحيحة. حاول مرة أخرى.",
+  "invalidEmail": "البريد الإلكتروني غير صالح.",
+  "userDisabled": "تم تعطيل الحساب المرتبط بهذا البريد الإلكتروني.",
+  "userNotFound": "لا يوجد حساب مرتبط بهذا البريد الإلكتروني.",
+  "emailAlreadyInUse": "البريد الإلكتروني مستخدم بالفعل من قبل حساب آخر.",
+  "weakPassword": "كلمة المرور ضعيفة جدًا. اختر كلمة مرور أقوى.",
+  "operationNotAllowed": "تم تعطيل هذه الطريقة من قبل المسؤول.",
+  "tooManyRequests": "هناك الكثير من الطلبات. يرجى المحاولة مرة أخرى لاحقًا.",
+  "unknownError": "حدث خطأ غير معروف. يرجى المحاولة مرة أخرى."
 
 }

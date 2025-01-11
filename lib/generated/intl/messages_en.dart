@@ -29,6 +29,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "createAccountText":
             MessageLookupByLibrary.simpleMessage("Create an account"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "emailAlreadyInUse": MessageLookupByLibrary.simpleMessage(
+            "The email is already in use by another account."),
         "emailInvalidError":
             MessageLookupByLibrary.simpleMessage("Full Name is too short"),
         "emailRequiredError":
@@ -40,6 +42,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Full Name is required"),
         "fullNameTooShortError":
             MessageLookupByLibrary.simpleMessage("Full Name is too short"),
+        "invalidCredential": MessageLookupByLibrary.simpleMessage(
+            "Invalid credentials. Please check your information and try again."),
+        "invalidEmail": MessageLookupByLibrary.simpleMessage(
+            "The email address is not valid."),
         "loginButton": MessageLookupByLibrary.simpleMessage("Log In"),
         "loginDontHaveAccHighlightText":
             MessageLookupByLibrary.simpleMessage("Register"),
@@ -48,6 +54,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "loginForgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot Password?"),
         "loginOrDivider": MessageLookupByLibrary.simpleMessage("OR"),
+        "networkRequestFailed": MessageLookupByLibrary.simpleMessage(
+            "Network error: Please check your internet connection and try again."),
         "onboardingContinue": MessageLookupByLibrary.simpleMessage("Continue"),
         "onboardingDescription1": MessageLookupByLibrary.simpleMessage(
             "Unlock the world of entertainment with LetsSee. Stream your favorite films from wherever you are, whenever you want."),
@@ -64,6 +72,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Your Unlimited Movie Destination"),
         "onboardingTitle3":
             MessageLookupByLibrary.simpleMessage("Cinema in Your Pocket"),
+        "operationNotAllowed": MessageLookupByLibrary.simpleMessage(
+            "This operation has been disabled by the administrator."),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordInvalidError": MessageLookupByLibrary.simpleMessage(
             "Password must be at least 8 characters long and include uppercase letters, lowercase letters, numbers, and special characters"),
@@ -93,6 +103,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "termsAndConditionsText3":
             MessageLookupByLibrary.simpleMessage(" and "),
         "termsAndConditionsText4":
-            MessageLookupByLibrary.simpleMessage("Privacy Policy.")
+            MessageLookupByLibrary.simpleMessage("Privacy Policy."),
+        "tooManyRequests": MessageLookupByLibrary.simpleMessage(
+            "Too many requests. Please try again later."),
+        "unknownError": MessageLookupByLibrary.simpleMessage(
+            "An unknown error occurred. Please try again."),
+        "userDisabled": MessageLookupByLibrary.simpleMessage(
+            "The account associated with this email has been disabled."),
+        "userNotFound": MessageLookupByLibrary.simpleMessage(
+            "No account found with this email."),
+        "weakPassword": MessageLookupByLibrary.simpleMessage(
+            "The password is too weak. Please choose a stronger one."),
+        "wrongPassword": MessageLookupByLibrary.simpleMessage(
+            "Incorrect password. Please try again.")
       };
 }

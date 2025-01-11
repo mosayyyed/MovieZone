@@ -51,5 +51,17 @@
   "passwordsDoNotMatchError" : "Passwords do not match",
 
   "phoneNumberRequiredError" : "Phone Number is required",
-  "phoneNumberInvalidError" : "Phone Number is invalid"
+  "phoneNumberInvalidError" : "Phone Number is invalid",
+
+  "networkRequestFailed": "Network error: Please check your internet connection and try again.",
+  "invalidCredential": "Invalid credentials. Please check your information and try again.",
+  "wrongPassword": "Incorrect password. Please try again.",
+  "invalidEmail": "The email address is not valid.",
+  "userDisabled": "The account associated with this email has been disabled.",
+  "userNotFound": "No account found with this email.",
+  "emailAlreadyInUse": "The email is already in use by another account.",
+  "weakPassword": "The password is too weak. Please choose a stronger one.",
+  "operationNotAllowed": "This operation has been disabled by the administrator.",
+  "tooManyRequests": "Too many requests. Please try again later.",
+  "unknownError": "An unknown error occurred. Please try again."
 }

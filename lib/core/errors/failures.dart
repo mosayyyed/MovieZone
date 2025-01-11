@@ -1,8 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 
+import '../../generated/l10n.dart';
+
 abstract class Failure {
   final String message;
-
   const Failure(this.message);
 }
 
@@ -18,29 +19,28 @@ class ServerFailure extends Failure {
     if (e is FirebaseException) {
       switch (e.code) {
         case 'network-request-failed':
-          return 'Network error: Please check your internet connection.';
-        case 'permission-denied':
-          return 'Permission denied: You do not have access to this resource.';
-        case 'not-found':
-          return 'Resource not found: The requested document does not exist.';
-        case 'unavailable':
-          return 'Service unavailable: Please try again later.';
-        case 'aborted':
-          return 'Request aborted: The operation was canceled.';
-        case 'already-exists':
-          return 'Conflict: The resource you are trying to create already exists.';
-        case 'internal':
-          return 'Internal server error: Something went wrong on our end.';
-        case 'unauthenticated':
-          return 'Unauthenticated: You need to log in to access this resource.';
-        case 'invalid-argument':
-          return 'Invalid argument: One or more parameters are incorrect.';
-        case 'out-of-range':
-          return 'Out of range: The value is outside the acceptable range.';
+          return S.current.networkRequestFailed;
+        case 'wrong-password':
+          return S.current.wrongPassword;
+        case 'invalid-credential':
+          return S.current.invalidCredential;
+        case 'invalid-email':
+          return S.current.invalidEmail;
+        case 'user-disabled':
+          return S.current.userDisabled;
+        case 'user-not-found':
+          return S.current.userNotFound;
+        case 'email-already-in-use':
+          return S.current.emailAlreadyInUse;
         case 'operation-not-allowed':
-          return 'Operation not allowed: This operation is not permitted.';
+          return S.current.operationNotAllowed;
+        case 'weak-password':
+          return S.current.weakPassword;
+        case 'too-many-requests':
+          return S.current.tooManyRequests;
         default:
-          return e.message ?? 'An unknown error occurred.';
+          print('----------------FirebaseException: ${e.code}');
+          return e.message ?? S.current.unknownError;
       }
     } else {
       return e.toString();

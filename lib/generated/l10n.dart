@@ -459,6 +459,116 @@ class S {
       args: [],
     );
   }
+
+  /// `Network error: Please check your internet connection and try again.`
+  String get networkRequestFailed {
+    return Intl.message(
+      'Network error: Please check your internet connection and try again.',
+      name: 'networkRequestFailed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid credentials. Please check your information and try again.`
+  String get invalidCredential {
+    return Intl.message(
+      'Invalid credentials. Please check your information and try again.',
+      name: 'invalidCredential',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Incorrect password. Please try again.`
+  String get wrongPassword {
+    return Intl.message(
+      'Incorrect password. Please try again.',
+      name: 'wrongPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The email address is not valid.`
+  String get invalidEmail {
+    return Intl.message(
+      'The email address is not valid.',
+      name: 'invalidEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The account associated with this email has been disabled.`
+  String get userDisabled {
+    return Intl.message(
+      'The account associated with this email has been disabled.',
+      name: 'userDisabled',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No account found with this email.`
+  String get userNotFound {
+    return Intl.message(
+      'No account found with this email.',
+      name: 'userNotFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The email is already in use by another account.`
+  String get emailAlreadyInUse {
+    return Intl.message(
+      'The email is already in use by another account.',
+      name: 'emailAlreadyInUse',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The password is too weak. Please choose a stronger one.`
+  String get weakPassword {
+    return Intl.message(
+      'The password is too weak. Please choose a stronger one.',
+      name: 'weakPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This operation has been disabled by the administrator.`
+  String get operationNotAllowed {
+    return Intl.message(
+      'This operation has been disabled by the administrator.',
+      name: 'operationNotAllowed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Too many requests. Please try again later.`
+  String get tooManyRequests {
+    return Intl.message(
+      'Too many requests. Please try again later.',
+      name: 'tooManyRequests',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An unknown error occurred. Please try again.`
+  String get unknownError {
+    return Intl.message(
+      'An unknown error occurred. Please try again.',
+      name: 'unknownError',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

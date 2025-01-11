@@ -28,6 +28,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة السر مطلوب"),
         "createAccountText": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
         "email": MessageLookupByLibrary.simpleMessage("الإيميل"),
+        "emailAlreadyInUse": MessageLookupByLibrary.simpleMessage(
+            "البريد الإلكتروني مستخدم بالفعل من قبل حساب آخر."),
         "emailInvalidError":
             MessageLookupByLibrary.simpleMessage("البريد الإلكتروني غير صحيح"),
         "emailRequiredError":
@@ -39,6 +41,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الاسم الكامل مطلوب"),
         "fullNameTooShortError":
             MessageLookupByLibrary.simpleMessage("الاسم الكامل قصير جدًا"),
+        "invalidCredential": MessageLookupByLibrary.simpleMessage(
+            "البيانات غير صحيحة. تأكد من المعلومات وحاول مرة أخرى."),
+        "invalidEmail":
+            MessageLookupByLibrary.simpleMessage("البريد الإلكتروني غير صالح."),
         "loginButton": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "loginDontHaveAccHighlightText":
             MessageLookupByLibrary.simpleMessage("سجل"),
@@ -47,6 +53,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "loginForgotPassword":
             MessageLookupByLibrary.simpleMessage("نسيت كلمة السر؟"),
         "loginOrDivider": MessageLookupByLibrary.simpleMessage("أو"),
+        "networkRequestFailed": MessageLookupByLibrary.simpleMessage(
+            "يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى."),
         "onboardingContinue": MessageLookupByLibrary.simpleMessage("إستمر"),
         "onboardingDescription1": MessageLookupByLibrary.simpleMessage(
             "افتح عالم الترفيه مع LetsSee. شغّل أفلامك المفضلة من أي مكان وفي أي وقت."),
@@ -63,6 +71,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("وجهتك الوحيدة لعالم الأفلام"),
         "onboardingTitle3":
             MessageLookupByLibrary.simpleMessage("السينما في جيبك"),
+        "operationNotAllowed": MessageLookupByLibrary.simpleMessage(
+            "تم تعطيل هذه الطريقة من قبل المسؤول."),
         "password": MessageLookupByLibrary.simpleMessage("كلمة السر"),
         "passwordInvalidError": MessageLookupByLibrary.simpleMessage(
             "كلمة السر يجب أن تكون 8 أحرف على الأقل وتحتوي على حروف كبيرة وصغيرة وأرقام ورموز خاصة"),
@@ -91,6 +101,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الشروط والأحكام"),
         "termsAndConditionsText3": MessageLookupByLibrary.simpleMessage(" و "),
         "termsAndConditionsText4":
-            MessageLookupByLibrary.simpleMessage("سياسة الخصوصية.")
+            MessageLookupByLibrary.simpleMessage("سياسة الخصوصية."),
+        "tooManyRequests": MessageLookupByLibrary.simpleMessage(
+            "هناك الكثير من الطلبات. يرجى المحاولة مرة أخرى لاحقًا."),
+        "unknownError": MessageLookupByLibrary.simpleMessage(
+            "حدث خطأ غير معروف. يرجى المحاولة مرة أخرى."),
+        "userDisabled": MessageLookupByLibrary.simpleMessage(
+            "تم تعطيل الحساب المرتبط بهذا البريد الإلكتروني."),
+        "userNotFound": MessageLookupByLibrary.simpleMessage(
+            "لا يوجد حساب مرتبط بهذا البريد الإلكتروني."),
+        "weakPassword": MessageLookupByLibrary.simpleMessage(
+            "كلمة المرور ضعيفة جدًا. اختر كلمة مرور أقوى."),
+        "wrongPassword": MessageLookupByLibrary.simpleMessage(
+            "كلمة المرور غير صحيحة. حاول مرة أخرى.")
       };
 }
