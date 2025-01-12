@@ -93,4 +93,14 @@ class AuthRepoImpl implements AuthRepo {
       return Left(ServerFailure.fromFirebaseException(error));
     }
   }
+
+  @override
+  Future<Either<Failure, bool>> isEmailVerified() async {
+    try {
+      final isVerified = await _firebaseService.isEmailVerified();
+      return Right(isVerified);
+    } catch (error) {
+      return Left(ServerFailure.fromFirebaseException(error));
+    }
+  }
 }

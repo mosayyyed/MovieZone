@@ -85,16 +85,14 @@ class AuthCubit extends Cubit<AuthState> {
     final result = await authRepo.getCurrentUser();
     // TODO: Fix send email
     result.fold(
-      (failure) => emit(AuthError("Failed to get current user")),
+      (failure) => emit(AuthError(failure.message)),
       (currentUser) async {
         if (currentUser != null && !currentUser.emailVerified) {
           await authRepo.verifyEmail();
           emit(AuthSuccess());
         } else if (currentUser == null) {
-          print("No user found");
           emit(AuthError("No user found"));
         } else {
-          print("Email is already verified");
           emit(AuthError("Email is already verified"));
         }
       },
@@ -112,5 +110,22 @@ class AuthCubit extends Cubit<AuthState> {
         yield false;
       }
     }
+  }
+
+  Future<bool> checkEmailVerification() async {
+    emit(AuthLoading());
+
+    final result = await authRepo.isEmailVerified();
+
+    return result.fold(
+      (failure) {
+        emit(AuthError(failure.message));
+        return false;
+      },
+      (isVerified) {
+        emit(AuthSuccess());
+        return isVerified;
+      },
+    );
   }
 }

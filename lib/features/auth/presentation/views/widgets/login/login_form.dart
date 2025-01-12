@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_progress_hud/flutter_progress_hud.dart';
+import 'package:go_router/go_router.dart';
 import 'package:movie_app/features/auth/data/models/login_request_model.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
@@ -8,6 +9,7 @@ import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import '../../../../../../core/component/widgets/custom_elevated_button.dart';
 import '../../../../../../core/component/widgets/custom_text_button.dart';
 import '../../../../../../core/component/widgets/custom_text_field.dart';
+import '../../../../../../core/routing/routes.dart';
 import '../../../../../../core/themes/app_colors.dart';
 import '../../../../../../generated/l10n.dart';
 import '../../../controller/auth/auth_cubit.dart';
@@ -38,6 +40,7 @@ class LoginForm extends StatelessWidget {
           progress?.dismiss();
         } else if (state is LoginSuccess) {
           progress?.dismiss();
+          navigate(context, authCubit);
           showTopSnackBar(
             Overlay.of(context),
             CustomSnackBar.success(
@@ -85,11 +88,18 @@ class LoginForm extends StatelessWidget {
                     backgroundColor: AppColors.kPrimaryColor,
                     onPressed: () {
                       if (loginCubit.formKey.currentState!.validate()) {
-                        progress?.show();
                         loginCubit.login(
-                            loginRequestModel: LoginRequestModel(
-                                email: loginCubit.emailController.text,
-                                password: loginCubit.passwordController.text));
+                          loginRequestModel: LoginRequestModel(
+                              email: loginCubit.emailController.text,
+                              password: loginCubit.passwordController.text),
+                        );
+                      } else {
+                        showTopSnackBar(
+                          Overlay.of(context),
+                          CustomSnackBar.error(
+                            message: S.of(context).invalidDataInput,
+                          ),
+                        );
                       }
                     },
                   ),
@@ -100,5 +110,14 @@ class LoginForm extends StatelessWidget {
         );
       },
     );
+  }
+
+  Future<void> navigate(BuildContext context, dynamic authCubit) async {
+    final isVerified = await authCubit.checkEmailVerification();
+    if (isVerified) {
+      GoRouter.of(context).go(AppRoutes.kHomeRoute);
+    } else {
+      GoRouter.of(context).go(AppRoutes.kEmailVerificationRoute);
+    }
   }
 }

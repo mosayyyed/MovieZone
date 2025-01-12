@@ -58,6 +58,9 @@
   "verificationInfoText2" : "Please check your email and click the link in the message to verify your email address.",
   "dontReceive" : "Didn't receive the email?",
   "resend" : "Resend",
+  "verificationSuccess" : "Email verified successfully",
+  "invalidDataInput": "Please check the information you entered and try again.",
+
 
   "networkRequestFailed": "Network error: Please check your internet connection and try again.",
   "invalidCredential": "Invalid credentials. Please check your information and try again.",

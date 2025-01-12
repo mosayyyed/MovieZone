@@ -22,4 +22,6 @@ abstract class AuthRepo {
   Future<Either<Failure, Unit>> createUser({required UserModel userModel});
 
   Future<Either<Failure, UserModel?>> getUser({required String token});
+
+  Future<Either<Failure, bool>> isEmailVerified();
 }

@@ -47,7 +47,7 @@ class EmailVerificationStreamBuilderState
               showTopSnackBar(
                 Overlay.of(context),
                 CustomSnackBar.success(
-                  message: 'تم التحقق بنجاح!',
+                  message: S.of(context).verificationSuccess,
                 ),
               );
 

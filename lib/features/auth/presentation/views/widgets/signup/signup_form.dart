@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 import 'package:go_router/go_router.dart';
+import 'package:movie_app/core/routing/routes.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
@@ -38,7 +39,7 @@ class SignupForm extends StatelessWidget {
         } else if (state is SignupSuccess) {
           progress?.dismiss();
           GoRouter.of(context).push(
-              '/email-verification?email=${signupCubit.emailController.text}');
+              '${AppRoutes.kEmailVerificationRoute}=${signupCubit.emailController.text}');
         }
       },
       builder: (context, state) {
@@ -116,8 +117,7 @@ class SignupForm extends StatelessWidget {
                         showTopSnackBar(
                           Overlay.of(context),
                           CustomSnackBar.error(
-                            // TODO: Change the message to use the user's name
-                            message: "الرجاء التحقق من صحة البيانات المدخلة.",
+                            message: S.of(context).invalidDataInput,
                           ),
                         );
                       }

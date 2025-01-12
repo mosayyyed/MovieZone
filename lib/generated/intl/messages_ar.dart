@@ -45,6 +45,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الاسم الكامل قصير جدًا"),
         "invalidCredential": MessageLookupByLibrary.simpleMessage(
             "البيانات غير صحيحة. تأكد من المعلومات وحاول مرة أخرى."),
+        "invalidDataInput": MessageLookupByLibrary.simpleMessage(
+            "يرجى التحقق من المعلومات التي أدخلتها والمحاولة مرة أخرى."),
         "invalidEmail":
             MessageLookupByLibrary.simpleMessage("البريد الإلكتروني غير صالح."),
         "loginButton": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
@@ -119,6 +121,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "لقد أرسلنا رابط التحقق إلى بريدك الإلكتروني:"),
         "verificationInfoText2": MessageLookupByLibrary.simpleMessage(
             "يرجى فحص بريدك الإلكتروني والنقر على الرابط الموجود في الرسالة لتأكيد عنوان بريدك."),
+        "verificationSuccess": MessageLookupByLibrary.simpleMessage(
+            "تم التحقق من البريد الإلكتروني بنجاح"),
         "weakPassword": MessageLookupByLibrary.simpleMessage(
             "كلمة المرور ضعيفة جدًا. اختر كلمة مرور أقوى."),
         "wrongPassword": MessageLookupByLibrary.simpleMessage(

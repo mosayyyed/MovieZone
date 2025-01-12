@@ -46,6 +46,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Full Name is too short"),
         "invalidCredential": MessageLookupByLibrary.simpleMessage(
             "Invalid credentials. Please check your information and try again."),
+        "invalidDataInput": MessageLookupByLibrary.simpleMessage(
+            "Please check the information you entered and try again."),
         "invalidEmail": MessageLookupByLibrary.simpleMessage(
             "The email address is not valid."),
         "loginButton": MessageLookupByLibrary.simpleMessage("Log In"),
@@ -121,6 +123,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "We have sent a verification link to your email:"),
         "verificationInfoText2": MessageLookupByLibrary.simpleMessage(
             "Please check your email and click the link in the message to verify your email address."),
+        "verificationSuccess":
+            MessageLookupByLibrary.simpleMessage("Email verified successfully"),
         "weakPassword": MessageLookupByLibrary.simpleMessage(
             "The password is too weak. Please choose a stronger one."),
         "wrongPassword": MessageLookupByLibrary.simpleMessage(

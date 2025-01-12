@@ -510,6 +510,26 @@ class S {
     );
   }
 
+  /// `Email verified successfully`
+  String get verificationSuccess {
+    return Intl.message(
+      'Email verified successfully',
+      name: 'verificationSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please check the information you entered and try again.`
+  String get invalidDataInput {
+    return Intl.message(
+      'Please check the information you entered and try again.',
+      name: 'invalidDataInput',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Network error: Please check your internet connection and try again.`
   String get networkRequestFailed {
     return Intl.message(
