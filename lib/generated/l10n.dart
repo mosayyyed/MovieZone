@@ -460,6 +460,56 @@ class S {
     );
   }
 
+  /// `Verification Email`
+  String get verificationEmail {
+    return Intl.message(
+      'Verification Email',
+      name: 'verificationEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We have sent a verification link to your email:`
+  String get verificationInfoText1 {
+    return Intl.message(
+      'We have sent a verification link to your email:',
+      name: 'verificationInfoText1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please check your email and click the link in the message to verify your email address.`
+  String get verificationInfoText2 {
+    return Intl.message(
+      'Please check your email and click the link in the message to verify your email address.',
+      name: 'verificationInfoText2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Didn't receive the email?`
+  String get dontReceive {
+    return Intl.message(
+      'Didn\'t receive the email?',
+      name: 'dontReceive',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Resend`
+  String get resend {
+    return Intl.message(
+      'Resend',
+      name: 'resend',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Network error: Please check your internet connection and try again.`
   String get networkRequestFailed {
     return Intl.message(

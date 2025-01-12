@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_progress_hud/flutter_progress_hud.dart';
+import 'package:go_router/go_router.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
@@ -39,9 +40,12 @@ class SignupForm extends StatelessWidget {
           showTopSnackBar(
             Overlay.of(context),
             CustomSnackBar.success(
+              // TODO: Change the message to use the user's name
               message: "مرحبا ${state.fullName}",
             ),
           );
+          GoRouter.of(context).push(
+              '/email-verification?email=${signupCubit.emailController.text}');
         }
       },
       builder: (context, state) {
@@ -50,6 +54,7 @@ class SignupForm extends StatelessWidget {
             return Form(
               key: signupCubit.formKey,
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 spacing: 16,
                 children: [
                   CustomTextField(
@@ -62,30 +67,33 @@ class SignupForm extends StatelessWidget {
                   CustomTextField(
                     labelText: S.of(context).email,
                     keyboardType: TextInputType.emailAddress,
+                    controller: signupCubit.emailController,
                     validator: (value) =>
                         authCubit.emailValidator(value, context),
-                    controller: signupCubit.emailController,
                   ),
                   CustomTextField(
                     labelText: S.of(context).password,
                     keyboardType: TextInputType.visiblePassword,
                     controller: signupCubit.passwordController,
-                    validator: (value) =>
-                        authCubit.passwordValidator(value, context),
                     obscureText: !authCubit.isPasswordVisible,
                     suffixIconVisibility: true,
                     onSuffixIconPressed: authCubit.togglePasswordVisibility,
+                    validator: (value) =>
+                        authCubit.passwordValidator(value, context),
                   ),
                   CustomTextField(
                     labelText: S.of(context).confirmPassword,
                     keyboardType: TextInputType.visiblePassword,
                     controller: signupCubit.confirmPasswordController,
                     obscureText: !authCubit.isConfirmPasswordVisible,
-                    validator: (value) => authCubit.confirmPasswordValidator(
-                        value, signupCubit.passwordController.text, context),
                     suffixIconVisibility: true,
                     onSuffixIconPressed:
                         authCubit.toggleConfirmPasswordVisibility,
+                    validator: (value) => authCubit.confirmPasswordValidator(
+                      value,
+                      signupCubit.passwordController.text,
+                      context,
+                    ),
                   ),
                   CustomPhoneField(
                     labelText: S.of(context).phoneNumber,
@@ -100,18 +108,25 @@ class SignupForm extends StatelessWidget {
                     textColor: Colors.black,
                     backgroundColor: AppColors.kPrimaryColor,
                     onPressed: () {
-                      print(
-                          "---------------${signupCubit.phoneController.text.isEmpty} ");
                       if (signupCubit.formKey.currentState!.validate()) {
-                        progress?.show();
-                        authCubit.resendEmailVerification();
                         signupCubit.signup(
-                            signupRequestModel: RegisterRequestModel(
-                          email: signupCubit.emailController.text,
-                          fullName: signupCubit.fullNameController.text,
-                          password: signupCubit.passwordController.text.trim(),
-                          phone: signupCubit.phoneController.text,
-                        ));
+                          signupRequestModel: RegisterRequestModel(
+                            email: signupCubit.emailController.text,
+                            fullName: signupCubit.fullNameController.text,
+                            password:
+                                signupCubit.passwordController.text.trim(),
+                            phone: signupCubit.phoneController.text,
+                          ),
+                        );
+                        authCubit.resendEmailVerification();
+                      } else {
+                        showTopSnackBar(
+                          Overlay.of(context),
+                          CustomSnackBar.error(
+                            // TODO: Change the message to use the user's name
+                            message: "الرجاء التحقق من صحة البيانات المدخلة.",
+                          ),
+                        );
                       }
                     },
                   ),

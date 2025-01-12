@@ -27,6 +27,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "confirmPasswordRequiredError":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة السر مطلوب"),
         "createAccountText": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+        "dontReceive":
+            MessageLookupByLibrary.simpleMessage("لم تستلم البريد الإلكتروني؟"),
         "email": MessageLookupByLibrary.simpleMessage("الإيميل"),
         "emailAlreadyInUse": MessageLookupByLibrary.simpleMessage(
             "البريد الإلكتروني مستخدم بالفعل من قبل حساب آخر."),
@@ -90,6 +92,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "phoneSearchLabel": MessageLookupByLibrary.simpleMessage("بحث"),
         "registerDescriptionText": MessageLookupByLibrary.simpleMessage(
             "سجل الآن وابدأ في استكشاف كل ما يقدمه تطبيقنا. نحن متحمسون للترحيب بك في مجتمعنا!"),
+        "resend": MessageLookupByLibrary.simpleMessage("إعادة إرسال"),
         "signupButton": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
         "signupHaveAccHighlightText":
             MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
@@ -110,6 +113,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "تم تعطيل الحساب المرتبط بهذا البريد الإلكتروني."),
         "userNotFound": MessageLookupByLibrary.simpleMessage(
             "لا يوجد حساب مرتبط بهذا البريد الإلكتروني."),
+        "verificationEmail":
+            MessageLookupByLibrary.simpleMessage("التحقق من البريد الإلكتروني"),
+        "verificationInfoText1": MessageLookupByLibrary.simpleMessage(
+            "لقد أرسلنا رابط التحقق إلى بريدك الإلكتروني:"),
+        "verificationInfoText2": MessageLookupByLibrary.simpleMessage(
+            "يرجى فحص بريدك الإلكتروني والنقر على الرابط الموجود في الرسالة لتأكيد عنوان بريدك."),
         "weakPassword": MessageLookupByLibrary.simpleMessage(
             "كلمة المرور ضعيفة جدًا. اختر كلمة مرور أقوى."),
         "wrongPassword": MessageLookupByLibrary.simpleMessage(

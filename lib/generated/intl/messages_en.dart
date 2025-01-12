@@ -28,6 +28,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Confirm Password is required"),
         "createAccountText":
             MessageLookupByLibrary.simpleMessage("Create an account"),
+        "dontReceive":
+            MessageLookupByLibrary.simpleMessage("Didn\'t receive the email?"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "emailAlreadyInUse": MessageLookupByLibrary.simpleMessage(
             "The email is already in use by another account."),
@@ -91,6 +93,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "phoneSearchLabel": MessageLookupByLibrary.simpleMessage("Search"),
         "registerDescriptionText": MessageLookupByLibrary.simpleMessage(
             "Register now and start exploring all that our app has to offer. We’re excited to welcome you to our community!"),
+        "resend": MessageLookupByLibrary.simpleMessage("Resend"),
         "signupButton": MessageLookupByLibrary.simpleMessage("Create Account"),
         "signupHaveAccHighlightText":
             MessageLookupByLibrary.simpleMessage("Log In"),
@@ -112,6 +115,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "The account associated with this email has been disabled."),
         "userNotFound": MessageLookupByLibrary.simpleMessage(
             "No account found with this email."),
+        "verificationEmail":
+            MessageLookupByLibrary.simpleMessage("Verification Email"),
+        "verificationInfoText1": MessageLookupByLibrary.simpleMessage(
+            "We have sent a verification link to your email:"),
+        "verificationInfoText2": MessageLookupByLibrary.simpleMessage(
+            "Please check your email and click the link in the message to verify your email address."),
         "weakPassword": MessageLookupByLibrary.simpleMessage(
             "The password is too weak. Please choose a stronger one."),
         "wrongPassword": MessageLookupByLibrary.simpleMessage(

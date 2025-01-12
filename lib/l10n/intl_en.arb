@@ -53,6 +53,12 @@
   "phoneNumberRequiredError" : "Phone Number is required",
   "phoneNumberInvalidError" : "Phone Number is invalid",
 
+  "verificationEmail" : "Verification Email",
+  "verificationInfoText1" : "We have sent a verification link to your email:",
+  "verificationInfoText2" : "Please check your email and click the link in the message to verify your email address.",
+  "dontReceive" : "Didn't receive the email?",
+  "resend" : "Resend",
+
   "networkRequestFailed": "Network error: Please check your internet connection and try again.",
   "invalidCredential": "Invalid credentials. Please check your information and try again.",
   "wrongPassword": "Incorrect password. Please try again.",
