@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../data/models/signup_request_model.dart';
+import '../../../data/models/user_model.dart';
 import '../../../data/repositories/auth_repo.dart';
 
 part 'signup_state.dart';
@@ -23,6 +24,8 @@ class SignupCubit extends Cubit<SignupState> {
     required RegisterRequestModel signupRequestModel,
   }) async {
     emit(SignupLoading());
+    final fullName = signupRequestModel.email.split('@').first;
+
     final response = await authRepo.signUpWithEmailAndPassword(
       email: signupRequestModel.email,
       password: signupRequestModel.password,
@@ -33,7 +36,16 @@ class SignupCubit extends Cubit<SignupState> {
         SignupError(failure.message),
       );
     }, (user) async {
-      emit(SignupSuccess(user!.uid));
+      await authRepo.createUser(
+        userModel: UserModel(
+          token: user!.uid,
+          fullName: signupRequestModel.fullName,
+          email: signupRequestModel.email,
+          phone: signupRequestModel.phone,
+        ),
+      );
+
+      emit(SignupSuccess(user.uid, fullName));
     });
   }
 

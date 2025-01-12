@@ -39,7 +39,7 @@ class SignupForm extends StatelessWidget {
           showTopSnackBar(
             Overlay.of(context),
             CustomSnackBar.success(
-              message: state.token,
+              message: "مرحبا ${state.fullName}",
             ),
           );
         }

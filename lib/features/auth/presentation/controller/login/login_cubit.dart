@@ -16,6 +16,8 @@ class LoginCubit extends Cubit<LoginState> {
 
   Future<void> login({required LoginRequestModel loginRequestModel}) async {
     emit(LoginLoading());
+    final fullName = loginRequestModel.email.split('@').first;
+
     final response = await authRepo.signInWithEmailAndPassword(
         email: loginRequestModel.email, password: loginRequestModel.password);
     response.fold(
@@ -23,7 +25,7 @@ class LoginCubit extends Cubit<LoginState> {
         emit(LoginError(failure.message));
       },
       (user) {
-        emit(LoginSuccess(user!.uid));
+        emit(LoginSuccess(user!.uid, fullName));
       },
     );
   }

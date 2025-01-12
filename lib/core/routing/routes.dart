@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -33,12 +34,12 @@ abstract class AppRoutes {
         builder: (context, state) => MultiBlocProvider(
           providers: [
             BlocProvider(
-              create: (context) => AuthCubit(
-                  AuthRepoImpl(FirebaseService(FirebaseAuth.instance))),
+              create: (context) => AuthCubit(AuthRepoImpl(FirebaseService(
+                  FirebaseAuth.instance, FirebaseFirestore.instance))),
             ),
             BlocProvider(
-              create: (context) => SignupCubit(
-                  AuthRepoImpl(FirebaseService(FirebaseAuth.instance))),
+              create: (context) => SignupCubit(AuthRepoImpl(FirebaseService(
+                  FirebaseAuth.instance, FirebaseFirestore.instance))),
             ),
           ],
           child: const SignupScreen(),
@@ -49,12 +50,12 @@ abstract class AppRoutes {
         builder: (context, state) => MultiBlocProvider(
           providers: [
             BlocProvider(
-              create: (context) => AuthCubit(
-                  AuthRepoImpl(FirebaseService(FirebaseAuth.instance))),
+              create: (context) => AuthCubit(AuthRepoImpl(FirebaseService(
+                  FirebaseAuth.instance, FirebaseFirestore.instance))),
             ),
             BlocProvider(
-              create: (context) => LoginCubit(
-                  AuthRepoImpl(FirebaseService(FirebaseAuth.instance))),
+              create: (context) => LoginCubit(AuthRepoImpl(FirebaseService(
+                  FirebaseAuth.instance, FirebaseFirestore.instance))),
             ),
           ],
           child: const LoginScreen(),

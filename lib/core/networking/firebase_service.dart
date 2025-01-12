@@ -1,9 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+
+import '../../features/auth/data/models/user_model.dart';
 
 class FirebaseService {
   final FirebaseAuth _firebaseAuthInstance;
+  final FirebaseFirestore _firebaseFirestoreInstance;
 
-  FirebaseService(this._firebaseAuthInstance);
+  FirebaseService(this._firebaseAuthInstance, this._firebaseFirestoreInstance);
 
   User? getCurrentUser() {
     return _firebaseAuthInstance.currentUser;
@@ -40,5 +44,23 @@ class FirebaseService {
 
   Future<void> forgetPassword(String email) async {
     await _firebaseAuthInstance.sendPasswordResetEmail(email: email);
+  }
+
+  Future<void> createUser(UserModel userModel) async {
+    await _firebaseFirestoreInstance
+        .collection('users')
+        .doc(userModel.token)
+        .set(userModel.toMap());
+  }
+
+  Future<UserModel?> getUser(String token) async {
+    DocumentSnapshot<Map<String, dynamic>> documentSnapshot =
+        await _firebaseFirestoreInstance.collection('users').doc(token).get();
+
+    if (documentSnapshot.exists && documentSnapshot.data() != null) {
+      return UserModel.fromMap(documentSnapshot.data()!);
+    }
+
+    return null;
   }
 }

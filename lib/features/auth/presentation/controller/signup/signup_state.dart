@@ -8,8 +8,9 @@ class SignupLoading extends SignupState {}
 
 class SignupSuccess extends SignupState {
   final String token;
+  final String fullName;
 
-  SignupSuccess(this.token);
+  SignupSuccess(this.token, this.fullName);
 }
 
 class SignupError extends SignupState {

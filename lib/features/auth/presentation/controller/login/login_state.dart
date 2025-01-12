@@ -8,8 +8,9 @@ class LoginLoading extends LoginState {}
 
 class LoginSuccess extends LoginState {
   final String token;
+  final String fullName;
 
-  LoginSuccess(this.token);
+  LoginSuccess(this.token, this.fullName);
 }
 
 class LoginError extends LoginState {
