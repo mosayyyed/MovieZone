@@ -37,13 +37,6 @@ class SignupForm extends StatelessWidget {
           );
         } else if (state is SignupSuccess) {
           progress?.dismiss();
-          showTopSnackBar(
-            Overlay.of(context),
-            CustomSnackBar.success(
-              // TODO: Change the message to use the user's name
-              message: "مرحبا ${state.fullName}",
-            ),
-          );
           GoRouter.of(context).push(
               '/email-verification?email=${signupCubit.emailController.text}');
         }

@@ -24,8 +24,6 @@ class SignupCubit extends Cubit<SignupState> {
     required RegisterRequestModel signupRequestModel,
   }) async {
     emit(SignupLoading());
-    final fullName = signupRequestModel.email.split('@').first;
-
     final response = await authRepo.signUpWithEmailAndPassword(
       email: signupRequestModel.email,
       password: signupRequestModel.password,
@@ -45,7 +43,7 @@ class SignupCubit extends Cubit<SignupState> {
         ),
       );
 
-      emit(SignupSuccess(user.uid, fullName));
+      emit(SignupSuccess(user.uid));
     });
   }
 

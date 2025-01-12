@@ -12,7 +12,6 @@ import '../../features/auth/data/repositories/auth_repo_impl.dart';
 import '../../features/auth/presentation/views/email_verificationScreen.dart';
 import '../../features/auth/presentation/views/login_screen.dart';
 import '../../features/auth/presentation/views/signup_screen.dart';
-import '../../features/auth/presentation/views/verify_success_screen.dart';
 import '../../features/splash/presentation/views/splash_screen.dart';
 import '../networking/firebase_service.dart';
 
@@ -22,7 +21,6 @@ abstract class AppRoutes {
   static const kSignupRoute = '/signup';
   static const kLoginRoute = '/login';
   static const kEmailVerificationRoute = '/email-verification';
-  static const kVerifySuccessRoute = '/verify-success';
   static const kHomeRoute = '/home';
 
   static final GoRouter router = GoRouter(
@@ -75,9 +73,6 @@ abstract class AppRoutes {
           child: EmailVerificationScreen(),
         ),
       ),
-      GoRoute(
-          path: kVerifySuccessRoute,
-          builder: (context, state) => VerifySuccessScreen()),
       GoRoute(
         path: kHomeRoute,
         builder: (context, state) => HomeScreen(),
