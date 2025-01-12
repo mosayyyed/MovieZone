@@ -54,7 +54,7 @@ class EmailVerificationStreamBuilderState
               Future.delayed(const Duration(seconds: 3), () {
                 progress?.dismiss();
 
-                GoRouter.of(context).push(AppRoutes.kHomeRoute);
+                GoRouter.of(context).go(AppRoutes.kHomeRoute);
               });
             });
           }

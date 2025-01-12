@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 import 'package:go_router/go_router.dart';
-import 'package:movie_app/core/routing/routes.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 import '../../../../../../core/component/widgets/custom_elevated_button.dart';
 import '../../../../../../core/component/widgets/custom_phone_field.dart';
 import '../../../../../../core/component/widgets/custom_text_field.dart';
+import '../../../../../../core/routing/routes.dart';
 import '../../../../../../core/themes/app_colors.dart';
 import '../../../../../../generated/l10n.dart';
 import '../../../../data/models/signup_request_model.dart';
@@ -39,7 +39,7 @@ class SignupForm extends StatelessWidget {
         } else if (state is SignupSuccess) {
           progress?.dismiss();
           GoRouter.of(context).push(
-              '${AppRoutes.kEmailVerificationRoute}=${signupCubit.emailController.text}');
+              '${AppRoutes.kEmailVerificationRoute}?email=${signupCubit.emailController.text}');
         }
       },
       builder: (context, state) {
