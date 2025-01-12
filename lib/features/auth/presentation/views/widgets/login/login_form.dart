@@ -41,12 +41,6 @@ class LoginForm extends StatelessWidget {
         } else if (state is LoginSuccess) {
           progress?.dismiss();
           navigate(context, authCubit);
-          showTopSnackBar(
-            Overlay.of(context),
-            CustomSnackBar.success(
-              message: "مرحبا ${state.fullName}",
-            ),
-          );
         }
       },
       builder: (context, state) {
@@ -117,7 +111,7 @@ class LoginForm extends StatelessWidget {
     if (isVerified) {
       GoRouter.of(context).go(AppRoutes.kHomeRoute);
     } else {
-      GoRouter.of(context).go(AppRoutes.kEmailVerificationRoute);
+      GoRouter.of(context).push(AppRoutes.kEmailVerificationRoute);
     }
   }
 }
