@@ -42,7 +42,6 @@ class OnboardingScreenState extends State<OnboardingScreen> {
         children: [
           PageView(
             controller: _pageController,
-            physics: const ClampingScrollPhysics(),
             children: [
               OnboardingPage(imageAsset: 'assets/onboarding.png'),
               OnboardingPage(imageAsset: 'assets/onboarding1.jpg'),
@@ -54,6 +53,7 @@ class OnboardingScreenState extends State<OnboardingScreen> {
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
               child: SkipButton(
+                hasBorderSide: true,
                 onPressed: () {
                   GoRouter.of(context).pushReplacement(AppRoutes.kLoginRoute);
                 },
