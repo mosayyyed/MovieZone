@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/themes/app_styles.dart';
 import 'package:movie_app/core/utils/constants.dart';
@@ -19,26 +21,33 @@ class SkipButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: onPressed,
-      style: TextButton.styleFrom(
-        alignment: Alignment.center,
-        padding: EdgeInsets.all(0),
-        minimumSize: const Size(55, 55),
-        shape: RoundedRectangleBorder(
-          side: hasBorderSide
-              ? BorderSide(color: AppColors.kGreyColor, width: 1)
-              : BorderSide.none,
-          borderRadius: BorderRadius.circular(kBorderRadius),
-        ),
-        backgroundColor: AppColors.kSecondaryColor,
-        elevation: 5,
-      ),
-      child: icon ??
-          Text(
-            S.of(context).onboardingSkip,
-            style: Styles.textStyle14.copyWith(color: AppColors.kPrimaryColor),
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(kBorderRadius),
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+        child: TextButton(
+          onPressed: onPressed,
+          style: TextButton.styleFrom(
+            alignment: Alignment.center,
+            padding: EdgeInsets.zero,
+            minimumSize: const Size(55, 55),
+            shape: RoundedRectangleBorder(
+              side: hasBorderSide
+                  ? BorderSide(color: AppColors.kGreyColor, width: 1)
+                  : BorderSide.none,
+              borderRadius: BorderRadius.circular(kBorderRadius),
+            ),
+            backgroundColor: AppColors.kSecondaryColor.withAlpha(51),
+            elevation: 0,
           ),
+          child: icon ??
+              Text(
+                S.of(context).onboardingSkip,
+                style:
+                    Styles.textStyle14.copyWith(color: AppColors.kPrimaryColor),
+              ),
+        ),
+      ),
     );
   }
 }
