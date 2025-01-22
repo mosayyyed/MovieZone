@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/features/home/presentation/controller/popular/popular_cubit.dart';
 import 'package:movie_app/features/home/presentation/controller/trending/trending_cubit.dart';
 
-import '../../../../../core/themes/app_colors.dart';
-import '../../../../../core/themes/app_styles.dart';
+import '../../../../../core/component/widgets/custom_refresh_indicator.dart';
+import '../../controller/top_rated/top_rated_cubit.dart';
 import '../widgets/continue_watching.dart';
 import '../widgets/horizontal_list.dart';
 import '../widgets/section_header.dart';
-import '../widgets/trending_movies_banner.dart';
+import '../widgets/trending_movies_banner_custom_sliver_app_bar/trending_movies_banner_sliver_app_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -15,79 +16,47 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final trendingCubit = context.read<TrendingCubit>();
+    final topRatedCubit = context.read<TopRatedCubit>();
+    final popularCubit = context.read<PopularCubit>();
 
-    return RefreshIndicator(
-      triggerMode: RefreshIndicatorTriggerMode.onEdge,
-      color: AppColors.kPrimaryColor,
-      strokeWidth: 4,
-      displacement: 100,
-      backgroundColor: AppColors.kSecondaryColor,
+    return CustomRefreshIndicator(
       onRefresh: () async {
-        await trendingCubit.fetchTrendingMoviesByDay();
+        trendingCubit.fetchTrendingMoviesByDay();
+        trendingCubit.fetchTrendingMoviesByWeek();
+        topRatedCubit.fetchTopRatedMovies();
+        popularCubit.fetchPopularMovies();
       },
       child: CustomScrollView(
         physics: const BouncingScrollPhysics(),
         slivers: [
-          SliverAppBar(
-            expandedHeight: MediaQuery.of(context).size.height * 0.50,
-            elevation: 0,
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(20),
-                bottomRight: Radius.circular(20),
-              ),
-            ),
-            scrolledUnderElevation: 0,
-            pinned: true,
-            stretch: true,
-            backgroundColor: AppColors.kPrimaryColor,
-            title: Text(
-              "الرئيسية",
-              style: Styles.textStyle22.copyWith(
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            actions: [
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.search_rounded,
-                  color: Colors.white,
-                ),
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.download_rounded, color: Colors.white),
-              ),
-            ],
-            leading: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: CircleAvatar(
-                backgroundColor: AppColors.kPrimaryColor,
-                backgroundImage: AssetImage("assets/avatar.png"),
-              ),
-            ),
-            flexibleSpace: FlexibleSpaceBar(
-                collapseMode: CollapseMode.parallax,
-                stretchModes: [
-                  StretchMode.zoomBackground,
-                ],
-                background: TrendingMoviesBanner(
-                  trendingMovieModel: trendingCubit.trendingMovies,
-                )),
+          TrendingMoviesBannerSliverAppBar(
+            trendingMovies: trendingCubit.trendingMoviesByDay,
           ),
           SectionHeader(title: "الأعلى تقييمًا", onSeeAll: () {}),
-          HorizontalList(
-            trendingMovieModel: trendingCubit.trendingMovies,
+          BlocBuilder<TopRatedCubit, TopRatedState>(
+            builder: (context, state) {
+              return HorizontalList(
+                isLoading: state is TopRatedLoading,
+                movieList: topRatedCubit.topRatedMovies,
+              );
+            },
           ),
           SectionHeader(title: "الأكثر شهرة", onSeeAll: () {}),
-          ContinueWatching(trendingMovieModel: trendingCubit.trendingMovies),
-          SectionHeader(title: "رائج هذا الأسبوع", onSeeAll: () {}),
-          HorizontalList(
-            trendingMovieModel: trendingCubit.trendingMovies,
+          BlocBuilder<PopularCubit, PopularState>(
+            builder: (context, state) {
+              return ContinueWatching(
+                  state: state is PopularLoading,
+                  trendingMovieModel: popularCubit.popularMovies);
+            },
           ),
-          SliverToBoxAdapter(
-            child: SizedBox(height: MediaQuery.of(context).size.height * 0.2),
+          SectionHeader(title: "رائج هذا الأسبوع", onSeeAll: () {}),
+          BlocBuilder<TrendingCubit, TrendingState>(
+            builder: (context, state) {
+              return HorizontalList(
+                isLoading: state is TrendingLoading,
+                movieList: trendingCubit.trendingMoviesByWeek,
+              );
+            },
           ),
         ],
       ),

@@ -1,9 +1,11 @@
 import 'dart:ui';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/themes/app_colors.dart';
+import '../../../../../core/utils/constants.dart';
 import '../../../../onboarding/presentation/widgets/skip_button.dart';
 
 class MovieDetailsScreen extends StatelessWidget {
@@ -59,12 +61,17 @@ class MovieDetailsScreen extends StatelessWidget {
             child: Stack(
               children: [
                 // صورة الخلفية
-                Image.network(
-                  imageUrl,
-                  fit: BoxFit.cover,
-                  width: double.infinity,
-                  height: double.infinity,
+                Hero(
+                  tag: "poster",
+                  child: CachedNetworkImage(
+                    fadeInCurve: Curves.linear,
+                    imageUrl: "$kFullImageUrl$imageUrl",
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error, size: 50),
+                    fit: BoxFit.fill,
+                  ),
                 ),
+
                 // تأثير التمويه
                 Positioned.fill(
                   child: BackdropFilter(
@@ -93,11 +100,14 @@ class MovieDetailsScreen extends StatelessWidget {
                         Center(
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(16),
-                            child: Image.network(
-                              imageUrl,
+                            child: CachedNetworkImage(
+                              fadeInCurve: Curves.linear,
+                              imageUrl: "$kFullImageUrl$imageUrl",
+                              errorWidget: (context, url, error) =>
+                                  const Icon(Icons.error, size: 50),
+                              fit: BoxFit.cover,
                               width: 200,
                               height: 300,
-                              fit: BoxFit.cover,
                             ),
                           ),
                         ),

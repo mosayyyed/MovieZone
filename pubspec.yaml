@@ -45,6 +45,7 @@ dependencies:
   top_snackbar_flutter: ^3.1.0
   persistent_bottom_nav_bar_v2: ^5.3.1
   flutter_progress_hud: ^2.0.2
+  cached_network_image: ^3.3.0
   skeletonizer: ^1.4.3
   hero_animation: ^1.1.4
   dio: ^5.7.0
