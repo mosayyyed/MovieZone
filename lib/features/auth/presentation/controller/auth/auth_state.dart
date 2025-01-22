@@ -2,12 +2,7 @@ part of 'auth_cubit.dart';
 
 sealed class AuthState {}
 
-final class AuthInitial extends AuthState {
-  final bool? isAgreed;
-  final bool? isVisible;
-
-  AuthInitial({this.isAgreed, this.isVisible});
-}
+final class AuthInitial extends AuthState {}
 
 final class AuthLoading extends AuthState {}
 
