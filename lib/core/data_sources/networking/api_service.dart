@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 
-import '../utils/constants.dart';
+import '../../utils/constants.dart';
 
 class ApiService {
   final Dio _dio;
@@ -9,13 +9,11 @@ class ApiService {
 
   Future<Response> get({
     required String endpoint,
-    required Map<String, dynamic> queryParameters,
-    Options? options,
+    required Map<String, dynamic>? queryParameters,
   }) async {
     final response = await _dio.get(
-      "$kBaseUrl/$endpoint",
+      endpoint,
       queryParameters: queryParameters,
-      options: options,
     );
     return response;
   }
