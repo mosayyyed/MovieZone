@@ -1,8 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+import '../../../../core/data_sources/networking/firebase_service.dart';
 import '../../../../core/errors/failures.dart';
-import '../../../../core/networking/firebase_service.dart';
+import '../../../../core/errors/firebase_failure.dart';
 import '../models/user_model.dart';
 import 'auth_repo.dart';
 
@@ -18,7 +19,7 @@ class AuthRepoImpl implements AuthRepo {
       var response = await _firebaseService.signIn(email, password);
       return Right(response);
     } catch (error) {
-      return Left(ServerFailure.fromFirebaseException(error));
+      return Left(FirebaseFailure.fromFirebaseException(error));
     }
   }
 
@@ -29,7 +30,7 @@ class AuthRepoImpl implements AuthRepo {
       var response = await _firebaseService.signUp(email, password);
       return Right(response);
     } catch (error) {
-      return Left(ServerFailure.fromFirebaseException(error));
+      return Left(FirebaseFailure.fromFirebaseException(error));
     }
   }
 
@@ -39,7 +40,7 @@ class AuthRepoImpl implements AuthRepo {
       await _firebaseService.forgetPassword(email);
       return const Right(unit);
     } catch (error) {
-      return Left(ServerFailure.fromFirebaseException(error));
+      return Left(FirebaseFailure.fromFirebaseException(error));
     }
   }
 
@@ -49,7 +50,7 @@ class AuthRepoImpl implements AuthRepo {
       await _firebaseService.signOut();
       return const Right(unit);
     } catch (error) {
-      return Left(ServerFailure.fromFirebaseException(error));
+      return Left(FirebaseFailure.fromFirebaseException(error));
     }
   }
 
@@ -59,7 +60,7 @@ class AuthRepoImpl implements AuthRepo {
       await _firebaseService.sendEmailVerification();
       return const Right(unit);
     } catch (error) {
-      return Left(ServerFailure.fromFirebaseException(error));
+      return Left(FirebaseFailure.fromFirebaseException(error));
     }
   }
 
@@ -69,7 +70,7 @@ class AuthRepoImpl implements AuthRepo {
       final response = _firebaseService.getCurrentUser();
       return Right(response);
     } catch (error) {
-      return Left(ServerFailure.fromFirebaseException(error));
+      return Left(FirebaseFailure.fromFirebaseException(error));
     }
   }
 
@@ -80,7 +81,7 @@ class AuthRepoImpl implements AuthRepo {
       await _firebaseService.createUser(userModel);
       return const Right(unit);
     } catch (error) {
-      return Left(ServerFailure.fromFirebaseException(error));
+      return Left(FirebaseFailure.fromFirebaseException(error));
     }
   }
 
@@ -90,7 +91,7 @@ class AuthRepoImpl implements AuthRepo {
       var response = await _firebaseService.getUser(token);
       return Right(response);
     } catch (error) {
-      return Left(ServerFailure.fromFirebaseException(error));
+      return Left(FirebaseFailure.fromFirebaseException(error));
     }
   }
 
@@ -100,7 +101,7 @@ class AuthRepoImpl implements AuthRepo {
       final isVerified = await _firebaseService.isEmailVerified();
       return Right(isVerified);
     } catch (error) {
-      return Left(ServerFailure.fromFirebaseException(error));
+      return Left(FirebaseFailure.fromFirebaseException(error));
     }
   }
 }
