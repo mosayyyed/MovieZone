@@ -29,6 +29,11 @@ class Styles {
     fontWeight: FontWeight.normal,
   );
 
+  static const TextStyle textStyle22 = TextStyle(
+    fontSize: 22,
+    fontWeight: FontWeight.normal,
+  );
+
   static const TextStyle textStyle24 = TextStyle(
     fontSize: 24,
     fontWeight: FontWeight.normal,
