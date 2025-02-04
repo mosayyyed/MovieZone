@@ -7,11 +7,14 @@ class AppAssets {
 class _AppIcons {
   const _AppIcons();
 
-  // String get settings => "assets/icons/settings.svg";
-  // String get search => "assets/icons/search.svg";
-  // String get messageText => "assets/icons/message-text.svg";
-  // String get messagesText => "assets/icons/messages-2.svg";
-  // String get gallery => "assets/icons/gallery.svg";
-  // String get emoji => "assets/icons/emoji-happy.svg";
-  // String get more => "assets/icons/more.svg";
+  String get home => "assets/icons/home-04-stroke-rounded.svg";
+  String get discover => "assets/icons/discover-circle-stroke-rounded.svg";
+  String get bookmark => "assets/icons/bookmark-02-stroke-rounded.svg";
+  String get bookmarkAdd => "assets/icons/bookmark-add-02-stroke-rounded.svg";
+  String get profile => "assets/icons/user-stroke-rounded.svg";
+  String get search => "assets/icons/search-01-stroke-rounded.svg";
+  String get download => "assets/icons/download-05-stroke-rounded.svg";
+  String get playArrow => "assets/icons/play-stroke-rounded.svg";
+  String get moreHorizontalCircle =>
+      "assets/icons/more-horizontal-circle-01-stroke-rounded.svg";
 }

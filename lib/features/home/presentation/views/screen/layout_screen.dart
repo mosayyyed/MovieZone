@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:movie_app/core/themes/app_colors.dart';
 
+import '../../../../../core/themes/app_assets.dart';
 import 'home_screen.dart';
 
 class LayoutScreen extends StatefulWidget {
@@ -33,19 +35,39 @@ class _LayoutScreenState extends State<LayoutScreen> {
         onTap: _handleIndexChanged,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home, size: 28),
+            icon: SvgPicture.asset(
+              AppAssets.icons.home,
+              color: _selectedTab == _SelectedTab.home
+                  ? AppColors.kPrimaryColor
+                  : Colors.white,
+            ),
             label: 'الرئيسية',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.explore, size: 28),
-            label: 'بحث',
+            icon: SvgPicture.asset(
+              AppAssets.icons.discover,
+              color: _selectedTab == _SelectedTab.favorite
+                  ? AppColors.kPrimaryColor
+                  : Colors.white,
+            ),
+            label: 'إستكشف',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.bookmark, size: 28),
+            icon: SvgPicture.asset(
+              AppAssets.icons.bookmark,
+              color: _selectedTab == _SelectedTab.search
+                  ? AppColors.kPrimaryColor
+                  : Colors.white,
+            ),
             label: 'المفضلة',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person, size: 28),
+            icon: SvgPicture.asset(
+              AppAssets.icons.profile,
+              color: _selectedTab == _SelectedTab.person
+                  ? AppColors.kPrimaryColor
+                  : Colors.white,
+            ),
             label: 'حسابي',
           ),
         ],

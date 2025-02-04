@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
+import '../../../../../../core/themes/app_assets.dart';
 import '../../../../../../core/themes/app_colors.dart';
 import '../../../../../../core/themes/app_styles.dart';
 import '../../../../data/models/movie_model.dart';
@@ -34,14 +36,18 @@ class TrendingMoviesBannerSliverAppBar extends StatelessWidget {
       actions: [
         IconButton(
           onPressed: () {},
-          icon: const Icon(
-            Icons.search_rounded,
+          icon: SvgPicture.asset(
+            AppAssets.icons.search,
             color: Colors.white,
           ),
         ),
         IconButton(
           onPressed: () {},
-          icon: const Icon(Icons.download_rounded, color: Colors.white),
+          icon: SvgPicture.asset(
+            AppAssets.icons.download,
+            color: Colors.white,
+            width: 30,
+          ),
         ),
       ],
       leading: Padding(
@@ -52,13 +58,14 @@ class TrendingMoviesBannerSliverAppBar extends StatelessWidget {
         ),
       ),
       flexibleSpace: FlexibleSpaceBar(
-          collapseMode: CollapseMode.parallax,
-          stretchModes: [
-            StretchMode.zoomBackground,
-          ],
-          background: TrendingMoviesBanner(
-            trendingMovies: trendingMovies,
-          )),
+        collapseMode: CollapseMode.pin,
+        stretchModes: [
+          StretchMode.zoomBackground,
+        ],
+        background: TrendingMoviesBanner(
+          trendingMovies: trendingMovies,
+        ),
+      ),
     );
   }
 }

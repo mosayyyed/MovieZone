@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/features/home/data/models/movie_model.dart';
 
-import '../../../../../../core/utils/constants.dart';
 import '../../../controller/trending/trending_cubit.dart';
 import '../../screen/movie_details_screen.dart';
 import 'gradient_overlay.dart';
@@ -78,8 +77,7 @@ class _TrendingMoviesBannerState extends State<TrendingMoviesBanner> {
               context,
               MaterialPageRoute(
                 builder: (context) => MovieDetailsScreen(
-                  imageUrl: "$kFullImageUrl${movie.backdropPath}",
-                  images: [],
+                  movie: movie,
                 ),
               ),
             );

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+
+import '../../../../../../core/themes/app_assets.dart';
 
 class BannerActionButtons extends StatelessWidget {
   const BannerActionButtons({super.key});
@@ -10,7 +13,11 @@ class BannerActionButtons extends StatelessWidget {
       children: [
         IconButton(
           onPressed: () {},
-          icon: const Icon(Icons.bookmark_outline_rounded, color: Colors.white),
+          icon: SvgPicture.asset(
+            AppAssets.icons.bookmarkAdd,
+            color: Colors.white,
+            width: 20,
+          ),
         ),
         const SizedBox(width: 16),
         ElevatedButton.icon(
@@ -18,7 +25,11 @@ class BannerActionButtons extends StatelessWidget {
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.white,
           ),
-          icon: const Icon(Icons.play_arrow, color: Colors.black),
+          icon: SvgPicture.asset(
+            AppAssets.icons.playArrow,
+            color: Colors.black,
+            width: 20,
+          ),
           label: const Text(
             "بدء المشاهدة",
             style: TextStyle(color: Colors.black),
@@ -27,8 +38,11 @@ class BannerActionButtons extends StatelessWidget {
         const SizedBox(width: 16),
         IconButton(
           onPressed: () {},
-          icon: const Icon(Icons.keyboard_arrow_down_rounded,
-              color: Colors.white),
+          icon: SvgPicture.asset(
+            AppAssets.icons.moreHorizontalCircle,
+            color: Colors.white,
+            width: 20,
+          ),
         ),
       ],
     );
