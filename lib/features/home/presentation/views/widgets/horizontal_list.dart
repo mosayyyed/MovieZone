@@ -1,11 +1,15 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/features/home/data/models/movie_model.dart';
+import 'package:movie_app/features/home/presentation/controller/genres/genres_cubit.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../../core/routing/routes.dart';
 import '../../../../../core/themes/app_colors.dart';
+import '../../../../../core/utils/getGenresNames.dart';
+import '../../../data/models/genre_model.dart';
 
 class HorizontalList extends StatelessWidget {
   final List<MovieModel> movieList;
@@ -21,10 +25,11 @@ class HorizontalList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (isLoading) {
-      return _buildSkeletonLoader();
-    }
+    final genresCubit = context.watch<GenresCubit>();
+    return isLoading ? _buildSkeletonLoader() : _buildMovieList(genresCubit);
+  }
 
+  Widget _buildMovieList(GenresCubit genresCubit) {
     return SizedBox(
       height: 270,
       child: ListView.builder(
@@ -34,19 +39,19 @@ class HorizontalList extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 8),
         itemBuilder: (context, index) {
           final movie = movieList[index];
-          return _buildMovieCard(context, movie, index);
+          return _buildMovieCard(context, movie, index, genresCubit);
         },
       ),
     );
   }
 
-  Widget _buildMovieCard(BuildContext context, MovieModel movie, int index) {
+  Widget _buildMovieCard(BuildContext context, MovieModel movie, int index,
+      GenresCubit genresCubit) {
     return InkWell(
       borderRadius: BorderRadius.circular(20),
-      onTap: () {
-        GoRouter.of(context).push(AppRoutes.kMovieDetailsRoute
-            .replaceFirst(":id", movie.id.toString()));
-      },
+      onTap: () => GoRouter.of(context).push(
+        AppRoutes.kMovieDetailsRoute.replaceFirst(":id", movie.id.toString()),
+      ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -55,30 +60,23 @@ class HorizontalList extends StatelessWidget {
           children: [
             _buildMovieImage(movie.posterPath, index),
             const SizedBox(height: 8),
-            Text(
-              movie.title,
-              style: TextStyle(fontWeight: FontWeight.bold),
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
+            SizedBox(
+              width: 150,
+              child: Text(
+                movie.title,
+                style: const TextStyle(fontWeight: FontWeight.bold),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
             ),
             const SizedBox(height: 4),
-            Row(
-              children: [
-                const Icon(Icons.star_rate_rounded,
-                    color: Colors.yellow, size: 20),
-                const SizedBox(width: 4),
-                Text(
-                  movie.voteAverage.toString(),
-                  style: TextStyle(color: Colors.white),
-                ),
-                const SizedBox(width: 4),
-                const Text("|", style: TextStyle(color: Colors.white70)),
-                const SizedBox(width: 4),
-                Text(
-                  movie.id.toString(),
-                  style: TextStyle(color: Colors.white70),
-                ),
-              ],
+            SizedBox(
+              width: 150,
+              child: MovieInfoRow(
+                voteAverage: movie.voteAverage,
+                genreIds: movie.genreIds,
+                genres: genresCubit.genres,
+              ),
             ),
           ],
         ),
@@ -164,6 +162,45 @@ class HorizontalList extends StatelessWidget {
           },
         ),
       ),
+    );
+  }
+}
+
+class MovieInfoRow extends StatelessWidget {
+  final double voteAverage;
+  final List<int> genreIds;
+  final List<GenreModel> genres;
+
+  const MovieInfoRow({
+    super.key,
+    required this.voteAverage,
+    required this.genreIds,
+    required this.genres,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Icon(Icons.star_rate_rounded, color: Colors.yellow, size: 18),
+        const SizedBox(width: 4),
+        Text(
+          voteAverage.toStringAsFixed(1),
+          style: const TextStyle(color: Colors.white),
+        ),
+        const SizedBox(width: 4),
+        const Text("|", style: TextStyle(color: Colors.white70)),
+        const SizedBox(width: 4),
+        Expanded(
+          child: Text(
+            getGenreNames(genreIds, genres),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(color: Colors.white70),
+          ),
+        ),
+      ],
     );
   }
 }

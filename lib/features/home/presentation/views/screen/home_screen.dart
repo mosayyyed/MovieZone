@@ -34,14 +34,16 @@ class HomeScreen extends StatelessWidget {
         slivers: [
           TrendingMoviesBannerSliverAppBar(
             trendingMovies: trendingCubit.trendingMoviesByDay,
-          ),          _buildSection(
+          ),
+          _buildSection(
             title: "الرائج هذا الأسبوع",
             cubit: trendingCubit,
             stateBuilder: (context, state) => HorizontalList(
               isLoading: state is TrendingLoading,
               movieList: trendingCubit.trendingMoviesByWeek,
             ),
-          ),          _buildSection(
+          ),
+          _buildSection(
             title: "أشهر المقاطع",
             cubit: popularCubit,
             stateBuilder: (context, state) => ContinueWatching(
@@ -49,8 +51,6 @@ class HomeScreen extends StatelessWidget {
               trendingMovieModel: popularCubit.popularMovies,
             ),
           ),
-
-
           _buildSection(
             title: "الأعلى تقييمًا",
             cubit: topRatedCubit,

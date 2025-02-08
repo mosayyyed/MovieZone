@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/features/home/data/models/movie_model.dart';
-import 'package:movie_app/features/home/presentation/controller/movie_details/movie_details_cubit.dart';
 
 import '../../../../../../core/routing/routes.dart';
 import '../../../controller/trending/trending_cubit.dart';
@@ -43,7 +42,12 @@ class _TrendingMoviesBannerState extends State<TrendingMoviesBanner> {
         currentIndex++;
       } else {
         currentIndex = 0;
+        _pageController.jumpToPage(
+          currentIndex,
+        );
+        return;
       }
+
       _pageController.animateToPage(
         currentIndex,
         duration: const Duration(milliseconds: 600),
@@ -63,13 +67,11 @@ class _TrendingMoviesBannerState extends State<TrendingMoviesBanner> {
   Widget build(BuildContext context) {
     return BlocBuilder<TrendingCubit, TrendingState>(
       builder: (context, state) {
-        final isLoading =
-            widget.trendingMovies.isEmpty || state is TrendingLoading;
-
         if (state is TrendingError) {
           return const Center(child: Text("لا توجد بيانات لعرضها"));
         }
         if (state is TrendingLoading) {
+          currentIndex = 0;
           return SkeletonizerLoadingStack();
         }
         return GestureDetector(

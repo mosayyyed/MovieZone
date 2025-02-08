@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:movie_app/core/errors/failures.dart';
-import 'package:movie_app/features/home/data/models/movie_details_model.dart';
+import 'package:movie_app/features/home/data/models/genre_model.dart';
 import 'package:movie_app/features/home/data/models/movie_model.dart';
 
 import '../../../../../core/data_sources/networking/api_service.dart';
@@ -12,7 +12,6 @@ class MovieRepoImpl extends MovieRepo {
   final ApiService _apiService;
 
   MovieRepoImpl(this._apiService);
-
 
   @override
   Future<Either<Failure, List<MovieModel>>> fetchPopularMovies() async {
@@ -120,6 +119,26 @@ class MovieRepoImpl extends MovieRepo {
           .toList();
 
       return Right(movies);
+    } catch (e) {
+      return Left(ApiFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<GenreModel>>> fetchGenres() async {
+    try {
+      final response = await _apiService.get(
+        endpoint: "/genre/movie/list",
+        queryParameters: {
+          "api_key": kApiKey,
+          "language": "ar",
+        },
+      );
+
+      final List<GenreModel> genres = (response.data['genres'] as List)
+          .map((genre) => GenreModel.fromJson(genre))
+          .toList();
+      return Right(genres);
     } catch (e) {
       return Left(ApiFailure(e.toString()));
     }

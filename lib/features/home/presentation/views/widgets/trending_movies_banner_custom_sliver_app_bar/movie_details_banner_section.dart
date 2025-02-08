@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../../../../core/themes/app_colors.dart';
 import '../../../../data/models/movie_model.dart';
+import '../../../controller/genres/genres_cubit.dart';
+import '../horizontal_list.dart';
 import 'banner_action_buttons.dart';
 
 class MovieDetailsBannerSection extends StatelessWidget {
@@ -19,6 +22,7 @@ class MovieDetailsBannerSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final genresCubit = context.watch<GenresCubit>();
     return Positioned(
       bottom: 20,
       left: 20,
@@ -26,46 +30,63 @@ class MovieDetailsBannerSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(
-            "الرائجة اليوم".toUpperCase(),
-            style: const TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.bold,
-              color: AppColors.kPrimaryColor,
-            ),
-          ),
+          _buildTitle(),
           const SizedBox(height: 8),
-          Text(
-            movie.title,
-            style: const TextStyle(
-              fontSize: 32,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
-          ),
+          _buildMovieTitle(),
           const SizedBox(height: 4),
-          Text(
-            movie.originalTitle ,
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.white.withOpacity(0.8),
-            ),
-          ),
+          _buildMovieInfo(context, genresCubit),
           const SizedBox(height: 16),
           BannerActionButtons(),
           const SizedBox(height: 16),
-          SmoothPageIndicator(
-            controller: pageController,
-            count: totalMovies,
-            effect: ExpandingDotsEffect(
-              dotColor: Colors.white.withOpacity(0.5),
-              activeDotColor: AppColors.kPrimaryColor,
-              dotHeight: 8,
-              dotWidth: 8,
-              spacing: 8,
-            ),
-          ),
+          _buildPageIndicator(),
         ],
+      ),
+    );
+  }
+
+  Widget _buildTitle() {
+    return Text(
+      "الرائجة اليوم".toUpperCase(),
+      style: const TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.bold,
+        color: AppColors.kPrimaryColor,
+      ),
+    );
+  }
+
+  Widget _buildMovieTitle() {
+    return Text(
+      movie.title,
+      style: const TextStyle(
+        fontSize: 32,
+        fontWeight: FontWeight.bold,
+        color: Colors.white,
+      ),
+    );
+  }
+
+  Widget _buildMovieInfo(BuildContext context, GenresCubit genresCubit) {
+    return SizedBox(
+      width: MediaQuery.of(context).size.width * 0.5,
+      child: MovieInfoRow(
+        genreIds: movie.genreIds,
+        voteAverage: movie.voteAverage,
+        genres: genresCubit.genres,
+      ),
+    );
+  }
+
+  Widget _buildPageIndicator() {
+    return SmoothPageIndicator(
+      controller: pageController,
+      count: totalMovies,
+      effect: ExpandingDotsEffect(
+        dotColor: Colors.white.withAlpha(100),
+        activeDotColor: AppColors.kPrimaryColor,
+        dotHeight: 8,
+        dotWidth: 8,
+        spacing: 8,
       ),
     );
   }

@@ -8,6 +8,7 @@ class MovieModel {
   final String backdropPath;
   final double voteAverage;
   final int voteCount;
+  final List<int> genreIds;
 
   MovieModel({
     required this.id,
@@ -17,6 +18,7 @@ class MovieModel {
     required this.backdropPath,
     required this.voteAverage,
     required this.voteCount,
+    required this.genreIds,
   });
 
   factory MovieModel.fromJson(Map<String, dynamic> json) {
@@ -28,6 +30,7 @@ class MovieModel {
       backdropPath: kFullImageUrl + json['backdrop_path'],
       voteAverage: (json['vote_average'] ?? 0).toDouble(),
       voteCount: json['vote_count'] ?? 0,
+      genreIds: List<int>.from(json['genre_ids'] ?? []),
     );
   }
 }

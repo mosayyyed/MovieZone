@@ -13,6 +13,7 @@ import '../../features/auth/presentation/views/login_screen.dart';
 import '../../features/auth/presentation/views/signup_screen.dart';
 import '../../features/home/data/repositories/movie_details_repo/movie_details_repo_impl.dart';
 import '../../features/home/data/repositories/movie_repo/movie_repo_impl.dart';
+import '../../features/home/presentation/controller/genres/genres_cubit.dart';
 import '../../features/home/presentation/controller/movie_details/movie_details_cubit.dart';
 import '../../features/home/presentation/controller/trending/trending_cubit.dart';
 import '../../features/home/presentation/controller/upcoming/upcoming_cubit.dart';
@@ -102,6 +103,10 @@ abstract class AppRoutes {
             BlocProvider(
               create: (context) => UpcomingCubit(getIt.get<MovieRepoImpl>())
                 ..fetchUpcomingMovies(),
+            ),
+            BlocProvider(
+              create: (context) =>
+                  GenresCubit(getIt.get<MovieRepoImpl>())..fetchGenres(),
             ),
           ],
           child: LayoutScreen(),

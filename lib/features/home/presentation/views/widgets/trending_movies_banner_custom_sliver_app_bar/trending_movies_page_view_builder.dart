@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../data/models/movie_model.dart';
 
-class TrendingMoviesPageViewBuilder extends StatelessWidget {
+class TrendingMoviesPageViewBuilder extends StatefulWidget {
   const TrendingMoviesPageViewBuilder({
     super.key,
     required this.movies,
@@ -16,15 +16,37 @@ class TrendingMoviesPageViewBuilder extends StatelessWidget {
   final ValueChanged<int> onPageChanged;
 
   @override
+  State<TrendingMoviesPageViewBuilder> createState() =>
+      _TrendingMoviesPageViewBuilderState();
+}
+
+class _TrendingMoviesPageViewBuilderState
+    extends State<TrendingMoviesPageViewBuilder> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _precacheAllImages();
+    });
+  }
+
+  void _precacheAllImages() {
+    for (var movie in widget.movies) {
+      precacheImage(CachedNetworkImageProvider(movie.backdropPath), context);
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return PageView.builder(
-      controller: controller,
-      itemCount: movies.length,
-      onPageChanged: onPageChanged,
+      controller: widget.controller,
+      itemCount: widget.movies.length,
+      onPageChanged: widget.onPageChanged,
       itemBuilder: (context, index) {
-        final movie = movies[index];
+        final movie = widget.movies[index];
         return CachedNetworkImage(
-          imageUrl: movie.backdropPath!,
+          useOldImageOnUrlChange: true,
+          imageUrl: movie.backdropPath,
           errorWidget: (_, __, ___) => const Icon(Icons.error, size: 50),
           fit: BoxFit.cover,
         );
