@@ -5,6 +5,7 @@ import 'package:movie_app/features/home/presentation/controller/trending/trendin
 
 import '../../../../../core/component/widgets/custom_refresh_indicator.dart';
 import '../../controller/top_rated/top_rated_cubit.dart';
+import '../../controller/upcoming/upcoming_cubit.dart';
 import '../widgets/continue_watching.dart';
 import '../widgets/horizontal_list.dart';
 import '../widgets/section_header.dart';
@@ -18,6 +19,7 @@ class HomeScreen extends StatelessWidget {
     final trendingCubit = context.read<TrendingCubit>();
     final topRatedCubit = context.read<TopRatedCubit>();
     final popularCubit = context.read<PopularCubit>();
+    final upcomingCubit = context.read<UpcomingCubit>();
 
     return CustomRefreshIndicator(
       onRefresh: () async {
@@ -25,38 +27,65 @@ class HomeScreen extends StatelessWidget {
         trendingCubit.fetchTrendingMoviesByWeek();
         topRatedCubit.fetchTopRatedMovies();
         popularCubit.fetchPopularMovies();
+        upcomingCubit.fetchUpcomingMovies();
       },
       child: CustomScrollView(
         physics: const BouncingScrollPhysics(),
         slivers: [
           TrendingMoviesBannerSliverAppBar(
             trendingMovies: trendingCubit.trendingMoviesByDay,
+          ),          _buildSection(
+            title: "الرائج هذا الأسبوع",
+            cubit: trendingCubit,
+            stateBuilder: (context, state) => HorizontalList(
+              isLoading: state is TrendingLoading,
+              movieList: trendingCubit.trendingMoviesByWeek,
+            ),
+          ),          _buildSection(
+            title: "أشهر المقاطع",
+            cubit: popularCubit,
+            stateBuilder: (context, state) => ContinueWatching(
+              state: state is PopularLoading,
+              trendingMovieModel: popularCubit.popularMovies,
+            ),
           ),
-          SectionHeader(title: "الأعلى تقييمًا", onSeeAll: () {}),
-          BlocBuilder<TopRatedCubit, TopRatedState>(
-            builder: (context, state) {
-              return HorizontalList(
-                isLoading: state is TopRatedLoading,
-                movieList: topRatedCubit.topRatedMovies,
-              );
-            },
+
+
+          _buildSection(
+            title: "الأعلى تقييمًا",
+            cubit: topRatedCubit,
+            stateBuilder: (context, state) => HorizontalList(
+              isLoading: state is TopRatedLoading,
+              isCounterVisible: true,
+              movieList: topRatedCubit.topRatedMovies,
+            ),
           ),
-          SectionHeader(title: "الأكثر شهرة", onSeeAll: () {}),
-          BlocBuilder<PopularCubit, PopularState>(
-            builder: (context, state) {
-              return ContinueWatching(
-                  state: state is PopularLoading,
-                  trendingMovieModel: popularCubit.popularMovies);
-            },
+          _buildSection(
+            title: "القادمة",
+            cubit: topRatedCubit,
+            stateBuilder: (context, state) => HorizontalList(
+              isLoading: state is UpcomingLoading,
+              movieList: upcomingCubit.upcomingMovies,
+            ),
           ),
-          SectionHeader(title: "رائج هذا الأسبوع", onSeeAll: () {}),
-          BlocBuilder<TrendingCubit, TrendingState>(
-            builder: (context, state) {
-              return HorizontalList(
-                isLoading: state is TrendingLoading,
-                movieList: trendingCubit.trendingMoviesByWeek,
-              );
-            },
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSection({
+    required String title,
+    required Cubit cubit,
+    required BlocWidgetBuilder stateBuilder,
+  }) {
+    return SliverToBoxAdapter(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SectionHeader(title: title, onSeeAll: () {}),
+          BlocBuilder(
+            bloc: cubit,
+            builder: stateBuilder,
           ),
         ],
       ),

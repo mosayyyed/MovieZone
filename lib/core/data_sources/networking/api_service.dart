@@ -1,21 +1,24 @@
 import 'package:dio/dio.dart';
 
 import '../../utils/constants.dart';
+import 'dio_factory.dart';
 
 class ApiService {
-  final Dio _dio;
+  late final Dio _dio;
 
-  ApiService(this._dio);
+  static final ApiService _instance = ApiService._internal();
+
+  factory ApiService() => _instance;
+
+  ApiService._internal() {
+    _dio = DioFactory.createDio();
+  }
 
   Future<Response> get({
     required String endpoint,
     required Map<String, dynamic>? queryParameters,
-  }) async {
-    final response = await _dio.get(
-      endpoint,
-      queryParameters: queryParameters,
-    );
-    return response;
+  }) {
+    return _dio.get(endpoint, queryParameters: queryParameters);
   }
 
   Future<Response> post({
@@ -23,14 +26,9 @@ class ApiService {
     required Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? data,
     Options? options,
-  }) async {
-    final response = await _dio.post(
-      "$kBaseUrl/$endpoint",
-      queryParameters: queryParameters,
-      options: options,
-      data: data,
-    );
-    return response;
+  }) {
+    return _dio.post(endpoint,
+        queryParameters: queryParameters, options: options, data: data);
   }
 
   Future<Response> put({
@@ -38,26 +36,17 @@ class ApiService {
     required Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? data,
     Options? options,
-  }) async {
-    final response = await _dio.put(
-      "$kBaseUrl/$endpoint",
-      queryParameters: queryParameters,
-      options: options,
-      data: data,
-    );
-    return response;
+  }) {
+    return _dio.put(endpoint,
+        queryParameters: queryParameters, options: options, data: data);
   }
 
   Future<Response> delete({
     required String endpoint,
     required Map<String, dynamic>? queryParameters,
     Options? options,
-  }) async {
-    final response = await _dio.delete(
-      "$kBaseUrl/$endpoint",
-      queryParameters: queryParameters,
-      options: options,
-    );
-    return response;
+  }) {
+    return _dio.delete(endpoint,
+        queryParameters: queryParameters, options: options);
   }
 }

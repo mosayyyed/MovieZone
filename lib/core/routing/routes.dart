@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -7,19 +6,20 @@ import 'package:movie_app/core/data_sources/networking/api_service.dart';
 import 'package:movie_app/features/auth/presentation/controller/auth/auth_cubit.dart';
 import 'package:movie_app/features/auth/presentation/controller/login/login_cubit.dart';
 import 'package:movie_app/features/auth/presentation/controller/signup/signup_cubit.dart';
-import 'package:movie_app/features/home/data/repositories/popular_movies/popular_movies_repo_impl.dart';
 import 'package:movie_app/features/home/presentation/controller/popular/popular_cubit.dart';
 import 'package:movie_app/features/home/presentation/controller/top_rated/top_rated_cubit.dart';
 import 'package:movie_app/features/home/presentation/views/screen/layout_screen.dart';
 import 'package:movie_app/features/onboarding/presentation/views/onboarding_screen.dart';
 
 import '../../features/auth/data/repositories/auth_repo_impl.dart';
-import '../../features/auth/presentation/views/email_verificationScreen.dart';
 import '../../features/auth/presentation/views/login_screen.dart';
 import '../../features/auth/presentation/views/signup_screen.dart';
-import '../../features/home/data/repositories/top_rated_movies/top_rated_movies_repo_impl.dart';
-import '../../features/home/data/repositories/trending_movies/trending_movies_repo_impl.dart';
+import '../../features/home/data/repositories/movie_details_repo/movie_details_repo_impl.dart';
+import '../../features/home/data/repositories/movie_repo/movie_repo_impl.dart';
+import '../../features/home/presentation/controller/movie_details/movie_details_cubit.dart';
 import '../../features/home/presentation/controller/trending/trending_cubit.dart';
+import '../../features/home/presentation/controller/upcoming/upcoming_cubit.dart';
+import '../../features/home/presentation/views/screen/movie_details_screen.dart';
 import '../../features/splash/presentation/views/splash_screen.dart';
 import '../data_sources/networking/firebase_service.dart';
 
@@ -30,6 +30,7 @@ abstract class AppRoutes {
   static const kLoginRoute = '/login';
   static const kEmailVerificationRoute = '/email-verification';
   static const kHomeRoute = '/home';
+  static const kMovieDetailsRoute = '/movieDetails/:id';
 
   static final GoRouter router = GoRouter(
     routes: [
@@ -78,7 +79,15 @@ abstract class AppRoutes {
         builder: (context, state) => BlocProvider(
           create: (context) => AuthCubit(AuthRepoImpl(FirebaseService(
               FirebaseAuth.instance, FirebaseFirestore.instance))),
-          child: EmailVerificationScreen(),
+        ),
+      ),
+      GoRoute(
+        path: kMovieDetailsRoute,
+        builder: (context, state) => BlocProvider(
+          create: (context) =>
+              MovieDetailsCubit(MovieDetailsRepoImpl(ApiService())),
+          child: MovieDetailsScreen(
+              movieId: int.parse(state.pathParameters['id']!)),
         ),
       ),
       GoRoute(
@@ -86,21 +95,25 @@ abstract class AppRoutes {
         builder: (context, state) => MultiBlocProvider(
           providers: [
             BlocProvider(
-              create: (context) =>
-                  TrendingCubit(TrendingMoviesRepoImpl(ApiService(Dio())))
-                    ..fetchTrendingMoviesByDay()
-                    ..fetchTrendingMoviesByWeek(),
+              create: (context) => TrendingCubit(MovieRepoImpl(ApiService()))
+                ..fetchTrendingMoviesByDay()
+                ..fetchTrendingMoviesByWeek(),
             ),
             BlocProvider(
-              create: (context) =>
-                  TopRatedCubit(TopRatedMoviesRepoImpl(ApiService(Dio())))
-                    ..fetchTopRatedMovies(),
+              create: (context) => TopRatedCubit(MovieRepoImpl(ApiService()))
+                ..fetchTopRatedMovies(),
             ),
             BlocProvider(
-              create: (context) =>
-                  PopularCubit(PopularMoviesRepoImpl(ApiService(Dio())))
-                    ..fetchPopularMovies(),
+              create: (context) => PopularCubit(MovieRepoImpl(ApiService()))
+                ..fetchPopularMovies(),
             ),
+            BlocProvider(
+              create: (context) => UpcomingCubit(MovieRepoImpl(ApiService()))
+                ..fetchUpcomingMovies(),
+            ),
+            BlocProvider(
+                create: (context) =>
+                    MovieDetailsCubit(MovieDetailsRepoImpl(ApiService()))),
           ],
           child: LayoutScreen(),
         ),

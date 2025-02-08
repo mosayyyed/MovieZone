@@ -40,6 +40,12 @@ InputDecoration buildInputDecoration({
       labelText.toUpperCase(),
       style: Styles.textStyle12.copyWith(color: AppColors.kGreyColor),
     ),
+    errorMaxLines: 2,
+    errorStyle: TextStyle(
+      color: AppColors.kErrorColor.withAlpha(180),
+      fontSize: 12,
+      overflow: TextOverflow.ellipsis,
+    ),
     filled: true,
     fillColor: AppColors.kFillColor,
     border: border,

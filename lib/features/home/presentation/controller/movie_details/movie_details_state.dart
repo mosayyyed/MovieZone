@@ -9,7 +9,9 @@ final class MovieDetailsLoading extends MovieDetailsState {}
 final class MovieDetailsSuccess extends MovieDetailsState {
   final MovieDetailsModel movieDetailsModel;
 
-  MovieDetailsSuccess(this.movieDetailsModel);
+  MovieDetailsSuccess(
+    this.movieDetailsModel,
+  );
 }
 
 final class MovieDetailsError extends MovieDetailsState {

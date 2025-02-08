@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../../core/utils/constants.dart';
 import '../../../../data/models/movie_model.dart';
 
 class TrendingMoviesPageViewBuilder extends StatelessWidget {
@@ -25,7 +24,7 @@ class TrendingMoviesPageViewBuilder extends StatelessWidget {
       itemBuilder: (context, index) {
         final movie = movies[index];
         return CachedNetworkImage(
-          imageUrl: "$kFullImageUrl${movie.backdropPath}",
+          imageUrl: movie.backdropPath!,
           errorWidget: (_, __, ___) => const Icon(Icons.error, size: 50),
           fit: BoxFit.cover,
         );

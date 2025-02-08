@@ -36,7 +36,7 @@ class MovieDetailsBannerSection extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           Text(
-            movie.title,
+            movie.title!,
             style: const TextStyle(
               fontSize: 32,
               fontWeight: FontWeight.bold,

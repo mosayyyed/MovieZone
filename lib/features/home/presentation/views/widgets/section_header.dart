@@ -12,29 +12,27 @@ class SectionHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              title,
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            title,
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
             ),
-            TextButton(
-              onPressed: onSeeAll,
-              child: const Text(
-                "عرض الكل",
-                style: TextStyle(color: Colors.white70),
-              ),
+          ),
+          TextButton(
+            onPressed: onSeeAll,
+            child: const Text(
+              "عرض الكل",
+              style: TextStyle(color: Colors.white70),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

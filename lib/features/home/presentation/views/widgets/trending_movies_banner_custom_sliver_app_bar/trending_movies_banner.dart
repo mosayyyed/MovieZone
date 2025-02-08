@@ -2,10 +2,12 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:movie_app/features/home/data/models/movie_model.dart';
+import 'package:movie_app/features/home/presentation/controller/movie_details/movie_details_cubit.dart';
 
+import '../../../../../../core/routing/routes.dart';
 import '../../../controller/trending/trending_cubit.dart';
-import '../../screen/movie_details_screen.dart';
 import 'gradient_overlay.dart';
 import 'movie_details_banner_section.dart';
 import 'skeletonizer_loading_stack.dart';
@@ -36,7 +38,7 @@ class _TrendingMoviesBannerState extends State<TrendingMoviesBanner> {
   }
 
   void _startAutoScroll() {
-    _timer = Timer.periodic(const Duration(seconds: 3), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 5), (timer) {
       if (currentIndex < widget.trendingMovies.length - 1) {
         currentIndex++;
       } else {
@@ -59,6 +61,8 @@ class _TrendingMoviesBannerState extends State<TrendingMoviesBanner> {
 
   @override
   Widget build(BuildContext context) {
+    var movieDetailsCubit = context.read<MovieDetailsCubit>();
+
     return BlocBuilder<TrendingCubit, TrendingState>(
       builder: (context, state) {
         final isLoading =
@@ -72,15 +76,8 @@ class _TrendingMoviesBannerState extends State<TrendingMoviesBanner> {
         }
         return GestureDetector(
           onTap: () {
-            final movie = widget.trendingMovies[currentIndex];
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => MovieDetailsScreen(
-                  movie: movie,
-                ),
-              ),
-            );
+            GoRouter.of(context).push(AppRoutes.kMovieDetailsRoute.replaceFirst(
+                ":id", widget.trendingMovies[currentIndex].id.toString()));
           },
           onHorizontalDragEnd: (details) {
             horizontalDrag(details);
@@ -112,6 +109,7 @@ class _TrendingMoviesBannerState extends State<TrendingMoviesBanner> {
   }
 
   void horizontalDrag(DragEndDetails details) {
+    _timer.cancel();
     final velocity = details.primaryVelocity ?? 0;
     if (velocity < 0 && currentIndex < widget.trendingMovies.length - 1) {
       // Swipe to the right (previous)
@@ -134,5 +132,6 @@ class _TrendingMoviesBannerState extends State<TrendingMoviesBanner> {
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeInOut,
     );
+    _startAutoScroll();
   }
 }

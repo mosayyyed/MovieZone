@@ -1,19 +1,19 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../data/models/movie_model.dart';
-import '../../../data/repositories/top_rated_movies/top_rated_movies_repo.dart';
+import '../../../data/repositories/movie_repo/movie_repo.dart';
 
 part 'top_rated_state.dart';
 
 class TopRatedCubit extends Cubit<TopRatedState> {
-  final TopRatedMoviesRepo topRatedMoviesRepo;
+  final MovieRepo movieRepo;
   final List<MovieModel> topRatedMovies = [];
 
-  TopRatedCubit(this.topRatedMoviesRepo) : super(TopRatedInitial());
+  TopRatedCubit(this.movieRepo) : super(TopRatedInitial());
 
   Future<List<MovieModel>> fetchTopRatedMovies() async {
     emit(TopRatedLoading());
-    final response = await topRatedMoviesRepo.fetchTopMovies();
+    final response = await movieRepo.fetchTopRatedMovies();
     response.fold(
       (failure) {
         emit(TopRatedError(failure.message));

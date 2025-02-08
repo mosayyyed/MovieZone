@@ -1,12 +1,12 @@
-import 'package:bloc/bloc.dart';
-import 'package:movie_app/features/home/data/repositories/popular_movies/popular_movies_repo.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../data/models/movie_model.dart';
+import '../../../data/repositories/movie_repo/movie_repo.dart';
 
 part 'popular_state.dart';
 
 class PopularCubit extends Cubit<PopularState> {
-  final PopularMoviesRepo popularMoviesRepo;
+  final MovieRepo popularMoviesRepo;
   final List<MovieModel> popularMovies = [];
 
   PopularCubit(this.popularMoviesRepo) : super(PopularInitial());
