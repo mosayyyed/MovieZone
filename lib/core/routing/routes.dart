@@ -1,5 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/features/auth/presentation/controller/auth/auth_cubit.dart';
@@ -20,7 +18,6 @@ import '../../features/home/presentation/controller/trending/trending_cubit.dart
 import '../../features/home/presentation/controller/upcoming/upcoming_cubit.dart';
 import '../../features/home/presentation/views/screen/movie_details_screen.dart';
 import '../../features/splash/presentation/views/splash_screen.dart';
-import '../data_sources/networking/firebase_service.dart';
 import '../utils/service_locator.dart';
 
 abstract class AppRoutes {
@@ -47,12 +44,10 @@ abstract class AppRoutes {
         builder: (context, state) => MultiBlocProvider(
           providers: [
             BlocProvider(
-              create: (context) => AuthCubit(AuthRepoImpl(FirebaseService(
-                  FirebaseAuth.instance, FirebaseFirestore.instance))),
+              create: (context) => AuthCubit(getIt.get<AuthRepoImpl>()),
             ),
             BlocProvider(
-              create: (context) => SignupCubit(AuthRepoImpl(FirebaseService(
-                  FirebaseAuth.instance, FirebaseFirestore.instance))),
+              create: (context) => SignupCubit(getIt.get<AuthRepoImpl>()),
             ),
           ],
           child: const SignupScreen(),
@@ -63,12 +58,10 @@ abstract class AppRoutes {
         builder: (context, state) => MultiBlocProvider(
           providers: [
             BlocProvider(
-              create: (context) => AuthCubit(AuthRepoImpl(FirebaseService(
-                  FirebaseAuth.instance, FirebaseFirestore.instance))),
+              create: (context) => AuthCubit(getIt.get<AuthRepoImpl>()),
             ),
             BlocProvider(
-              create: (context) => LoginCubit(AuthRepoImpl(FirebaseService(
-                  FirebaseAuth.instance, FirebaseFirestore.instance))),
+              create: (context) => LoginCubit(getIt.get<AuthRepoImpl>()),
             ),
           ],
           child: const LoginScreen(),
@@ -77,8 +70,7 @@ abstract class AppRoutes {
       GoRoute(
         path: kEmailVerificationRoute,
         builder: (context, state) => BlocProvider(
-          create: (context) => AuthCubit(AuthRepoImpl(FirebaseService(
-              FirebaseAuth.instance, FirebaseFirestore.instance))),
+          create: (context) => AuthCubit(getIt.get<AuthRepoImpl>()),
         ),
       ),
       GoRoute(
