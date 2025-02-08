@@ -44,7 +44,7 @@ class SkeletonizerLoadingStack extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  "---------" ?? '',
+                  "---------" ,
                   style: TextStyle(
                     fontSize: 16,
                     color: Colors.white.withOpacity(0.8),

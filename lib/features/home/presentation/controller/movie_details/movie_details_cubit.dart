@@ -1,7 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/features/home/data/models/movie_details_model.dart';
 
-import '../../../data/models/movie_videos_model.dart';
 import '../../../data/repositories/movie_details_repo/movie_details_repo.dart';
 
 part 'movie_details_state.dart';

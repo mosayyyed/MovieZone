@@ -61,8 +61,6 @@ class _TrendingMoviesBannerState extends State<TrendingMoviesBanner> {
 
   @override
   Widget build(BuildContext context) {
-    var movieDetailsCubit = context.read<MovieDetailsCubit>();
-
     return BlocBuilder<TrendingCubit, TrendingState>(
       builder: (context, state) {
         final isLoading =

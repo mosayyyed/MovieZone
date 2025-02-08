@@ -49,6 +49,7 @@ dependencies:
   skeletonizer: ^1.4.3
   hero_animation: ^1.1.4
   dio: ^5.7.0
+  get_it: ^8.0.3
   json_annotation: ^4.9.0
   flutter_localizations:
     sdk: flutter

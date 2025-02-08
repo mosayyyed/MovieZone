@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:movie_app/core/themes/app_colors.dart';
 
 import 'core/routing/routes.dart';
+import 'core/utils/service_locator.dart';
 import 'firebase_options.dart';
 import 'generated/l10n.dart';
 
@@ -12,6 +13,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  setupServiceLocator();
 
   runApp(const MyApp());
 }
