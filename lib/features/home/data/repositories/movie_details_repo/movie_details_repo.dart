@@ -8,5 +8,6 @@ abstract class MovieDetailsRepo {
   Future<Either<Failure, MovieDetailsModel>> fetchMovieDetails(
       {required int id});
 
-  Future<Either<Failure, MovieVideosModel>> fetchMovieVideos({required int id});
+  Future<Either<Failure, List<MovieVideosModel>>> fetchMovieVideos(
+      {required int id});
 }

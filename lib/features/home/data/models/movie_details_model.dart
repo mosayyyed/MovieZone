@@ -57,6 +57,7 @@ class MovieDetailsModel {
       releaseDate: json['release_date'] ?? 'غير متوفر',
       productionCompanies: (json['production_companies'] as List?)
               ?.map((x) => ProductionCompanies.fromJson(x))
+              .where((company) => company.logoPath.isNotEmpty)
               .toList() ??
           [],
       budget: json['budget'] ?? 0,

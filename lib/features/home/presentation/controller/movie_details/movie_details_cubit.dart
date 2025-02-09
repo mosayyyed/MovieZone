@@ -18,13 +18,4 @@ class MovieDetailsCubit extends Cubit<MovieDetailsState> {
       (movie) => emit(MovieDetailsSuccess(movie)),
     );
   }
-
-  Future<void> fetchMovieVideos(int id) async {
-    emit(MovieDetailsLoading());
-    final response = await movieDetailsRepo.fetchMovieDetails(id: id);
-    response.fold(
-      (failure) => emit(MovieDetailsError(failure.message)),
-      (movie) => emit(MovieDetailsSuccess(movie)),
-    );
-  }
 }

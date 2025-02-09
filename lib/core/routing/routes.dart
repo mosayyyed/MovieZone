@@ -13,6 +13,7 @@ import '../../features/auth/presentation/views/login_screen.dart';
 import '../../features/auth/presentation/views/signup_screen.dart';
 import '../../features/home/data/repositories/movie_details_repo/movie_details_repo_impl.dart';
 import '../../features/home/data/repositories/movie_repo/movie_repo_impl.dart';
+import '../../features/home/presentation/controller/MovieVideos/movie_videos_cubit.dart';
 import '../../features/home/presentation/controller/genres/genres_cubit.dart';
 import '../../features/home/presentation/controller/movie_details/movie_details_cubit.dart';
 import '../../features/home/presentation/controller/trending/trending_cubit.dart';
@@ -76,9 +77,17 @@ abstract class AppRoutes {
       ),
       GoRoute(
         path: kMovieDetailsRoute,
-        builder: (context, state) => BlocProvider(
-          create: (context) =>
-              MovieDetailsCubit(getIt.get<MovieDetailsRepoImpl>()),
+        builder: (context, state) => MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) =>
+                  MovieDetailsCubit(getIt.get<MovieDetailsRepoImpl>()),
+            ),
+            BlocProvider(
+              create: (context) =>
+                  MovieVideosCubit(getIt.get<MovieDetailsRepoImpl>()),
+            ),
+          ],
           child: MovieDetailsScreen(
               movieId: int.parse(state.pathParameters['id']!)),
         ),
