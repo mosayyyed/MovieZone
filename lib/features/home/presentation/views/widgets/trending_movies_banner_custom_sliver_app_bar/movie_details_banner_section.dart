@@ -5,7 +5,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../../../../core/themes/app_colors.dart';
 import '../../../../data/models/movie_model.dart';
 import '../../../controller/genres/genres_cubit.dart';
-import '../horizontal_list.dart';
+import '../movie_card.dart';
 import 'banner_action_buttons.dart';
 
 class MovieDetailsBannerSection extends StatelessWidget {
@@ -36,7 +36,9 @@ class MovieDetailsBannerSection extends StatelessWidget {
           const SizedBox(height: 4),
           _buildMovieInfo(context, genresCubit),
           const SizedBox(height: 16),
-          BannerActionButtons(),
+          BannerActionButtons(
+            movieId: movie.id,
+          ),
           const SizedBox(height: 16),
           _buildPageIndicator(),
         ],

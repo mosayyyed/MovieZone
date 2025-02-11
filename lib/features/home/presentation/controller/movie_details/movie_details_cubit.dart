@@ -6,6 +6,7 @@ import '../../../data/repositories/movie_details_repo/movie_details_repo.dart';
 part 'movie_details_state.dart';
 
 class MovieDetailsCubit extends Cubit<MovieDetailsState> {
+  late final MovieDetailsModel movieDetailsModel;
   final MovieDetailsRepo movieDetailsRepo;
 
   MovieDetailsCubit(this.movieDetailsRepo) : super(MovieDetailsInitial());
@@ -15,7 +16,10 @@ class MovieDetailsCubit extends Cubit<MovieDetailsState> {
     final response = await movieDetailsRepo.fetchMovieDetails(id: id);
     response.fold(
       (failure) => emit(MovieDetailsError(failure.message)),
-      (movie) => emit(MovieDetailsSuccess(movie)),
+      (movie) {
+        movieDetailsModel = movie;
+        emit(MovieDetailsSuccess(movie));
+      },
     );
   }
 }

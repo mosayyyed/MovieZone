@@ -37,7 +37,7 @@ class TrendingMoviesBannerSliverAppBar extends StatelessWidget {
         IconButton(
           onPressed: () {},
           icon: SvgPicture.asset(
-            AppAssets.icons.search,
+            AppAssets.icons.notification,
             color: Colors.white,
           ),
         ),
@@ -46,7 +46,7 @@ class TrendingMoviesBannerSliverAppBar extends StatelessWidget {
           icon: SvgPicture.asset(
             AppAssets.icons.download,
             color: Colors.white,
-            width: 30,
+            width: 28,
           ),
         ),
       ],

@@ -3,6 +3,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:movie_app/core/themes/app_colors.dart';
 
 import '../../../../../core/themes/app_assets.dart';
+import '../widgets/explore/explore_app_bar.dart';
+import 'explore_screen.dart';
 import 'home_screen.dart';
 
 class LayoutScreen extends StatefulWidget {
@@ -46,7 +48,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
               AppAssets.icons.discover,
-              color: _selectedTab == _SelectedTab.favorite
+              color: _selectedTab == _SelectedTab.search
                   ? AppColors.kPrimaryColor
                   : Colors.white,
             ),
@@ -55,7 +57,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
               AppAssets.icons.bookmark,
-              color: _selectedTab == _SelectedTab.search
+              color: _selectedTab == _SelectedTab.favorite
                   ? AppColors.kPrimaryColor
                   : Colors.white,
             ),
@@ -72,12 +74,43 @@ class _LayoutScreenState extends State<LayoutScreen> {
           ),
         ],
       ),
+      appBar: _selectedTab == _SelectedTab.home
+          ? null
+          : CustomAppBar(
+              title: _selectedTab == _SelectedTab.search
+                  ? 'إستكشف'
+                  : _selectedTab == _SelectedTab.favorite
+                      ? 'المفضلة'
+                      : 'حسابي',
+            ),
       body: IndexedStack(
         index: _SelectedTab.values.indexOf(_selectedTab),
         children: [
           HomeScreen(),
-          Center(child: Text('بحث')),
-          Center(child: Text('المفضلة')),
+          ExploreScreen(),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                Container(
+                    width: double.infinity, height: 50, color: Colors.green),
+
+                // This child ignores parent padding.
+                SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  height: 50,
+                  child: OverflowBox(
+                      maxWidth: MediaQuery.of(context).size.width,
+                      child: Container(
+                          width: double.infinity,
+                          height: 50,
+                          color: Colors.red)),
+                ),
+                Container(
+                    width: double.infinity, height: 50, color: Colors.blue),
+              ],
+            ),
+          ),
           Center(child: Text('حسابي')),
         ],
       ),
@@ -85,4 +118,4 @@ class _LayoutScreenState extends State<LayoutScreen> {
   }
 }
 
-enum _SelectedTab { home, favorite, search, person }
+enum _SelectedTab { home, search, favorite, person }
