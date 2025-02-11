@@ -3,19 +3,18 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../../../../core/themes/app_assets.dart';
 import '../../../../../../core/themes/app_colors.dart';
-import '../../../../../../core/themes/app_styles.dart';
-import '../../../../data/models/movie_model.dart';
-import 'trending_movies_banner.dart';
 
-class TrendingMoviesBannerSliverAppBar extends StatelessWidget {
-  final List<MovieModel> trendingMovies;
-  const TrendingMoviesBannerSliverAppBar(
-      {super.key, required this.trendingMovies});
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final String title;
+
+  const CustomAppBar({
+    super.key,
+    required this.title,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return SliverAppBar(
-      expandedHeight: MediaQuery.of(context).size.height * 0.50,
+    return AppBar(
       elevation: 0,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
@@ -23,13 +22,10 @@ class TrendingMoviesBannerSliverAppBar extends StatelessWidget {
           bottomRight: Radius.circular(20),
         ),
       ),
-      scrolledUnderElevation: 0,
-      pinned: true,
-      stretch: true,
-      backgroundColor: AppColors.kPrimaryColor,
       title: Text(
-        "الرئيسية",
-        style: Styles.textStyle22.copyWith(
+        title,
+        style: TextStyle(
+          color: Colors.white,
           fontWeight: FontWeight.w600,
         ),
       ),
@@ -50,22 +46,18 @@ class TrendingMoviesBannerSliverAppBar extends StatelessWidget {
           ),
         ),
       ],
+      scrolledUnderElevation: 0,
+      backgroundColor: AppColors.kPrimaryColor,
       leading: Padding(
         padding: const EdgeInsets.all(8.0),
         child: CircleAvatar(
           backgroundColor: AppColors.kPrimaryColor,
-          backgroundImage: AssetImage("assets/avatar.png"),
-        ),
-      ),
-      flexibleSpace: FlexibleSpaceBar(
-        collapseMode: CollapseMode.pin,
-        stretchModes: [
-          StretchMode.zoomBackground,
-        ],
-        background: TrendingMoviesBanner(
-          trendingMovies: trendingMovies,
+          backgroundImage: const AssetImage("assets/avatar.png"),
         ),
       ),
     );
   }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

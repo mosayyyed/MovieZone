@@ -1,11 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/features/home/data/models/movie_model.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
-import '../../../../../core/routing/routes.dart';
 import '../../../../../core/themes/app_colors.dart';
+import '../../../../../core/utils/showVideoDiolog.dart';
+import '../../controller/MovieVideos/movie_videos_cubit.dart';
 
 class ContinueWatching extends StatelessWidget {
   final List<MovieModel> trendingMovieModel;
@@ -23,6 +24,8 @@ class ContinueWatching extends StatelessWidget {
       trendingMovieModel.length,
       (index) => trendingMovieModel[index].voteAverage / 10,
     );
+    final movieVideosCubit = context.watch<MovieVideosCubit>();
+
     return SizedBox(
       height: 150,
       child: Skeletonizer(
@@ -35,10 +38,24 @@ class ContinueWatching extends StatelessWidget {
           itemBuilder: (context, index) {
             return InkWell(
               borderRadius: BorderRadius.circular(12),
-              onTap: () {
-                GoRouter.of(context).push(AppRoutes.kMovieDetailsRoute
-                    .replaceFirst(
-                        ":id", trendingMovieModel[index].id.toString()));
+              onTap: () async {
+                final movieId = trendingMovieModel[index].id;
+                await movieVideosCubit.fetchMovieVideos(movieId);
+
+                if (movieVideosCubit.videosList.isNotEmpty) {
+                  final officialTrailer =
+                      movieVideosCubit.videosList.firstWhere(
+                    (video) =>
+                        video.type == 'Trailer' && video.official == true,
+                    orElse: () => movieVideosCubit.videosList.first,
+                  );
+
+                  showVideoDialog(
+                    context,
+                    videoKey: officialTrailer.key,
+                    videoName: officialTrailer.name,
+                  );
+                }
               },
               child: Padding(
                 padding: const EdgeInsets.all(8.0),

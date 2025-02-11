@@ -17,6 +17,7 @@ class GenresCubit extends Cubit<GenresState> {
     response.fold(
       (failure) => emit(GenresError(failure.message)),
       (genres) {
+        this.genres.clear();
         this.genres.addAll(genres);
         emit(GenresSuccess(genres));
       },

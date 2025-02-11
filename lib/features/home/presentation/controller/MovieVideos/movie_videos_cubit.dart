@@ -6,7 +6,7 @@ import '../../../data/repositories/movie_details_repo/movie_details_repo.dart';
 part 'movie_videos_state.dart';
 
 class MovieVideosCubit extends Cubit<MovieVideosState> {
-  final List<MovieVideosModel> videos = [];
+  final List<MovieVideosModel> videosList = [];
   final MovieDetailsRepo movieDetailsRepo;
 
   MovieVideosCubit(this.movieDetailsRepo) : super(MovieVideosInitial());
@@ -17,7 +17,8 @@ class MovieVideosCubit extends Cubit<MovieVideosState> {
     response.fold(
       (failure) => emit(MovieVideosError(failure.message)),
       (videos) {
-        this.videos.addAll(videos);
+        videosList.clear();
+        videosList.addAll(videos);
         emit(MovieVideosSuccess(videos));
       },
     );

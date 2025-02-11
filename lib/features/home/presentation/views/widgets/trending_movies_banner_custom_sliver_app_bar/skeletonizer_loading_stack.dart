@@ -44,14 +44,14 @@ class SkeletonizerLoadingStack extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  "---------" ,
+                  "---------",
                   style: TextStyle(
                     fontSize: 16,
                     color: Colors.white.withOpacity(0.8),
                   ),
                 ),
                 const SizedBox(height: 16),
-                BannerActionButtons(),
+                BannerActionButtons(movieId: 0),
                 const SizedBox(height: 16),
                 SmoothPageIndicator(
                   controller: PageController(),

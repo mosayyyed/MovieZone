@@ -36,11 +36,12 @@ class HomeScreen extends StatelessWidget {
             trendingMovies: trendingCubit.trendingMoviesByDay,
           ),
           _buildSection(
-            title: "الرائج هذا الأسبوع",
-            cubit: trendingCubit,
+            title: "الأعلى تقييمًا",
+            cubit: topRatedCubit,
             stateBuilder: (context, state) => HorizontalList(
-              isLoading: state is TrendingLoading,
-              movieList: trendingCubit.trendingMoviesByWeek,
+              isLoading: state is TopRatedLoading,
+              isCounterVisible: true,
+              movieList: topRatedCubit.topRatedMovies,
             ),
           ),
           _buildSection(
@@ -52,12 +53,11 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           _buildSection(
-            title: "الأعلى تقييمًا",
-            cubit: topRatedCubit,
+            title: "الرائج هذا الأسبوع",
+            cubit: trendingCubit,
             stateBuilder: (context, state) => HorizontalList(
-              isLoading: state is TopRatedLoading,
-              isCounterVisible: true,
-              movieList: topRatedCubit.topRatedMovies,
+              isLoading: state is TrendingLoading,
+              movieList: trendingCubit.trendingMoviesByWeek,
             ),
           ),
           _buildSection(

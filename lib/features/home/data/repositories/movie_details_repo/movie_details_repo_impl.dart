@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:movie_app/core/errors/failures.dart';
+import 'package:movie_app/features/home/data/models/movie_cast_model.dart';
 import 'package:movie_app/features/home/data/models/movie_details_model.dart';
 
 import '../../../../../core/data_sources/networking/api_service.dart';
@@ -44,6 +45,28 @@ class MovieDetailsRepoImpl extends MovieDetailsRepo {
           .map((video) => MovieVideosModel.fromJson(video))
           .toList();
       return Right(videos);
+    } catch (e) {
+      return Left(ApiFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<MovieCastModel>>> fetchMovieCast(
+      {required int id}) async {
+    try {
+      var response = await _apiService.get(
+        endpoint: "/movie/$id/credits",
+        queryParameters: {
+          "api_key": kApiKey,
+        },
+      );
+
+      final cast = (response.data['cast'] as List)
+          .map((cast) => MovieCastModel.fromJson(cast))
+          .where((cast) => cast.profilePath != null)
+          .toList();
+
+      return Right(cast);
     } catch (e) {
       return Left(ApiFailure(e.toString()));
     }

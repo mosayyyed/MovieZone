@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../../../../core/themes/app_assets.dart';
+import '../../../../../../core/utils/showVideoDiolog.dart';
+import '../../../controller/MovieVideos/movie_videos_cubit.dart';
+import '../../../controller/trending/trending_cubit.dart';
 
 class BannerActionButtons extends StatelessWidget {
-  const BannerActionButtons({super.key});
+  final int movieId;
+  const BannerActionButtons({super.key, required this.movieId});
 
   @override
   Widget build(BuildContext context) {
+    final movieVideosCubit = context.watch<MovieVideosCubit>();
+    final trendingMovieCubit = context.watch<TrendingCubit>();
+    final trendingMovieModel = trendingMovieCubit.trendingMoviesByDay;
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -21,7 +29,22 @@ class BannerActionButtons extends StatelessWidget {
         ),
         const SizedBox(width: 16),
         ElevatedButton.icon(
-          onPressed: () {},
+          onPressed: () async {
+            await movieVideosCubit.fetchMovieVideos(movieId);
+
+            if (movieVideosCubit.videosList.isNotEmpty) {
+              final officialTrailer = movieVideosCubit.videosList.firstWhere(
+                (video) => video.type == 'Trailer' && video.official == true,
+                orElse: () => movieVideosCubit.videosList.first,
+              );
+
+              showVideoDialog(
+                context,
+                videoKey: officialTrailer.key,
+                videoName: officialTrailer.name,
+              );
+            }
+          },
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.white,
           ),
