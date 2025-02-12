@@ -14,15 +14,49 @@ class MovieVideosSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final movieVideosCubit = context.read<MovieVideosCubit>();
-    final officialVideos = movieVideosCubit.videosList
-        .where((video) => video.official && video.type == "Trailer")
-        .toList();
     return BlocBuilder<MovieVideosCubit, MovieVideosState>(
       builder: (context, state) {
         if (state is MovieVideosSuccess) {
+          final officialVideos = state.movieVideosList
+              .where((video) => video.official && video.type == "Trailer")
+              .toList();
+
+          if (officialVideos.isEmpty) {
+            return const SizedBox(
+              height: 150,
+              child: Center(
+                child: Text(
+                  "لا يوجد فيديوهات",
+                  style: TextStyle(fontSize: 16, color: Colors.white70),
+                ),
+              ),
+            );
+          }
           return _buildVideoCard(context, officialVideos);
-        } else if (state is MovieVideosError) {
+        } else if (state is MovieVideosLoading) {
+          return Skeletonizer(
+            enabled: true,
+            containersColor: Colors.black12,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: 4,
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Container(
+                    width: 140,
+                    height: 160,
+                    decoration: BoxDecoration(
+                      color: Colors.grey.shade300,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                );
+              },
+            ),
+          );
+        } else {
           return const SizedBox(
             height: 150,
             child: Center(
@@ -32,29 +66,7 @@ class MovieVideosSection extends StatelessWidget {
               ),
             ),
           );
-        } else if (state is MovieVideosLoading) {
-          return Skeletonizer(
-            enabled: true,
-            containersColor: Colors.black12,
-            child: ListView.builder(
-              itemCount: 6,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                  child: Container(
-                    height: 20,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Colors.grey.shade300,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
-                );
-              },
-            ),
-          );
         }
-        return const SizedBox();
       },
     );
   }

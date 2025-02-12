@@ -7,10 +7,10 @@ final class MovieVideosInitial extends MovieVideosState {}
 final class MovieVideosLoading extends MovieVideosState {}
 
 final class MovieVideosSuccess extends MovieVideosState {
-  final List<MovieVideosModel> movieVideosModel;
+  final List<MovieVideosModel> movieVideosList;
 
   MovieVideosSuccess(
-    this.movieVideosModel,
+    this.movieVideosList,
   );
 }
 
