@@ -70,60 +70,60 @@ class MovieCastList extends StatelessWidget {
 
     return EscapeParentPadding(
       height: 150,
-      child: ListView.builder(
+      child: ListView.separated(
         itemCount: cast.length,
+        physics: const BouncingScrollPhysics(),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           final actor = cast[index];
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: Column(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
-                  child: CachedNetworkImage(
-                    imageUrl: actor.profilePath,
+          return Column(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: CachedNetworkImage(
+                  imageUrl: actor.profilePath,
+                  height: 90,
+                  width: 90,
+                  fit: BoxFit.cover,
+                  errorWidget: (_, __, ___) => Container(
                     height: 90,
                     width: 90,
-                    fit: BoxFit.cover,
-                    errorWidget: (_, __, ___) => Container(
-                      height: 90,
-                      width: 90,
-                      decoration: BoxDecoration(
-                        color: AppColors.kFillColor,
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: const Icon(Icons.person,
-                          size: 50, color: Colors.white70),
+                    decoration: BoxDecoration(
+                      color: AppColors.kFillColor,
+                      borderRadius: BorderRadius.circular(12),
                     ),
+                    child: const Icon(Icons.person,
+                        size: 50, color: Colors.white70),
                   ),
                 ),
-                const SizedBox(height: 6),
-                SizedBox(
-                  width: 90,
-                  child: Text(
-                    actor.name,
-                    textAlign: TextAlign.center,
-                    style: Styles.textStyle16
-                        .copyWith(fontWeight: FontWeight.bold),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
+              ),
+              const SizedBox(height: 6),
+              SizedBox(
+                width: 90,
+                child: Text(
+                  actor.name,
+                  textAlign: TextAlign.center,
+                  style:
+                      Styles.textStyle16.copyWith(fontWeight: FontWeight.bold),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
-                SizedBox(
-                  width: 90,
-                  child: Text(
-                    actor.character,
-                    textAlign: TextAlign.center,
-                    style: Styles.textStyle14.copyWith(color: Colors.grey),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
+              ),
+              SizedBox(
+                width: 90,
+                child: Text(
+                  actor.character,
+                  textAlign: TextAlign.center,
+                  style: Styles.textStyle14.copyWith(color: Colors.grey),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
-              ],
-            ),
+              ),
+            ],
           );
         },
+        separatorBuilder: (context, index) => const SizedBox(width: 8),
       ),
     );
   }
