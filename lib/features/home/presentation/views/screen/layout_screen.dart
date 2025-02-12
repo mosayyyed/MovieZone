@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:movie_app/core/themes/app_colors.dart';
 
 import '../../../../../core/themes/app_assets.dart';
+import '../../../../../core/utils/service_locator.dart';
+import '../../../../explore/data/repositories/search_repo/search_movies_repo_impl.dart';
+import '../../../../explore/presentation/controller/cast/search_cubit.dart';
 import '../../../../explore/presentation/views/screen/explore_screen.dart';
 import '../../../../explore/presentation/views/widgets/explore/explore_app_bar.dart';
 import 'home_screen.dart';
@@ -87,7 +91,14 @@ class _LayoutScreenState extends State<LayoutScreen> {
         index: _SelectedTab.values.indexOf(_selectedTab),
         children: [
           HomeScreen(),
-          ExploreScreen(),
+          MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                  create: (context) =>
+                      SearchMoiveCubit(getIt.get<SearchMoviesRepoImpl>())),
+            ],
+            child: ExploreScreen(),
+          ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(

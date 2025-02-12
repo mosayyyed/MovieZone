@@ -26,8 +26,12 @@ class MovieModel {
       id: json['id'] ?? 0,
       title: json['title'] ?? 'Unknown Title',
       originalTitle: json['original_title'] ?? 'Unknown Original Title',
-      posterPath: kFullImageUrl + json['poster_path'],
-      backdropPath: kFullImageUrl + json['backdrop_path'],
+      posterPath: json['poster_path'] != null
+          ? '$kFullImageUrl${json['poster_path']}'
+          : '',
+      backdropPath: json['backdrop_path'] != null
+          ? '$kFullImageUrl${json['backdrop_path']}'
+          : '',
       voteAverage: (json['vote_average'] ?? 0).toDouble(),
       voteCount: json['vote_count'] ?? 0,
       genreIds: List<int>.from(json['genre_ids'] ?? []),

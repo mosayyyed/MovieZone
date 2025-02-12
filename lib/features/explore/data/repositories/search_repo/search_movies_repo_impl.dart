@@ -16,10 +16,11 @@ class SearchMoviesRepoImpl extends SearchMoviesRepo {
       {required String q}) async {
     try {
       final response = await _apiService.get(
-        endpoint: "search/movie",
+        endpoint: "/search/movie",
         queryParameters: {
           "api_key": kApiKey,
           "query": q,
+          "include_adult": false,
           "language": "ar",
         },
       );

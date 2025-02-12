@@ -145,13 +145,12 @@ abstract class AppRoutes {
         path: kSearchRoute,
         builder: (context, state) => MultiBlocProvider(
           providers: [
+            BlocProvider(
+                create: (context) =>
+                    SearchMoiveCubit(getIt.get<SearchMoviesRepoImpl>())),
             BlocProvider.value(value: GenresCubit(getIt.get<MovieRepoImpl>())),
             BlocProvider.value(
                 value: TrendingCubit(getIt.get<MovieRepoImpl>())),
-            BlocProvider(
-              create: (context) =>
-                  SearchMoiveCubit(getIt.get<SearchMoviesRepoImpl>()),
-            ),
           ],
           child: ExploreScreen(),
         ),
