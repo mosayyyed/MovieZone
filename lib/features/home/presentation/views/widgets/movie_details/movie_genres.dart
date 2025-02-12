@@ -24,7 +24,7 @@ class MovieGenres extends StatelessWidget {
           ),
           child: Text(
             genre.name,
-            style: Styles.textStyle14.copyWith(fontWeight: FontWeight.w600),
+            style: Styles.textStyle12.copyWith(fontWeight: FontWeight.w600),
           ),
         );
       }).toList(),
