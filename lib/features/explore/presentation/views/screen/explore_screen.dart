@@ -5,9 +5,9 @@ import 'package:flutter_svg/svg.dart';
 import '../../../../../core/themes/app_assets.dart';
 import '../../../../../core/themes/app_colors.dart';
 import '../../../../../core/utils/constants.dart';
-import '../../controller/genres/genres_cubit.dart';
-import '../../controller/trending/trending_cubit.dart';
-import '../widgets/movie_card.dart';
+import '../../../../home/presentation/controller/genres/genres_cubit.dart';
+import '../../../../home/presentation/controller/trending/trending_cubit.dart';
+import '../../../../home/presentation/views/widgets/movie_card.dart';
 
 class ExploreScreen extends StatelessWidget {
   const ExploreScreen({super.key});

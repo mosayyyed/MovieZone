@@ -3,7 +3,6 @@ import 'package:go_router/go_router.dart';
 import 'package:movie_app/features/auth/presentation/controller/auth/auth_cubit.dart';
 import 'package:movie_app/features/auth/presentation/controller/login/login_cubit.dart';
 import 'package:movie_app/features/auth/presentation/controller/signup/signup_cubit.dart';
-import 'package:movie_app/features/home/presentation/views/screen/explore_screen.dart';
 import 'package:movie_app/features/home/presentation/views/screen/layout_screen.dart';
 import 'package:movie_app/features/onboarding/presentation/views/onboarding_screen.dart';
 
@@ -11,6 +10,9 @@ import '../../features/auth/data/repositories/auth_repo_impl.dart';
 import '../../features/auth/presentation/views/email_verificationScreen.dart';
 import '../../features/auth/presentation/views/login_screen.dart';
 import '../../features/auth/presentation/views/signup_screen.dart';
+import '../../features/explore/data/repositories/search_repo/search_movies_repo_impl.dart';
+import '../../features/explore/presentation/controller/cast/search_cubit.dart';
+import '../../features/explore/presentation/views/screen/explore_screen.dart';
 import '../../features/home/data/repositories/movie_details_repo/movie_details_repo_impl.dart';
 import '../../features/home/data/repositories/movie_repo/movie_repo_impl.dart';
 import '../../features/home/presentation/controller/MovieVideos/movie_videos_cubit.dart';
@@ -146,6 +148,10 @@ abstract class AppRoutes {
             BlocProvider.value(value: GenresCubit(getIt.get<MovieRepoImpl>())),
             BlocProvider.value(
                 value: TrendingCubit(getIt.get<MovieRepoImpl>())),
+            BlocProvider(
+              create: (context) =>
+                  SearchMoiveCubit(getIt.get<SearchMoviesRepoImpl>()),
+            ),
           ],
           child: ExploreScreen(),
         ),

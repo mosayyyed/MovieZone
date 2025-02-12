@@ -3,8 +3,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:movie_app/core/themes/app_colors.dart';
 
 import '../../../../../core/themes/app_assets.dart';
-import '../widgets/explore/explore_app_bar.dart';
-import 'explore_screen.dart';
+import '../../../../explore/presentation/views/screen/explore_screen.dart';
+import '../../../../explore/presentation/views/widgets/explore/explore_app_bar.dart';
 import 'home_screen.dart';
 
 class LayoutScreen extends StatefulWidget {
