@@ -35,6 +35,7 @@ class MovieDetailsContent extends StatelessWidget {
             ),
           const SizedBox(height: 8),
           MovieGenres(movie: movie),
+          const SizedBox(height: 8),
           MovieSectionTitle(title: "الوصف", movie: movie),
           movie.overview.isNotEmpty
               ? ReadMoreText(
@@ -66,11 +67,13 @@ class MovieDetailsContent extends StatelessWidget {
                     ),
                   ),
                 ),
+          const SizedBox(height: 8),
           MovieSectionTitle(title: "تريلرات"),
           MovieVideosSection(),
           const SizedBox(height: 8),
           MovieSectionTitle(title: "طاقم العمل"),
           MovieCastList(),
+          const SizedBox(height: 8),
           ProductionCompaniesSection(movie: movie),
         ],
       ),
