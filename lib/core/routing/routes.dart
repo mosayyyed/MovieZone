@@ -8,6 +8,7 @@ import 'package:movie_app/features/home/presentation/views/screen/layout_screen.
 import 'package:movie_app/features/onboarding/presentation/views/onboarding_screen.dart';
 
 import '../../features/auth/data/repositories/auth_repo_impl.dart';
+import '../../features/auth/presentation/views/email_verificationScreen.dart';
 import '../../features/auth/presentation/views/login_screen.dart';
 import '../../features/auth/presentation/views/signup_screen.dart';
 import '../../features/home/data/repositories/movie_details_repo/movie_details_repo_impl.dart';
@@ -48,8 +49,8 @@ abstract class AppRoutes {
         path: kSignupRoute,
         builder: (context, state) => MultiBlocProvider(
           providers: [
-            BlocProvider(
-              create: (context) => AuthCubit(getIt.get<AuthRepoImpl>()),
+            BlocProvider.value(
+              value: AuthCubit(getIt.get<AuthRepoImpl>()),
             ),
             BlocProvider(
               create: (context) => SignupCubit(getIt.get<AuthRepoImpl>()),
@@ -74,8 +75,9 @@ abstract class AppRoutes {
       ),
       GoRoute(
         path: kEmailVerificationRoute,
-        builder: (context, state) => BlocProvider(
-          create: (context) => AuthCubit(getIt.get<AuthRepoImpl>()),
+        builder: (context, state) => BlocProvider.value(
+          value: AuthCubit(getIt.get<AuthRepoImpl>()),
+          child: const EmailVerificationScreen(),
         ),
       ),
       GoRoute(
