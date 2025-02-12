@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../../../../core/themes/app_styles.dart';
 import '../../../../data/models/movie_details_model.dart';
 
@@ -10,27 +9,29 @@ class MovieTitleRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: [
-        Text(
-          movie.title,
-          style: Styles.textStyle22.copyWith(
-            fontWeight: FontWeight.bold,
-            fontSize: 26,
+    return RichText(
+      text: TextSpan(
+        style: Styles.textStyle22
+            .copyWith(fontWeight: FontWeight.bold, fontSize: 26),
+        children: [
+          TextSpan(
+            text: movie.title,
+            style: Styles.textStyle22.copyWith(
+              fontWeight: FontWeight.bold,
+              fontSize: 26,
+              fontFamily: 'Cairo',
+            ),
           ),
-          overflow: TextOverflow.ellipsis,
-          maxLines: 1,
-        ),
-        const SizedBox(width: 8),
-        Text(
-          '(${DateTime.parse(movie.releaseDate).year.toString()})',
-          style: Styles.textStyle22.copyWith(
-            fontWeight: FontWeight.w600,
-            fontSize: 16,
+          TextSpan(
+            text: ' (${DateTime.parse(movie.releaseDate).year.toString()})',
+            style: Styles.textStyle22.copyWith(
+              fontWeight: FontWeight.w600,
+              fontSize: 16,
+              fontFamily: 'Cairo',
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
