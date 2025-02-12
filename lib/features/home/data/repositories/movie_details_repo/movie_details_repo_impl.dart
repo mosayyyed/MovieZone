@@ -63,7 +63,6 @@ class MovieDetailsRepoImpl extends MovieDetailsRepo {
 
       final cast = (response.data['cast'] as List)
           .map((cast) => MovieCastModel.fromJson(cast))
-          .where((cast) => cast.profilePath != null)
           .toList();
 
       return Right(cast);

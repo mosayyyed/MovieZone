@@ -41,28 +41,6 @@ class _SplashScreenState extends State<SplashScreen> {
                 BlendMode.srcIn,
               ),
             ),
-            // const SizedBox(height: 20),
-            // Text(
-            //   'Movieisme',
-            //   style: TextStyle(
-            //     fontSize: 32,
-            //     fontWeight: FontWeight.bold,
-            //     color: Colors.white,
-            //   ),
-            // ),
-            // const SizedBox(height: 30),
-            // Padding(
-            //   padding: const EdgeInsets.all(16.0),
-            //   child: Text(
-            //     'Your Movie in your Hands',
-            //     style: TextStyle(
-            //       fontSize: 18,
-            //       fontWeight: FontWeight.normal,
-            //       color: Colors.white,
-            //     ),
-            //     textAlign: TextAlign.center,
-            //   ),
-            // ),
           ],
         ),
       ),

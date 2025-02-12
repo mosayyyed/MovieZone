@@ -5,7 +5,6 @@ import 'package:flutter_svg/svg.dart';
 import '../../../../../../core/themes/app_assets.dart';
 import '../../../../../../core/utils/showVideoDiolog.dart';
 import '../../../controller/MovieVideos/movie_videos_cubit.dart';
-import '../../../controller/trending/trending_cubit.dart';
 
 class BannerActionButtons extends StatelessWidget {
   final int movieId;
@@ -14,8 +13,6 @@ class BannerActionButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final movieVideosCubit = context.watch<MovieVideosCubit>();
-    final trendingMovieCubit = context.watch<TrendingCubit>();
-    final trendingMovieModel = trendingMovieCubit.trendingMoviesByDay;
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
