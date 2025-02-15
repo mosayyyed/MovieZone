@@ -20,7 +20,7 @@ class SearchMoviesRepoImpl extends SearchMoviesRepo {
         queryParameters: {
           "api_key": kApiKey,
           "query": q,
-          "include_adult": false,
+          "include_adult": "false",
           "language": "ar",
         },
       );
