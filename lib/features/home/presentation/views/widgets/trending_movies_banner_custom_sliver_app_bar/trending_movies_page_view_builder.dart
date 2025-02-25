@@ -25,32 +25,94 @@ class _TrendingMoviesPageViewBuilderState
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _precacheAllImages();
-    });
+    Future.microtask(() => _precacheInitialImages());
+
+    // تحسين أداء التخزين المؤقت للصور
+    PaintingBinding.instance.imageCache.maximumSize = 500;
+    PaintingBinding.instance.imageCache.maximumSizeBytes =
+        1024 * 1024 * 50; // تقليل حجم الكاش إلى 50MB
   }
 
-  void _precacheAllImages() {
-    for (var movie in widget.movies) {
-      precacheImage(CachedNetworkImageProvider(movie.backdropPath), context);
+  @override
+  void dispose() {
+    widget.controller.dispose();
+    super.dispose();
+  }
+
+  /// تحميل أول 3 صور مسبقًا عند تشغيل التطبيق
+  void _precacheInitialImages() {
+    for (int i = 0; i < widget.movies.length && i < 3; i++) {
+      _precacheImage(widget.movies[i].backdropPath);
+    }
+  }
+
+  /// تحميل صورة واحدة فقط مسبقًا
+  void _precacheImage(String imageUrl) {
+    if (imageUrl.isNotEmpty) {
+      final provider = CachedNetworkImageProvider(imageUrl);
+      precacheImage(provider, context);
+    }
+  }
+
+  /// تحميل الصورة التالية مسبقًا عند التنقل بين الصفحات
+  void _precacheNextImage(int index) {
+    if (index + 1 < widget.movies.length) {
+      _precacheImage(widget.movies[index + 1].backdropPath);
+    }
+  }
+
+  @override
+  void didUpdateWidget(covariant TrendingMoviesPageViewBuilder oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.movies != widget.movies) {
+      _precacheInitialImages();
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return PageView.builder(
-      controller: widget.controller,
-      itemCount: widget.movies.length,
-      onPageChanged: widget.onPageChanged,
-      itemBuilder: (context, index) {
-        final movie = widget.movies[index];
-        return CachedNetworkImage(
-          useOldImageOnUrlChange: true,
-          imageUrl: movie.backdropPath,
-          errorWidget: (_, __, ___) => const Icon(Icons.error, size: 50),
-          fit: BoxFit.cover,
-        );
+    if (widget.movies.isEmpty) {
+      return const Center(
+        child: Text(
+          "لا توجد أفلام",
+          style: TextStyle(fontSize: 18, color: Colors.white),
+        ),
+      );
+    }
+
+    return NotificationListener<ScrollNotification>(
+      onNotification: (ScrollNotification notification) {
+        if (notification is ScrollEndNotification) {
+          final index = widget.controller.page?.round() ?? 0;
+          _precacheNextImage(index);
+        }
+        return false;
       },
+      child: PageView.builder(
+        controller: widget.controller,
+        physics: const BouncingScrollPhysics(),
+        itemCount: widget.movies.length,
+        onPageChanged: (index) {
+          widget.onPageChanged(index);
+          _precacheNextImage(index);
+        },
+        itemBuilder: (context, index) {
+          final movie = widget.movies[index];
+          return CachedNetworkImage(
+            useOldImageOnUrlChange: true,
+            fadeInDuration: Duration.zero,
+            imageUrl: movie.backdropPath,
+            fit: BoxFit.cover,
+            errorWidget: (_, __, ___) => const Center(
+              child: Icon(
+                Icons.error,
+                color: Colors.white,
+                size: 40,
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }
