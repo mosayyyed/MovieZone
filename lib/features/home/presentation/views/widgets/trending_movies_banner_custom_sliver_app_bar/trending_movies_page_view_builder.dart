@@ -27,20 +27,17 @@ class _TrendingMoviesPageViewBuilderState
     super.initState();
     Future.microtask(() => _precacheInitialImages());
 
-    // تحسين أداء التخزين المؤقت للصور
     PaintingBinding.instance.imageCache.maximumSize = 500;
     PaintingBinding.instance.imageCache.maximumSizeBytes =
-        1024 * 1024 * 50; // تقليل حجم الكاش إلى 50MB
+        1024 * 1024 * 50;
   }
 
-  /// تحميل أول 3 صور مسبقًا عند تشغيل التطبيق
   void _precacheInitialImages() {
     for (int i = 0; i < widget.movies.length && i < 3; i++) {
       _precacheImage(widget.movies[i].backdropPath);
     }
   }
 
-  /// تحميل صورة واحدة فقط مسبقًا
   void _precacheImage(String imageUrl) {
     if (imageUrl.isNotEmpty) {
       final provider = CachedNetworkImageProvider(imageUrl);
@@ -48,7 +45,6 @@ class _TrendingMoviesPageViewBuilderState
     }
   }
 
-  /// تحميل الصورة التالية مسبقًا عند التنقل بين الصفحات
   void _precacheNextImage(int index) {
     if (index + 1 < widget.movies.length) {
       _precacheImage(widget.movies[index + 1].backdropPath);
