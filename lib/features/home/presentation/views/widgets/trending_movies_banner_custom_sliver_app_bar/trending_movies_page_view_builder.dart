@@ -33,12 +33,6 @@ class _TrendingMoviesPageViewBuilderState
         1024 * 1024 * 50; // تقليل حجم الكاش إلى 50MB
   }
 
-  @override
-  void dispose() {
-    widget.controller.dispose();
-    super.dispose();
-  }
-
   /// تحميل أول 3 صور مسبقًا عند تشغيل التطبيق
   void _precacheInitialImages() {
     for (int i = 0; i < widget.movies.length && i < 3; i++) {
