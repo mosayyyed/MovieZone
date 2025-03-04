@@ -28,8 +28,7 @@ class _TrendingMoviesPageViewBuilderState
     Future.microtask(() => _precacheInitialImages());
 
     PaintingBinding.instance.imageCache.maximumSize = 500;
-    PaintingBinding.instance.imageCache.maximumSizeBytes =
-        1024 * 1024 * 50;
+    PaintingBinding.instance.imageCache.maximumSizeBytes = 1024 * 1024 * 50;
   }
 
   void _precacheInitialImages() {
