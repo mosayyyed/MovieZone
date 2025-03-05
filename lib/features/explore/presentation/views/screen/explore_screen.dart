@@ -66,7 +66,7 @@ class ExploreScreen extends StatelessWidget {
                     physics: const BouncingScrollPhysics(),
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
+                      crossAxisCount: 2,
                       childAspectRatio: 0.6,
                       mainAxisExtent: 270,
                     ),
