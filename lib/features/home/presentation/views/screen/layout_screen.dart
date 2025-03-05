@@ -99,29 +99,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
             ],
             child: ExploreScreen(),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                Container(
-                    width: double.infinity, height: 50, color: Colors.green),
-
-                // This child ignores parent padding.
-                SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  height: 50,
-                  child: OverflowBox(
-                      maxWidth: MediaQuery.of(context).size.width,
-                      child: Container(
-                          width: double.infinity,
-                          height: 50,
-                          color: Colors.red)),
-                ),
-                Container(
-                    width: double.infinity, height: 50, color: Colors.blue),
-              ],
-            ),
-          ),
+          Center(child: Text('المفضلة')),
           Center(child: Text('حسابي')),
         ],
       ),

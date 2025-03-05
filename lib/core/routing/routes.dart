@@ -137,22 +137,11 @@ abstract class AppRoutes {
               create: (context) =>
                   MovieVideosCubit(getIt.get<MovieDetailsRepoImpl>()),
             ),
-          ],
-          child: LayoutScreen(),
-        ),
-      ),
-      GoRoute(
-        path: kSearchRoute,
-        builder: (context, state) => MultiBlocProvider(
-          providers: [
             BlocProvider(
                 create: (context) =>
                     SearchMoiveCubit(getIt.get<SearchMoviesRepoImpl>())),
-            BlocProvider.value(value: GenresCubit(getIt.get<MovieRepoImpl>())),
-            BlocProvider.value(
-                value: TrendingCubit(getIt.get<MovieRepoImpl>())),
           ],
-          child: ExploreScreen(),
+          child: LayoutScreen(),
         ),
       ),
     ],
