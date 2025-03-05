@@ -112,7 +112,8 @@ class LoginForm extends StatelessWidget {
       GoRouter.of(context).go(AppRoutes.kHomeRoute);
     } else {
       GoRouter.of(context).push(
-          '${AppRoutes.kEmailVerificationRoute}?email=${BlocProvider.of<LoginCubit>(context).emailController.text}');
+          '${AppRoutes.kEmailVerificationRoute}?email=${BlocProvider.of<LoginCubit>(context).emailController.text}',
+          extra: context.read<AuthCubit>());
     }
   }
 }

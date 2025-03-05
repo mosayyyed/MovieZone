@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/core/component/widgets/custom_progress_h_u_d.dart';
+import 'package:movie_app/features/auth/presentation/controller/auth/auth_cubit.dart';
 
 import '../../../../../../core/component/widgets/custom_text_button.dart';
 import '../../../../../../core/component/widgets/my_single_child_scroll_view.dart';
@@ -39,7 +41,8 @@ class LoginBody extends StatelessWidget {
               text: S.of(context).loginDontHaveAccText,
               highlightText: S.of(context).loginDontHaveAccHighlightText,
               onPressed: () {
-                GoRouter.of(context).push(AppRoutes.kSignupRoute);
+                GoRouter.of(context).push(AppRoutes.kSignupRoute,
+                    extra: context.read<AuthCubit>());
               },
             ),
           ],

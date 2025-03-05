@@ -52,7 +52,7 @@ abstract class AppRoutes {
         builder: (context, state) => MultiBlocProvider(
           providers: [
             BlocProvider.value(
-              value: AuthCubit(getIt.get<AuthRepoImpl>()),
+              value: state.extra as AuthCubit,
             ),
             BlocProvider(
               create: (context) => SignupCubit(getIt.get<AuthRepoImpl>()),
@@ -78,7 +78,7 @@ abstract class AppRoutes {
       GoRoute(
         path: kEmailVerificationRoute,
         builder: (context, state) => BlocProvider.value(
-          value: AuthCubit(getIt.get<AuthRepoImpl>()),
+          value: state.extra as AuthCubit,
           child: const EmailVerificationScreen(),
         ),
       ),
