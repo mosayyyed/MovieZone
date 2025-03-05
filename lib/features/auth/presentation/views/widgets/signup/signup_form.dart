@@ -39,7 +39,8 @@ class SignupForm extends StatelessWidget {
         } else if (state is SignupSuccess) {
           progress?.dismiss();
           GoRouter.of(context).push(
-              '${AppRoutes.kEmailVerificationRoute}?email=${signupCubit.emailController.text}');
+              '${AppRoutes.kEmailVerificationRoute}?email=${signupCubit.emailController.text}',
+              extra: context.read<AuthCubit>());
         }
       },
       builder: (context, state) {
