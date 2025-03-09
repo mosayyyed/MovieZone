@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:movie_app/features/home/presentation/controller/MovieVideos/movie_videos_cubit.dart';
 
 import '../../../../../core/routing/routes.dart';
 import '../../../../../core/themes/app_colors.dart';
@@ -28,7 +30,7 @@ class MovieCard extends StatelessWidget {
       borderRadius: BorderRadius.circular(20),
       onTap: () => GoRouter.of(context).push(
         AppRoutes.kMovieDetailsRoute.replaceFirst(":id", movie.id.toString()),
-        extra: movie,
+        extra: context.read<MovieVideosCubit>(),
       ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
