@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/utils/fake_loading_data.dart';
 import '../../../data/models/movie_model.dart';
 import '../../../data/repositories/movie_repo/movie_repo.dart';
 
@@ -13,7 +14,7 @@ class TrendingCubit extends Cubit<TrendingState> {
   TrendingCubit(this.trendingMovieRepo) : super(TrendingInitial());
 
   Future<List<MovieModel>> fetchTrendingMoviesByDay() async {
-    emit(TrendingLoading());
+    emit(TrendingLoading(fakeMoviesLoadingData()));
     final response = await trendingMovieRepo.fetchTrendingMoviesByDay();
     response.fold(
       (failure) {
@@ -22,14 +23,14 @@ class TrendingCubit extends Cubit<TrendingState> {
       (movies) {
         trendingMoviesByDay.clear();
         trendingMoviesByDay.addAll(movies.take(10));
-        emit(TrendingSuccess(trendingMoviesByDay));
+        emit(TrendingSuccess(movies));
       },
     );
     return trendingMoviesByDay;
   }
 
   Future<List<MovieModel>> fetchTrendingMoviesByWeek() async {
-    emit(TrendingLoading());
+    emit(TrendingLoading(fakeMoviesLoadingData()));
     final response = await trendingMovieRepo.fetchTrendingMoviesByWeek();
     response.fold(
       (failure) {
@@ -38,7 +39,7 @@ class TrendingCubit extends Cubit<TrendingState> {
       (movies) {
         trendingMoviesByWeek.clear();
         trendingMoviesByWeek.addAll(movies);
-        emit(TrendingSuccess(trendingMoviesByWeek));
+        emit(TrendingSuccess(movies));
       },
     );
     return trendingMoviesByWeek;
