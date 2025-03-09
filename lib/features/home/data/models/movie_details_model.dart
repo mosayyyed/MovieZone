@@ -1,11 +1,13 @@
 import 'package:movie_app/core/utils/constants.dart';
 
+import 'genre_model.dart';
+
 class MovieDetailsModel {
   final int id;
   final String title;
   final String originalTitle;
   final String tagLine;
-  final List<Genres> genres;
+  final List<GenreModel> genres;
   final String overview;
   final String posterPath;
   final String backdropPath;
@@ -15,7 +17,7 @@ class MovieDetailsModel {
   final String releaseDate;
   final int budget;
   final int revenue;
-  final List<ProductionCompanies> productionCompanies;
+  final List<ProductionCompaniesModel> productionCompanies;
 
   MovieDetailsModel({
     required this.id,
@@ -41,9 +43,10 @@ class MovieDetailsModel {
       title: json['title'] ?? 'غير متوفر',
       originalTitle: json['original_title'] ?? 'غير متوفر',
       tagLine: json['tagline'] ?? '',
-      genres:
-          (json['genres'] as List?)?.map((x) => Genres.fromJson(x)).toList() ??
-              [],
+      genres: (json['genres'] as List?)
+              ?.map((x) => GenreModel.fromJson(x))
+              .toList() ??
+          [],
       overview: json['overview'] ?? 'لا يوجد وصف متاح',
       posterPath: json['poster_path'] != null
           ? kFullImageUrl + json['poster_path']
@@ -56,7 +59,7 @@ class MovieDetailsModel {
       popularity: (json['popularity'] ?? 0).toDouble(),
       releaseDate: json['release_date'] ?? 'غير متوفر',
       productionCompanies: (json['production_companies'] as List?)
-              ?.map((x) => ProductionCompanies.fromJson(x))
+              ?.map((x) => ProductionCompaniesModel.fromJson(x))
               .where((company) => company.logoPath.isNotEmpty)
               .toList() ??
           [],
@@ -66,40 +69,26 @@ class MovieDetailsModel {
   }
 }
 
-class ProductionCompanies {
+class ProductionCompaniesModel {
   final int id;
   final String logoPath;
   final String name;
   final String originCountry;
 
-  ProductionCompanies({
+  ProductionCompaniesModel({
     required this.id,
     required this.logoPath,
     required this.name,
     required this.originCountry,
   });
 
-  factory ProductionCompanies.fromJson(Map<String, dynamic> json) {
-    return ProductionCompanies(
+  factory ProductionCompaniesModel.fromJson(Map<String, dynamic> json) {
+    return ProductionCompaniesModel(
       id: json['id'] ?? 0,
       logoPath:
           json['logo_path'] != null ? kFullImageUrl + json['logo_path'] : '',
       name: json['name'] ?? 'غير متوفر',
       originCountry: json['origin_country'] ?? 'غير معروف',
-    );
-  }
-}
-
-class Genres {
-  final int id;
-  final String name;
-
-  Genres({required this.id, required this.name});
-
-  factory Genres.fromJson(Map<String, dynamic> json) {
-    return Genres(
-      id: json['id'] ?? 0,
-      name: json['name'] ?? 'غير معروف',
     );
   }
 }

@@ -68,42 +68,47 @@ class _TrendingMoviesBannerState extends State<TrendingMoviesBanner> {
     return BlocBuilder<TrendingCubit, TrendingState>(
       builder: (context, state) {
         if (state is TrendingError) {
-          return const Center(child: Text("لا توجد بيانات لعرضها"));
-        }
-        if (state is TrendingLoading) {
+          return Center(child: Text(state.message));
+        } else if (state is TrendingLoading) {
           currentIndex = 0;
           return SkeletonizerLoadingStack();
-        }
-        return GestureDetector(
-          onTap: () {
-            GoRouter.of(context).push(AppRoutes.kMovieDetailsRoute.replaceFirst(
-                ":id", widget.trendingMovies[currentIndex].id.toString()));
-          },
-          onHorizontalDragEnd: (details) {
-            horizontalDrag(details);
-          },
-          child: SizedBox(
-            height: 400,
-            child: Stack(
-              children: [
-                TrendingMoviesPageViewBuilder(
-                    movies: widget.trendingMovies,
-                    controller: _pageController,
-                    onPageChanged: (index) {
-                      setState(() {
-                        currentIndex = index;
-                      });
-                    }),
-                const GradientOverlay(),
-                MovieDetailsBannerSection(
-                  movie: widget.trendingMovies[currentIndex],
-                  pageController: _pageController,
-                  totalMovies: widget.trendingMovies.length,
-                ),
-              ],
+        } else if (state is TrendingSuccess) {
+          if (widget.trendingMovies.isEmpty) {
+            return const Center(child: Text("لا توجد بيانات لعرضها الآن"));
+          }
+          return GestureDetector(
+            onTap: () {
+              GoRouter.of(context).push(AppRoutes.kMovieDetailsRoute
+                  .replaceFirst(":id",
+                      widget.trendingMovies[currentIndex].id.toString()));
+            },
+            onHorizontalDragEnd: (details) {
+              horizontalDrag(details);
+            },
+            child: SizedBox(
+              height: 400,
+              child: Stack(
+                children: [
+                  TrendingMoviesPageViewBuilder(
+                      movies: widget.trendingMovies,
+                      controller: _pageController,
+                      onPageChanged: (index) {
+                        setState(() {
+                          currentIndex = index;
+                        });
+                      }),
+                  const GradientOverlay(),
+                  MovieDetailsBannerSection(
+                    movie: widget.trendingMovies[currentIndex],
+                    pageController: _pageController,
+                    totalMovies: widget.trendingMovies.length,
+                  ),
+                ],
+              ),
             ),
-          ),
-        );
+          );
+        }
+        return const SizedBox();
       },
     );
   }

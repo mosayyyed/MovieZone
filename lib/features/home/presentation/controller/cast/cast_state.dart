@@ -4,13 +4,17 @@ sealed class MovieCastState {}
 
 final class MovieCastInitial extends MovieCastState {}
 
-final class MovieCastLoading extends MovieCastState {}
+final class MovieCastLoading extends MovieCastState {
+  final List<MovieCastModel> fakeCastList;
+
+  MovieCastLoading(this.fakeCastList);
+}
 
 final class MovieCastSuccess extends MovieCastState {
-  final List<MovieCastModel> movieCastModel;
+  final List<MovieCastModel> movieCastList;
 
   MovieCastSuccess(
-    this.movieCastModel,
+    this.movieCastList,
   );
 }
 

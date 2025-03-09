@@ -4,7 +4,11 @@ sealed class TrendingState {}
 
 final class TrendingInitial extends TrendingState {}
 
-final class TrendingLoading extends TrendingState {}
+final class TrendingLoading extends TrendingState {
+  final List<MovieModel> fakeTrendingMovies;
+
+  TrendingLoading(this.fakeTrendingMovies);
+}
 
 final class TrendingSuccess extends TrendingState {
   final List<MovieModel> trendingMovies;

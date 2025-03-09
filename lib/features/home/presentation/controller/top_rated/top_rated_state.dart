@@ -4,10 +4,13 @@ sealed class TopRatedState {}
 
 final class TopRatedInitial extends TopRatedState {}
 
-final class TopRatedLoading extends TopRatedState {}
+final class TopRatedLoading extends TopRatedState {
+  final List<MovieModel> fakeTopRatedMovies;
+
+  TopRatedLoading(this.fakeTopRatedMovies);
+}
 
 final class TopRatedSuccess extends TopRatedState {
-
   final List<MovieModel> topRatedMovies;
 
   TopRatedSuccess(this.topRatedMovies);

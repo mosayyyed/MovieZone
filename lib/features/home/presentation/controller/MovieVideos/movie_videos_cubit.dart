@@ -12,7 +12,7 @@ class MovieVideosCubit extends Cubit<MovieVideosState> {
   MovieVideosCubit(this.movieDetailsRepo) : super(MovieVideosInitial());
 
   Future<void> fetchMovieVideos(int id) async {
-    emit(MovieVideosLoading());
+    emit(MovieVideosLoading(fakeVideos()));
     final response = await movieDetailsRepo.fetchMovieVideos(id: id);
     response.fold(
       (failure) => emit(MovieVideosError(failure.message)),
@@ -22,5 +22,16 @@ class MovieVideosCubit extends Cubit<MovieVideosState> {
         emit(MovieVideosSuccess(videos));
       },
     );
+  }
+
+  List<MovieVideosModel> fakeVideos() {
+    return [
+      MovieVideosModel(
+        key: "key",
+        name: "Video Name",
+        official: false,
+        type: "Trailer",
+      ),
+    ];
   }
 }

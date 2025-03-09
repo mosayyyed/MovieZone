@@ -12,7 +12,6 @@ import '../../features/auth/presentation/views/login_screen.dart';
 import '../../features/auth/presentation/views/signup_screen.dart';
 import '../../features/explore/data/repositories/search_repo/search_movies_repo_impl.dart';
 import '../../features/explore/presentation/controller/cast/search_cubit.dart';
-import '../../features/explore/presentation/views/screen/explore_screen.dart';
 import '../../features/home/data/repositories/movie_details_repo/movie_details_repo_impl.dart';
 import '../../features/home/data/repositories/movie_repo/movie_repo_impl.dart';
 import '../../features/home/presentation/controller/MovieVideos/movie_videos_cubit.dart';
@@ -87,7 +86,7 @@ abstract class AppRoutes {
         builder: (context, state) => MultiBlocProvider(
           providers: [
             BlocProvider.value(
-              value: MovieVideosCubit(getIt.get<MovieDetailsRepoImpl>())
+              value: state.extra as MovieVideosCubit
                 ..fetchMovieVideos(int.parse(state.pathParameters['id']!)),
             ),
             BlocProvider(

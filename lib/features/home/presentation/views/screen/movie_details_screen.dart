@@ -16,7 +16,7 @@ class MovieDetailsScreen extends StatelessWidget {
       body: BlocBuilder<MovieDetailsCubit, MovieDetailsState>(
         builder: (context, state) {
           if (state is MovieDetailsLoading) {
-            return const SkeletonScreen();
+            return const SkeletonMovieScreen();
           } else if (state is MovieDetailsError) {
             return const Center(child: Text("حدث خطأ في تحميل البيانات"));
           } else if (state is MovieDetailsSuccess) {
@@ -39,29 +39,87 @@ class MovieDetailsScreen extends StatelessWidget {
   }
 }
 
-class SkeletonScreen extends StatelessWidget {
-  const SkeletonScreen({super.key});
+class SkeletonMovieScreen extends StatelessWidget {
+  const SkeletonMovieScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Skeletonizer(
       enabled: true,
-      containersColor: Colors.black12,
-      child: ListView.builder(
-        itemCount: 6,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0),
+      containersColor: Colors.grey.shade300,
+      child: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
+        slivers: [
+          SliverToBoxAdapter(
             child: Container(
-              height: 20,
+              height: 250,
               width: double.infinity,
               decoration: BoxDecoration(
                 color: Colors.grey.shade300,
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20),
+                ),
               ),
             ),
-          );
-        },
+          ),
+          SliverPadding(
+            padding: const EdgeInsets.all(16),
+            sliver: SliverList(
+              delegate: SliverChildListDelegate(
+                [
+                  Container(
+                    height: 24,
+                    width: 200,
+                    margin: const EdgeInsets.only(bottom: 12),
+                    decoration: BoxDecoration(
+                      color: Colors.grey.shade300,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                  Row(
+                    children: List.generate(
+                      3,
+                      (index) => Container(
+                        height: 18,
+                        width: 60,
+                        margin: const EdgeInsets.only(right: 8),
+                        decoration: BoxDecoration(
+                          color: Colors.grey.shade300,
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  Column(
+                    children: List.generate(
+                      5,
+                      (index) => Container(
+                        height: 16,
+                        width: double.infinity,
+                        margin: const EdgeInsets.only(bottom: 8),
+                        decoration: BoxDecoration(
+                          color: Colors.grey.shade300,
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  Container(
+                    height: 45,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Colors.grey.shade300,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

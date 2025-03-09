@@ -4,7 +4,11 @@ sealed class PopularState {}
 
 final class PopularInitial extends PopularState {}
 
-final class PopularLoading extends PopularState {}
+final class PopularLoading extends PopularState {
+  final List<MovieModel> fakePopularMovies;
+
+  PopularLoading(this.fakePopularMovies);
+}
 
 final class PopularSuccess extends PopularState {
   final List<MovieModel> popularMovies;

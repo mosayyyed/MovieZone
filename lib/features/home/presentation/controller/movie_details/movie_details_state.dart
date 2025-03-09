@@ -4,14 +4,16 @@ sealed class MovieDetailsState {}
 
 final class MovieDetailsInitial extends MovieDetailsState {}
 
-final class MovieDetailsLoading extends MovieDetailsState {}
+final class MovieDetailsLoading extends MovieDetailsState {
+  final MovieDetailsModel fakeMovieDetailsModel;
+
+  MovieDetailsLoading(this.fakeMovieDetailsModel);
+}
 
 final class MovieDetailsSuccess extends MovieDetailsState {
   final MovieDetailsModel movieDetailsModel;
 
-  MovieDetailsSuccess(
-    this.movieDetailsModel,
-  );
+  MovieDetailsSuccess(this.movieDetailsModel);
 }
 
 final class MovieDetailsError extends MovieDetailsState {

@@ -28,6 +28,7 @@ class MovieCard extends StatelessWidget {
       borderRadius: BorderRadius.circular(20),
       onTap: () => GoRouter.of(context).push(
         AppRoutes.kMovieDetailsRoute.replaceFirst(":id", movie.id.toString()),
+        extra: movie,
       ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),

@@ -4,7 +4,11 @@ sealed class MovieVideosState {}
 
 final class MovieVideosInitial extends MovieVideosState {}
 
-final class MovieVideosLoading extends MovieVideosState {}
+final class MovieVideosLoading extends MovieVideosState {
+  final List<MovieVideosModel> fakeVideosList;
+
+  MovieVideosLoading(this.fakeVideosList);
+}
 
 final class MovieVideosSuccess extends MovieVideosState {
   final List<MovieVideosModel> movieVideosList;

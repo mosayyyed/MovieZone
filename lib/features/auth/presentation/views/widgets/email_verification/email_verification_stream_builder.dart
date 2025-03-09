@@ -68,6 +68,12 @@ class EmailVerificationStreamBuilderState
           backgroundColor: AppColors.kPrimaryColor,
           onPressed: () {
             authCubit.resendEmailVerification();
+            showTopSnackBar(
+              Overlay.of(context),
+              CustomSnackBar.success(
+                message: "تم إعادة إرسال البريد الإلكتروني",
+              ),
+            );
           },
         );
       },
