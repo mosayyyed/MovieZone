@@ -1,28 +1,27 @@
 import 'package:dio/dio.dart';
 
-import 'dio_factory.dart';
+import '../dio_factory.dart';
+import 'api_service.dart';
 
-class ApiService {
+class HttpApiService implements ApiService {
   late final Dio _dio;
 
-  static final ApiService _instance = ApiService._internal();
-
-  factory ApiService() => _instance;
-
-  ApiService._internal() {
+  HttpApiService() {
     _dio = DioFactory.createDio();
   }
 
+  @override
   Future<Response> get({
     required String endpoint,
-    required Map<String, dynamic>? queryParameters,
+    Map<String, dynamic>? queryParameters,
   }) {
     return _dio.get(endpoint, queryParameters: queryParameters);
   }
 
+  @override
   Future<Response> post({
     required String endpoint,
-    required Map<String, dynamic>? queryParameters,
+    Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? data,
     Options? options,
   }) {
@@ -30,9 +29,10 @@ class ApiService {
         queryParameters: queryParameters, options: options, data: data);
   }
 
+  @override
   Future<Response> put({
     required String endpoint,
-    required Map<String, dynamic>? queryParameters,
+    Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? data,
     Options? options,
   }) {
@@ -40,9 +40,10 @@ class ApiService {
         queryParameters: queryParameters, options: options, data: data);
   }
 
+  @override
   Future<Response> delete({
     required String endpoint,
-    required Map<String, dynamic>? queryParameters,
+    Map<String, dynamic>? queryParameters,
     Options? options,
   }) {
     return _dio.delete(endpoint,
