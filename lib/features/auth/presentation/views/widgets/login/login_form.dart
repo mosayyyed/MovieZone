@@ -6,11 +6,10 @@ import 'package:movie_app/features/auth/data/models/login_request_model.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
-import '../../../../../../core/component/widgets/custom_elevated_button.dart';
-import '../../../../../../core/component/widgets/custom_text_button.dart';
-import '../../../../../../core/component/widgets/custom_text_field.dart';
+import '../../../../../../core/ui/custom_elevated_button.dart';
+import '../../../../../../core/ui/custom_text_button.dart';
+import '../../../../../../core/ui/custom_text_field.dart';
 import '../../../../../../core/routing/routes.dart';
-import '../../../../../../core/themes/app_colors.dart';
 import '../../../../../../generated/l10n.dart';
 import '../../../controller/auth/auth_cubit.dart';
 import '../../../controller/login/login_cubit.dart';
@@ -78,8 +77,8 @@ class LoginForm extends StatelessWidget {
                   ),
                   CustomElevatedButton(
                     text: S.of(context).loginButton,
-                    textColor: AppColors.kSecondaryColor,
-                    backgroundColor: AppColors.kPrimaryColor,
+                    textColor: Theme.of(context).colorScheme.onPrimary,
+                    backgroundColor: Theme.of(context).colorScheme.primary,
                     onPressed: () {
                       if (loginCubit.formKey.currentState!.validate()) {
                         loginCubit.login(

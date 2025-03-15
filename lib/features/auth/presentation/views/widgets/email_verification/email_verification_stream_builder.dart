@@ -6,9 +6,8 @@ import 'package:go_router/go_router.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
-import '../../../../../../core/component/widgets/custom_elevated_button.dart';
+import '../../../../../../core/ui/custom_elevated_button.dart';
 import '../../../../../../core/routing/routes.dart';
-import '../../../../../../core/themes/app_colors.dart';
 import '../../../../../../generated/l10n.dart';
 import '../../../controller/auth/auth_cubit.dart';
 
@@ -65,7 +64,7 @@ class EmailVerificationStreamBuilderState
         return CustomElevatedButton(
           text: S.of(context).resend,
           textColor: Colors.white,
-          backgroundColor: AppColors.kPrimaryColor,
+          backgroundColor: Theme.of(context).colorScheme.primary,
           onPressed: () {
             authCubit.resendEmailVerification();
             showTopSnackBar(

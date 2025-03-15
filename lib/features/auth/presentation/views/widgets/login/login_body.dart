@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:movie_app/core/component/widgets/custom_progress_h_u_d.dart';
+import 'package:movie_app/core/ui/custom_progress_h_u_d.dart';
 import 'package:movie_app/features/auth/presentation/controller/auth/auth_cubit.dart';
 
-import '../../../../../../core/component/widgets/custom_text_button.dart';
-import '../../../../../../core/component/widgets/my_single_child_scroll_view.dart';
+import '../../../../../../core/ui/custom_text_button.dart';
+import '../../../../../../core/ui/my_single_child_scroll_view.dart';
 import '../../../../../../core/routing/routes.dart';
-import '../../../../../../core/themes/app_colors.dart';
 import '../../../../../../generated/l10n.dart';
 import '../or_divider.dart';
 import 'login_form.dart';
@@ -31,7 +30,7 @@ class LoginBody extends StatelessWidget {
               'assets/movieisme-logo.svg',
               width: 100,
               colorFilter:
-                  ColorFilter.mode(AppColors.kPrimaryColor, BlendMode.srcIn),
+                  ColorFilter.mode(Theme.of(context).colorScheme.primary, BlendMode.srcIn),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.05),
             LoginForm(),

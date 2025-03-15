@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/themes/app_colors.dart';
 import '../../../onboarding/presentation/widgets/skip_button.dart';
 import 'widgets/signup/signup_body.dart';
 
@@ -20,9 +19,9 @@ class SignupScreen extends StatelessWidget {
         title: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 28),
           child: SkipButton(
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_ios_new_rounded,
-              color: AppColors.kGreyColor,
+              color: Theme.of(context).colorScheme.onSurface,
               size: 22,
             ),
             hasBorderSide: true,

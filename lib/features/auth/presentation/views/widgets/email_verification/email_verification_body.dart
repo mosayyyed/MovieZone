@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../../core/component/widgets/my_single_child_scroll_view.dart';
-import '../../../../../../core/themes/app_colors.dart';
+import '../../../../../../core/ui/my_single_child_scroll_view.dart';
 import '../../../../../../core/themes/app_styles.dart';
 import '../../../../../../generated/l10n.dart';
 import 'email_verification_stream_builder.dart';
@@ -25,7 +24,7 @@ class EmailVerificationBody extends StatelessWidget {
           Text(
             S.of(context).verificationEmail,
             style: Styles.textStyle32.copyWith(
-                color: AppColors.kPrimaryColor, fontWeight: FontWeight.w600),
+                color: Theme.of(context).colorScheme.primary, fontWeight: FontWeight.w600),
           ),
           const SizedBox(height: 20),
           VerificationInfoText(email: email),

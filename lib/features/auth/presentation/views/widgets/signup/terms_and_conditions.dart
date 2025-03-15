@@ -17,14 +17,14 @@ class TermsAndConditions extends StatelessWidget {
           TextSpan(
             text: S.of(context).termsAndConditionsText1,
             style: Styles.textStyle12.copyWith(
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.onSurface,
               fontFamily: 'Cairo',
             ),
           ),
           TextSpan(
             text: S.of(context).termsAndConditionsText2,
             style: Styles.textStyle12.copyWith(
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.onSurface,
               fontWeight: FontWeight.bold,
               fontFamily: 'Cairo',
             ),
@@ -32,14 +32,14 @@ class TermsAndConditions extends StatelessWidget {
           TextSpan(
             text: S.of(context).termsAndConditionsText3,
             style: Styles.textStyle12.copyWith(
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.onSurface,
               fontFamily: 'Cairo',
             ),
           ),
           TextSpan(
             text: S.of(context).termsAndConditionsText4,
             style: Styles.textStyle12.copyWith(
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.onSurface,
               fontWeight: FontWeight.bold,
               fontFamily: 'Cairo',
             ),

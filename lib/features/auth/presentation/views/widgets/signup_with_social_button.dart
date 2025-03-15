@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../../core/themes/app_colors.dart';
-
 class SignupWithSocialButton extends StatelessWidget {
   const SignupWithSocialButton({
     super.key,
@@ -48,13 +46,14 @@ class SignupWithSocialButton extends StatelessWidget {
         minHeight: 55,
       ),
       splashRadius: 30,
-      color: AppColors.kGreyColor,
+      color: Theme.of(context).colorScheme.onPrimary,
       style: ButtonStyle(
         backgroundColor: WidgetStateProperty.all(backgroundColor),
         shape: WidgetStateProperty.all(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
-            side: BorderSide(color: AppColors.kGreyColor, width: 1),
+            side: BorderSide(
+                color: Theme.of(context).colorScheme.onPrimary, width: 1),
           ),
         ),
       ),

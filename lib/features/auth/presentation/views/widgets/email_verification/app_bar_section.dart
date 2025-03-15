@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../../core/themes/app_colors.dart';
 import '../../../../../../core/themes/app_styles.dart';
 
 class AppBarSection extends StatelessWidget implements PreferredSizeWidget {
@@ -16,7 +15,7 @@ class AppBarSection extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: AppColors.kSecondaryColor,
+      backgroundColor: Theme.of(context).colorScheme.secondary,
       scrolledUnderElevation: 10,
       automaticallyImplyLeading: automaticallyImplyLeading,
       centerTitle: true,

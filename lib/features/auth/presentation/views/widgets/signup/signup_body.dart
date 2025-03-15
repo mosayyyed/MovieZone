@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../../core/component/widgets/custom_progress_h_u_d.dart';
-import '../../../../../../core/component/widgets/custom_text_button.dart';
-import '../../../../../../core/component/widgets/my_single_child_scroll_view.dart';
+import '../../../../../../core/ui/custom_progress_h_u_d.dart';
+import '../../../../../../core/ui/custom_text_button.dart';
+import '../../../../../../core/ui/my_single_child_scroll_view.dart';
 import '../../../../../../core/routing/routes.dart';
-import '../../../../../../core/themes/app_colors.dart';
 import '../../../../../../core/themes/app_styles.dart';
 import '../../../../../../generated/l10n.dart';
 import 'signup_form.dart';
@@ -27,7 +26,8 @@ class SignupBody extends StatelessWidget {
             Text(
               S.of(context).createAccountText,
               style: Styles.textStyle32.copyWith(
-                  color: AppColors.kPrimaryColor, fontWeight: FontWeight.w600),
+                  color: Theme.of(context).colorScheme.primary,
+                  fontWeight: FontWeight.w600),
             ),
             Text(
               S.of(context).registerDescriptionText,
