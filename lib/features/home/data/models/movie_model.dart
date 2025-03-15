@@ -37,4 +37,17 @@ class MovieModel {
       genreIds: List<int>.from(json['genre_ids'] ?? []),
     );
   }
+
+  factory MovieModel.fake() {
+    return MovieModel(
+      id: 1126166,
+      title: "Flight Risk",
+      originalTitle: "Flight Risk",
+      backdropPath: "$kFullImageUrl/b3mdmjYTEL70j7nuXATUAD9qgu4.jpg",
+      posterPath: "$kFullImageUrl/srmH9BNiZp43NMhWCZy2ZARfxpC.jpg",
+      voteAverage: 8.6,
+      voteCount: 396,
+      genreIds: [18, 80],
+    );
+  }
 }
