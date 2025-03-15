@@ -3,7 +3,7 @@ import 'package:movie_app/core/errors/failures.dart';
 import 'package:movie_app/features/home/data/models/genre_model.dart';
 import 'package:movie_app/features/home/data/models/movie_model.dart';
 
-import '../../../../../core/data_sources/networking/api_service.dart';
+import '../../../../../core/data_sources/networking/api_service/api_service.dart';
 import '../../../../../core/errors/api_failure.dart';
 import '../../../../../core/utils/constants.dart';
 import 'movie_repo.dart';
