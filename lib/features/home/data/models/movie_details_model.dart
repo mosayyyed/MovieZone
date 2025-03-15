@@ -1,6 +1,9 @@
 import 'package:movie_app/core/utils/constants.dart';
+import 'package:movie_app/features/home/data/models/ProductionCompaniesModel.dart';
 
 import 'genre_model.dart';
+import 'movie_cast_model.dart';
+import 'movie_videos_model.dart';
 
 class MovieDetailsModel {
   final int id;
@@ -18,6 +21,8 @@ class MovieDetailsModel {
   final int budget;
   final int revenue;
   final List<ProductionCompaniesModel> productionCompanies;
+  final List<MovieCastModel> cast;
+  final List<MovieVideosModel> videos;
 
   MovieDetailsModel({
     required this.id,
@@ -35,6 +40,8 @@ class MovieDetailsModel {
     required this.productionCompanies,
     required this.budget,
     required this.revenue,
+    this.cast = const [],
+    this.videos = const [],
   });
 
   factory MovieDetailsModel.fromJson(Map<String, dynamic> json) {
@@ -67,28 +74,28 @@ class MovieDetailsModel {
       revenue: json['revenue'] ?? 0,
     );
   }
-}
-
-class ProductionCompaniesModel {
-  final int id;
-  final String logoPath;
-  final String name;
-  final String originCountry;
-
-  ProductionCompaniesModel({
-    required this.id,
-    required this.logoPath,
-    required this.name,
-    required this.originCountry,
-  });
-
-  factory ProductionCompaniesModel.fromJson(Map<String, dynamic> json) {
-    return ProductionCompaniesModel(
-      id: json['id'] ?? 0,
-      logoPath:
-          json['logo_path'] != null ? kFullImageUrl + json['logo_path'] : '',
-      name: json['name'] ?? 'غير متوفر',
-      originCountry: json['origin_country'] ?? 'غير معروف',
+  MovieDetailsModel copyWith({
+    List<MovieCastModel>? cast,
+    List<MovieVideosModel>? videos,
+  }) {
+    return MovieDetailsModel(
+      id: id,
+      title: title,
+      overview: overview,
+      posterPath: posterPath,
+      voteAverage: voteAverage,
+      backdropPath: backdropPath,
+      voteCount: voteCount,
+      popularity: popularity,
+      releaseDate: releaseDate,
+      productionCompanies: productionCompanies,
+      budget: budget,
+      genres: genres,
+      originalTitle: originalTitle,
+      revenue: revenue,
+      tagLine: tagLine,
+      cast: cast ?? this.cast,
+      videos: videos ?? this.videos,
     );
   }
 }
