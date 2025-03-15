@@ -1,54 +1,63 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:movie_app/core/themes/app_colors.dart';
+import 'package:movie_app/core/themes/theme_manager.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'core/routing/routes.dart';
+import 'core/themes/app_themes.dart';
 import 'core/utils/service_locator.dart';
 import 'firebase_options.dart';
 import 'generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  final prefs = await SharedPreferences.getInstance();
+
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  setupServiceLocator();
 
-  runApp(const MyApp());
+  setupServiceLocator();
+  runApp(MyApp(
+    prefs: prefs,
+  ));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final SharedPreferences prefs;
+  const MyApp({super.key, required this.prefs});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      locale: const Locale('ar'),
-      localizationsDelegates: [
-        S.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => ThemeCubit(prefs)),
       ],
-      supportedLocales: S.delegate.supportedLocales,
-      title: 'Movie App',
-      theme: ThemeData(
-        primaryColor: AppColors.kPrimaryColor,
-        textSelectionTheme: TextSelectionThemeData(
-          cursorColor: AppColors.kPrimaryColor,
-          selectionColor: AppColors.kPrimaryColor.withAlpha(100),
-          selectionHandleColor: AppColors.kPrimaryColor,
-        ),
-
-        scaffoldBackgroundColor: AppColors.kSecondaryColor,
-        // TODO: Add dynamic font based on locale after loading Localizations
-        fontFamily: 'Cairo',
-        brightness: Brightness.dark,
-        useMaterial3: true,
+      child: BlocBuilder<ThemeCubit, ThemeState>(
+        builder: (context, state) {
+          final themeMode =
+              state is ThemeChanged ? state.themeMode : ThemeMode.system;
+          return MaterialApp.router(
+            debugShowCheckedModeBanner: false,
+            locale: const Locale('ar'),
+            localizationsDelegates: [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: S.delegate.supportedLocales,
+            title: 'Movie App',
+            theme: AppTheme.lightTheme,
+            darkTheme: AppTheme.darkTheme,
+            themeMode: themeMode,
+            routerConfig: AppRoutes.router,
+          );
+        },
       ),
-      routerConfig: AppRoutes.router,
     );
   }
 }
