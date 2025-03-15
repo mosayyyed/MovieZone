@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -18,7 +19,11 @@ class _SplashScreenState extends State<SplashScreen> {
     SchedulerBinding.instance.addPostFrameCallback((_) {
       Future.delayed(const Duration(seconds: 3), () {
         if (mounted) {
-          GoRouter.of(context).go(AppRoutes.kOnboardingRoute);
+          final user = FirebaseAuth.instance.currentUser;
+          if (user == null) {
+            return GoRouter.of(context).go(AppRoutes.kOnboardingRoute);
+          }
+          return GoRouter.of(context).go(AppRoutes.kHomeRoute);
         }
       });
     });
