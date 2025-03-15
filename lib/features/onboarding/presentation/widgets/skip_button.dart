@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/core/themes/app_styles.dart';
 import 'package:movie_app/core/utils/constants.dart';
 
-import '../../../../core/themes/app_colors.dart';
 import '../../../../generated/l10n.dart';
 
 class SkipButton extends StatelessWidget {
@@ -33,18 +32,20 @@ class SkipButton extends StatelessWidget {
             minimumSize: const Size(55, 55),
             shape: RoundedRectangleBorder(
               side: hasBorderSide
-                  ? BorderSide(color: AppColors.kGreyColor, width: 1)
+                  ? BorderSide(color: Colors.grey, width: 1)
                   : BorderSide.none,
               borderRadius: BorderRadius.circular(kBorderRadius),
             ),
-            backgroundColor: AppColors.kSecondaryColor.withAlpha(51),
+            backgroundColor:
+                Theme.of(context).colorScheme.onSurface.withAlpha(51),
             elevation: 0,
           ),
           child: icon ??
               Text(
                 S.of(context).onboardingSkip,
-                style:
-                    Styles.textStyle14.copyWith(color: AppColors.kPrimaryColor),
+                style: Styles.textStyle14.copyWith(
+                  color: Theme.of(context).colorScheme.primary,
+                ),
               ),
         ),
       ),
