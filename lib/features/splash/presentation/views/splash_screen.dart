@@ -17,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     SchedulerBinding.instance.addPostFrameCallback((_) {
-      Future.delayed(const Duration(seconds: 3), () {
+      Future.delayed(const Duration(seconds: 1), () {
         if (mounted) {
           final user = FirebaseAuth.instance.currentUser;
           if (user == null) {
