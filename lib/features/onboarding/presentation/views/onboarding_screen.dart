@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/routing/routes.dart';
-import '../../../../core/themes/app_colors.dart';
 import '../widgets/onboarding_fixed_container.dart';
 import '../widgets/onboarding_page.dart';
 import '../widgets/skip_button.dart';
@@ -37,7 +36,6 @@ class OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.kSecondaryColor,
       body: Stack(
         children: [
           PageView(

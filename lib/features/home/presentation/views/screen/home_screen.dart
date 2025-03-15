@@ -5,7 +5,7 @@ import 'package:movie_app/features/home/presentation/controller/trending/trendin
 import 'package:movie_app/features/home/presentation/controller/top_rated/top_rated_cubit.dart';
 import 'package:movie_app/features/home/presentation/controller/upcoming/upcoming_cubit.dart';
 
-import '../../../../../core/component/widgets/custom_refresh_indicator.dart';
+import '../../../../../core/ui/custom_refresh_indicator.dart';
 import '../../../data/models/movie_model.dart';
 import '../widgets/home_section/continue_watching_section.dart';
 import '../widgets/home_section/movie_list_section.dart';
@@ -24,44 +24,46 @@ class HomeScreen extends StatelessWidget {
         context.read<PopularCubit>().fetchPopularMovies();
         context.read<UpcomingCubit>().fetchUpcomingMovies();
       },
-      child: CustomScrollView(
-        physics: const BouncingScrollPhysics(),
-        slivers: [
-          BlocBuilder<TrendingCubit, TrendingState>(
-            builder: (context, state) {
-              final trendingMovies =
-                  context.read<TrendingCubit>().trendingMoviesByDay;
-              return TrendingMoviesBannerSliverAppBar(
-                  trendingMovies: trendingMovies);
-            },
-          ),
-          _buildMovieSection<TopRatedCubit, TopRatedState>(
-            title: "الأعلى تقييمًا",
-            cubit: context.read<TopRatedCubit>(),
-            isCounterVisible: true,
-            selector: (state) =>
-                state is TopRatedSuccess ? state.topRatedMovies : [],
-          ),
-          _buildMovieSection<PopularCubit, PopularState>(
-            title: "أشهر المقاطع",
-            cubit: context.read<PopularCubit>(),
-            selector: (state) =>
-                state is PopularSuccess ? state.popularMovies : [],
-            isContinueWatching: true,
-          ),
-          _buildMovieSection<TrendingCubit, TrendingState>(
-            title: "الرائج هذا الأسبوع",
-            cubit: context.read<TrendingCubit>(),
-            selector: (state) =>
-                state is TrendingSuccess ? state.trendingMovies : [],
-          ),
-          _buildMovieSection<UpcomingCubit, UpcomingState>(
-            title: "القادمة",
-            cubit: context.read<UpcomingCubit>(),
-            selector: (state) =>
-                state is UpcomingSuccess ? state.upcomingMovies : [],
-          ),
-        ],
+      child: Scaffold(
+        body: CustomScrollView(
+          physics: const BouncingScrollPhysics(),
+          slivers: [
+            BlocBuilder<TrendingCubit, TrendingState>(
+              builder: (context, state) {
+                final trendingMovies =
+                    context.read<TrendingCubit>().trendingMoviesByDay;
+                return TrendingMoviesBannerSliverAppBar(
+                    trendingMovies: trendingMovies);
+              },
+            ),
+            _buildMovieSection<TopRatedCubit, TopRatedState>(
+              title: "الأعلى تقييمًا",
+              cubit: context.read<TopRatedCubit>(),
+              isCounterVisible: true,
+              selector: (state) =>
+                  state is TopRatedSuccess ? state.topRatedMovies : [],
+            ),
+            _buildMovieSection<PopularCubit, PopularState>(
+              title: "أشهر المقاطع",
+              cubit: context.read<PopularCubit>(),
+              selector: (state) =>
+                  state is PopularSuccess ? state.popularMovies : [],
+              isContinueWatching: true,
+            ),
+            _buildMovieSection<TrendingCubit, TrendingState>(
+              title: "الرائج هذا الأسبوع",
+              cubit: context.read<TrendingCubit>(),
+              selector: (state) =>
+                  state is TrendingSuccess ? state.trendingMovies : [],
+            ),
+            _buildMovieSection<UpcomingCubit, UpcomingState>(
+              title: "القادمة",
+              cubit: context.read<UpcomingCubit>(),
+              selector: (state) =>
+                  state is UpcomingSuccess ? state.upcomingMovies : [],
+            ),
+          ],
+        ),
       ),
     );
   }
