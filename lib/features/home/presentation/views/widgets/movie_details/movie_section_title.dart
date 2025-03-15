@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-import '../../../../../../core/themes/app_colors.dart';
 import '../../../../../../core/themes/app_styles.dart';
 import '../../../../data/models/movie_details_model.dart';
 
@@ -42,9 +41,9 @@ class MovieSectionTitle extends StatelessWidget {
                   itemCount: 5,
                   ignoreGestures: true,
                   itemPadding: const EdgeInsets.symmetric(horizontal: 2.0),
-                  itemBuilder: (context, _) => const Icon(
+                  itemBuilder: (context, _) => Icon(
                     Icons.star_rounded,
-                    color: AppColors.kPrimaryColor,
+                    color: Theme.of(context).colorScheme.primary,
                   ),
                   onRatingUpdate: (double value) {},
                 ),

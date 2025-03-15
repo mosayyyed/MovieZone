@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
-import '../../../../../../core/themes/app_colors.dart';
 import '../../../../../../core/themes/app_styles.dart';
 import '../../../../../../core/utils/escape_parent_padding.dart';
 import '../../../../../../core/utils/showVideoDiolog.dart';
@@ -112,9 +111,10 @@ class MovieVideosSection extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12),
                       color: Colors.black.withOpacity(0.3),
                     ),
-                    child: const Center(
+                    child: Center(
                       child: Icon(Icons.play_arrow_rounded,
-                          color: AppColors.kPrimaryColor, size: 50),
+                          color: Theme.of(context).colorScheme.primary,
+                          size: 50),
                     ),
                   ),
                   Positioned(

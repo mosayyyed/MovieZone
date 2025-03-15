@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/features/home/data/models/movie_model.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
-import '../../../../../core/themes/app_colors.dart';
 import '../../../../../core/utils/showVideoDiolog.dart';
 import '../../controller/MovieVideos/movie_videos_cubit.dart';
 
@@ -37,15 +36,13 @@ class ContinueWatching extends StatelessWidget {
             onTap: () async {
               final movieId = trendingMovieModel[index].id;
               await movieVideosCubit.fetchMovieVideos(movieId);
-      
+
               if (movieVideosCubit.videosList.isNotEmpty) {
-                final officialTrailer =
-                    movieVideosCubit.videosList.firstWhere(
-                  (video) =>
-                      video.type == 'Trailer' && video.official == true,
+                final officialTrailer = movieVideosCubit.videosList.firstWhere(
+                  (video) => video.type == 'Trailer' && video.official == true,
                   orElse: () => movieVideosCubit.videosList.first,
                 );
-      
+
                 showVideoDialog(
                   context,
                   videoKey: officialTrailer.key,
@@ -109,7 +106,7 @@ class ContinueWatching extends StatelessWidget {
                             const SizedBox(height: 10),
                             Icon(
                               Icons.play_arrow_rounded,
-                              color: AppColors.kPrimaryColor,
+                              color: Theme.of(context).colorScheme.primary,
                               size: 30,
                             ),
                             Column(
@@ -137,10 +134,9 @@ class ContinueWatching extends StatelessWidget {
                                     value: progress[index],
                                     minHeight: 4,
                                     borderRadius: BorderRadius.circular(8),
-                                    backgroundColor:
-                                        AppColors.kGreyColor.withAlpha(150),
+                                    backgroundColor: Colors.grey.withAlpha(150),
                                     valueColor: AlwaysStoppedAnimation<Color>(
-                                      AppColors.kPrimaryColor,
+                                      Theme.of(context).colorScheme.primary,
                                     ),
                                   ),
                                 ),

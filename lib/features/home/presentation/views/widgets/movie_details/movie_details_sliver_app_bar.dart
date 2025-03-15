@@ -4,7 +4,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../../core/themes/app_assets.dart';
-import '../../../../../../core/themes/app_colors.dart';
 import '../../../../data/models/movie_details_model.dart';
 
 class MovieDetailsSliverAppBar extends StatelessWidget {
@@ -41,7 +40,7 @@ class MovieDetailsSliverAppBar extends StatelessWidget {
       ),
       pinned: true,
       stretch: true,
-      backgroundColor: AppColors.kPrimaryColor,
+      backgroundColor: Theme.of(context).colorScheme.secondary,
       flexibleSpace: FlexibleSpaceBar(
         centerTitle: true,
         collapseMode: CollapseMode.parallax,
@@ -62,11 +61,11 @@ class MovieDetailsSliverAppBar extends StatelessWidget {
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
-                      AppColors.kSecondaryColor,
-                      AppColors.kSecondaryColor.withAlpha(230),
-                      AppColors.kSecondaryColor.withAlpha(150),
-                      AppColors.kSecondaryColor.withAlpha(100),
-                      AppColors.kSecondaryColor.withAlpha(51),
+                      Theme.of(context).colorScheme.secondary,
+                      Theme.of(context).colorScheme.secondary.withAlpha(230),
+                      Theme.of(context).colorScheme.secondary.withAlpha(150),
+                      Theme.of(context).colorScheme.secondary.withAlpha(100),
+                      Theme.of(context).colorScheme.secondary.withAlpha(51),
                       Colors.transparent,
                     ],
                     begin: Alignment.bottomCenter,

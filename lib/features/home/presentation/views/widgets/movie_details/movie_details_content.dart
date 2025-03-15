@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/features/home/presentation/views/widgets/movie_details/productiion_companies_section.dart';
 import 'package:readmore/readmore.dart';
 
-import '../../../../../../core/themes/app_colors.dart';
 import '../../../../../../core/themes/app_styles.dart';
 import '../../../../data/models/movie_details_model.dart';
 import 'movie_cast_list.dart';
@@ -42,17 +41,17 @@ class MovieDetailsContent extends StatelessWidget {
                   movie.overview,
                   trimLines: 3,
                   trimMode: TrimMode.Line,
-                  colorClickableText: AppColors.kPrimaryColor,
+                  colorClickableText: Theme.of(context).colorScheme.primary,
                   style: Styles.textStyle16.copyWith(fontSize: 16),
                   lessStyle: Styles.textStyle16.copyWith(
-                    color: AppColors.kPrimaryColor.withAlpha(200),
+                    color: Theme.of(context).colorScheme.primary.withAlpha(200),
                     fontWeight: FontWeight.bold,
                   ),
                   trimCollapsedText: 'المزيد',
                   trimExpandedText: ' أقل',
                   moreStyle: Styles.textStyle16.copyWith(
                     fontSize: 16,
-                    color: AppColors.kPrimaryColor.withAlpha(200),
+                    color: Theme.of(context).colorScheme.primary.withAlpha(200),
                     fontWeight: FontWeight.bold,
                   ),
                   textAlign: TextAlign.justify,

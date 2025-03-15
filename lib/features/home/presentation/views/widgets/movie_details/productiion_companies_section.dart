@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../../core/themes/app_colors.dart';
 import '../../../../../../core/themes/app_styles.dart';
 import '../../../../../../core/utils/constants.dart';
 import '../../../../data/models/movie_details_model.dart';
@@ -41,7 +40,7 @@ class ProductionCompaniesSection extends StatelessWidget {
               borderRadius: BorderRadius.circular(kBorderRadius),
               child: Card(
                 elevation: 0,
-                color: AppColors.kFillColor,
+                color: Theme.of(context).colorScheme.onPrimary,
                 child: Container(
                   padding: const EdgeInsets.all(kBorderRadius),
                   child: CachedNetworkImage(

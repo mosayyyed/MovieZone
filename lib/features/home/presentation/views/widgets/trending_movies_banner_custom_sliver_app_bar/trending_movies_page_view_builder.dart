@@ -61,10 +61,11 @@ class _TrendingMoviesPageViewBuilderState
   @override
   Widget build(BuildContext context) {
     if (widget.movies.isEmpty) {
-      return const Center(
+      return Center(
         child: Text(
           "لا توجد أفلام",
-          style: TextStyle(fontSize: 18, color: Colors.white),
+          style: TextStyle(
+              fontSize: 18, color: Theme.of(context).colorScheme.onSurface),
         ),
       );
     }
