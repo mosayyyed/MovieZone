@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 import 'package:movie_app/features/home/presentation/controller/MovieVideos/movie_videos_cubit.dart';
 
 import '../../../../../core/routing/routes.dart';
-import '../../../../../core/themes/app_colors.dart';
 import '../../../../../core/utils/getGenresNames.dart';
 import '../../../data/models/genre_model.dart';
 import '../../../data/models/movie_model.dart';
@@ -38,7 +37,7 @@ class MovieCard extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _buildMovieImage(movie.posterPath, index),
+            _buildMovieImage(movie.posterPath, index, context),
             const SizedBox(height: 8),
             SizedBox(
               width: 150,
@@ -64,7 +63,7 @@ class MovieCard extends StatelessWidget {
     );
   }
 
-  Widget _buildMovieImage(String? posterPath, int index) {
+  Widget _buildMovieImage(String? posterPath, int index, BuildContext context) {
     return Stack(
       children: [
         ClipRRect(
@@ -85,7 +84,7 @@ class MovieCard extends StatelessWidget {
               width: 30,
               height: 30,
               decoration: BoxDecoration(
-                color: AppColors.kPrimaryColor,
+                color: Theme.of(context).colorScheme.secondary,
                 borderRadius: const BorderRadius.only(
                   bottomRight: Radius.circular(12),
                   topLeft: Radius.circular(12),
@@ -94,8 +93,10 @@ class MovieCard extends StatelessWidget {
               child: Center(
                 child: Text(
                   "${index + 1}",
-                  style: const TextStyle(
-                      fontSize: 18, fontWeight: FontWeight.w900),
+                  style: TextStyle(
+                      color: Theme.of(context).colorScheme.primary,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w900),
                 ),
               ),
             ),
@@ -122,22 +123,23 @@ class MovieInfoRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Icon(Icons.star_rate_rounded,
-            color: AppColors.kPrimaryColor, size: 18),
+        Icon(Icons.star_rate_rounded,
+            color: Theme.of(context).colorScheme.primary, size: 18),
         const SizedBox(width: 4),
         Text(
           voteAverage.toStringAsFixed(1),
-          style: const TextStyle(color: Colors.white),
+          style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
         ),
         const SizedBox(width: 4),
-        const Text("|", style: TextStyle(color: Colors.white70)),
+        Text("|",
+            style: TextStyle(color: Theme.of(context).colorScheme.onSurface)),
         const SizedBox(width: 4),
         Expanded(
           child: Text(
             getGenreNames(genreIds, genres),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: const TextStyle(color: Colors.white70),
+            style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
           ),
         ),
       ],

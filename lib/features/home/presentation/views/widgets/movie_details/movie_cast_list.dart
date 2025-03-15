@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
-import '../../../../../../core/themes/app_colors.dart';
 import '../../../../../../core/themes/app_styles.dart';
 import '../../../../../../core/utils/escape_parent_padding.dart';
 import '../../../../data/models/movie_cast_model.dart';
@@ -17,7 +16,7 @@ class MovieCastList extends StatelessWidget {
     return BlocBuilder<MovieCastCubit, MovieCastState>(
       builder: (context, state) {
         if (state is MovieCastSuccess) {
-          return _buildCastList(state.movieCastModel);
+          return _buildCastList(state.movieCastList);
         } else if (state is MovieCastError) {
           return const SizedBox(
             height: 150,
@@ -90,7 +89,7 @@ class MovieCastList extends StatelessWidget {
                     height: 90,
                     width: 90,
                     decoration: BoxDecoration(
-                      color: AppColors.kFillColor,
+                      color: Theme.of(context).colorScheme.onPrimary,
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: const Icon(Icons.person,
