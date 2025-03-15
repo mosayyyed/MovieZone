@@ -3,7 +3,6 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/core/routing/routes.dart';
-import 'package:movie_app/core/themes/app_colors.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -28,7 +27,6 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.kSecondaryColor,
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -37,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
               'assets/movieisme-logo.svg',
               width: 150,
               colorFilter: ColorFilter.mode(
-                AppColors.kPrimaryColor,
+                Theme.of(context).primaryColor,
                 BlendMode.srcIn,
               ),
             ),
