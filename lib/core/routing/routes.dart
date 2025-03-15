@@ -1,30 +1,31 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:movie_app/core/utils/service_locator.dart';
+import 'package:movie_app/features/auth/data/repositories/auth_repo_impl.dart';
 import 'package:movie_app/features/auth/presentation/controller/auth/auth_cubit.dart';
 import 'package:movie_app/features/auth/presentation/controller/login/login_cubit.dart';
 import 'package:movie_app/features/auth/presentation/controller/signup/signup_cubit.dart';
-import 'package:movie_app/features/home/presentation/views/screen/layout_screen.dart';
+import 'package:movie_app/features/auth/presentation/views/email_verificationScreen.dart';
+import 'package:movie_app/features/auth/presentation/views/login_screen.dart';
+import 'package:movie_app/features/auth/presentation/views/signup_screen.dart';
+import 'package:movie_app/features/explore/data/repositories/search_repo/search_movies_repo_impl.dart';
+import 'package:movie_app/features/explore/presentation/controller/cast/search_cubit.dart';
+import 'package:movie_app/features/explore/presentation/views/screen/explore_screen.dart';
+import 'package:movie_app/features/home/data/repositories/movie_details_repo/movie_details_repo_impl.dart';
+import 'package:movie_app/features/home/data/repositories/movie_repo/movie_repo_impl.dart';
+import 'package:movie_app/features/home/presentation/controller/MovieVideos/movie_videos_cubit.dart';
+import 'package:movie_app/features/home/presentation/controller/cast/cast_cubit.dart';
+import 'package:movie_app/features/home/presentation/controller/genres/genres_cubit.dart';
+import 'package:movie_app/features/home/presentation/controller/movie_details/movie_details_cubit.dart';
+import 'package:movie_app/features/home/presentation/controller/popular/popular_cubit.dart';
+import 'package:movie_app/features/home/presentation/controller/top_rated/top_rated_cubit.dart';
+import 'package:movie_app/features/home/presentation/controller/trending/trending_cubit.dart';
+import 'package:movie_app/features/home/presentation/controller/upcoming/upcoming_cubit.dart';
+import 'package:movie_app/features/home/presentation/views/screen/home_screen.dart';
+import 'package:movie_app/features/home/presentation/views/screen/movie_details_screen.dart';
 import 'package:movie_app/features/onboarding/presentation/views/onboarding_screen.dart';
-
-import '../../features/auth/data/repositories/auth_repo_impl.dart';
-import '../../features/auth/presentation/views/email_verificationScreen.dart';
-import '../../features/auth/presentation/views/login_screen.dart';
-import '../../features/auth/presentation/views/signup_screen.dart';
-import '../../features/explore/data/repositories/search_repo/search_movies_repo_impl.dart';
-import '../../features/explore/presentation/controller/cast/search_cubit.dart';
-import '../../features/home/data/repositories/movie_details_repo/movie_details_repo_impl.dart';
-import '../../features/home/data/repositories/movie_repo/movie_repo_impl.dart';
-import '../../features/home/presentation/controller/MovieVideos/movie_videos_cubit.dart';
-import '../../features/home/presentation/controller/cast/cast_cubit.dart';
-import '../../features/home/presentation/controller/genres/genres_cubit.dart';
-import '../../features/home/presentation/controller/movie_details/movie_details_cubit.dart';
-import '../../features/home/presentation/controller/popular/popular_cubit.dart';
-import '../../features/home/presentation/controller/top_rated/top_rated_cubit.dart';
-import '../../features/home/presentation/controller/trending/trending_cubit.dart';
-import '../../features/home/presentation/controller/upcoming/upcoming_cubit.dart';
-import '../../features/home/presentation/views/screen/movie_details_screen.dart';
-import '../../features/splash/presentation/views/splash_screen.dart';
-import '../utils/service_locator.dart';
+import 'package:movie_app/features/profile/presentation/views/profile_screen.dart';
+import 'package:movie_app/features/splash/presentation/views/splash_screen.dart';
 
 abstract class AppRoutes {
   static const kInitialRoute = '/';
@@ -35,6 +36,8 @@ abstract class AppRoutes {
   static const kHomeRoute = '/home';
   static const kMovieDetailsRoute = '/movieDetails/:id';
   static const kSearchRoute = '/search';
+  static const kBookmarkRoute = '/bookmark';
+  static const kProfileRoute = '/profile';
 
   static final GoRouter router = GoRouter(
     routes: [
@@ -86,7 +89,7 @@ abstract class AppRoutes {
         builder: (context, state) => MultiBlocProvider(
           providers: [
             BlocProvider.value(
-              value: state.extra as MovieVideosCubit
+              value: MovieVideosCubit(getIt.get<MovieDetailsRepoImpl>())
                 ..fetchMovieVideos(int.parse(state.pathParameters['id']!)),
             ),
             BlocProvider(
@@ -136,12 +139,42 @@ abstract class AppRoutes {
               create: (context) =>
                   MovieVideosCubit(getIt.get<MovieDetailsRepoImpl>()),
             ),
-            BlocProvider(
-                create: (context) =>
-                    SearchMoiveCubit(getIt.get<SearchMoviesRepoImpl>())),
           ],
-          child: LayoutScreen(),
+          child: HomeScreen(),
         ),
+      ),
+      GoRoute(
+        path: kSearchRoute,
+        builder: (context, state) {
+          final extra = state.extra as Map<String, dynamic>?;
+
+          return MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) =>
+                    SearchMoiveCubit(getIt.get<SearchMoviesRepoImpl>()),
+              ),
+              if (extra != null) ...[
+                BlocProvider.value(
+                    value: extra['trendingCubit'] as TrendingCubit),
+                BlocProvider.value(value: extra['genresCubit'] as GenresCubit),
+              ],
+            ],
+            child: ExploreScreen(),
+          );
+        },
+      ),
+      GoRoute(
+        path: kBookmarkRoute,
+        builder: (context, state) {
+          return ExploreScreen();
+        },
+      ),
+      GoRoute(
+        path: kProfileRoute,
+        builder: (context, state) {
+          return const ProfileScreen();
+        },
       ),
     ],
   );
