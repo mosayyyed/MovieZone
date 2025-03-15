@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../../../../core/themes/app_assets.dart';
-import '../../../../../../core/themes/app_colors.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -47,11 +46,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ],
       scrolledUnderElevation: 0,
-      backgroundColor: AppColors.kPrimaryColor,
+      backgroundColor: Theme.of(context).colorScheme.primary,
       leading: Padding(
         padding: const EdgeInsets.all(8.0),
         child: CircleAvatar(
-          backgroundColor: AppColors.kPrimaryColor,
+          backgroundColor: Theme.of(context).colorScheme.primary,
           backgroundImage: const AssetImage("assets/avatar.png"),
         ),
       ),
