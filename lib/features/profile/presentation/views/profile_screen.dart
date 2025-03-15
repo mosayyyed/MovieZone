@@ -1,7 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:movie_app/core/themes/app_styles.dart';
+import 'package:movie_app/core/routing/routes.dart';
+import 'package:movie_app/core/themes/theme_manager.dart';
+import 'package:movie_app/core/ui/custom_elevated_button.dart';
+import 'package:movie_app/core/ui/my_single_child_scroll_view.dart';
+import 'package:movie_app/core/utils/constants.dart';
 import 'package:movie_app/features/onboarding/presentation/widgets/skip_button.dart';
+import 'package:movie_app/features/profile/presentation/views/ui/profile_header.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -18,7 +25,7 @@ class ProfileScreen extends StatelessWidget {
         automaticallyImplyLeading: false,
         titleSpacing: 0,
         title: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 18),
+          padding: const EdgeInsets.symmetric(horizontal: 22),
           child: SkipButton(
             icon: Icon(
               Icons.arrow_back_ios_new_rounded,
@@ -30,141 +37,95 @@ class ProfileScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: kToolbarHeight * 1.5),
-              _buildProfileHeader(context),
-              const SizedBox(height: 20),
-              _buildSectionTitle("الإعدادات"),
-              const SizedBox(height: 10),
-              _buildSwitchTile(context, "الواي فاي فقط", true),
-              const SizedBox(height: 10),
-              _buildSwitchTile(context, "الوضع المظلم", false,
-                  isDarkMode: true),
-              const SizedBox(height: 10),
-              _buildOptionTile("الربط بشاشة", context),
-              const SizedBox(height: 10),
-              _buildOptionTile("الدقة الإفتراضية", context),
-              const SizedBox(height: 20),
-              _buildSectionTitle("لغة التطبيق"),
-              const SizedBox(height: 10),
-              _buildSelectableTile("العربية", context),
-              const SizedBox(height: 20),
-              _buildSectionTitle("الإشعارات"),
-              const SizedBox(height: 10),
-              _buildSwitchTile(context, "السماح بالإشعارات", true),
-              const SizedBox(height: 50),
-              _buildLogoutButton(context),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildProfileHeader(BuildContext context) {
-    final theme = Theme.of(context);
-
-    return Row(
-      children: [
-        Stack(
-          children: [
-            InkWell(
-              onTap: () {},
-              borderRadius: BorderRadius.circular(10),
-              child: Container(
-                width: 120,
-                height: 160,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: theme.colorScheme.secondary,
-                  image: const DecorationImage(
-                    image: AssetImage("assets/avatar.png"),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-            ),
-            Positioned(
-              top: 4,
-              right: 4,
-              child: GestureDetector(
-                onTap: () {},
-                child: CircleAvatar(
-                  backgroundColor: theme.colorScheme.surface,
-                  radius: 16,
-                  child: Icon(
-                    Icons.camera_alt_rounded,
-                    color: theme.colorScheme.onSurface,
-                    size: 18,
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-        const SizedBox(width: 12),
-        Column(
+      body: MySingleChildScrollView(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "Mohamed Elsayed",
-              style:
-                  Styles.boldTextStyle18.copyWith(fontWeight: FontWeight.bold),
+            SizedBox(height: kToolbarHeight * 2),
+            ProfileHeader(),
+            const SizedBox(height: 20),
+            _buildSectionTitle("الإعدادات"),
+            const SizedBox(height: 10),
+            _buildSwitchTile(
+              context,
+              "الواي فاي فقط",
+              false,
+              onChanged: (p0) {},
             ),
-            const SizedBox(height: 2),
-            Text(
-              "ed@gmail.com******",
-              style: Styles.textStyle14
-                  .copyWith(color: theme.colorScheme.onSurfaceVariant),
+            const SizedBox(height: 10),
+            _buildSwitchTile(
+              context,
+              "الوضع المظلم",
+              context.read<ThemeCubit>().state is ThemeChanged &&
+                  (context.read<ThemeCubit>().state as ThemeChanged)
+                          .themeMode ==
+                      ThemeMode.dark,
+              onChanged: (newValue) {
+                context.read<ThemeCubit>().toggleTheme(
+                      newValue ? ThemeMode.dark : ThemeMode.light,
+                    );
+              },
+              isDarkMode: true,
             ),
-            const SizedBox(height: 8),
-            _buildStatusIndicator(theme),
-            const SizedBox(height: 8),
-            ElevatedButton.icon(
-              onPressed: () {},
-              icon: const Icon(Icons.edit, size: 18),
-              label: Text(
-                "تعديل الحساب",
-                style: Styles.textStyle14.copyWith(fontWeight: FontWeight.bold),
-              ),
-              style: ElevatedButton.styleFrom(
-                elevation: 0,
-                minimumSize: const Size(140, 30),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                textStyle: theme.textTheme.bodyMedium
-                    ?.copyWith(fontWeight: FontWeight.bold),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8)),
-              ),
+            const SizedBox(height: 10),
+            _buildOptionTile(
+              "المظهر",
+              context,
+              onTap: () {
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: Text("المظهر"),
+                        content: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [],
+                        ),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: Text("إلغاء"),
+                          ),
+                        ],
+                      );
+                    });
+              },
             ),
+            const SizedBox(height: 10),
+            _buildOptionTile("الربط بشاشة", context),
+            const SizedBox(height: 10),
+            _buildOptionTile("الدقة الإفتراضية", context),
+            const SizedBox(height: 20),
+            _buildSectionTitle("لغة التطبيق"),
+            const SizedBox(height: 10),
+            _buildSelectableTile(
+              "العربية",
+              context,
+            ),
+            const SizedBox(height: 20),
+            _buildSectionTitle("الإشعارات"),
+            const SizedBox(height: 10),
+            _buildSwitchTile(
+              context,
+              "السماح بالإشعارات",
+              true,
+              onChanged: (p0) {},
+            ),
+            const SizedBox(height: 50),
+            CustomElevatedButton(
+              text: "تسجيل الخروج",
+              backgroundColor: theme.colorScheme.error,
+              textColor: theme.colorScheme.onError,
+              onPressed: () {
+                FirebaseAuth.instance.signOut();
+                GoRouter.of(context).go(AppRoutes.kLoginRoute);
+              },
+            ),
+            const SizedBox(height: 20),
           ],
         ),
-      ],
-    );
-  }
-
-  Widget _buildStatusIndicator(ThemeData theme) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-      decoration: BoxDecoration(
-        color: theme.colorScheme.secondary,
-        borderRadius: BorderRadius.circular(50),
-      ),
-      child: Row(
-        children: [
-          Icon(Icons.circle, color: theme.colorScheme.primary, size: 14),
-          const SizedBox(width: 4),
-          Text("نشط",
-              style: Styles.textStyle12.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: theme.colorScheme.primary)),
-        ],
       ),
     );
   }
@@ -179,46 +140,34 @@ class ProfileScreen extends StatelessWidget {
       title: Text(title),
       trailing: const Icon(Icons.arrow_forward_ios, size: 16),
       tileColor: Theme.of(context).colorScheme.surface,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(kBorderRadius)),
     );
   }
 
   Widget _buildSwitchTile(BuildContext context, String title, bool value,
-      {bool isDarkMode = false}) {
+      {void Function(bool)? onChanged, bool isDarkMode = false}) {
     return SwitchListTile(
       title: Text(title),
       value: value,
-      onChanged: (newValue) {},
+      onChanged: onChanged,
       tileColor: Theme.of(context).colorScheme.surface,
       activeColor: Theme.of(context).colorScheme.primary,
       secondary: isDarkMode ? const Icon(Icons.dark_mode) : null,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(kBorderRadius)),
     );
   }
 
-  Widget _buildOptionTile(String title, BuildContext context) {
+  Widget _buildOptionTile(String title, BuildContext context,
+      {void Function()? onTap}) {
     return ListTile(
       title: Text(title),
+      onTap: onTap,
       trailing: const Icon(Icons.arrow_forward_ios, size: 16),
       tileColor: Theme.of(context).colorScheme.surface,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-    );
-  }
-
-  Widget _buildLogoutButton(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Theme.of(context).colorScheme.surface,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        minimumSize: const Size(double.infinity, 50),
-        padding: const EdgeInsets.symmetric(horizontal: 65, vertical: 12),
-      ),
-      onPressed: () {},
-      child: Text("تسجيل الخروج",
-          style: TextStyle(
-              color: Theme.of(context).colorScheme.error,
-              fontSize: 16,
-              fontWeight: FontWeight.bold)),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(kBorderRadius)),
     );
   }
 }
