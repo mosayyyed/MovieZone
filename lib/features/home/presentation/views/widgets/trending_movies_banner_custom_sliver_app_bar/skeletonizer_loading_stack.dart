@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../../../../../core/themes/app_colors.dart';
 import 'banner_action_buttons.dart';
 import 'gradient_overlay.dart';
 
@@ -27,10 +26,10 @@ class SkeletonizerLoadingStack extends StatelessWidget {
               children: [
                 Text(
                   "الرائجة اليوم".toUpperCase(),
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.kPrimaryColor,
+                    color: Theme.of(context).colorScheme.primary,
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -58,7 +57,7 @@ class SkeletonizerLoadingStack extends StatelessWidget {
                   count: 10,
                   effect: ExpandingDotsEffect(
                     dotColor: Colors.white.withOpacity(0.5),
-                    activeDotColor: AppColors.kPrimaryColor,
+                    activeDotColor: Theme.of(context).colorScheme.primary,
                     dotHeight: 8,
                     dotWidth: 8,
                     spacing: 8,

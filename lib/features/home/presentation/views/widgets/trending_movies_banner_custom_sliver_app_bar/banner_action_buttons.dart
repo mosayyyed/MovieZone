@@ -20,7 +20,7 @@ class BannerActionButtons extends StatelessWidget {
           onPressed: () {},
           icon: SvgPicture.asset(
             AppAssets.icons.bookmarkAdd,
-            color: Colors.white,
+            color: Theme.of(context).colorScheme.onSurface,
             width: 20,
           ),
         ),
@@ -43,16 +43,16 @@ class BannerActionButtons extends StatelessWidget {
             }
           },
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.white,
+            backgroundColor: Theme.of(context).colorScheme.onSurface,
           ),
           icon: SvgPicture.asset(
             AppAssets.icons.playArrow,
-            color: Colors.black,
+            color: Theme.of(context).colorScheme.surface,
             width: 20,
           ),
-          label: const Text(
+          label: Text(
             "بدء المشاهدة",
-            style: TextStyle(color: Colors.black),
+            style: TextStyle(color: Theme.of(context).colorScheme.surface),
           ),
         ),
         const SizedBox(width: 16),
@@ -60,7 +60,7 @@ class BannerActionButtons extends StatelessWidget {
           onPressed: () {},
           icon: SvgPicture.asset(
             AppAssets.icons.moreHorizontalCircle,
-            color: Colors.white,
+            color: Theme.of(context).colorScheme.onSurface,
             width: 20,
           ),
         ),

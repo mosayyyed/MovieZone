@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../../core/themes/app_colors.dart';
-
 class GradientOverlay extends StatelessWidget {
   const GradientOverlay({super.key});
 
@@ -12,11 +10,11 @@ class GradientOverlay extends StatelessWidget {
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              AppColors.kSecondaryColor,
-              AppColors.kSecondaryColor.withAlpha(230),
-              AppColors.kSecondaryColor.withAlpha(150),
-              AppColors.kSecondaryColor.withAlpha(100),
-              AppColors.kSecondaryColor.withAlpha(51),
+              Theme.of(context).scaffoldBackgroundColor,
+              Theme.of(context).scaffoldBackgroundColor.withAlpha(230),
+              Theme.of(context).scaffoldBackgroundColor.withAlpha(150),
+              Theme.of(context).scaffoldBackgroundColor.withAlpha(100),
+              Theme.of(context).scaffoldBackgroundColor.withAlpha(51),
               Colors.transparent,
             ],
             begin: Alignment.bottomCenter,

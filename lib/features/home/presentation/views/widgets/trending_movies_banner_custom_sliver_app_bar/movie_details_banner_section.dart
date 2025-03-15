@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../../../../../core/themes/app_colors.dart';
 import '../../../../data/models/movie_model.dart';
 import '../../../controller/genres/genres_cubit.dart';
 import '../movie_card.dart';
@@ -30,9 +29,9 @@ class MovieDetailsBannerSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          _buildTitle(),
+          _buildTitle(context),
           const SizedBox(height: 8),
-          _buildMovieTitle(),
+          _buildMovieTitle(context),
           const SizedBox(height: 4),
           _buildMovieInfo(context, genresCubit),
           const SizedBox(height: 16),
@@ -40,30 +39,30 @@ class MovieDetailsBannerSection extends StatelessWidget {
             movieId: movie.id,
           ),
           const SizedBox(height: 16),
-          _buildPageIndicator(),
+          _buildPageIndicator(context),
         ],
       ),
     );
   }
 
-  Widget _buildTitle() {
+  Widget _buildTitle(BuildContext context) {
     return Text(
       "الرائجة اليوم".toUpperCase(),
-      style: const TextStyle(
+      style: TextStyle(
         fontSize: 14,
         fontWeight: FontWeight.bold,
-        color: AppColors.kPrimaryColor,
+        color: Theme.of(context).colorScheme.primary,
       ),
     );
   }
 
-  Widget _buildMovieTitle() {
+  Widget _buildMovieTitle(BuildContext context) {
     return Text(
       movie.title,
-      style: const TextStyle(
+      style: TextStyle(
         fontSize: 32,
         fontWeight: FontWeight.bold,
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.onSurface,
       ),
     );
   }
@@ -79,13 +78,13 @@ class MovieDetailsBannerSection extends StatelessWidget {
     );
   }
 
-  Widget _buildPageIndicator() {
+  Widget _buildPageIndicator(BuildContext context) {
     return SmoothPageIndicator(
       controller: pageController,
       count: totalMovies,
       effect: ExpandingDotsEffect(
-        dotColor: Colors.white.withAlpha(100),
-        activeDotColor: AppColors.kPrimaryColor,
+        dotColor: Theme.of(context).colorScheme.onSurface.withAlpha(100),
+        activeDotColor: Theme.of(context).colorScheme.primary,
         dotHeight: 8,
         dotWidth: 8,
         spacing: 8,

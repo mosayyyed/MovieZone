@@ -3,8 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:movie_app/core/routing/routes.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../../../core/component/widgets/custom_elevated_button.dart';
-import '../../../../core/themes/app_colors.dart';
+import '../../../../core/ui/custom_elevated_button.dart';
 import '../../../../core/themes/app_styles.dart';
 import '../../../../generated/l10n.dart';
 
@@ -37,13 +36,12 @@ class OnboardingFixedContainer extends StatelessWidget {
       left: 0,
       right: 0,
       child: Container(
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(15),
-            topRight: Radius.circular(15),
-          ),
-          color: AppColors.kSecondaryColor,
-        ),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(15),
+              topRight: Radius.circular(15),
+            ),
+            color: Theme.of(context).colorScheme.surface),
         padding: const EdgeInsets.all(32.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -51,7 +49,7 @@ class OnboardingFixedContainer extends StatelessWidget {
             Text(
               titles[currentPage],
               style: Styles.boldTextStyle24.copyWith(
-                color: AppColors.kPrimaryColor,
+                color: Theme.of(context).colorScheme.primary,
                 fontWeight: FontWeight.w900,
               ),
               textAlign: TextAlign.center,
@@ -60,7 +58,7 @@ class OnboardingFixedContainer extends StatelessWidget {
             Text(
               descriptions[currentPage],
               style: Styles.textStyle10.copyWith(
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.secondary,
               ),
               textAlign: TextAlign.center,
             ),
@@ -69,7 +67,7 @@ class OnboardingFixedContainer extends StatelessWidget {
               text: currentPage == 2
                   ? S.of(context).onboardingGetStarted
                   : S.of(context).onboardingContinue,
-              backgroundColor: AppColors.kPrimaryColor,
+              backgroundColor: Theme.of(context).colorScheme.primary,
               textColor: Colors.black,
               onPressed: () => currentPage == 2
                   ? GoRouter.of(context).pushReplacement(AppRoutes.kLoginRoute)
@@ -83,8 +81,9 @@ class OnboardingFixedContainer extends StatelessWidget {
               controller: pageController,
               count: 3,
               effect: ExpandingDotsEffect(
-                activeDotColor: AppColors.kPrimaryColor,
-                dotColor: Colors.white.withAlpha(60),
+                activeDotColor: Theme.of(context).colorScheme.primary,
+                dotColor:
+                    Theme.of(context).colorScheme.secondary.withAlpha(100),
                 dotHeight: 8,
                 dotWidth: 8,
                 expansionFactor: 3,
