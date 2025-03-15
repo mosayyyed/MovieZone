@@ -11,6 +11,6 @@ class AppColors {
   static const darkOnSurface = Color(0xFFFAFAFA);
 
   static const lightOnPrimary = Color(0xFFFAFAFA);
-  static const lightSurface = Color(0xFFE5FFF4);
+  static const lightSurface = Color(0xFFD9FFEF);
   static const lightOnSurface = Color(0xFF121212);
 }
