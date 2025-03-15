@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../themes/app_colors.dart';
 import '../themes/app_styles.dart';
 import 'constants.dart';
 
@@ -10,6 +9,7 @@ InputDecoration buildInputDecoration({
   Widget? prefixIcon,
   bool suffixIconVisibility = false,
   bool obscureText = false,
+  required BuildContext context,
   VoidCallback? onSuffixIconPressed,
 }) {
   final OutlineInputBorder border = OutlineInputBorder(
@@ -19,35 +19,38 @@ InputDecoration buildInputDecoration({
 
   final OutlineInputBorder focusedBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(kBorderRadius),
-    borderSide: const BorderSide(
-      color: AppColors.kPrimaryColor,
+    borderSide: BorderSide(
+      color: Theme.of(context).colorScheme.primary,
       width: 1.5,
     ),
   );
 
   final OutlineInputBorder errorBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(kBorderRadius),
-    borderSide: const BorderSide(
-      color: AppColors.kErrorColor,
+    borderSide: BorderSide(
+      color: Theme.of(context).colorScheme.error,
       width: 1.5,
     ),
   );
 
   return InputDecoration(
     hintText: hintText,
-    hintStyle: Styles.textStyle14.copyWith(color: AppColors.kGreyColor),
+    hintStyle: Styles.textStyle14
+        .copyWith(color: Theme.of(context).colorScheme.secondary),
     label: Text(
       labelText.toUpperCase(),
-      style: Styles.textStyle12.copyWith(color: AppColors.kGreyColor),
+      style: Styles.textStyle12.copyWith(
+          color: Theme.of(context).colorScheme.onSurface,
+          fontWeight: FontWeight.bold),
     ),
     errorMaxLines: 2,
     errorStyle: TextStyle(
-      color: AppColors.kErrorColor.withAlpha(180),
+      color: Theme.of(context).colorScheme.error.withAlpha(180),
       fontSize: 12,
       overflow: TextOverflow.ellipsis,
     ),
     filled: true,
-    fillColor: AppColors.kFillColor,
+    fillColor: Theme.of(context).colorScheme.surface,
     border: border,
     enabledBorder: border,
     focusedBorder: focusedBorder,
@@ -58,7 +61,7 @@ InputDecoration buildInputDecoration({
         ? IconButton(
             icon: Icon(
               obscureText ? Icons.visibility_off : Icons.visibility,
-              color: AppColors.kGreyColor,
+              color: Colors.grey.withOpacity(0.6),
             ),
             onPressed: onSuffixIconPressed,
           )

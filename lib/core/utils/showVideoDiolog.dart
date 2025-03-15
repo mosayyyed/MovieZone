@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-import '../../../../../../core/themes/app_colors.dart';
 import 'constants.dart';
 
 void showVideoDialog(BuildContext context,
@@ -59,19 +58,19 @@ void showVideoDialog(BuildContext context,
                   ProgressBar(
                       isExpanded: true,
                       colors: ProgressBarColors(
-                          playedColor: AppColors.kPrimaryColor,
+                          playedColor: Theme.of(context).colorScheme.primary,
                           backgroundColor: Colors.grey.withAlpha(100),
                           bufferedColor: Colors.grey.withAlpha(150),
-                          handleColor: AppColors.kPrimaryColor)),
+                          handleColor: Theme.of(context).colorScheme.primary)),
                 ],
                 progressColors: ProgressBarColors(
-                  playedColor: AppColors.kPrimaryColor,
-                  handleColor: AppColors.kPrimaryColor,
+                  playedColor: Theme.of(context).colorScheme.primary,
+                  handleColor: Theme.of(context).colorScheme.primary,
                   bufferedColor: Colors.grey.withAlpha(150),
                   backgroundColor: Colors.grey.withAlpha(100),
                 ),
-                progressIndicatorColor: AppColors.kPrimaryColor,
-                liveUIColor: AppColors.kPrimaryColor,
+                progressIndicatorColor: Theme.of(context).colorScheme.primary,
+                liveUIColor: Theme.of(context).colorScheme.primary,
                 controller: YoutubePlayerController(
                   initialVideoId: videoKey,
                   flags: const YoutubePlayerFlags(
