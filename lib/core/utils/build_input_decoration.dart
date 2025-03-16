@@ -5,7 +5,7 @@ import 'constants.dart';
 
 InputDecoration buildInputDecoration({
   String? hintText,
-  required String labelText,
+  String? labelText,
   Widget? prefixIcon,
   bool suffixIconVisibility = false,
   bool obscureText = false,
@@ -38,7 +38,7 @@ InputDecoration buildInputDecoration({
     hintStyle: Styles.textStyle14
         .copyWith(color: Theme.of(context).colorScheme.secondary),
     label: Text(
-      labelText.toUpperCase(),
+      labelText ?? "",
       style: Styles.textStyle12.copyWith(
           color: Theme.of(context).colorScheme.onSurface,
           fontWeight: FontWeight.bold),
