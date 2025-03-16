@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/core/utils/service_locator.dart';
@@ -11,6 +12,7 @@ import 'package:movie_app/features/auth/presentation/views/signup_screen.dart';
 import 'package:movie_app/features/explore/data/repositories/search_repo/search_movies_repo_impl.dart';
 import 'package:movie_app/features/explore/presentation/controller/cast/search_cubit.dart';
 import 'package:movie_app/features/explore/presentation/views/screen/explore_screen.dart';
+import 'package:movie_app/features/home/data/models/movie_model.dart';
 import 'package:movie_app/features/home/data/repositories/movie_details_repo/movie_details_repo_impl.dart';
 import 'package:movie_app/features/home/data/repositories/movie_repo/movie_repo_impl.dart';
 import 'package:movie_app/features/home/presentation/controller/MovieVideos/movie_videos_cubit.dart';
@@ -23,6 +25,7 @@ import 'package:movie_app/features/home/presentation/controller/trending/trendin
 import 'package:movie_app/features/home/presentation/controller/upcoming/upcoming_cubit.dart';
 import 'package:movie_app/features/home/presentation/views/screen/home_screen.dart';
 import 'package:movie_app/features/home/presentation/views/screen/movie_details_screen.dart';
+import 'package:movie_app/features/home/presentation/views/screen/see_all_screen.dart';
 import 'package:movie_app/features/onboarding/presentation/views/onboarding_screen.dart';
 import 'package:movie_app/features/profile/presentation/views/profile_screen.dart';
 import 'package:movie_app/features/splash/presentation/views/splash_screen.dart';
@@ -38,6 +41,7 @@ abstract class AppRoutes {
   static const kSearchRoute = '/search';
   static const kBookmarkRoute = '/bookmark';
   static const kProfileRoute = '/profile';
+  static const kSeeAllRoute = '/see-all';
 
   static final GoRouter router = GoRouter(
     routes: [
@@ -164,6 +168,28 @@ abstract class AppRoutes {
           );
         },
       ),
+      GoRoute(
+          path: kSeeAllRoute,
+          builder: (context, state) {
+            final extra = state.extra;
+
+            if (extra is Map<String, dynamic>) {
+              final genresCubit = extra['genresCubit'] as GenresCubit?;
+              final movies = extra['movies'] as List<MovieModel>?;
+
+              if (genresCubit != null && movies != null) {
+                return MultiBlocProvider(
+                  providers: [
+                    BlocProvider.value(value: genresCubit),
+                  ],
+                  child: SeeAllScreen(movies: movies),
+                );
+              }
+            }
+            return const Scaffold(
+              body: Center(child: Text("حدث خطأ! البيانات غير متاحة")),
+            );
+          }),
       GoRoute(
         path: kBookmarkRoute,
         builder: (context, state) {
