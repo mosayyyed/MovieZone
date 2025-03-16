@@ -1,0 +1,2 @@
+C:/Users/Mohamed Elsayed/StudioProjects/movie_app/android/app/.cxx/RelWithDebInfo/2y3r2a1q/x86_64/CMakeFiles/edit_cache.dir
+C:/Users/Mohamed Elsayed/StudioProjects/movie_app/android/app/.cxx/RelWithDebInfo/2y3r2a1q/x86_64/CMakeFiles/rebuild_cache.dir
