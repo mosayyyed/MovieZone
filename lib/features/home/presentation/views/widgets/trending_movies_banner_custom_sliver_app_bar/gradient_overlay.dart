@@ -12,9 +12,9 @@ class GradientOverlay extends StatelessWidget {
             colors: [
               Theme.of(context).scaffoldBackgroundColor,
               Theme.of(context).scaffoldBackgroundColor.withAlpha(230),
-              Theme.of(context).scaffoldBackgroundColor.withAlpha(150),
-              Theme.of(context).scaffoldBackgroundColor.withAlpha(100),
               Theme.of(context).scaffoldBackgroundColor.withAlpha(51),
+              Theme.of(context).scaffoldBackgroundColor.withAlpha(31),
+              Theme.of(context).scaffoldBackgroundColor.withAlpha(11),
               Colors.transparent,
             ],
             begin: Alignment.bottomCenter,
