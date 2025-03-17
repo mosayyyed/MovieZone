@@ -40,11 +40,12 @@ class ProductionCompaniesSection extends StatelessWidget {
               borderRadius: BorderRadius.circular(kBorderRadius),
               child: Card(
                 elevation: 0,
-                color: Theme.of(context).colorScheme.onPrimary,
+                color: Theme.of(context).colorScheme.surface,
                 child: Container(
                   padding: const EdgeInsets.all(kBorderRadius),
                   child: CachedNetworkImage(
                     imageUrl: company.logoPath,
+                    color: Theme.of(context).colorScheme.onSurface,
                     fit: BoxFit.contain,
                     errorWidget: (_, __, ___) => const SizedBox(),
                   ),
