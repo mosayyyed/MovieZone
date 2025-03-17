@@ -21,7 +21,7 @@ class SeeAllScreen extends StatelessWidget {
         automaticallyImplyLeading: false,
         titleSpacing: 0,
         title: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 100),
+          padding: const EdgeInsets.symmetric(horizontal: 18),
           child: SkipButton(
             icon: Icon(
               Icons.arrow_back_ios_new_rounded,
