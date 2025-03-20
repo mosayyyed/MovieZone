@@ -17,7 +17,7 @@ class EscapeParentPadding extends StatelessWidget {
       height: height,
       child: Row(
         children: [
-          Flexible(
+          Expanded(
             child: OverflowBox(
               maxWidth: MediaQuery.of(context).size.width,
               child: child,
