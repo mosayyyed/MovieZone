@@ -144,7 +144,7 @@ abstract class AppRoutes {
                   MovieVideosCubit(getIt.get<MovieDetailsRepoImpl>()),
             ),
           ],
-          child: HomeScreen(),
+          child: const HomeScreen(),
         ),
       ),
       GoRoute(
@@ -164,7 +164,7 @@ abstract class AppRoutes {
                 BlocProvider.value(value: extra['genresCubit'] as GenresCubit),
               ],
             ],
-            child: ExploreScreen(),
+            child: const ExploreScreen(),
           );
         },
       ),
@@ -193,7 +193,7 @@ abstract class AppRoutes {
       GoRoute(
         path: kBookmarkRoute,
         builder: (context, state) {
-          return ExploreScreen();
+          return const ExploreScreen();
         },
       ),
       GoRoute(
