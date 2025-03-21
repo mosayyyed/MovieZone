@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/core/themes/app_styles.dart';
 
 import 'app_colors.dart';
 
@@ -23,12 +24,20 @@ class AppTheme {
       fontFamily: 'Cairo',
       appBarTheme: AppBarTheme(
         backgroundColor: AppColors.primaryColor,
-        titleTextStyle: TextStyle(
+        titleTextStyle: Styles.textStyle22.copyWith(
           color: Colors.white,
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
+          fontWeight: FontWeight.w600,
           fontFamily: 'Cairo',
         ),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(20),
+            bottomRight: Radius.circular(20),
+          ),
+        ),
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        actionsIconTheme: IconThemeData(color: Colors.white),
         iconTheme: IconThemeData(color: Colors.white),
       ),
     );
@@ -49,6 +58,24 @@ class AppTheme {
         onPrimaryFixed: Colors.grey,
       ),
       fontFamily: 'Cairo',
+      appBarTheme: AppBarTheme(
+        backgroundColor: AppColors.primaryColor,
+        titleTextStyle: Styles.textStyle22.copyWith(
+          color: Colors.black,
+          fontWeight: FontWeight.w600,
+          fontFamily: 'Cairo',
+        ),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(20),
+            bottomRight: Radius.circular(20),
+          ),
+        ),
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        actionsIconTheme: IconThemeData(color: Colors.black),
+        iconTheme: IconThemeData(color: Colors.white),
+      ),
     );
   }
 }
