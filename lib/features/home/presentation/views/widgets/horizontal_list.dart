@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/core/themes/app_values.dart';
 import 'package:movie_app/features/home/data/models/movie_model.dart';
-import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../controller/genres/genres_cubit.dart';
 import 'movie_card.dart';
@@ -22,11 +22,11 @@ class HorizontalList extends StatelessWidget {
 
     return SizedBox(
       height: 270,
-      child: ListView.builder(
+      child: ListView.separated(
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
         itemCount: movieList.length,
-        padding: const EdgeInsets.symmetric(horizontal: 8),
+        padding: const EdgeInsets.symmetric(horizontal: AppPadding.p16),
         itemBuilder: (context, index) {
           return MovieCard(
             movie: movieList[index],
@@ -35,6 +35,7 @@ class HorizontalList extends StatelessWidget {
             isCounterVisible: isCounterVisible,
           );
         },
+        separatorBuilder: (context, index) => const SizedBox(width: AppSize.s8),
       ),
     );
   }
