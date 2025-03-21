@@ -1,3 +1,4 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utils/fake_loading_data.dart';
@@ -21,8 +22,9 @@ class TrendingCubit extends Cubit<TrendingState> {
         emit(TrendingError(failure.message));
       },
       (movies) {
-        trendingMoviesByDay.clear();
-        trendingMoviesByDay.addAll(movies.take(10));
+        trendingMoviesByDay
+          ..clear()
+          ..addAll(movies.take(10));
         emit(TrendingSuccess(movies));
       },
     );
@@ -37,8 +39,9 @@ class TrendingCubit extends Cubit<TrendingState> {
         emit(TrendingError(failure.message));
       },
       (movies) {
-        trendingMoviesByWeek.clear();
-        trendingMoviesByWeek.addAll(movies);
+        trendingMoviesByWeek
+          ..clear()
+          ..addAll(movies);
         emit(TrendingSuccess(movies));
       },
     );
