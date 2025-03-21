@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/core/themes/app_values.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../../../../../../core/themes/app_styles.dart';
 import '../../../../data/models/movie_model.dart';
 import '../../../controller/genres/genres_cubit.dart';
 import '../movie_card.dart';
@@ -23,14 +25,15 @@ class MovieDetailsBannerSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final genresCubit = context.watch<GenresCubit>();
     return Positioned(
-      bottom: 20,
-      left: 20,
-      right: 20,
+      bottom: AppSize.s20,
+      left: AppSize.s24,
+      right: AppSize.s24,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           _buildTitle(context),
-          const SizedBox(height: 8),
+          const SizedBox(height: AppSize.s8),
           _buildMovieTitle(context),
           const SizedBox(height: 4),
           _buildMovieInfo(context, genresCubit),
@@ -46,35 +49,43 @@ class MovieDetailsBannerSection extends StatelessWidget {
   }
 
   Widget _buildTitle(BuildContext context) {
-    return Text(
-      "الرائجة اليوم".toUpperCase(),
-      style: TextStyle(
-        fontSize: 14,
-        fontWeight: FontWeight.bold,
-        color: Theme.of(context).colorScheme.primary,
-      ),
-    );
+    return Text("الرائجة اليوم".toUpperCase(),
+        style: Styles.boldTextStyle16.copyWith(
+          color: Theme.of(context).colorScheme.primary,
+          shadows: [
+            Shadow(
+              color: Theme.of(context).colorScheme.primary,
+              offset: const Offset(0, 1),
+              blurRadius: 10,
+            ),
+          ],
+        ));
   }
 
   Widget _buildMovieTitle(BuildContext context) {
     return Text(
       movie.title,
-      style: TextStyle(
-        fontSize: 32,
-        fontWeight: FontWeight.bold,
+      textAlign: TextAlign.center,
+      maxLines: 1,
+      overflow: TextOverflow.ellipsis,
+      style: Styles.boldTextStyle32.copyWith(
         color: Theme.of(context).colorScheme.onSurface,
+        shadows: [
+          Shadow(
+            color: Theme.of(context).colorScheme.onSurface.withAlpha(100),
+            offset: const Offset(0, 1),
+            blurRadius: 10,
+          ),
+        ],
       ),
     );
   }
 
   Widget _buildMovieInfo(BuildContext context, GenresCubit genresCubit) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.5,
-      child: MovieInfoRow(
-        genreIds: movie.genreIds,
-        voteAverage: movie.voteAverage,
-        genres: genresCubit.genres,
-      ),
+    return MovieInfoRow(
+      genreIds: movie.genreIds,
+      voteAverage: movie.voteAverage,
+      genres: genresCubit.genres,
     );
   }
 
