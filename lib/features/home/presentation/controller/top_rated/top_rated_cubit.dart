@@ -21,8 +21,9 @@ class TopRatedCubit extends Cubit<TopRatedState> {
         emit(TopRatedError(failure.message));
       },
       (movies) {
-        topRatedMovies.clear();
-        topRatedMovies.addAll(movies);
+        topRatedMovies
+          ..clear()
+          ..addAll(movies);
         emit(TopRatedSuccess(topRatedMovies));
       },
     );
