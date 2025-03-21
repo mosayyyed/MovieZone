@@ -6,8 +6,8 @@ import 'package:movie_app/features/home/presentation/controller/genres/genres_cu
 import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../data/models/movie_model.dart';
-import '../continue_watching.dart';
-import '../section_header.dart';
+import 'continue_watching_list.dart';
+import 'section_header.dart';
 
 class ContinueWatchingSection extends StatelessWidget {
   final String title;
@@ -42,12 +42,11 @@ class ContinueWatchingSection extends StatelessWidget {
               ? Skeletonizer(
                   enabled: true,
                   ignoreContainers: true,
-                  child: ContinueWatching(
-                    trendingMovieModel:
-                        List.generate(5, (index) => MovieModel.fake()),
+                  child: ContinueWatchingList(
+                    movies: List.generate(5, (index) => MovieModel.fake()),
                   ),
                 )
-              : ContinueWatching(trendingMovieModel: movieList),
+              : ContinueWatchingList(movies: movieList),
         ],
       ),
     );
