@@ -61,31 +61,31 @@ class _FeaturedMoviesBannerState extends State<FeaturedMoviesBanner> {
 
     _timer?.cancel();
     _timer = Timer.periodic(const Duration(seconds: 5), (timer) {
-      if (!mounted) return;
+      if (!mounted || _pageController.page == null) return;
 
-      final nextIndex = (currentIndex + 1) % widget.trendingMovies.length;
+      final nextIndex =
+          (_pageController.page!.round() + 1) % widget.trendingMovies.length;
       _pageController.animateToPage(
         nextIndex,
         duration: const Duration(milliseconds: 600),
         curve: Curves.easeInOut,
       );
-      setState(() => currentIndex = nextIndex);
     });
   }
 
   void _handleSwipe(DragEndDetails details) {
     _timer?.cancel();
-    final velocity = details.primaryVelocity ?? 0;
 
-    if (velocity.abs() < 100) {
-      _startAutoScroll();
-      return;
+    final double? currentPage = _pageController.page;
+    if (currentPage == null) return;
+
+    int nextIndex;
+    if (details.primaryVelocity! < 0) {
+      nextIndex = (currentPage.round() - 1 + widget.trendingMovies.length) %
+          widget.trendingMovies.length;
+    } else {
+      nextIndex = (currentPage.round() + 1) % widget.trendingMovies.length;
     }
-
-    int nextIndex = velocity > 0
-        ? (currentIndex - 1 + widget.trendingMovies.length) %
-            widget.trendingMovies.length
-        : (currentIndex + 1) % widget.trendingMovies.length;
 
     _pageController.animateToPage(
       nextIndex,
@@ -93,11 +93,7 @@ class _FeaturedMoviesBannerState extends State<FeaturedMoviesBanner> {
       curve: Curves.easeInOut,
     );
 
-    setState(() => currentIndex = nextIndex);
-
-    Future.delayed(const Duration(seconds: 5), () {
-      if (mounted) _startAutoScroll();
-    });
+    _startAutoScroll();
   }
 
   @override
