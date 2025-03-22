@@ -8,10 +8,10 @@ import 'package:movie_app/features/home/presentation/controller/genres/genres_cu
 import 'package:movie_app/features/home/presentation/controller/trending/trending_cubit.dart';
 
 import '../../../../../../core/themes/app_assets.dart';
-import 'trending_movies_banner.dart';
+import 'featured_movies_banner.dart';
 
-class TrendingMoviesBannerSliverAppBar extends StatelessWidget {
-  const TrendingMoviesBannerSliverAppBar({super.key});
+class HomeSliverAppBar extends StatelessWidget {
+  const HomeSliverAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class TrendingMoviesBannerSliverAppBar extends StatelessWidget {
             icon: SvgPicture.asset(
               AppAssets.icons.search,
               colorFilter: ColorFilter.mode(
-                Theme.of(context).colorScheme.onPrimary,
+                Colors.white,
                 BlendMode.srcIn,
               ),
             )),
@@ -45,7 +45,7 @@ class TrendingMoviesBannerSliverAppBar extends StatelessWidget {
           icon: SvgPicture.asset(
             AppAssets.icons.bookmark,
             colorFilter: ColorFilter.mode(
-              Theme.of(context).colorScheme.onPrimary,
+              Colors.white,
               BlendMode.srcIn,
             ),
           ),
@@ -66,7 +66,7 @@ class TrendingMoviesBannerSliverAppBar extends StatelessWidget {
         stretchModes: [
           StretchMode.zoomBackground,
         ],
-        background: TrendingMoviesBanner(
+        background: FeaturedMoviesBanner(
           trendingMovies: context.read<TrendingCubit>().trendingMoviesByDay,
         ),
       ),

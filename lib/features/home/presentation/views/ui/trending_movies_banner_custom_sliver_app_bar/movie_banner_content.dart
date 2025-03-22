@@ -9,8 +9,8 @@ import '../../../../data/models/movie_model.dart';
 import '../../../controller/genres/genres_cubit.dart';
 import 'banner_action_buttons.dart';
 
-class MovieDetailsBannerSection extends StatelessWidget {
-  const MovieDetailsBannerSection({
+class MovieBannerContent extends StatelessWidget {
+  const MovieBannerContent({
     super.key,
     required this.movie,
     required this.pageController,

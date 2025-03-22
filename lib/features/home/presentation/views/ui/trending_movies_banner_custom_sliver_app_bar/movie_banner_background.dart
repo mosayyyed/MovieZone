@@ -4,8 +4,8 @@ import 'package:movie_app/core/ui/skeletonizer_placeholder_cached_network_image.
 
 import '../../../../data/models/movie_model.dart';
 
-class TrendingMoviesPageViewBuilder extends StatefulWidget {
-  const TrendingMoviesPageViewBuilder({
+class MovieBannerBackground extends StatefulWidget {
+  const MovieBannerBackground({
     super.key,
     required this.movies,
     required this.controller,
@@ -17,12 +17,10 @@ class TrendingMoviesPageViewBuilder extends StatefulWidget {
   final ValueChanged<int> onPageChanged;
 
   @override
-  State<TrendingMoviesPageViewBuilder> createState() =>
-      _TrendingMoviesPageViewBuilderState();
+  State<MovieBannerBackground> createState() => _MovieBannerBackgroundState();
 }
 
-class _TrendingMoviesPageViewBuilderState
-    extends State<TrendingMoviesPageViewBuilder> {
+class _MovieBannerBackgroundState extends State<MovieBannerBackground> {
   @override
   void initState() {
     super.initState();
@@ -52,7 +50,7 @@ class _TrendingMoviesPageViewBuilderState
   }
 
   @override
-  void didUpdateWidget(covariant TrendingMoviesPageViewBuilder oldWidget) {
+  void didUpdateWidget(covariant MovieBannerBackground oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.movies != widget.movies) {
       _precacheInitialImages();
