@@ -23,4 +23,12 @@ class MovieCastModel {
           : '',
     );
   }
+  factory MovieCastModel.fake() {
+    return MovieCastModel(
+      id: 45,
+      name: "fake fake",
+      character: "fake fake",
+      profilePath: '$kFullImageUrl/djLVFETFTvPyVUdrd7aLVy',
+    );
+  }
 }

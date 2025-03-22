@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/themes/app_values.dart';
 import 'package:movie_app/features/home/data/models/movie_model.dart';
-import 'package:movie_app/features/home/presentation/views/widgets/home_section/video_card.dart';
+import 'package:movie_app/features/home/presentation/views/ui/home_section/video_card.dart';
 
 import '../../../controller/MovieVideos/movie_videos_cubit.dart';
 

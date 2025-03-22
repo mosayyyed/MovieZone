@@ -28,26 +28,7 @@ class MovieCastList extends StatelessWidget {
             ),
           );
         } else if (state is MovieCastLoading) {
-          return Skeletonizer(
-            enabled: true,
-            containersColor: Colors.black12,
-            child: ListView.builder(
-              itemCount: 6,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                  child: Container(
-                    height: 20,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Colors.grey.shade300,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
-                );
-              },
-            ),
-          );
+          return const Text("No cast available");
         }
         return const Text("No cast available");
       },
@@ -85,6 +66,13 @@ class MovieCastList extends StatelessWidget {
                   height: 90,
                   width: 90,
                   fit: BoxFit.cover,
+                  placeholder: (context, url) => Skeletonizer(
+                      enabled: true,
+                      child: Container(
+                        width: double.infinity,
+                        height: double.infinity,
+                        color: Colors.white,
+                      )),
                   errorWidget: (_, __, ___) => Container(
                     height: 90,
                     width: 90,

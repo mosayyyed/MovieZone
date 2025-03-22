@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_app/core/ui/skeletonizer_placeholder_cached_network_image.dart';
 
 import '../../../../data/models/movie_model.dart';
 
@@ -93,6 +94,8 @@ class _TrendingMoviesPageViewBuilderState
             fadeInDuration: Duration.zero,
             imageUrl: movie.backdropPath,
             fit: BoxFit.cover,
+            placeholder: (context, url) =>
+                SkeletonizerPlaceholderCachedNetworkImage(),
             errorWidget: (_, __, ___) => const Center(
               child: Icon(
                 Icons.error,

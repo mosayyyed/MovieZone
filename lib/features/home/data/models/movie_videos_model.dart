@@ -18,4 +18,13 @@ class MovieVideosModel {
       official: json['official'] ?? false,
     );
   }
+
+  factory MovieVideosModel.fake() {
+    return MovieVideosModel(
+      name: 'fake',
+      key: 'fake',
+      type: 'fake',
+      official: false,
+    );
+  }
 }

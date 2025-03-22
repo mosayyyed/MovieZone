@@ -1,8 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/features/home/data/models/movie_model.dart';
+import 'package:movie_app/features/home/data/repositories/movie_repo/movie_repo.dart';
 
-import '../../../../../core/utils/fake_loading_data.dart';
-import '../../../data/models/movie_model.dart';
-import '../../../data/repositories/movie_repo/movie_repo.dart';
 
 part 'popular_state.dart';
 
@@ -13,7 +12,7 @@ class PopularCubit extends Cubit<PopularState> {
   PopularCubit(this.popularMoviesRepo) : super(PopularInitial());
 
   Future<List<MovieModel>> fetchPopularMovies() async {
-    emit(PopularLoading(fakeMoviesLoadingData()));
+    emit(PopularLoading(List.generate(10, (index) => MovieModel.fake())));
     final response = await popularMoviesRepo.fetchPopularMovies();
     response.fold(
       (failure) {

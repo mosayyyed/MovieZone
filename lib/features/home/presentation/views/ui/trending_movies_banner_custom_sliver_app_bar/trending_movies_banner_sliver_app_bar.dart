@@ -8,13 +8,10 @@ import 'package:movie_app/features/home/presentation/controller/genres/genres_cu
 import 'package:movie_app/features/home/presentation/controller/trending/trending_cubit.dart';
 
 import '../../../../../../core/themes/app_assets.dart';
-import '../../../../data/models/movie_model.dart';
 import 'trending_movies_banner.dart';
 
 class TrendingMoviesBannerSliverAppBar extends StatelessWidget {
-  final List<MovieModel> trendingMovies;
-  const TrendingMoviesBannerSliverAppBar(
-      {super.key, required this.trendingMovies});
+  const TrendingMoviesBannerSliverAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {

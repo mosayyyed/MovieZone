@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/features/home/data/models/movie_model.dart';
-import 'package:movie_app/features/home/presentation/views/ui/trending_movies_banner_custom_sliver_app_bar/skeletonizer_loading_stack.dart';
-import 'package:movie_app/features/home/presentation/views/ui/trending_movies_banner_custom_sliver_app_bar/trending_movies_page_view_builder.dart';
 
 import '../../../../../../core/routing/routes.dart';
 import '../../../controller/trending/trending_cubit.dart';
 import 'gradient_overlay.dart';
 import 'movie_details_banner_section.dart';
+import 'skeletonizer_loading_stack.dart';
+import 'trending_movies_page_view_builder.dart';
 
 class TrendingMoviesBanner extends StatefulWidget {
   const TrendingMoviesBanner({

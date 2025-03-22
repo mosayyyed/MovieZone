@@ -7,9 +7,9 @@ import 'package:movie_app/features/home/presentation/controller/upcoming/upcomin
 
 import '../../../../../core/ui/custom_refresh_indicator.dart';
 import '../../../data/models/movie_model.dart';
-import '../widgets/home_section/continue_watching_section.dart';
-import '../widgets/home_section/movie_list_section.dart';
-import '../widgets/trending_movies_banner_custom_sliver_app_bar/trending_movies_banner_sliver_app_bar.dart';
+import '../ui/home_section/continue_watching_section.dart';
+import '../ui/home_section/movie_list_section.dart';
+import '../ui/trending_movies_banner_custom_sliver_app_bar/trending_movies_banner_sliver_app_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -28,14 +28,7 @@ class HomeScreen extends StatelessWidget {
         body: CustomScrollView(
           physics: const BouncingScrollPhysics(),
           slivers: [
-            BlocBuilder<TrendingCubit, TrendingState>(
-              builder: (context, state) {
-                final trendingMovies =
-                    context.read<TrendingCubit>().trendingMoviesByDay;
-                return TrendingMoviesBannerSliverAppBar(
-                    trendingMovies: trendingMovies);
-              },
-            ),
+            TrendingMoviesBannerSliverAppBar(),
             _buildMovieSection<TopRatedCubit, TopRatedState>(
               title: "الأعلى تقييمًا",
               cubit: context.read<TopRatedCubit>(),

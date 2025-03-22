@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/themes/app_values.dart';
 import 'package:movie_app/features/home/presentation/views/ui/home_section/movie_info_row.dart';
-import 'package:movie_app/features/home/presentation/views/ui/trending_movies_banner_custom_sliver_app_bar/banner_action_buttons.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../../../../core/themes/app_styles.dart';
 import '../../../../data/models/movie_model.dart';
 import '../../../controller/genres/genres_cubit.dart';
+import 'banner_action_buttons.dart';
 
 class MovieDetailsBannerSection extends StatelessWidget {
   const MovieDetailsBannerSection({

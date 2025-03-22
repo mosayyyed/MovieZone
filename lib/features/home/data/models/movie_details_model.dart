@@ -2,8 +2,6 @@ import 'package:movie_app/core/utils/constants.dart';
 import 'package:movie_app/features/home/data/models/ProductionCompaniesModel.dart';
 
 import 'genre_model.dart';
-import 'movie_cast_model.dart';
-import 'movie_videos_model.dart';
 
 class MovieDetailsModel {
   final int id;
@@ -21,8 +19,6 @@ class MovieDetailsModel {
   final int budget;
   final int revenue;
   final List<ProductionCompaniesModel> productionCompanies;
-  final List<MovieCastModel> cast;
-  final List<MovieVideosModel> videos;
 
   MovieDetailsModel({
     required this.id,
@@ -40,8 +36,6 @@ class MovieDetailsModel {
     required this.productionCompanies,
     required this.budget,
     required this.revenue,
-    this.cast = const [],
-    this.videos = const [],
   });
 
   factory MovieDetailsModel.fromJson(Map<String, dynamic> json) {
@@ -74,28 +68,30 @@ class MovieDetailsModel {
       revenue: json['revenue'] ?? 0,
     );
   }
-  MovieDetailsModel copyWith({
-    List<MovieCastModel>? cast,
-    List<MovieVideosModel>? videos,
-  }) {
+
+  factory MovieDetailsModel.fake() {
     return MovieDetailsModel(
-      id: id,
-      title: title,
-      overview: overview,
-      posterPath: posterPath,
-      voteAverage: voteAverage,
-      backdropPath: backdropPath,
-      voteCount: voteCount,
-      popularity: popularity,
-      releaseDate: releaseDate,
-      productionCompanies: productionCompanies,
-      budget: budget,
-      genres: genres,
-      originalTitle: originalTitle,
-      revenue: revenue,
-      tagLine: tagLine,
-      cast: cast ?? this.cast,
-      videos: videos ?? this.videos,
-    );
+        id: 1126166,
+        title: "Flight Risk",
+        originalTitle: "Flight Risk",
+        backdropPath: "$kFullImageUrl/b3mdmjYTEL70j7nuXATUAD9qgu4.jpg",
+        posterPath: "$kFullImageUrl/srmH9BNiZp43NMhWCZy2ZARfxpC.jpg",
+        voteAverage: 8.6,
+        voteCount: 396,
+        budget: 354,
+        genres: [
+          {"id": 14, "name": "فانتازيا"},
+          {"id": 18, "name": "دراما"},
+          {"id": 80, "name": "جريمة"}
+        ].map((x) => GenreModel.fromJson(x)).toList(),
+        overview:
+            "حكاية خارقة للطبيعة على ذمة الإعدام في سجن جنوبي ، حيث يمتلك العملاق اللطيف جون كوفي القوة الغامضة لعلاج أمراض الناس. عندما يتعرف حارس المبنى الرئيسي ، بول إدجكومب ، على هدية كوفي المعجزة ، يحاول يائسًا المساعدة في تجنب إعدام الرجل المدان.",
+        tagLine: "المعجزات تحدث.",
+        revenue: 23000000,
+        popularity: 8.5,
+        releaseDate: "2025-01-28T15:15:02.000Z",
+        productionCompanies: [
+          {"iso_3166_1": "US", "name": "United States of America"}
+        ].map((x) => ProductionCompaniesModel.fromJson(x)).toList());
   }
 }

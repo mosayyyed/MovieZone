@@ -18,12 +18,14 @@ class MovieGenres extends StatelessWidget {
         return Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primary.withAlpha(150),
+            color: Theme.of(context).colorScheme.secondary,
             borderRadius: BorderRadius.circular(kBorderRadius),
           ),
           child: Text(
             genre.name,
-            style: Styles.textStyle12.copyWith(fontWeight: FontWeight.w600),
+            style: Styles.textStyle12.copyWith(
+              fontWeight: FontWeight.w600,
+            ),
           ),
         );
       }).toList(),

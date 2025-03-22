@@ -17,18 +17,18 @@ class MovieTitleRow extends StatelessWidget {
           TextSpan(
             text: movie.title,
             style: Styles.textStyle22.copyWith(
-              fontWeight: FontWeight.bold,
-              fontSize: 26,
-              fontFamily: 'Cairo',
-            ),
+                fontWeight: FontWeight.bold,
+                fontSize: 26,
+                fontFamily: 'Cairo',
+                color: Theme.of(context).colorScheme.onSurface),
           ),
           TextSpan(
             text: ' (${DateTime.parse(movie.releaseDate).year.toString()})',
             style: Styles.textStyle22.copyWith(
-              fontWeight: FontWeight.w600,
-              fontSize: 16,
-              fontFamily: 'Cairo',
-            ),
+                fontWeight: FontWeight.w600,
+                fontSize: 16,
+                fontFamily: 'Cairo',
+                color: Theme.of(context).colorScheme.onSurface),
           ),
         ],
       ),

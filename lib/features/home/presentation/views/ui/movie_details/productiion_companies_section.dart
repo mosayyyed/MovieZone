@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../../../core/themes/app_styles.dart';
 import '../../../../../../core/utils/constants.dart';
@@ -17,10 +18,9 @@ class ProductionCompaniesSection extends StatelessWidget {
         Text(
           "الشركات الإنتاجية",
           style: Styles.textStyle22.copyWith(
-            fontWeight: FontWeight.bold,
-            fontSize: 20,
-            color: Colors.white,
-          ),
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+              color: Theme.of(context).colorScheme.onSurface),
         ),
         const SizedBox(height: 4),
         GridView.builder(
@@ -47,6 +47,13 @@ class ProductionCompaniesSection extends StatelessWidget {
                     imageUrl: company.logoPath,
                     color: Theme.of(context).colorScheme.onSurface,
                     fit: BoxFit.contain,
+                    placeholder: (context, url) => Skeletonizer(
+                        enabled: true,
+                        child: Container(
+                          width: double.infinity,
+                          height: double.infinity,
+                          color: Colors.white,
+                        )),
                     errorWidget: (_, __, ___) => const SizedBox(),
                   ),
                 ),

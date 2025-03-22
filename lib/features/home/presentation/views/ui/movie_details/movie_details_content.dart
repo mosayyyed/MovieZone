@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/features/home/presentation/views/ui/movie_details/movie_genres.dart';
-import 'package:movie_app/features/home/presentation/views/ui/movie_details/movie_section_title.dart';
-import 'package:movie_app/features/home/presentation/views/ui/movie_details/movie_title_row.dart';
 import 'package:movie_app/features/home/presentation/views/ui/movie_details/productiion_companies_section.dart';
 import 'package:readmore/readmore.dart';
 import 'package:skeletonizer/skeletonizer.dart';
@@ -9,6 +6,9 @@ import 'package:skeletonizer/skeletonizer.dart';
 import '../../../../../../core/themes/app_styles.dart';
 import '../../../../data/models/movie_details_model.dart';
 import 'movie_cast_list.dart';
+import 'movie_genres.dart';
+import 'movie_section_title.dart';
+import 'movie_title_row.dart';
 import 'movie_videos_section.dart';
 
 class MovieDetailsContent extends StatelessWidget {

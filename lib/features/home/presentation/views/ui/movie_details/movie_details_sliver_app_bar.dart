@@ -2,6 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:movie_app/features/home/presentation/views/ui/trending_movies_banner_custom_sliver_app_bar/gradient_overlay.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../../../core/themes/app_assets.dart';
 import '../../../../data/models/movie_details_model.dart';
@@ -40,7 +42,7 @@ class MovieDetailsSliverAppBar extends StatelessWidget {
       ),
       pinned: true,
       stretch: true,
-      backgroundColor: Theme.of(context).colorScheme.secondary,
+      backgroundColor: Theme.of(context).colorScheme.primary,
       flexibleSpace: FlexibleSpaceBar(
         centerTitle: true,
         collapseMode: CollapseMode.parallax,
@@ -52,28 +54,17 @@ class MovieDetailsSliverAppBar extends StatelessWidget {
             Positioned.fill(
               child: CachedNetworkImage(
                 imageUrl: movie.backdropPath,
+                placeholder: (context, url) => Skeletonizer(
+                    child: Container(
+                  height: double.infinity,
+                  width: double.infinity,
+                  color: Colors.white,
+                )),
                 fit: BoxFit.cover,
                 errorWidget: (_, __, ___) => const Icon(Icons.error, size: 50),
               ),
             ),
-            Positioned.fill(
-              child: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Theme.of(context).colorScheme.secondary,
-                      Theme.of(context).colorScheme.secondary.withAlpha(230),
-                      Theme.of(context).colorScheme.secondary.withAlpha(150),
-                      Theme.of(context).colorScheme.secondary.withAlpha(100),
-                      Theme.of(context).colorScheme.secondary.withAlpha(51),
-                      Colors.transparent,
-                    ],
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter,
-                  ),
-                ),
-              ),
-            ),
+            GradientOverlay(),
           ],
         ),
       ),

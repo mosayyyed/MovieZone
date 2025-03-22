@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/core/routing/routes.dart';
-import 'package:movie_app/core/themes/app_colors.dart';
+import 'package:movie_app/core/ui/skeletonizer_placeholder_cached_network_image.dart';
 import 'package:movie_app/features/home/data/models/genre_model.dart';
 import 'package:movie_app/features/home/data/models/movie_model.dart';
 import 'package:movie_app/features/home/presentation/controller/MovieVideos/movie_videos_cubit.dart';
-import 'package:movie_app/features/home/presentation/views/widgets/home_section/movie_info_row.dart';
-import 'package:skeletonizer/skeletonizer.dart';
+import 'package:movie_app/features/home/presentation/views/ui/home_section/movie_info_row.dart';
 
 class MovieCard extends StatelessWidget {
   final MovieModel movie;
@@ -71,13 +70,7 @@ class MovieCard extends StatelessWidget {
             child: CachedNetworkImage(
               imageUrl: posterPath ?? "",
               fadeInDuration: Duration(milliseconds: 100),
-              placeholder: (context, url) => Skeletonizer(
-                  enabled: true,
-                  child: Container(
-                    width: double.infinity,
-                    height: double.infinity,
-                    color: AppColors.primaryColor,
-                  )),
+              placeholder: (context, url) => SkeletonizerPlaceholderCachedNetworkImage(),
               errorWidget: (context, url, error) =>
                   const Icon(Icons.error, size: 50),
               fit: BoxFit.cover,

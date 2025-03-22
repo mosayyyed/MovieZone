@@ -177,7 +177,9 @@ abstract class AppRoutes {
               final genresCubit = extra['genresCubit'] as GenresCubit?;
               final movies = extra['movies'] as List<MovieModel>?;
 
-              if (genresCubit != null && movies != null) {
+              if (genresCubit != null &&
+                  movies != null 
+            ) {
                 return MultiBlocProvider(
                   providers: [
                     BlocProvider.value(value: genresCubit),
