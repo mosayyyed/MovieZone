@@ -70,7 +70,8 @@ class MovieCard extends StatelessWidget {
             child: CachedNetworkImage(
               imageUrl: posterPath ?? "",
               fadeInDuration: Duration(milliseconds: 100),
-              placeholder: (context, url) => SkeletonizerPlaceholderCachedNetworkImage(),
+              placeholder: (context, url) =>
+                  SkeletonizerPlaceholderCachedNetworkImage(),
               errorWidget: (context, url, error) =>
                   const Icon(Icons.error, size: 50),
               fit: BoxFit.cover,
@@ -81,8 +82,8 @@ class MovieCard extends StatelessWidget {
             Positioned(
               left: 0,
               child: Container(
-                width: 30,
-                height: 30,
+                width: 35,
+                height: 35,
                 decoration: BoxDecoration(
                   color: Theme.of(context).colorScheme.secondary,
                   borderRadius: const BorderRadius.only(
