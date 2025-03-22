@@ -2,8 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:movie_app/features/home/presentation/views/ui/trending_movies_banner_custom_sliver_app_bar/gradient_overlay.dart';
-import 'package:skeletonizer/skeletonizer.dart';
+import 'package:movie_app/core/ui/skeletonizer_placeholder_cached_network_image.dart';
+import 'package:movie_app/core/ui/gradient_overlay.dart';
 
 import '../../../../../../core/themes/app_assets.dart';
 import '../../../../data/models/movie_details_model.dart';
@@ -54,12 +54,8 @@ class MovieDetailsSliverAppBar extends StatelessWidget {
             Positioned.fill(
               child: CachedNetworkImage(
                 imageUrl: movie.backdropPath,
-                placeholder: (context, url) => Skeletonizer(
-                    child: Container(
-                  height: double.infinity,
-                  width: double.infinity,
-                  color: Colors.white,
-                )),
+                placeholder: (context, url) =>
+                    SkeletonizerPlaceholderCachedNetworkImage(),
                 fit: BoxFit.cover,
                 errorWidget: (_, __, ___) => const Icon(Icons.error, size: 50),
               ),
