@@ -12,11 +12,13 @@ class SkipButton extends StatelessWidget {
     this.onPressed,
     this.icon,
     this.hasBorderSide = false,
+    this.minimumSize = const Size(55, 55),
   });
 
   final void Function()? onPressed;
   final Widget? icon;
   final bool hasBorderSide;
+  final Size minimumSize;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,7 @@ class SkipButton extends StatelessWidget {
           style: TextButton.styleFrom(
             alignment: Alignment.center,
             padding: EdgeInsets.zero,
-            minimumSize: const Size(55, 55),
+            minimumSize: minimumSize,
             shape: RoundedRectangleBorder(
               side: hasBorderSide
                   ? BorderSide(color: Colors.grey, width: 1)
