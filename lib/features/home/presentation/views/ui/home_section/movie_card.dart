@@ -27,6 +27,7 @@ class MovieCard extends StatelessWidget {
     GoRouter.of(context).push(
       AppRoutes.kMovieDetailsRoute.replaceFirst(":id", movie.id.toString()),
       extra: context.read<MovieVideosCubit>(),
+      
     );
   }
 
