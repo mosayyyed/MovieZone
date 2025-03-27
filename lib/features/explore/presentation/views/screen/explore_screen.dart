@@ -1,32 +1,45 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:movie_app/core/themes/app_values.dart';
 import 'package:movie_app/core/utils/build_input_decoration.dart';
 import 'package:movie_app/features/explore/presentation/controller/cast/search_cubit.dart';
 import 'package:movie_app/features/home/data/models/movie_model.dart';
 import 'package:movie_app/features/home/presentation/controller/genres/genres_cubit.dart';
 import 'package:movie_app/features/home/presentation/controller/trending/trending_cubit.dart';
-import 'package:movie_app/features/home/presentation/views/widgets/movie_card.dart';
+import 'package:movie_app/features/home/presentation/views/ui/home_section/movie_card.dart';
 import 'package:movie_app/features/onboarding/presentation/widgets/skip_button.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
-class ExploreScreen extends StatelessWidget {
+class ExploreScreen extends StatefulWidget {
   const ExploreScreen({super.key});
 
   @override
+  State<ExploreScreen> createState() => _ExploreScreenState();
+}
+
+class _ExploreScreenState extends State<ExploreScreen> {
+  Timer? _debounce;
+
+  void _onSearchChanged(String query, SearchMoiveCubit searchMoiveCubit) {
+    _debounce?.cancel();
+    _debounce = Timer(const Duration(milliseconds: 500), () {
+      searchMoiveCubit.fetchMoviesByQuery(query);
+    });
+  }
+
+  @override
+  void dispose() {
+    _debounce?.cancel();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final genresCubit = context.watch<GenresCubit>();
-    final trendingCubit = context.watch<TrendingCubit>();
-    final searchMoiveCubit = context.watch<SearchMoiveCubit>();
-    Timer? debounce;
-    void onSearchChanged(String query) {
-      if (debounce?.isActive ?? false) debounce!.cancel();
-      debounce = Timer(const Duration(milliseconds: 500), () {
-        searchMoiveCubit.fetchMoviesByQuery(query);
-      });
-    }
+    final genresCubit = context.read<GenresCubit>();
+    final trendingCubit = context.read<TrendingCubit>();
+    final searchMoiveCubit = context.read<SearchMoiveCubit>();
 
     return Scaffold(
       appBar: AppBar(
@@ -53,7 +66,8 @@ class ExploreScreen extends StatelessWidget {
                 child: TextField(
                   keyboardType: TextInputType.text,
                   enableSuggestions: true,
-                  onChanged: onSearchChanged,
+                  onChanged: (query) =>
+                      _onSearchChanged(query, searchMoiveCubit),
                   decoration: buildInputDecoration(
                     context: context,
                     labelText: "ابحث عن فيلم",
@@ -65,7 +79,8 @@ class ExploreScreen extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+        padding: const EdgeInsets.symmetric(
+            horizontal: AppPadding.p16, vertical: 4.0),
         child: Column(
           children: [
             Expanded(
@@ -75,9 +90,9 @@ class ExploreScreen extends StatelessWidget {
                     return Skeletonizer(
                       enabled: true,
                       child: MoviesGridView(
-                          movies:
-                              List.generate(10, (index) => MovieModel.fake()),
-                          genresCubit: genresCubit),
+                        movies: List.generate(10, (index) => MovieModel.fake()),
+                        genresCubit: genresCubit,
+                      ),
                     );
                   } else if (state is MovieSearchSuccess) {
                     if (state.movies.isEmpty) {
@@ -100,8 +115,9 @@ class ExploreScreen extends StatelessWidget {
                     );
                   }
                   return MoviesGridView(
-                      movies: trendingCubit.trendingMoviesByDay,
-                      genresCubit: genresCubit);
+                    movies: trendingCubit.trendingMoviesByDay,
+                    genresCubit: genresCubit,
+                  );
                 },
               ),
             ),
@@ -127,10 +143,10 @@ class MoviesGridView extends StatelessWidget {
     return GridView.builder(
       physics: const BouncingScrollPhysics(),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        childAspectRatio: 0.6,
-        mainAxisExtent: 270,
-      ),
+          crossAxisCount: 2,
+          crossAxisSpacing: 8,
+          mainAxisSpacing: 8,
+          mainAxisExtent: 292),
       padding: EdgeInsets.zero,
       itemCount: movies.length,
       itemBuilder: (context, index) {
