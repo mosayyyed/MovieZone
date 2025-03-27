@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/core/themes/app_values.dart';
 
 class SectionHeader extends StatelessWidget {
   final String title;
@@ -13,9 +14,11 @@ class SectionHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+      padding: const EdgeInsets.symmetric(
+          horizontal: AppSize.s16, vertical: AppSize.s20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
             title,
@@ -25,8 +28,8 @@ class SectionHeader extends StatelessWidget {
               color: Theme.of(context).colorScheme.onSurface,
             ),
           ),
-          TextButton(
-            onPressed: onSeeAll,
+          GestureDetector(
+            onTap: onSeeAll,
             child: Text(
               "عرض الكل",
               style: TextStyle(
