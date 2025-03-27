@@ -6,6 +6,7 @@ import '../utils/app_constants.dart';
 
 class CustomProgressHUD extends StatelessWidget {
   final Widget child;
+
   const CustomProgressHUD({
     super.key,
     required this.child,
@@ -13,6 +14,8 @@ class CustomProgressHUD extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isIOS = Theme.of(context).platform == TargetPlatform.iOS;
+
     return ProgressHUD(
       backgroundRadius: Radius.circular(kBorderRadius),
       barrierColor: Theme.of(context).colorScheme.surface.withAlpha(100),
@@ -20,9 +23,9 @@ class CustomProgressHUD extends StatelessWidget {
       borderWidth: 2,
       barrierEnabled: true,
       indicatorColor: Theme.of(context).colorScheme.primary,
-      indicatorWidget: CupertinoActivityIndicator(
-        radius: 30,
-      ),
+      indicatorWidget: isIOS
+          ? const CupertinoActivityIndicator(radius: 16)
+          : const CircularProgressIndicator(strokeWidth: 2),
       child: child,
     );
   }
