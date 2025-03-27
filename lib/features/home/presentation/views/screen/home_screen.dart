@@ -9,7 +9,7 @@ import '../../../../../core/ui/custom_refresh_indicator.dart';
 import '../../../data/models/movie_model.dart';
 import '../ui/home_section/continue_watching_section.dart';
 import '../ui/home_section/movie_list_section.dart';
-import '../ui/trending_movies_banner_custom_sliver_app_bar/trending_movies_banner_sliver_app_bar.dart';
+import '../ui/trending_movies_banner_custom_sliver_app_bar/home_sliver_app_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -28,7 +28,7 @@ class HomeScreen extends StatelessWidget {
         body: CustomScrollView(
           physics: const BouncingScrollPhysics(),
           slivers: [
-            TrendingMoviesBannerSliverAppBar(),
+            HomeSliverAppBar(),
             _buildMovieSection<TopRatedCubit, TopRatedState>(
               title: "الأعلى تقييمًا",
               cubit: context.read<TopRatedCubit>(),
