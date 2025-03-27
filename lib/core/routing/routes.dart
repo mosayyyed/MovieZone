@@ -162,37 +162,30 @@ abstract class AppRoutes {
                 BlocProvider.value(
                     value: extra['trendingCubit'] as TrendingCubit),
                 BlocProvider.value(value: extra['genresCubit'] as GenresCubit),
+                BlocProvider.value(
+                    value: extra['movieVideosCubit'] as MovieVideosCubit),
               ],
             ],
             child: const ExploreScreen(),
           );
         },
       ),
-      GoRoute(
-          path: kSeeAllRoute,
-          builder: (context, state) {
-            final extra = state.extra;
-
-            if (extra is Map<String, dynamic>) {
-              final genresCubit = extra['genresCubit'] as GenresCubit?;
-              final movies = extra['movies'] as List<MovieModel>?;
-
-              if (genresCubit != null &&
-                  movies != null 
-            ) {
-                return MultiBlocProvider(
-                  providers: [
-                    BlocProvider.value(value: genresCubit),
-                  ],
-                  child: SeeAllScreen(movies: movies),
-                );
-              }
-            }
-            return const Scaffold(
-              body: Center(child: Text("حدث خطأ! البيانات غير متاحة")),
-            );
-          }),
-      GoRoute(
+GoRoute(
+  path: kSeeAllRoute,
+  builder: (context, state) {
+    final extra = state.extra as Map<String, dynamic>;
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider.value(value: extra['genresCubit'] as GenresCubit),
+        BlocProvider.value(value: extra['movieVideosCubit'] as MovieVideosCubit),
+      ],
+      child: SeeAllScreen(
+        movies: extra['movies'] as List<MovieModel>,
+        title: extra['title'] as String,
+      ),
+    );
+  },
+),      GoRoute(
         path: kBookmarkRoute,
         builder: (context, state) {
           return const ExploreScreen();
