@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-import 'constants.dart';
+import 'app_constants.dart';
 
 void showVideoDialog(BuildContext context,
     {required String videoKey, required String videoName}) {
