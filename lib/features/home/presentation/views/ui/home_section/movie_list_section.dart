@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/core/routing/routes.dart';
+import 'package:movie_app/features/home/presentation/controller/MovieVideos/movie_videos_cubit.dart';
 import 'package:movie_app/features/home/presentation/controller/genres/genres_cubit.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
@@ -37,6 +38,8 @@ class MovieListSection extends StatelessWidget {
                   extra: {
                     'genresCubit': context.read<GenresCubit>(),
                     'movies': movieList,
+                    'movieVideosCubit': context.read<MovieVideosCubit>(),
+                    'title': title,
                   },
                 );
               }),
