@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/themes/app_styles.dart';
-import 'package:movie_app/core/utils/constants.dart';
+import 'package:movie_app/core/utils/app_constants.dart';
 
 import '../../../../generated/l10n.dart';
 

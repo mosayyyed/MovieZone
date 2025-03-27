@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 
-import '../../utils/constants.dart';
+import '../../utils/app_constants.dart';
 
 class DioFactory {
   DioFactory._internal();

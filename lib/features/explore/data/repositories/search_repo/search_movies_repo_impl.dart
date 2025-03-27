@@ -4,7 +4,7 @@ import 'package:movie_app/features/home/data/models/movie_model.dart';
 
 import '../../../../../core/data_sources/networking/api_service/api_service.dart';
 import '../../../../../core/errors/api_failure.dart';
-import '../../../../../core/utils/constants.dart';
+import '../../../../../core/utils/app_constants.dart';
 import 'search_movies_repo.dart';
 
 class SearchMoviesRepoImpl extends SearchMoviesRepo {

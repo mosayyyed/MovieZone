@@ -1,4 +1,4 @@
-import '../../../../core/utils/constants.dart';
+import '../../../../core/utils/app_constants.dart';
 
 class ProductionCompaniesModel {
   final int id;

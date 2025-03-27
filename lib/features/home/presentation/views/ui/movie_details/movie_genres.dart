@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../../core/themes/app_styles.dart';
-import '../../../../../../core/utils/constants.dart';
+import '../../../../../../core/utils/app_constants.dart';
 import '../../../../data/models/movie_details_model.dart';
 
 class MovieGenres extends StatelessWidget {

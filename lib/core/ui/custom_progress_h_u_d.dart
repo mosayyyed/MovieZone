@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 
-import '../utils/constants.dart';
+import '../utils/app_constants.dart';
 
 class CustomProgressHUD extends StatelessWidget {
   final Widget child;

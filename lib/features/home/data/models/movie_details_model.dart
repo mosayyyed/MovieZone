@@ -1,4 +1,4 @@
-import 'package:movie_app/core/utils/constants.dart';
+import 'package:movie_app/core/utils/app_constants.dart';
 import 'package:movie_app/features/home/data/models/ProductionCompaniesModel.dart';
 
 import 'genre_model.dart';
