@@ -6,8 +6,8 @@ import 'package:movie_app/features/home/data/repositories/movie_repo/movie_repo_
 
 import '../../features/explore/data/repositories/search_repo/search_movies_repo_impl.dart';
 import '../../features/home/data/repositories/movie_details_repo/movie_details_repo_impl.dart';
-import '../data_sources/networking/api_service/http_api_service.dart';
-import '../data_sources/networking/firebase_service.dart';
+import '../data_sources/remote/api_service/http_api_service.dart';
+import '../data_sources/remote/firebase_service.dart';
 
 final GetIt getIt = GetIt.instance;
 
