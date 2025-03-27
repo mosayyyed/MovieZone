@@ -1,7 +1,6 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/core/ui/blurred_play_button.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../../../core/themes/app_styles.dart';
@@ -87,7 +86,7 @@ class MovieVideosSection extends StatelessWidget {
         separatorBuilder: (context, index) => const SizedBox(width: 12),
         itemBuilder: (context, index) {
           final video = officialVideos[index];
-          return GestureDetector(
+          return GestureDetector( 
             onTap: () => showVideoDialog(context,
                 videoKey: video.key, videoName: video.name),
             child: ClipRRect(
@@ -107,43 +106,25 @@ class MovieVideosSection extends StatelessWidget {
                     ),
                   ),
                   Positioned.fill(
-                    child: Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(50),
-                          child: BackdropFilter(
-                            filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
-                            child: Container(
-                              width: 50,
-                              height: 50,
-                              decoration: BoxDecoration(
-                                color: Colors.white.withOpacity(0.2),
-                                shape: BoxShape.circle,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Icon(
-                          Icons.play_arrow_rounded,
-                          color: Theme.of(context).colorScheme.primary,
-                          size: 30,
-                        ),
-                      ],
+                    child: BlurredPlayButton(
+                      height: 50,
+                      width: 50,
                     ),
                   ),
                   Positioned(
                     top: 8,
-                    right: 8,
-                    child: Text(
-                      video.name,
-                      style: Styles.textStyle16.copyWith(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: Text(
+                        video.name,
+                        style: Styles.textStyle16.copyWith(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.center,
                       ),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      textAlign: TextAlign.center,
                     ),
                   ),
                 ],
