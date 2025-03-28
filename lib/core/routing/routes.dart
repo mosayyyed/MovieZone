@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/core/utils/service_locator.dart';
@@ -170,22 +169,24 @@ abstract class AppRoutes {
           );
         },
       ),
-GoRoute(
-  path: kSeeAllRoute,
-  builder: (context, state) {
-    final extra = state.extra as Map<String, dynamic>;
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider.value(value: extra['genresCubit'] as GenresCubit),
-        BlocProvider.value(value: extra['movieVideosCubit'] as MovieVideosCubit),
-      ],
-      child: SeeAllScreen(
-        movies: extra['movies'] as List<MovieModel>,
-        title: extra['title'] as String,
+      GoRoute(
+        path: kSeeAllRoute,
+        builder: (context, state) {
+          final extra = state.extra as Map<String, dynamic>;
+          return MultiBlocProvider(
+            providers: [
+              BlocProvider.value(value: extra['genresCubit'] as GenresCubit),
+              BlocProvider.value(
+                  value: extra['movieVideosCubit'] as MovieVideosCubit),
+            ],
+            child: SeeAllScreen(
+              movies: extra['movies'] as List<MovieModel>,
+              title: extra['title'] as String,
+            ),
+          );
+        },
       ),
-    );
-  },
-),      GoRoute(
+      GoRoute(
         path: kBookmarkRoute,
         builder: (context, state) {
           return const ExploreScreen();
