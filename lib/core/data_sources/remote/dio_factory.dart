@@ -8,7 +8,7 @@ class DioFactory {
   static Dio createDio() {
     final dio = Dio(
       BaseOptions(
-        baseUrl: kBaseUrl,
+        baseUrl: AppConstants.api.baseUrl,
         connectTimeout: const Duration(seconds: 10),
         receiveTimeout: const Duration(seconds: 10),
         sendTimeout: const Duration(seconds: 10),
