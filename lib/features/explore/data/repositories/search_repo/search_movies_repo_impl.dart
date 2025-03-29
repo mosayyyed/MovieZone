@@ -18,7 +18,7 @@ class SearchMoviesRepoImpl extends SearchMoviesRepo {
       final response = await _apiService.get(
         endpoint: "/search/movie",
         queryParameters: {
-          "api_key": kApiKey,
+          "api_key": AppConstants.api.apiKey,
           "query": q,
           "include_adult": "false",
           "language": "ar",
@@ -30,7 +30,7 @@ class SearchMoviesRepoImpl extends SearchMoviesRepo {
           .toList();
       return Right(movies);
     } catch (e) {
-      return Left(ApiFailure(e.toString()));
+      return Left(ApiFailure.fromException(e));
     }
   }
 }

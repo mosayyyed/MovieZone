@@ -20,14 +20,14 @@ class MovieDetailsRepoImpl extends MovieDetailsRepo {
       var response = await _apiService.get(
         endpoint: "/movie/$id",
         queryParameters: {
-          "api_key": kApiKey,
+          "api_key": AppConstants.api.apiKey,
           "language": "ar",
         },
       );
       final movieDetails = MovieDetailsModel.fromJson(response.data);
       return Right(movieDetails);
     } catch (e) {
-      return Left(ApiFailure(e.toString()));
+      return Left(ApiFailure.fromException(e));
     }
   }
 
@@ -38,7 +38,7 @@ class MovieDetailsRepoImpl extends MovieDetailsRepo {
       var response = await _apiService.get(
         endpoint: "/movie/$id/videos",
         queryParameters: {
-          "api_key": kApiKey,
+          "api_key": AppConstants.api.apiKey,
         },
       );
       final videos = (response.data['results'] as List)
@@ -46,7 +46,7 @@ class MovieDetailsRepoImpl extends MovieDetailsRepo {
           .toList();
       return Right(videos);
     } catch (e) {
-      return Left(ApiFailure(e.toString()));
+      return Left(ApiFailure.fromException(e));
     }
   }
 
@@ -57,7 +57,7 @@ class MovieDetailsRepoImpl extends MovieDetailsRepo {
       var response = await _apiService.get(
         endpoint: "/movie/$id/credits",
         queryParameters: {
-          "api_key": kApiKey,
+          "api_key": AppConstants.api.apiKey,
         },
       );
 
@@ -67,7 +67,7 @@ class MovieDetailsRepoImpl extends MovieDetailsRepo {
 
       return Right(cast);
     } catch (e) {
-      return Left(ApiFailure(e.toString()));
+      return Left(ApiFailure.fromException(e));
     }
   }
 }

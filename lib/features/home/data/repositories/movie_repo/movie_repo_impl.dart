@@ -19,7 +19,7 @@ class MovieRepoImpl extends MovieRepo {
       final response = await _apiService.get(
         endpoint: "/movie/popular",
         queryParameters: {
-          "api_key": kApiKey,
+          "api_key": AppConstants.api.apiKey,
           "language": "ar",
           "page": "1",
           "adult": "false"
@@ -30,7 +30,7 @@ class MovieRepoImpl extends MovieRepo {
           .toList();
       return Right(movies);
     } catch (e) {
-      return Left(ApiFailure(e.toString()));
+      return Left(ApiFailure.fromException(e));
     }
   }
 
@@ -40,7 +40,7 @@ class MovieRepoImpl extends MovieRepo {
       final response = await _apiService.get(
         endpoint: "/movie/top_rated",
         queryParameters: {
-          "api_key": kApiKey,
+          "api_key": AppConstants.api.apiKey,
           "language": "ar",
           "page": "1",
           "adult": "false"
@@ -52,7 +52,7 @@ class MovieRepoImpl extends MovieRepo {
           .toList();
       return Right(movies);
     } catch (e) {
-      return Left(ApiFailure(e.toString()));
+      return Left(ApiFailure.fromException(e));
     }
   }
 
@@ -62,7 +62,7 @@ class MovieRepoImpl extends MovieRepo {
       final response = await _apiService.get(
         endpoint: "/trending/movie/day",
         queryParameters: {
-          "api_key": kApiKey,
+          "api_key": AppConstants.api.apiKey,
           "language": "ar",
           "page": "1",
           "adult": "false"
@@ -74,7 +74,7 @@ class MovieRepoImpl extends MovieRepo {
           .toList();
       return Right(movies);
     } catch (e) {
-      return Left(ApiFailure(e.toString()));
+      return Left(ApiFailure.fromException(e));
     }
   }
 
@@ -84,7 +84,7 @@ class MovieRepoImpl extends MovieRepo {
       final response = await _apiService.get(
         endpoint: "/trending/movie/day",
         queryParameters: {
-          "api_key": kApiKey,
+          "api_key": AppConstants.api.apiKey,
           "language": "ar",
           "page": "1",
           "adult": "false"
@@ -97,7 +97,7 @@ class MovieRepoImpl extends MovieRepo {
 
       return Right(movies);
     } catch (e) {
-      return Left(ApiFailure(e.toString()));
+      return Left(ApiFailure.fromException(e));
     }
   }
 
@@ -107,7 +107,7 @@ class MovieRepoImpl extends MovieRepo {
       final response = await _apiService.get(
         endpoint: "/movie/upcoming",
         queryParameters: {
-          "api_key": kApiKey,
+          "api_key": AppConstants.api.apiKey,
           "language": "ar",
           "page": "1",
           "adult": "false"
@@ -120,7 +120,7 @@ class MovieRepoImpl extends MovieRepo {
 
       return Right(movies);
     } catch (e) {
-      return Left(ApiFailure(e.toString()));
+      return Left(ApiFailure.fromException(e));
     }
   }
 
@@ -130,7 +130,7 @@ class MovieRepoImpl extends MovieRepo {
       final response = await _apiService.get(
         endpoint: "/genre/movie/list",
         queryParameters: {
-          "api_key": kApiKey,
+          "api_key": AppConstants.api.apiKey,
           "language": "ar",
         },
       );
@@ -140,7 +140,7 @@ class MovieRepoImpl extends MovieRepo {
           .toList();
       return Right(genres);
     } catch (e) {
-      return Left(ApiFailure(e.toString()));
+      return Left(ApiFailure.fromException(e));
     }
   }
 }
