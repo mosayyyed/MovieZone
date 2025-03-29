@@ -12,24 +12,32 @@ class ApiFailure extends Failure {
 
   static String _getErrorMessage(dynamic e) {
     if (e is DioException) {
-      switch (e.response!.statusCode) {
-        case 404:
-          return 'المورد المطلوب غير موجود.';
-        case 500:
-          return 'خطأ في الخادم. يرجى المحاولة لاحقًا.';
-        case 401:
-          return 'غير مصرح. تحقق من بيانات الاعتماد.';
-        case 403:
-          return 'ليس لديك الصلاحية للوصول إلى هذا المورد.';
-        case 408:
-          return 'انتهت مهلة الطلب. يرجى المحاولة لاحقًا.';
-        default:
-          return 'حدث خطأ غير معروف. كود الخطأ: ${e.response!.statusCode}';
+      print("🟡 DioException Type: ${e.type}");
+
+      switch (e.type) {
+        case DioExceptionType.connectionTimeout:
+          return 'انتهت مهلة الاتصال بالخادم.';
+        case DioExceptionType.sendTimeout:
+          return 'الخادم لم يستجب في الوقت المحدد.';
+        case DioExceptionType.receiveTimeout:
+          return 'الخادم يستغرق وقتًا طويلاً للرد.';
+        case DioExceptionType.badCertificate:
+          return 'شهادة غير صالحة، لا يمكن الوصول إلى المورد.';
+        case DioExceptionType.connectionError:
+          return 'حدث خطأ في الاتصال.';
+        case DioExceptionType.badResponse:
+          return 'الخادم أرجع استجابة غير صحيحة.';
+        case DioExceptionType.cancel:
+          return 'تم إلغاء الطلب.';
+        case DioExceptionType.unknown:
+          return 'خطأ غير معروف.';
       }
-    } else if (e is Exception) {
-      return 'حدث استثناء غير متوقع: ${e.toString()}';
-    } else {
-      return 'حدث خطأ غير معروف.';
     }
+
+    if (e is Exception) {
+      return 'حدث استثناء غير متوقع: ${e.toString()}';
+    }
+
+    return 'حدث خطأ غير معروف.';
   }
 }
