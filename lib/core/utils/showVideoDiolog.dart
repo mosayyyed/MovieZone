@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/core/themes/app_values.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-import 'app_constants.dart';
 
 void showVideoDialog(BuildContext context,
     {required String videoKey, required String videoName}) {
@@ -13,10 +13,10 @@ void showVideoDialog(BuildContext context,
         backgroundColor: Colors.transparent,
         insetPadding: const EdgeInsets.all(20),
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(kBorderRadius),
+          borderRadius: BorderRadius.circular(AppSize.s12),
           child: Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(kBorderRadius),
+              borderRadius: BorderRadius.circular(AppSize.s12),
               boxShadow: [
                 BoxShadow(
                   color: Colors.black.withOpacity(0.2),
