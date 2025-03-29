@@ -12,7 +12,6 @@ class ApiFailure extends Failure {
 
   static String _getErrorMessage(dynamic e) {
     if (e is DioException) {
-      print("🟡 DioException Type: ${e.type}");
 
       switch (e.type) {
         case DioExceptionType.connectionTimeout:
