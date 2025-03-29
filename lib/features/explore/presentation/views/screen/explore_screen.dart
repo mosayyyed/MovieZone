@@ -109,7 +109,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                   } else if (state is MovieSearchError) {
                     return Center(
                       child: Text(
-                        "Error: ${state.message}",
+                        state.message,
                         style: const TextStyle(color: Colors.white),
                       ),
                     );
