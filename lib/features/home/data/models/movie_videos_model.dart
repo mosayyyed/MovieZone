@@ -1,10 +1,12 @@
-class MovieVideosModel {
+import 'package:equatable/equatable.dart';
+
+class MovieVideosModel extends Equatable {
   final String name;
   final String key;
   final String type;
   final bool official;
 
-  MovieVideosModel({
+  const MovieVideosModel({
     required this.name,
     required this.key,
     required this.type,
@@ -27,4 +29,12 @@ class MovieVideosModel {
       official: false,
     );
   }
+
+  @override
+  List<Object?> get props => [
+        name,
+        key,
+        type,
+        official,
+      ];
 }

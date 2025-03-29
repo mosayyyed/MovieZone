@@ -1,12 +1,13 @@
+import 'package:equatable/equatable.dart';
 import 'package:movie_app/core/utils/app_constants.dart';
 
-class MovieCastModel {
+class MovieCastModel extends Equatable {
   final int id;
   final String name;
   final String character;
   final String profilePath;
 
-  MovieCastModel({
+  const MovieCastModel({
     required this.id,
     required this.name,
     required this.character,
@@ -19,7 +20,7 @@ class MovieCastModel {
       name: json['name'] ?? 'Unknown',
       character: json['character'] ?? 'Unknown',
       profilePath: json['profile_path'] != null
-          ? '$kFullImageUrl${json['profile_path']}'
+          ? '${AppConstants.api.imageUrl}${json['profile_path']}'
           : '',
     );
   }
@@ -28,7 +29,15 @@ class MovieCastModel {
       id: 45,
       name: "fake fake",
       character: "fake fake",
-      profilePath: '$kFullImageUrl/djLVFETFTvPyVUdrd7aLVy',
+      profilePath: '${AppConstants.api.imageUrl}/djLVFETFTvPyVUdrd7aLVy',
     );
   }
+
+  @override
+  List<Object?> get props => [
+        id,
+        name,
+        character,
+        profilePath,
+      ];
 }
