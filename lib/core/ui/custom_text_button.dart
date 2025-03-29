@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../../../core/themes/app_styles.dart';
-import '../utils/app_constants.dart';
+import 'package:movie_app/core/themes/app_styles.dart';
+import 'package:movie_app/core/themes/app_values.dart';
 
 class CustomTextButton extends StatelessWidget {
   final String text;
@@ -27,7 +26,7 @@ class CustomTextButton extends StatelessWidget {
         ),
         shape: WidgetStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(kBorderRadius),
+            borderRadius: BorderRadius.circular(AppSize.s12),
           ),
         ),
       ),
