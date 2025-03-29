@@ -1,9 +1,10 @@
+import 'package:equatable/equatable.dart';
 import 'package:movie_app/core/utils/app_constants.dart';
 import 'package:movie_app/features/home/data/models/ProductionCompaniesModel.dart';
 
 import 'genre_model.dart';
 
-class MovieDetailsModel {
+class MovieDetailsModel extends Equatable {
   final int id;
   final String title;
   final String originalTitle;
@@ -20,7 +21,7 @@ class MovieDetailsModel {
   final int revenue;
   final List<ProductionCompaniesModel> productionCompanies;
 
-  MovieDetailsModel({
+  const MovieDetailsModel({
     required this.id,
     required this.title,
     required this.originalTitle,
@@ -50,10 +51,10 @@ class MovieDetailsModel {
           [],
       overview: json['overview'] ?? 'لا يوجد وصف متاح',
       posterPath: json['poster_path'] != null
-          ? kFullImageUrl + json['poster_path']
+          ? AppConstants.api.imageUrl + json['poster_path']
           : '',
       backdropPath: json['backdrop_path'] != null
-          ? kFullImageUrl + json['backdrop_path']
+          ? AppConstants.api.imageUrl + json['backdrop_path']
           : '',
       voteAverage: (json['vote_average'] ?? 0).toDouble(),
       voteCount: json['vote_count'] ?? 0,
@@ -74,8 +75,8 @@ class MovieDetailsModel {
         id: 1126166,
         title: "Flight Risk",
         originalTitle: "Flight Risk",
-        backdropPath: "$kFullImageUrl/b3mdmjYTEL70j7nuXATUAD9qgu4.jpg",
-        posterPath: "$kFullImageUrl/srmH9BNiZp43NMhWCZy2ZARfxpC.jpg",
+        backdropPath: "${AppConstants.api.imageUrl}/b3mdmjYTEL70j7nuXATUAD9qgu4.jpg",
+        posterPath: "${AppConstants.api.imageUrl}/srmH9BNiZp43NMhWCZy2ZARfxpC.jpg",
         voteAverage: 8.6,
         voteCount: 396,
         budget: 354,
@@ -94,4 +95,23 @@ class MovieDetailsModel {
           {"iso_3166_1": "US", "name": "United States of America"}
         ].map((x) => ProductionCompaniesModel.fromJson(x)).toList());
   }
+  
+  @override
+  List<Object?> get props => [
+        id,
+        title,
+        originalTitle,
+        tagLine,
+        genres,
+        overview,
+        posterPath,
+        backdropPath,
+        voteAverage,
+        voteCount,
+        popularity,
+        releaseDate,
+        productionCompanies,
+        budget,
+        revenue
+      ];
 }

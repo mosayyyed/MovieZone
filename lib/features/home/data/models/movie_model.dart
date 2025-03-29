@@ -1,6 +1,7 @@
+import 'package:equatable/equatable.dart';
 import 'package:movie_app/core/utils/app_constants.dart';
 
-class MovieModel {
+class MovieModel extends Equatable {
   final int id;
   final String title;
   final String originalTitle;
@@ -10,7 +11,7 @@ class MovieModel {
   final int voteCount;
   final List<int> genreIds;
 
-  MovieModel({
+  const MovieModel({
     required this.id,
     required this.title,
     required this.originalTitle,
@@ -27,10 +28,10 @@ class MovieModel {
       title: json['title'] ?? 'Unknown Title',
       originalTitle: json['original_title'] ?? 'Unknown Original Title',
       posterPath: json['poster_path'] != null
-          ? '$kFullImageUrl${json['poster_path']}'
+          ? '${AppConstants.api.imageUrl}${json['poster_path']}'
           : '',
       backdropPath: json['backdrop_path'] != null
-          ? '$kFullImageUrl${json['backdrop_path']}'
+          ? '${AppConstants.api.imageUrl}${json['backdrop_path']}'
           : '',
       voteAverage: (json['vote_average'] ?? 0).toDouble(),
       voteCount: json['vote_count'] ?? 0,
@@ -43,11 +44,25 @@ class MovieModel {
       id: 1126166,
       title: "Flight Risk",
       originalTitle: "Flight Risk",
-      backdropPath: "$kFullImageUrl/b3mdmjYTEL70j7nuXATUAD9qgu4.jpg",
-      posterPath: "$kFullImageUrl/srmH9BNiZp43NMhWCZy2ZARfxpC.jpg",
+      backdropPath:
+          "${AppConstants.api.imageUrl}/b3mdmjYTEL70j7nuXATUAD9qgu4.jpg",
+      posterPath:
+          "${AppConstants.api.imageUrl}/srmH9BNiZp43NMhWCZy2ZARfxpC.jpg",
       voteAverage: 8.6,
       voteCount: 396,
       genreIds: [18, 80],
     );
   }
+
+  @override
+  List<Object?> get props => [
+        id,
+        title,
+        originalTitle,
+        posterPath,
+        backdropPath,
+        voteAverage,
+        voteCount,
+        genreIds,
+      ];
 }
