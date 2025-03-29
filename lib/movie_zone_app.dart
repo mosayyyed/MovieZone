@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:movie_app/core/routing/routes.dart';
 import 'package:movie_app/core/themes/app_themes.dart';
-import 'package:movie_app/core/themes/localization_controller.dart';
 import 'package:movie_app/core/themes/theme_controller.dart';
 import 'package:movie_app/core/utils/service_locator.dart';
 import 'package:movie_app/generated/l10n.dart';
