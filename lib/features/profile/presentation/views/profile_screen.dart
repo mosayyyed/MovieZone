@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/core/routing/routes.dart';
+import 'package:movie_app/core/themes/app_values.dart';
 import 'package:movie_app/core/themes/theme_controller.dart';
 import 'package:movie_app/core/ui/custom_elevated_button.dart';
 import 'package:movie_app/core/ui/my_single_child_scroll_view.dart';
-import 'package:movie_app/core/utils/app_constants.dart';
 import 'package:movie_app/features/onboarding/presentation/widgets/skip_button.dart';
 import 'package:movie_app/features/profile/presentation/views/ui/profile_header.dart';
 
@@ -141,7 +141,7 @@ class ProfileScreen extends StatelessWidget {
       trailing: const Icon(Icons.arrow_forward_ios, size: 16),
       tileColor: Theme.of(context).colorScheme.surface,
       shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(kBorderRadius)),
+          borderRadius: BorderRadius.circular(AppSize.s12)),
     );
   }
 
@@ -155,7 +155,7 @@ class ProfileScreen extends StatelessWidget {
       activeColor: Theme.of(context).colorScheme.primary,
       secondary: isDarkMode ? const Icon(Icons.dark_mode) : null,
       shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(kBorderRadius)),
+          borderRadius: BorderRadius.circular(AppSize.s12)),
     );
   }
 
@@ -167,7 +167,7 @@ class ProfileScreen extends StatelessWidget {
       trailing: const Icon(Icons.arrow_forward_ios, size: 16),
       tileColor: Theme.of(context).colorScheme.surface,
       shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(kBorderRadius)),
+          borderRadius: BorderRadius.circular(AppSize.s12)),
     );
   }
 }

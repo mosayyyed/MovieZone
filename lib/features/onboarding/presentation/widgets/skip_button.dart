@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/themes/app_styles.dart';
-import 'package:movie_app/core/utils/app_constants.dart';
+import 'package:movie_app/core/themes/app_values.dart';
 
 import '../../../../generated/l10n.dart';
 
@@ -23,7 +23,7 @@ class SkipButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(kBorderRadius),
+      borderRadius: BorderRadius.circular(AppSize.s12),
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
         child: TextButton(
@@ -36,7 +36,7 @@ class SkipButton extends StatelessWidget {
               side: hasBorderSide
                   ? BorderSide(color: Colors.grey, width: 1)
                   : BorderSide.none,
-              borderRadius: BorderRadius.circular(kBorderRadius),
+              borderRadius: BorderRadius.circular(AppSize.s12),
             ),
             backgroundColor:
                 Theme.of(context).colorScheme.onSurface.withAlpha(51),

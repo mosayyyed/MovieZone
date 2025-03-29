@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/core/themes/app_values.dart';
 
 import '../../../../../../core/themes/app_styles.dart';
-import '../../../../../../core/utils/app_constants.dart';
 import '../../../../data/models/movie_details_model.dart';
 
 class MovieGenres extends StatelessWidget {
@@ -19,7 +19,7 @@ class MovieGenres extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.secondary,
-            borderRadius: BorderRadius.circular(kBorderRadius),
+            borderRadius: BorderRadius.circular(AppSize.s12),
           ),
           child: Text(
             genre.name,

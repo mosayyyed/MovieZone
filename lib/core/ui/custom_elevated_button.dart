@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/core/themes/app_values.dart';
 
 import '../themes/app_styles.dart';
-import '../utils/app_constants.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   const CustomElevatedButton({
@@ -24,7 +24,7 @@ class CustomElevatedButton extends StatelessWidget {
         shadowColor: Colors.transparent,
         elevation: 0,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(kBorderRadius),
+          borderRadius: BorderRadius.circular(AppSize.s12),
         ),
         minimumSize: const Size(double.infinity, 45),
         backgroundColor: backgroundColor,

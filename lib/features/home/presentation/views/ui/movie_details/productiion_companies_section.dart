@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_app/core/themes/app_values.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../../../core/themes/app_styles.dart';
-import '../../../../../../core/utils/app_constants.dart';
 import '../../../../data/models/movie_details_model.dart';
 
 class ProductionCompaniesSection extends StatelessWidget {
@@ -37,12 +37,12 @@ class ProductionCompaniesSection extends StatelessWidget {
           itemBuilder: (context, index) {
             final company = movie.productionCompanies[index];
             return ClipRRect(
-              borderRadius: BorderRadius.circular(kBorderRadius),
+              borderRadius: BorderRadius.circular(AppSize.s12),
               child: Card(
                 elevation: 0,
                 color: Theme.of(context).colorScheme.surface,
                 child: Container(
-                  padding: const EdgeInsets.all(kBorderRadius),
+                  padding: const EdgeInsets.all(AppSize.s12),
                   child: CachedNetworkImage(
                     imageUrl: company.logoPath,
                     color: Theme.of(context).colorScheme.onSurface,

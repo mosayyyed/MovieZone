@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_progress_hud/flutter_progress_hud.dart';
-
-import '../utils/app_constants.dart';
+import 'package:movie_app/core/themes/app_values.dart';
 
 class CustomProgressHUD extends StatelessWidget {
   final Widget child;
@@ -17,7 +16,7 @@ class CustomProgressHUD extends StatelessWidget {
     bool isIOS = Theme.of(context).platform == TargetPlatform.iOS;
 
     return ProgressHUD(
-      backgroundRadius: Radius.circular(kBorderRadius),
+      backgroundRadius: Radius.circular(AppSize.s12),
       barrierColor: Theme.of(context).colorScheme.surface.withAlpha(100),
       borderColor: Colors.transparent,
       borderWidth: 2,
