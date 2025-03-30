@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/core/routing/routes.dart';
 import 'package:movie_app/core/themes/app_values.dart';
-import 'package:movie_app/core/themes/theme_controller.dart';
+import 'package:movie_app/core/controllers/theme_controller.dart';
 import 'package:movie_app/core/ui/custom_elevated_button.dart';
 import 'package:movie_app/core/ui/my_single_child_scroll_view.dart';
 import 'package:movie_app/features/onboarding/presentation/widgets/skip_button.dart';
