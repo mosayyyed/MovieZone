@@ -1,0 +1,15 @@
+flutter_native_splash:
+  color: "#FAFAFA"
+  color_dark: "#121212"
+  image: assets/movieisme-logo.png
+  image_dark: assets/movieisme-logo.png
+
+  android_12:
+    image: assets/movieisme-logo.png
+    image_dark: assets/movieisme-logo.png
+    color: "#FAFAFA"
+    color_dark: "#121212"
+    icon_background_color: "#FAFAFA"
+    icon_background_color_dark: "#121212"
+
+  web: false
