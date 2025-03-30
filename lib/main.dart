@@ -14,6 +14,6 @@ void main() async {
   );
   dotenv.load(fileName: ".env");
 
-  setupServiceLocator();
+  await setupServiceLocator();
   runApp(const MovieZoneApp());
 }

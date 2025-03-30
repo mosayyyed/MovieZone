@@ -12,15 +12,29 @@ import '../data_sources/remote/firebase_service.dart';
 
 final GetIt getIt = GetIt.instance;
 
-void setupServiceLocator() async {
+Future<void> setupServiceLocator() async {
   final SharedPreferences prefs = await SharedPreferences.getInstance();
 
   getIt.registerSingleton<SharedPreferences>(prefs);
-  getIt.registerSingleton<AuthRepoImpl>(AuthRepoImpl(
-      FirebaseService(FirebaseAuth.instance, FirebaseFirestore.instance)));
-  getIt.registerSingleton<MovieRepoImpl>(MovieRepoImpl(HttpApiService()));
+
+  getIt.registerSingleton<AuthRepoImpl>(
+    AuthRepoImpl(
+      FirebaseService(FirebaseAuth.instance, FirebaseFirestore.instance),
+    ),
+  );
+  getIt.registerSingleton<MovieRepoImpl>(
+    MovieRepoImpl(
+      HttpApiService(),
+    ),
+  );
   getIt.registerSingleton<MovieDetailsRepoImpl>(
-      MovieDetailsRepoImpl(HttpApiService()));
+    MovieDetailsRepoImpl(
+      HttpApiService(),
+    ),
+  );
   getIt.registerSingleton<SearchMoviesRepoImpl>(
-      SearchMoviesRepoImpl(HttpApiService()));
+    SearchMoviesRepoImpl(
+      HttpApiService(),
+    ),
+  );
 }
