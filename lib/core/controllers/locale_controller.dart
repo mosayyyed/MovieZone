@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class LocalizationCubit extends Cubit<Locale> {
+class LocaleCubit extends Cubit<Locale> {
   final SharedPreferences _prefs;
 
   static const String _languageKey = 'selected_language';
 
-  LocalizationCubit(this._prefs) : super(const Locale('en')) {
+  LocaleCubit(this._prefs) : super(const Locale('en')) {
     _loadSavedLanguage();
   }
 

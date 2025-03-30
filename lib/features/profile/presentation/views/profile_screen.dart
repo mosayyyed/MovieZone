@@ -56,10 +56,7 @@ class ProfileScreen extends StatelessWidget {
             _buildSwitchTile(
               context,
               "الوضع المظلم",
-              context.read<ThemeCubit>().state is ThemeChanged &&
-                  (context.read<ThemeCubit>().state as ThemeChanged)
-                          .themeMode ==
-                      ThemeMode.dark,
+              context.read<ThemeCubit>().state == ThemeMode.dark,
               onChanged: (newValue) {
                 context.read<ThemeCubit>().toggleTheme(
                       newValue ? ThemeMode.dark : ThemeMode.light,

@@ -7,6 +7,12 @@ import 'core/utils/service_locator.dart';
 import 'firebase_options.dart';
 
 void main() async {
+  await _initializeServices();
+
+  runApp(const MovieZoneApp());
+}
+
+Future<void> _initializeServices() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp(
@@ -15,5 +21,4 @@ void main() async {
   dotenv.load(fileName: ".env");
 
   await setupServiceLocator();
-  runApp(const MovieZoneApp());
 }
