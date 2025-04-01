@@ -1,7 +1,10 @@
+import 'dart:ui';
+
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class AppConstants {
   static const api = _ApiConstants();
+  static const languages = AppLocalizationConstants();
   static const sharedPreferences = _SharedPreferencesConstants();
   static const String appName = "Movie App";
 }
@@ -18,4 +21,13 @@ class _SharedPreferencesConstants {
   const _SharedPreferencesConstants();
   String get themeKey => "theme_key";
   String get languageKey => "language_key";
+}
+
+class AppLocalizationConstants {
+  const AppLocalizationConstants();
+
+  Map<String, Locale> get supportedLanguages => {
+        "English": const Locale("en"),
+        "العربية": const Locale("ar"),
+      };
 }
