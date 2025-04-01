@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/core/utils/service_locator.dart';
@@ -26,6 +28,8 @@ import 'package:movie_app/features/home/presentation/views/screen/home_screen.da
 import 'package:movie_app/features/home/presentation/views/screen/movie_details_screen.dart';
 import 'package:movie_app/features/home/presentation/views/screen/see_all_screen.dart';
 import 'package:movie_app/features/onboarding/presentation/views/onboarding_screen.dart';
+import 'package:movie_app/features/profile/data/repositories/user_repo_impl.dart';
+import 'package:movie_app/features/profile/presentation/controller/cubit/user_cubit_cubit.dart';
 import 'package:movie_app/features/profile/presentation/views/profile_screen.dart';
 import 'package:movie_app/features/splash/presentation/views/splash_screen.dart';
 
@@ -195,7 +199,23 @@ abstract class AppRoutes {
       GoRoute(
         path: kProfileRoute,
         builder: (context, state) {
-          return const ProfileScreen();
+          final currentUser = FirebaseAuth.instance.currentUser;
+
+          return MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) {
+                  final userCubit =
+                      UserCubit(UserRepoImpl(FirebaseFirestore.instance));
+                  if (currentUser != null) {
+                    userCubit.fetchUser(currentUser.uid);
+                  }
+                  return userCubit;
+                },
+              ),
+            ],
+            child: const ProfileScreen(),
+          );
         },
       ),
     ],
