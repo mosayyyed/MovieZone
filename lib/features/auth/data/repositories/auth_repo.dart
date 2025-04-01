@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:movie_app/features/auth/data/models/user_model.dart';
+import 'package:movie_app/features/profile/data/models/user_model.dart';
 
 import '../../../../core/errors/failures.dart';
 
