@@ -25,7 +25,7 @@ class MovieZoneApp extends StatelessWidget {
             builder: (context, themeMode) {
               return MaterialApp.router(
                 debugShowCheckedModeBanner: false,
-                locale: const Locale("ar"),
+                locale: locale,
                 localizationsDelegates: [
                   S.delegate,
                   GlobalMaterialLocalizations.delegate,
