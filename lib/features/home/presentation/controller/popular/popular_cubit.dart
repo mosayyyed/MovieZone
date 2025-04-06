@@ -21,7 +21,7 @@ class PopularCubit extends Cubit<PopularState> {
       (movies) {
         popularMovies.clear();
         popularMovies.addAll(movies);
-        emit(PopularSuccess(popularMovies));
+        emit(PopularSuccess(movies));
       },
     );
     return popularMovies;
