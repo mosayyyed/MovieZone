@@ -6,6 +6,8 @@ import 'package:movie_app/core/routing/routes.dart';
 import 'package:movie_app/core/themes/app_themes.dart';
 import 'package:movie_app/core/controllers/theme_controller.dart';
 import 'package:movie_app/core/utils/service_locator.dart';
+import 'package:movie_app/features/profile/data/repositories/user_repo_impl.dart';
+import 'package:movie_app/features/profile/presentation/controller/cubit/user_cubit_cubit.dart';
 import 'package:movie_app/generated/l10n.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -18,6 +20,8 @@ class MovieZoneApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (_) => ThemeCubit(getIt<SharedPreferences>())),
         BlocProvider(create: (_) => LocaleCubit(getIt<SharedPreferences>())),
+        BlocProvider(
+            create: (_) => UserCubit(getIt<UserRepoImpl>())..fetchUser()),
       ],
       child: BlocBuilder<LocaleCubit, Locale>(
         builder: (context, locale) {
