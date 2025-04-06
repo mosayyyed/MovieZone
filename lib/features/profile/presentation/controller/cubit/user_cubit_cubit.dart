@@ -10,11 +10,10 @@ class UserCubit extends Cubit<UserState> {
 
   UserCubit(this._userRepo) : super(UserInitial());
 
-  Future<void> fetchUser(String userId) async {
+  Future<void> fetchUser() async {
     emit(UserLoading());
 
-    final Either<Failure, UserModel?> result =
-        await _userRepo.getUser(userId: userId);
+    final Either<Failure, UserModel?> result = await _userRepo.getUser();
 
     result.fold(
       (failure) => emit(UserError(failure.message)),
