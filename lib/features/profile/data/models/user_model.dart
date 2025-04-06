@@ -1,11 +1,13 @@
-class UserModel {
+import 'package:equatable/equatable.dart';
+
+class UserModel extends Equatable {
   final String token;
   final String fullName;
   final String email;
   final String phone;
   final bool isVerified;
 
-  UserModel({
+  const UserModel({
     required this.token,
     required this.fullName,
     required this.email,
@@ -32,4 +34,13 @@ class UserModel {
       isVerified: map['isVerified'] ?? false,
     );
   }
+
+  @override
+  List<Object?> get props => [
+        token,
+        fullName,
+        email,
+        phone,
+        isVerified,
+      ];
 }

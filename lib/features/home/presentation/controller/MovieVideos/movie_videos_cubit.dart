@@ -1,4 +1,6 @@
 import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../data/models/movie_videos_model.dart';
 import '../../../data/repositories/movie_details_repo/movie_details_repo.dart';

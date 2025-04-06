@@ -1,9 +1,9 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/features/auth/data/models/signup_request_model.dart';
 import 'package:movie_app/features/auth/data/repositories/auth_repo.dart';
 import 'package:movie_app/features/profile/data/models/user_model.dart';
-
 
 part 'signup_state.dart';
 
