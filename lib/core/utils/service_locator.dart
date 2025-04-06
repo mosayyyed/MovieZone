@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
 import 'package:movie_app/features/auth/data/repositories/auth_repo_impl.dart';
 import 'package:movie_app/features/home/data/repositories/movie_repo/movie_repo_impl.dart';
+import 'package:movie_app/features/profile/data/repositories/user_repo_impl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../features/explore/data/repositories/search_repo/search_movies_repo_impl.dart';
@@ -35,6 +36,12 @@ Future<void> setupServiceLocator() async {
   getIt.registerSingleton<SearchMoviesRepoImpl>(
     SearchMoviesRepoImpl(
       HttpApiService(),
+    ),
+  );
+  getIt.registerSingleton<UserRepoImpl>(
+    UserRepoImpl(
+      FirebaseFirestore.instance,
+      FirebaseAuth.instance,
     ),
   );
 }
