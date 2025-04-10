@@ -26,7 +26,7 @@ import 'package:movie_app/features/home/presentation/views/screen/home_screen.da
 import 'package:movie_app/features/home/presentation/views/screen/movie_details_screen.dart';
 import 'package:movie_app/features/home/presentation/views/screen/see_all_screen.dart';
 import 'package:movie_app/features/onboarding/presentation/views/onboarding_screen.dart';
-import 'package:movie_app/features/profile/presentation/views/profile_screen.dart';
+import 'package:movie_app/features/profile/presentation/views/screens/profile_screen.dart';
 import 'package:movie_app/features/splash/presentation/views/splash_screen.dart';
 
 abstract class AppRoutes {
