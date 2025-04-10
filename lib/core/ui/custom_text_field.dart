@@ -17,6 +17,7 @@ class CustomTextField extends StatelessWidget {
     this.prefixIcon,
     this.suffixIconVisibility = false,
     this.onSuffixIconPressed,
+    this.readOnly = false,
   });
 
   final String labelText;
@@ -30,6 +31,7 @@ class CustomTextField extends StatelessWidget {
   final Widget? prefixIcon;
   final bool suffixIconVisibility;
   final VoidCallback? onSuffixIconPressed;
+  final bool readOnly;
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +39,7 @@ class CustomTextField extends StatelessWidget {
       controller: controller,
       onChanged: onChanged,
       validator: validator,
+      readOnly: readOnly,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       keyboardType: keyboardType,
       obscureText: obscureText,
