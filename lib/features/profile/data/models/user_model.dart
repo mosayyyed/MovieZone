@@ -35,6 +35,14 @@ class UserModel extends Equatable {
     );
   }
 
+  factory UserModel.fake() {
+    return UserModel(
+      token: '456078ni5hg6hib',
+      fullName: 'john doe',
+      email: 'john@gmail.com',
+      phone: '+201010101010',
+    );
+  }
   @override
   List<Object?> get props => [
         token,
