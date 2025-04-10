@@ -5,6 +5,7 @@ import 'package:movie_app/core/ui/custom_elevated_button.dart';
 import 'package:movie_app/core/ui/custom_text_field.dart';
 import 'package:movie_app/features/profile/data/models/user_model.dart';
 import 'package:movie_app/features/profile/presentation/controller/cubit/user_cubit_cubit.dart';
+import 'package:movie_app/generated/l10n.dart';
 
 class EditProfileScreen extends StatefulWidget {
   final UserModel user;
@@ -80,10 +81,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               children: [
                 CustomTextField(
                   controller: _nameController,
-                  labelText: 'الاسم',
+                  labelText: S.of(context).fullName,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'الرجاء إدخال الاسم';
+                      return S.of(context).fullNameRequiredError;
                     }
                     return null;
                   },
@@ -92,11 +93,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 CustomTextField(
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
-                  labelText: 'البريد الإلكتروني',
+                  labelText: S.of(context).email,
                   readOnly: true,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'الرجاء إدخال رقم الهاتف';
+                      return S.of(context).emailRequiredError;
                     }
                     return null;
                   },
@@ -105,10 +106,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 CustomTextField(
                   controller: _phoneController,
                   keyboardType: TextInputType.phone,
-                  labelText: 'رقم الهاتف',
+                  labelText: S.of(context).phoneNumber,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'الرجاء إدخال رقم الهاتف';
+                      return S.of(context).phoneNumberRequiredError;
                     }
                     return null;
                   },
