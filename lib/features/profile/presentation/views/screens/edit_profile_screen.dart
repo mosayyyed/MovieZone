@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/themes/app_styles.dart';
+import 'package:movie_app/core/themes/app_values.dart';
 import 'package:movie_app/core/ui/custom_elevated_button.dart';
 import 'package:movie_app/core/ui/custom_text_field.dart';
 import 'package:movie_app/core/ui/my_single_child_scroll_view.dart';
@@ -44,86 +45,87 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return MySingleChildScrollView(
-      child: Padding(
-        padding:
-            EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  S.of(context).editProfile,
-                  style: Styles.boldTextStyle18.copyWith(
-                    color: Theme.of(context).colorScheme.onSurface,
-                  ),
+      padding: EdgeInsets.only(
+          bottom: MediaQuery.of(context).viewInsets.bottom,
+          left: AppPadding.p16,
+          right: AppPadding.p16,
+          top: AppPadding.p16),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                S.of(context).editProfile,
+                style: Styles.boldTextStyle18.copyWith(
+                  color: Theme.of(context).colorScheme.onSurface,
                 ),
-                IconButton(
-                  icon: Icon(
-                    Icons.close,
-                    color: Theme.of(context).colorScheme.onSurface,
-                  ),
-                  onPressed: () => Navigator.pop(context),
+              ),
+              IconButton(
+                icon: Icon(
+                  Icons.close,
+                  color: Theme.of(context).colorScheme.onSurface,
+                ),
+                onPressed: () => Navigator.pop(context),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          // Form
+          Form(
+            key: _formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomTextField(
+                  controller: _nameController,
+                  labelText: S.of(context).fullName,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return S.of(context).fullNameRequiredError;
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 16),
+                CustomTextField(
+                  controller: _emailController,
+                  keyboardType: TextInputType.emailAddress,
+                  labelText: S.of(context).email,
+                  readOnly: true,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return S.of(context).emailRequiredError;
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 16),
+                CustomTextField(
+                  controller: _phoneController,
+                  keyboardType: TextInputType.phone,
+                  labelText: S.of(context).phoneNumber,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return S.of(context).phoneNumberRequiredError;
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 24),
+                CustomElevatedButton(
+                  onPressed: _saveChanges,
+                  text: S.of(context).confirmChanges,
+                  textColor: Theme.of(context).colorScheme.onPrimary,
+                  backgroundColor: Theme.of(context).colorScheme.primary,
                 ),
               ],
             ),
-            const SizedBox(height: 16),
-            // Form
-            Form(
-              key: _formKey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CustomTextField(
-                    controller: _nameController,
-                    labelText: S.of(context).fullName,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return S.of(context).fullNameRequiredError;
-                      }
-                      return null;
-                    },
-                  ),
-                  const SizedBox(height: 16),
-                  CustomTextField(
-                    controller: _emailController,
-                    keyboardType: TextInputType.emailAddress,
-                    labelText: S.of(context).email,
-                    readOnly: true,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return S.of(context).emailRequiredError;
-                      }
-                      return null;
-                    },
-                  ),
-                  const SizedBox(height: 16),
-                  CustomTextField(
-                    controller: _phoneController,
-                    keyboardType: TextInputType.phone,
-                    labelText: S.of(context).phoneNumber,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return S.of(context).phoneNumberRequiredError;
-                      }
-                      return null;
-                    },
-                  ),
-                  const SizedBox(height: 24),
-                  CustomElevatedButton(
-                    onPressed: _saveChanges,
-                    text: S.of(context).confirmChanges,
-                    textColor: Theme.of(context).colorScheme.onPrimary,
-                    backgroundColor: Theme.of(context).colorScheme.primary,
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 16),
-          ],
-        ),
+          ),
+          const SizedBox(height: 16),
+        ],
       ),
     );
   }

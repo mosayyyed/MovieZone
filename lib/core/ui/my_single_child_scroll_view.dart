@@ -3,16 +3,17 @@ import 'package:movie_app/core/themes/app_values.dart';
 
 class MySingleChildScrollView extends StatelessWidget {
   final Widget child;
-  const MySingleChildScrollView({
-    super.key,
-    required this.child,
-  });
+  final EdgeInsetsGeometry padding;
+  const MySingleChildScrollView(
+      {super.key,
+      required this.child,
+      this.padding = const EdgeInsets.symmetric(horizontal: AppPadding.p16)});
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
-      padding: const EdgeInsets.symmetric(horizontal: AppPadding.p16),
+      padding: padding,
       child: child,
     );
   }
