@@ -52,13 +52,16 @@ class LanguageSection extends StatelessWidget {
     showModalBottomSheet(
       context: context,
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      constraints: BoxConstraints(
+        maxHeight: MediaQuery.of(context).size.height * 0.5,
+        minHeight: MediaQuery.of(context).size.height * 0.3,
+      ),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(AppSize.s12)),
       ),
       builder: (context) {
         return MySingleChildScrollView(
-          padding: const EdgeInsets.symmetric(
-              horizontal: AppPadding.p16, vertical: AppPadding.p16),
+          padding: const EdgeInsets.all(AppPadding.p16),
           child: BlocBuilder<LocaleCubit, Locale>(
             builder: (context, locale) {
               return Column(
