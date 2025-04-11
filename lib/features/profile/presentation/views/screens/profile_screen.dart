@@ -9,6 +9,7 @@ import 'package:movie_app/core/controllers/theme_controller.dart';
 import 'package:movie_app/core/ui/custom_elevated_button.dart';
 import 'package:movie_app/core/ui/my_single_child_scroll_view.dart';
 import 'package:movie_app/core/utils/app_constants.dart';
+import 'package:movie_app/core/utils/country_code_to_flag.dart';
 import 'package:movie_app/features/onboarding/presentation/widgets/skip_button.dart';
 import 'package:movie_app/generated/l10n.dart';
 import 'package:movie_app/features/profile/presentation/views/ui/profile_header.dart';
@@ -124,48 +125,70 @@ class ProfileScreen extends StatelessWidget {
   void _showLanguageSelectionSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      showDragHandle: true,
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(AppSize.s12)),
       ),
       builder: (context) {
-        return Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: BlocBuilder<LocaleCubit, Locale>(
-            builder: (context, locale) {
-              return Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(S.of(context).chooseLanguage,
+        return SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: BlocBuilder<LocaleCubit, Locale>(
+              builder: (context, locale) {
+                return Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      S.of(context).chooseLanguage,
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: Theme.of(context).colorScheme.onSurface,
-                      )),
-                  const SizedBox(height: 12),
-                  ...AppConstants.languages.supportedLanguages.entries
-                      .map((entry) {
-                    return RadioListTile<Locale>(
-                      title:
-                          Text(entry.key, style: const TextStyle(fontSize: 18)),
-                      value: entry.value,
-                      groupValue: locale,
-                      activeColor: Theme.of(context).primaryColor,
-                      onChanged: (Locale? newLocale) {
-                        if (newLocale != null) {
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    ...AppConstants.languages.supportedLanguages.entries
+                        .map((entry) {
+                      return ListTile(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(AppSize.s12),
+                        ),
+                        contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 0, vertical: 4),
+                        onTap: () {
                           context
                               .read<LocaleCubit>()
-                              .changeLanguage(newLocale.languageCode);
+                              .changeLanguage(entry.value.languageCode);
                           Navigator.of(context).pop();
-                        }
-                      },
-                    );
-                  }),
-                ],
-              );
-            },
+                        },
+                        leading: Text(
+                          getFlagEmoji(entry.value.languageCode),
+                          style: const TextStyle(fontSize: 24),
+                        ),
+                        title: Text(
+                          entry.key,
+                          style: const TextStyle(fontSize: 18),
+                        ),
+                        trailing: Radio<Locale>(
+                          value: entry.value,
+                          groupValue: locale,
+                          activeColor: Theme.of(context).primaryColor,
+                          onChanged: (Locale? newLocale) {
+                            if (newLocale != null) {
+                              context
+                                  .read<LocaleCubit>()
+                                  .changeLanguage(newLocale.languageCode);
+                              Navigator.of(context).pop();
+                            }
+                          },
+                        ),
+                      );
+                    }),
+                  ],
+                );
+              },
+            ),
           ),
         );
       },

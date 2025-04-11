@@ -29,5 +29,14 @@ class AppLocalizationConstants {
   Map<String, Locale> get supportedLanguages => {
         "English": const Locale("en"),
         "العربية": const Locale("ar"),
+        "français": const Locale("fr"),
+        "Español": const Locale("es"),
+      };
+
+  Map<String, String> get flagEmojis => {
+        "en": "🇺🇸",
+        "ar": "🇪🇬",
+        "fr": "🇫🇷",
+        "es": "🇪🇸",
       };
 }
