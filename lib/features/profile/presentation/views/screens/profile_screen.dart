@@ -33,8 +33,8 @@ class ProfileScreen extends StatelessWidget {
             const SizedBox(height: 20),
             buildSettingsSection(context),
             buildAppearanceSection(context),
-            buildLanguageSection(context),
             buildNotificationsSection(context),
+            buildLanguageSection(context),
             const SizedBox(height: 50),
             _buildLogoutButton(context, theme),
             const SizedBox(height: 20),
@@ -95,6 +95,7 @@ class ProfileScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        const SizedBox(height: 10),
         _buildSectionTitle(S.of(context).appLanguage),
         const SizedBox(height: 10),
         _buildOptionTile(
@@ -130,65 +131,62 @@ class ProfileScreen extends StatelessWidget {
         borderRadius: BorderRadius.vertical(top: Radius.circular(AppSize.s12)),
       ),
       builder: (context) {
-        return SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: BlocBuilder<LocaleCubit, Locale>(
-              builder: (context, locale) {
-                return Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      S.of(context).chooseLanguage,
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Theme.of(context).colorScheme.onSurface,
-                      ),
+        return MySingleChildScrollView(
+          child: BlocBuilder<LocaleCubit, Locale>(
+            builder: (context, locale) {
+              return Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    S.of(context).chooseLanguage,
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Theme.of(context).colorScheme.onSurface,
                     ),
-                    const SizedBox(height: 12),
-                    ...AppConstants.languages.supportedLanguages.entries
-                        .map((entry) {
-                      return ListTile(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(AppSize.s12),
-                        ),
-                        contentPadding: const EdgeInsets.symmetric(
-                            horizontal: 0, vertical: 4),
-                        onTap: () {
-                          context
-                              .read<LocaleCubit>()
-                              .changeLanguage(entry.value.languageCode);
-                          Navigator.of(context).pop();
+                  ),
+                  const SizedBox(height: 12),
+                  ...AppConstants.languages.supportedLanguages.entries
+                      .map((entry) {
+                    return ListTile(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(AppSize.s12),
+                      ),
+                      contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 0, vertical: 4),
+                      onTap: () {
+                        context
+                            .read<LocaleCubit>()
+                            .changeLanguage(entry.value.languageCode);
+                        Navigator.of(context).pop();
+                      },
+                      leading: Text(
+                        getFlagEmoji(entry.value.languageCode),
+                        style: const TextStyle(fontSize: 24),
+                      ),
+                      title: Text(
+                        entry.key,
+                        style: const TextStyle(fontSize: 18),
+                      ),
+                      trailing: Radio<Locale>(
+                        value: entry.value,
+                        groupValue: locale,
+                        activeColor: Theme.of(context).primaryColor,
+                        onChanged: (Locale? newLocale) {
+                          if (newLocale != null) {
+                            context
+                                .read<LocaleCubit>()
+                                .changeLanguage(newLocale.languageCode);
+                            Navigator.of(context).pop();
+                          }
                         },
-                        leading: Text(
-                          getFlagEmoji(entry.value.languageCode),
-                          style: const TextStyle(fontSize: 24),
-                        ),
-                        title: Text(
-                          entry.key,
-                          style: const TextStyle(fontSize: 18),
-                        ),
-                        trailing: Radio<Locale>(
-                          value: entry.value,
-                          groupValue: locale,
-                          activeColor: Theme.of(context).primaryColor,
-                          onChanged: (Locale? newLocale) {
-                            if (newLocale != null) {
-                              context
-                                  .read<LocaleCubit>()
-                                  .changeLanguage(newLocale.languageCode);
-                              Navigator.of(context).pop();
-                            }
-                          },
-                        ),
-                      );
-                    }),
-                  ],
-                );
-              },
-            ),
+                      ),
+                    );
+                  }),
+                ],
+              );
+            },
           ),
         );
       },

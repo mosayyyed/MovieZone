@@ -1019,6 +1019,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Search for your favorite movies`
+  String get searchForYourFavoriteMovies {
+    return Intl.message(
+      'Search for your favorite movies',
+      name: 'searchForYourFavoriteMovies',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

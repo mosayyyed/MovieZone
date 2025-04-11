@@ -139,6 +139,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "registerDescriptionText": MessageLookupByLibrary.simpleMessage(
             "Créez un compte maintenant et commencez à explorer tout ce que notre application a à offrir. Nous sommes impatients de vous accueillir dans notre communauté!"),
         "resend": MessageLookupByLibrary.simpleMessage("Renvoyer"),
+        "searchForYourFavoriteMovies": MessageLookupByLibrary.simpleMessage(
+            "Rechercher vos films préférés"),
         "seeMore": MessageLookupByLibrary.simpleMessage("Voir plus"),
         "settings": MessageLookupByLibrary.simpleMessage("Paramètres"),
         "signupButton": MessageLookupByLibrary.simpleMessage("Créer un compte"),
@@ -146,8 +148,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Se connecter"),
         "signupHaveAccText":
             MessageLookupByLibrary.simpleMessage("Déjà un compte? "),
-        "startWatching":
-            MessageLookupByLibrary.simpleMessage("Commencer à regarder"),
+        "startWatching": MessageLookupByLibrary.simpleMessage("Regarder"),
         "termsAndConditionsText1": MessageLookupByLibrary.simpleMessage(
             "En créant un compte, vous acceptez les "),
         "termsAndConditionsText2":

@@ -136,6 +136,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "registerDescriptionText": MessageLookupByLibrary.simpleMessage(
             "Crea una cuenta ahora y comienza a explorar todo lo que nuestra aplicación tiene para ofrecer. ¡Esperamos darte la bienvenida a nuestra comunidad!"),
         "resend": MessageLookupByLibrary.simpleMessage("Reenviar"),
+        "searchForYourFavoriteMovies": MessageLookupByLibrary.simpleMessage(
+            "Busca tus películas favoritas"),
         "seeMore": MessageLookupByLibrary.simpleMessage("Ver más"),
         "settings": MessageLookupByLibrary.simpleMessage("Configuraciones"),
         "signupButton": MessageLookupByLibrary.simpleMessage("Crear cuenta"),

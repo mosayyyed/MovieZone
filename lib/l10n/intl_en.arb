@@ -110,7 +110,9 @@
     "chooseLanguage": "Choose Language",
     "notifications": "Notifications",
     "allowNotifications": "Allow Notifications",
-    "logout": "Logout"
+    "logout": "Logout",
+
+    "searchForYourFavoriteMovies": "Search for your favorite movies"
 
   }
   

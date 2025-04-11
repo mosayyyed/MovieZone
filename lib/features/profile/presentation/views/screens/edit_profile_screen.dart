@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/themes/app_styles.dart';
-import 'package:movie_app/core/themes/app_values.dart';
 import 'package:movie_app/core/ui/custom_elevated_button.dart';
 import 'package:movie_app/core/ui/custom_text_field.dart';
+import 'package:movie_app/core/ui/my_single_child_scroll_view.dart';
 import 'package:movie_app/features/profile/data/models/user_model.dart';
 import 'package:movie_app/features/profile/presentation/controller/cubit/user_cubit_cubit.dart';
 import 'package:movie_app/generated/l10n.dart';
@@ -43,12 +43,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      padding: EdgeInsets.only(
-        bottom: MediaQuery.of(context).viewInsets.bottom + 16,
-      ),
+    return MySingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.all(AppPadding.p16),
+        padding:
+            EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -123,6 +121,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 ],
               ),
             ),
+            const SizedBox(height: 16),
           ],
         ),
       ),

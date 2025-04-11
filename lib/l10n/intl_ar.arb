@@ -110,7 +110,10 @@
     "chooseLanguage": "اختر اللغة",
     "notifications": "الإشعارات",
     "allowNotifications": "السماح بالإشعارات",
-    "logout": "تسجيل الخروج"
+    "logout": "تسجيل الخروج",
+
+    "searchForYourFavoriteMovies": "ابحث عن أفلامك المفضلة"
+
     
   }
   

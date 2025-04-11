@@ -10,6 +10,7 @@ import 'package:movie_app/features/home/presentation/controller/genres/genres_cu
 import 'package:movie_app/features/home/presentation/controller/trending/trending_cubit.dart';
 import 'package:movie_app/features/home/presentation/views/ui/home_section/movie_card.dart';
 import 'package:movie_app/features/onboarding/presentation/widgets/skip_button.dart';
+import 'package:movie_app/generated/l10n.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class ExploreScreen extends StatefulWidget {
@@ -70,7 +71,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                       _onSearchChanged(query, searchMoiveCubit),
                   decoration: buildInputDecoration(
                     context: context,
-                    labelText: "ابحث عن فيلم",
+                    labelText: S.of(context).searchForYourFavoriteMovies,
                   ),
                 ),
               ),
@@ -98,7 +99,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                     if (state.movies.isEmpty) {
                       return Center(
                         child: Text(
-                          "لا يوجد نتائج",
+                          S.of(context).noDataAvailable,
                           style: TextStyle(
                               color: Theme.of(context).colorScheme.onSurface),
                         ),
