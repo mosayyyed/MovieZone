@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:movie_app/core/errors/failures.dart';
 import 'package:movie_app/features/home/data/models/genre_model.dart';
 import 'package:movie_app/features/home/data/models/movie_model.dart';
+import 'package:movie_app/generated/l10n.dart';
 
 import '../../../../../core/data_sources/remote/api_service/api_service.dart';
 import '../../../../../core/errors/api_failure.dart';
@@ -20,7 +21,7 @@ class MovieRepoImpl extends MovieRepo {
         endpoint: "/movie/popular",
         queryParameters: {
           "api_key": AppConstants.api.apiKey,
-          "language": "ar",
+          "language": S.current.languageCode,
           "page": "1",
           "adult": "false"
         },
@@ -41,7 +42,7 @@ class MovieRepoImpl extends MovieRepo {
         endpoint: "/movie/top_rated",
         queryParameters: {
           "api_key": AppConstants.api.apiKey,
-          "language": "ar",
+          "language": S.current.languageCode,
           "page": "1",
           "adult": "false"
         },
@@ -63,7 +64,7 @@ class MovieRepoImpl extends MovieRepo {
         endpoint: "/trending/movie/day",
         queryParameters: {
           "api_key": AppConstants.api.apiKey,
-          "language": "ar",
+          "language": S.current.languageCode,
           "page": "1",
           "adult": "false"
         },
@@ -85,7 +86,7 @@ class MovieRepoImpl extends MovieRepo {
         endpoint: "/trending/movie/day",
         queryParameters: {
           "api_key": AppConstants.api.apiKey,
-          "language": "ar",
+          "language": S.current.languageCode,
           "page": "1",
           "adult": "false"
         },
@@ -108,7 +109,7 @@ class MovieRepoImpl extends MovieRepo {
         endpoint: "/movie/upcoming",
         queryParameters: {
           "api_key": AppConstants.api.apiKey,
-          "language": "ar",
+          "language": S.current.languageCode,
           "page": "1",
           "adult": "false"
         },
@@ -131,7 +132,7 @@ class MovieRepoImpl extends MovieRepo {
         endpoint: "/genre/movie/list",
         queryParameters: {
           "api_key": AppConstants.api.apiKey,
-          "language": "ar",
+          "language": S.current.languageCode,
         },
       );
 

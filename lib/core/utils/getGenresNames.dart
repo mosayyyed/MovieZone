@@ -1,4 +1,4 @@
-import '../../features/home/data/models/genre_model.dart';
+import 'package:movie_app/features/home/data/models/genre_model.dart';
 
 String getGenreNames(List<int> movieGenreIds, List<GenreModel> genres) {
   return movieGenreIds

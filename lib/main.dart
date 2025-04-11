@@ -14,11 +14,9 @@ void main() async {
 
 Future<void> _initializeServices() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
 
   dotenv.load(fileName: ".env");
 

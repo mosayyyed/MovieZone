@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/themes/app_styles.dart';
 import 'package:movie_app/core/themes/app_values.dart';
+import 'package:movie_app/generated/l10n.dart';
 
 class SectionHeader extends StatelessWidget {
   final String title;
@@ -32,7 +33,7 @@ class SectionHeader extends StatelessWidget {
           GestureDetector(
             onTap: onSeeAll,
             child: Text(
-              "عرض الكل",
+              S.of(context).seeMore,
               style: Styles.textStyle18.copyWith(
                 fontSize: 14,
                 fontWeight: FontWeight.w500,

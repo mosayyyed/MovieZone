@@ -27,7 +27,7 @@ class ProfileHeader extends StatelessWidget {
           return Center(child: Text(state.message));
         } else {
           return const SizedBox.shrink();
-        }
+        }      
       },
     );
   }

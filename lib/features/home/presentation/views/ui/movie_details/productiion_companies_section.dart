@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/themes/app_values.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-
+import 'package:movie_app/generated/l10n.dart';
 import '../../../../../../core/themes/app_styles.dart';
 import '../../../../data/models/movie_details_model.dart';
 
@@ -16,7 +16,7 @@ class ProductionCompaniesSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "الشركات الإنتاجية",
+          S.of(context).productionCompanies,
           style: Styles.textStyle22.copyWith(
               fontWeight: FontWeight.bold,
               fontSize: 20,

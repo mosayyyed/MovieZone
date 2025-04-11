@@ -50,6 +50,36 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `en`
+  String get languageCode {
+    return Intl.message(
+      'en',
+      name: 'languageCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Movie Zone`
+  String get appName {
+    return Intl.message(
+      'Movie Zone',
+      name: 'appName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your ultimate movie destination. Stream, watch, and enjoy movies anytime, anywhere.`
+  String get appDescription {
+    return Intl.message(
+      'Your ultimate movie destination. Stream, watch, and enjoy movies anytime, anywhere.',
+      name: 'appDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Movies Anywhere, Anytime`
   String get onboardingTitle1 {
     return Intl.message(
@@ -80,10 +110,10 @@ class S {
     );
   }
 
-  /// `Unlock the world of entertainment with LetsSee. Stream your favorite films from wherever you are, whenever you want.`
+  /// `Unlock the world of entertainment with LetsSee. Stream your favorite films from anywhere, anytime.`
   String get onboardingDescription1 {
     return Intl.message(
-      'Unlock the world of entertainment with LetsSee. Stream your favorite films from wherever you are, whenever you want.',
+      'Unlock the world of entertainment with LetsSee. Stream your favorite films from anywhere, anytime.',
       name: 'onboardingDescription1',
       desc: '',
       args: [],
@@ -100,10 +130,10 @@ class S {
     );
   }
 
-  /// `Carry the magic of the movies with you. LetsSee lets you watch films on the go, connecting you to cinematic adventures.`
+  /// `Carry the magic of movies with you. LetsSee lets you watch films on the go, connecting you to cinematic adventures.`
   String get onboardingDescription3 {
     return Intl.message(
-      'Carry the magic of the movies with you. LetsSee lets you watch films on the go, connecting you to cinematic adventures.',
+      'Carry the magic of movies with you. LetsSee lets you watch films on the go, connecting you to cinematic adventures.',
       name: 'onboardingDescription3',
       desc: '',
       args: [],
@@ -200,10 +230,10 @@ class S {
     );
   }
 
-  /// `Register`
+  /// `Sign up`
   String get loginDontHaveAccHighlightText {
     return Intl.message(
-      'Register',
+      'Sign up',
       name: 'loginDontHaveAccHighlightText',
       desc: '',
       args: [],
@@ -220,10 +250,10 @@ class S {
     );
   }
 
-  /// `Log In`
+  /// `Log in`
   String get signupHaveAccHighlightText {
     return Intl.message(
-      'Log In',
+      'Log in',
       name: 'signupHaveAccHighlightText',
       desc: '',
       args: [],
@@ -270,10 +300,10 @@ class S {
     );
   }
 
-  /// `Code or country name`
+  /// `Country code or name`
   String get phoneSearchHint {
     return Intl.message(
-      'Code or country name',
+      'Country code or name',
       name: 'phoneSearchHint',
       desc: '',
       args: [],
@@ -300,10 +330,10 @@ class S {
     );
   }
 
-  /// `Register now and start exploring all that our app has to offer. We’re excited to welcome you to our community!`
+  /// `Sign up now and start exploring everything our app has to offer. We're excited to welcome you to our community!`
   String get registerDescriptionText {
     return Intl.message(
-      'Register now and start exploring all that our app has to offer. We’re excited to welcome you to our community!',
+      'Sign up now and start exploring everything our app has to offer. We\'re excited to welcome you to our community!',
       name: 'registerDescriptionText',
       desc: '',
       args: [],
@@ -370,10 +400,10 @@ class S {
     );
   }
 
-  /// `Nickname can only contain letters, numbers, and #`
+  /// `Full Name can only contain letters, numbers, and #`
   String get fullNameInvalidError {
     return Intl.message(
-      'Nickname can only contain letters, numbers, and #',
+      'Full Name can only contain letters, numbers, and #',
       name: 'fullNameInvalidError',
       desc: '',
       args: [],
@@ -390,10 +420,10 @@ class S {
     );
   }
 
-  /// `Full Name is too short`
+  /// `Email is invalid`
   String get emailInvalidError {
     return Intl.message(
-      'Full Name is too short',
+      'Email is invalid',
       name: 'emailInvalidError',
       desc: '',
       args: [],
@@ -480,10 +510,10 @@ class S {
     );
   }
 
-  /// `Please check your email and click the link in the message to verify your email address.`
+  /// `Please check your email and click the link to verify your email address.`
   String get verificationInfoText2 {
     return Intl.message(
-      'Please check your email and click the link in the message to verify your email address.',
+      'Please check your email and click the link to verify your email address.',
       name: 'verificationInfoText2',
       desc: '',
       args: [],
@@ -635,6 +665,356 @@ class S {
     return Intl.message(
       'An unknown error occurred. Please try again.',
       name: 'unknownError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No data available at the moment`
+  String get noDataAvailable {
+    return Intl.message(
+      'No data available at the moment',
+      name: 'noDataAvailable',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No cast available`
+  String get noCastAvailable {
+    return Intl.message(
+      'No cast available',
+      name: 'noCastAvailable',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Description`
+  String get description {
+    return Intl.message(
+      'Description',
+      name: 'description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Trailers`
+  String get trailers {
+    return Intl.message(
+      'Trailers',
+      name: 'trailers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cast`
+  String get cast {
+    return Intl.message(
+      'Cast',
+      name: 'cast',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Production Companies`
+  String get productionCompanies {
+    return Intl.message(
+      'Production Companies',
+      name: 'productionCompanies',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No description available`
+  String get noDescriptionAvailable {
+    return Intl.message(
+      'No description available',
+      name: 'noDescriptionAvailable',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `More`
+  String get more {
+    return Intl.message(
+      'More',
+      name: 'more',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Less`
+  String get less {
+    return Intl.message(
+      'Less',
+      name: 'less',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error loading data`
+  String get errorLoadingData {
+    return Intl.message(
+      'Error loading data',
+      name: 'errorLoadingData',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Home`
+  String get home {
+    return Intl.message(
+      'Home',
+      name: 'home',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Trending Today`
+  String get trendingToday {
+    return Intl.message(
+      'Trending Today',
+      name: 'trendingToday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Trending This Week`
+  String get trendingThisWeek {
+    return Intl.message(
+      'Trending This Week',
+      name: 'trendingThisWeek',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start Watching`
+  String get startWatching {
+    return Intl.message(
+      'Start Watching',
+      name: 'startWatching',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Top Rated`
+  String get topRated {
+    return Intl.message(
+      'Top Rated',
+      name: 'topRated',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Popular`
+  String get popular {
+    return Intl.message(
+      'Popular',
+      name: 'popular',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Upcoming`
+  String get upcoming {
+    return Intl.message(
+      'Upcoming',
+      name: 'upcoming',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `See More`
+  String get seeMore {
+    return Intl.message(
+      'See More',
+      name: 'seeMore',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Profile`
+  String get editProfile {
+    return Intl.message(
+      'Edit Profile',
+      name: 'editProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm Changes`
+  String get confirmChanges {
+    return Intl.message(
+      'Confirm Changes',
+      name: 'confirmChanges',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Active`
+  String get accountStatus {
+    return Intl.message(
+      'Active',
+      name: 'accountStatus',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get settings {
+    return Intl.message(
+      'Settings',
+      name: 'settings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Wifi Only`
+  String get wifiOnly {
+    return Intl.message(
+      'Wifi Only',
+      name: 'wifiOnly',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dark Mode`
+  String get darkMode {
+    return Intl.message(
+      'Dark Mode',
+      name: 'darkMode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Connect to TV`
+  String get connectToTV {
+    return Intl.message(
+      'Connect to TV',
+      name: 'connectToTV',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Default Quality`
+  String get defultQuality {
+    return Intl.message(
+      'Default Quality',
+      name: 'defultQuality',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Appearance`
+  String get appearance {
+    return Intl.message(
+      'Appearance',
+      name: 'appearance',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Auto`
+  String get autoAppearance {
+    return Intl.message(
+      'Auto',
+      name: 'autoAppearance',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Light`
+  String get lightAppearance {
+    return Intl.message(
+      'Light',
+      name: 'lightAppearance',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dark`
+  String get darkAppearance {
+    return Intl.message(
+      'Dark',
+      name: 'darkAppearance',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `App Language`
+  String get appLanguage {
+    return Intl.message(
+      'App Language',
+      name: 'appLanguage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose Language`
+  String get chooseLanguage {
+    return Intl.message(
+      'Choose Language',
+      name: 'chooseLanguage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Notifications`
+  String get notifications {
+    return Intl.message(
+      'Notifications',
+      name: 'notifications',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Allow Notifications`
+  String get allowNotifications {
+    return Intl.message(
+      'Allow Notifications',
+      name: 'allowNotifications',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Logout`
+  String get logout {
+    return Intl.message(
+      'Logout',
+      name: 'logout',
       desc: '',
       args: [],
     );

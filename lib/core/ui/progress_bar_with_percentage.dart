@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/core/themes/app_values.dart';
 
 class ProgressBarWithPercentage extends StatelessWidget {
   const ProgressBarWithPercentage({super.key, required this.progress});
@@ -11,7 +12,7 @@ class ProgressBarWithPercentage extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.only(bottom: 4),
+          padding: const EdgeInsets.only(bottom: AppPadding.p4),
           child: Text(
             '${(progress * 100).toStringAsFixed(0)}%',
             style: const TextStyle(

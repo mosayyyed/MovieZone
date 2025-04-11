@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/themes/app_styles.dart';
+import 'package:movie_app/core/themes/app_values.dart';
 import 'package:movie_app/features/profile/data/models/user_model.dart';
 import 'package:movie_app/features/profile/presentation/views/screens/edit_profile_screen.dart';
 import 'package:movie_app/features/profile/presentation/views/ui/account_status_indicator.dart';
+import 'package:movie_app/generated/l10n.dart';
 
 class ProfileContent extends StatelessWidget {
   final UserModel? user;
@@ -85,7 +87,11 @@ class ProfileContent extends StatelessWidget {
                     showModalBottomSheet(
                       context: context,
                       isScrollControlled: true,
-                      showDragHandle: true,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.vertical(
+                          top: Radius.circular(AppSize.s18),
+                        ),
+                      ),
                       backgroundColor:
                           Theme.of(context).scaffoldBackgroundColor,
                       builder: (context) => EditProfileScreen(user: user!),
@@ -94,13 +100,15 @@ class ProfileContent extends StatelessWidget {
                 },
                 icon: const Icon(Icons.edit, size: 18),
                 label: Text(
-                  "تعديل الحساب",
+                  S.of(context).editProfile,
                   style:
                       Styles.textStyle14.copyWith(fontWeight: FontWeight.bold),
                 ),
                 style: ElevatedButton.styleFrom(
                   elevation: 0,
                   minimumSize: const Size(double.infinity, 30),
+                  disabledBackgroundColor:
+                      Theme.of(context).colorScheme.onSurface.withOpacity(0.2),
                   padding:
                       const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   shape: RoundedRectangleBorder(

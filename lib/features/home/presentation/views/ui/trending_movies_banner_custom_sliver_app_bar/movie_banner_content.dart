@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/themes/app_values.dart';
 import 'package:movie_app/features/home/presentation/views/ui/home_section/movie_info_row.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:movie_app/generated/l10n.dart';
 
 import '../../../../../../core/themes/app_styles.dart';
 import '../../../../data/models/movie_model.dart';
@@ -49,7 +50,7 @@ class MovieBannerContent extends StatelessWidget {
   }
 
   Widget _buildTitle(BuildContext context) {
-    return Text("الرائجة اليوم".toUpperCase(),
+    return Text(S.current.trendingToday.toUpperCase(),
         style: Styles.boldTextStyle16.copyWith(
           color: Theme.of(context).colorScheme.primary,
           shadows: [

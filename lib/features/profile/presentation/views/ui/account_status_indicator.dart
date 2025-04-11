@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/themes/app_styles.dart';
+import 'package:movie_app/generated/l10n.dart';
 
 class AccountStatusIndicator extends StatelessWidget {
   const AccountStatusIndicator({super.key});
@@ -20,7 +21,7 @@ class AccountStatusIndicator extends StatelessWidget {
                 color: Theme.of(context).colorScheme.primary, size: 14),
             const SizedBox(width: 4),
             Text(
-              "نشط",
+              S.of(context).accountStatus,
               style: Styles.textStyle12.copyWith(
                 fontWeight: FontWeight.bold,
                 color: Theme.of(context).colorScheme.primary,

@@ -10,6 +10,7 @@ import 'package:movie_app/core/ui/custom_elevated_button.dart';
 import 'package:movie_app/core/ui/my_single_child_scroll_view.dart';
 import 'package:movie_app/core/utils/app_constants.dart';
 import 'package:movie_app/features/onboarding/presentation/widgets/skip_button.dart';
+import 'package:movie_app/generated/l10n.dart';
 import 'package:movie_app/features/profile/presentation/views/ui/profile_header.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -50,7 +51,7 @@ class ProfileScreen extends StatelessWidget {
       automaticallyImplyLeading: false,
       titleSpacing: 0,
       title: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 22),
+        padding: const EdgeInsets.symmetric(horizontal: AppPadding.p16),
         child: SkipButton(
           icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 22),
           hasBorderSide: true,
@@ -64,13 +65,14 @@ class ProfileScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildSectionTitle("الإعدادات"),
+        _buildSectionTitle(S.of(context).settings),
         const SizedBox(height: 10),
-        _buildSwitchTile(context, "الواي فاي فقط", false, onChanged: (p0) {}),
+        _buildSwitchTile(context, S.of(context).wifiOnly, false,
+            onChanged: (p0) {}),
         const SizedBox(height: 10),
         _buildSwitchTile(
           context,
-          "الوضع المظلم",
+          S.of(context).darkMode,
           context.read<ThemeCubit>().state == ThemeMode.dark,
           onChanged: (newValue) {
             context.read<ThemeCubit>().toggleTheme(
@@ -80,9 +82,9 @@ class ProfileScreen extends StatelessWidget {
           isDarkMode: true,
         ),
         const SizedBox(height: 10),
-        _buildOptionTile("الربط بشاشة", context, onTap: () {}),
+        _buildOptionTile(S.of(context).connectToTV, context, onTap: () {}),
         const SizedBox(height: 10),
-        _buildOptionTile("الدقة الإفتراضية", context, onTap: () {}),
+        _buildOptionTile(S.of(context).defultQuality, context, onTap: () {}),
         const SizedBox(height: 20),
       ],
     );
@@ -92,7 +94,7 @@ class ProfileScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildSectionTitle("لغة التطبيق"),
+        _buildSectionTitle(S.of(context).appLanguage),
         const SizedBox(height: 10),
         _buildOptionTile(
           AppConstants.languages.supportedLanguages.entries
@@ -111,9 +113,9 @@ class ProfileScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildSectionTitle("الإشعارات"),
+        _buildSectionTitle(S.of(context).notifications),
         const SizedBox(height: 10),
-        _buildSwitchTile(context, "السماح بالإشعارات", true,
+        _buildSwitchTile(context, S.of(context).allowNotifications, true,
             onChanged: (p0) {}),
       ],
     );
@@ -123,7 +125,7 @@ class ProfileScreen extends StatelessWidget {
     showModalBottomSheet(
       context: context,
       showDragHandle: true,
-      backgroundColor: Theme.of(context).colorScheme.surface,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(AppSize.s12)),
       ),
@@ -136,7 +138,7 @@ class ProfileScreen extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("اختر اللغة",
+                  Text(S.of(context).chooseLanguage,
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -172,7 +174,7 @@ class ProfileScreen extends StatelessWidget {
 
   Widget _buildLogoutButton(BuildContext context, ThemeData theme) {
     return CustomElevatedButton(
-      text: "تسجيل الخروج",
+      text: S.of(context).logout,
       backgroundColor: theme.colorScheme.error,
       textColor: theme.colorScheme.onError,
       onPressed: () {
@@ -219,7 +221,7 @@ class ProfileScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildSectionTitle("المظهر"),
+        _buildSectionTitle(S.of(context).appearance),
         const SizedBox(height: 20),
         _buildThemeModeSelector(context, themeCubit),
         const SizedBox(height: 10),
@@ -231,12 +233,12 @@ class ProfileScreen extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        _buildThemeModeOption(
-            context, themeCubit, ThemeMode.light, "فاتح", Icons.light_mode),
-        _buildThemeModeOption(
-            context, themeCubit, ThemeMode.dark, "داكن", Icons.dark_mode),
-        _buildThemeModeOption(context, themeCubit, ThemeMode.system, "تلقائي",
-            Icons.phone_android),
+        _buildThemeModeOption(context, themeCubit, ThemeMode.light,
+            S.of(context).lightAppearance, Icons.light_mode),
+        _buildThemeModeOption(context, themeCubit, ThemeMode.dark,
+            S.of(context).darkAppearance, Icons.dark_mode),
+        _buildThemeModeOption(context, themeCubit, ThemeMode.system,
+            S.of(context).autoAppearance, Icons.phone_android),
       ],
     );
   }

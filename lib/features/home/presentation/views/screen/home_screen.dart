@@ -4,6 +4,7 @@ import 'package:movie_app/features/home/presentation/controller/popular/popular_
 import 'package:movie_app/features/home/presentation/controller/trending/trending_cubit.dart';
 import 'package:movie_app/features/home/presentation/controller/top_rated/top_rated_cubit.dart';
 import 'package:movie_app/features/home/presentation/controller/upcoming/upcoming_cubit.dart';
+import 'package:movie_app/generated/l10n.dart';
 
 import '../../../../../core/ui/custom_refresh_indicator.dart';
 import '../../../data/models/movie_model.dart';
@@ -30,27 +31,27 @@ class HomeScreen extends StatelessWidget {
           slivers: [
             HomeSliverAppBar(),
             _buildMovieSection<TopRatedCubit, TopRatedState>(
-              title: "الأعلى تقييمًا",
+              title: S.of(context).topRated,
               cubit: context.read<TopRatedCubit>(),
               isCounterVisible: true,
               selector: (state) =>
                   state is TopRatedSuccess ? state.topRatedMovies : [],
             ),
             _buildMovieSection<PopularCubit, PopularState>(
-              title: "أشهر المقاطع",
+              title: S.of(context).popular,
               cubit: context.read<PopularCubit>(),
               selector: (state) =>
                   state is PopularSuccess ? state.popularMovies : [],
               isContinueWatching: true,
             ),
             _buildMovieSection<TrendingCubit, TrendingState>(
-              title: "الرائج هذا الأسبوع",
+              title: S.of(context).trendingThisWeek,
               cubit: context.read<TrendingCubit>(),
               selector: (state) =>
                   state is TrendingSuccess ? state.trendingMovies : [],
             ),
             _buildMovieSection<UpcomingCubit, UpcomingState>(
-              title: "القادمة",
+              title: S.of(context).upcoming,
               cubit: context.read<UpcomingCubit>(),
               selector: (state) =>
                   state is UpcomingSuccess ? state.upcomingMovies : [],

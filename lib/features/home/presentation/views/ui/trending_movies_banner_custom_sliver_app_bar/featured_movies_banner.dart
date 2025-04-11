@@ -2,6 +2,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:movie_app/generated/l10n.dart';
+
 import 'package:movie_app/core/ui/gradient_overlay.dart';
 import 'package:movie_app/features/home/data/models/movie_model.dart';
 import 'package:movie_app/features/home/presentation/views/ui/trending_movies_banner_custom_sliver_app_bar/movie_banner_background.dart';
@@ -117,7 +119,7 @@ class _FeaturedMoviesBannerState extends State<FeaturedMoviesBanner> {
           );
         } else if (state is TrendingSuccess) {
           if (state.trendingMovies.isEmpty) {
-            return const Center(child: Text("لا توجد بيانات لعرضها الآن"));
+            return Center(child: Text(S.current.noDataAvailable));
           }
           return MovieCarouselBanner(
             movies: widget.trendingMovies,

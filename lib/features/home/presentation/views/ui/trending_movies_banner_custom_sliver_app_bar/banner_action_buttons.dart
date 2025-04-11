@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:movie_app/generated/l10n.dart';
 
 import '../../../../../../core/themes/app_assets.dart';
 import '../../../../../../core/utils/showVideoDiolog.dart';
@@ -73,7 +74,7 @@ class BannerActionButtons extends StatelessWidget {
             },
           ),
           label: Text(
-            "بدء المشاهدة",
+            S.of(context).startWatching,
             style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
           ),
         ),

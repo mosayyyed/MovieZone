@@ -8,6 +8,7 @@ import '../../../../../core/errors/api_failure.dart';
 import '../../../../../core/utils/app_constants.dart';
 import '../../models/movie_videos_model.dart';
 import 'movie_details_repo.dart';
+import 'package:movie_app/generated/l10n.dart';
 
 class MovieDetailsRepoImpl extends MovieDetailsRepo {
   final ApiService _apiService;
@@ -21,7 +22,7 @@ class MovieDetailsRepoImpl extends MovieDetailsRepo {
         endpoint: "/movie/$id",
         queryParameters: {
           "api_key": AppConstants.api.apiKey,
-          "language": "ar",
+          "language": S.current.languageCode,
         },
       );
       final movieDetails = MovieDetailsModel.fromJson(response.data);

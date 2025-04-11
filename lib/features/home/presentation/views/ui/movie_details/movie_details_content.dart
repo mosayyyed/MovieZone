@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/generated/l10n.dart';
 import 'package:movie_app/features/home/presentation/views/ui/movie_details/productiion_companies_section.dart';
 import 'package:readmore/readmore.dart';
 import 'package:skeletonizer/skeletonizer.dart';
@@ -39,7 +40,7 @@ class MovieDetailsContent extends StatelessWidget {
             child: MovieGenres(movie: movie),
           ),
           const SizedBox(height: 8),
-          MovieSectionTitle(title: "الوصف", movie: movie),
+          MovieSectionTitle(title: S.current.description, movie: movie),
           movie.overview.isNotEmpty
               ? ReadMoreText(
                   movie.overview,
@@ -51,8 +52,8 @@ class MovieDetailsContent extends StatelessWidget {
                     color: Theme.of(context).colorScheme.primary,
                     fontWeight: FontWeight.bold,
                   ),
-                  trimCollapsedText: 'المزيد',
-                  trimExpandedText: ' أقل',
+                  trimCollapsedText: S.current.more,
+                  trimExpandedText: S.current.less,
                   moreStyle: Styles.textStyle16.copyWith(
                     fontSize: 16,
                     color: Theme.of(context).colorScheme.primary,
@@ -65,16 +66,16 @@ class MovieDetailsContent extends StatelessWidget {
                   width: double.infinity,
                   child: Center(
                     child: Text(
-                      "لا يوجد وصف",
+                      S.current.noDescriptionAvailable,
                       style: Styles.textStyle16.copyWith(fontSize: 16),
                     ),
                   ),
                 ),
           const SizedBox(height: 8),
-          MovieSectionTitle(title: "تريلرات"),
+          MovieSectionTitle(title: S.current.trailers),
           MovieVideosSection(),
           const SizedBox(height: 8),
-          MovieSectionTitle(title: "طاقم العمل"),
+          MovieSectionTitle(title: S.current.cast),
           MovieCastList(),
           const SizedBox(height: 8),
           ProductionCompaniesSection(movie: movie),

@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeletonizer/skeletonizer.dart';
+import 'package:movie_app/generated/l10n.dart';
 
 import '../../../../../../core/themes/app_styles.dart';
 import '../../../../../../core/utils/escape_parent_padding.dart';
@@ -28,9 +29,9 @@ class MovieCastList extends StatelessWidget {
             ),
           );
         } else if (state is MovieCastLoading) {
-          return const Text("No cast available");
+          return Text(S.current.noCastAvailable);
         }
-        return const Text("No cast available");
+        return Text(S.current.noCastAvailable);
       },
     );
   }

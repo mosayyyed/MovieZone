@@ -7,6 +7,7 @@ import 'package:movie_app/core/themes/app_values.dart';
 import 'package:movie_app/features/home/presentation/controller/MovieVideos/movie_videos_cubit.dart';
 import 'package:movie_app/features/home/presentation/controller/genres/genres_cubit.dart';
 import 'package:movie_app/features/home/presentation/controller/trending/trending_cubit.dart';
+import 'package:movie_app/generated/l10n.dart';
 
 import '../../../../../../core/themes/app_assets.dart';
 import 'featured_movies_banner.dart';
@@ -20,9 +21,7 @@ class HomeSliverAppBar extends StatelessWidget {
       expandedHeight: MediaQuery.of(context).size.height * 0.50,
       pinned: true,
       stretch: true,
-      title: Text(
-        "الرئيسية",
-      ),
+      title: Text(S.of(context).home),
       actions: [
         IconButton(
             onPressed: () {
