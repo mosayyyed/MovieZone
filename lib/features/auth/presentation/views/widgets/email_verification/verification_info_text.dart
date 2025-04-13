@@ -16,24 +16,20 @@ class VerificationInfoText extends StatelessWidget {
     return RichText(
       text: TextSpan(
         text: S.of(context).verificationInfoText1,
-        style: Theme.of(context)
-            .textTheme
-            .bodyMedium
-            ?.copyWith(fontSize: 16, color: Colors.white),
+        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+            fontSize: 16, color: Theme.of(context).colorScheme.onSurface),
         children: [
           TextSpan(
             text: "\n$email. \n",
             style: Styles.textStyle16.copyWith(
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.onSurface,
             ),
           ),
           TextSpan(
             text: S.of(context).verificationInfoText2,
-            style: Theme.of(context)
-                .textTheme
-                .bodyMedium
-                ?.copyWith(fontSize: 16, color: Colors.white),
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                fontSize: 16, color: Theme.of(context).colorScheme.onSurface),
           ),
         ],
       ),

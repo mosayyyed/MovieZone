@@ -32,7 +32,8 @@ class MovieDetailsSliverAppBar extends StatelessWidget {
       ],
       leading: IconButton(
         onPressed: () => GoRouter.of(context).pop(),
-        icon: const Icon(Icons.arrow_back_ios_new_rounded, color: Colors.white),
+        icon: Icon(Icons.arrow_back_ios_new_rounded,
+            color: Theme.of(context).colorScheme.onSurface),
       ),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(

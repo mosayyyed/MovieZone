@@ -25,7 +25,7 @@ class EmailVerificationScreen extends StatelessWidget {
             child: SkipButton(
               icon: Icon(
                 Icons.arrow_back_ios_new_rounded,
-                color: Theme.of(context).colorScheme.onPrimary,
+                color: Theme.of(context).colorScheme.onSurface,
                 size: 22,
               ),
               hasBorderSide: true,
