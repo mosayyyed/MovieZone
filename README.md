@@ -61,30 +61,32 @@ Movie Zone is a comprehensive movie and TV show application that provides users 
 ## 📸 Screenshots
 ### Authentication Screens
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/dd8b3c0f-28f0-4a84-a666-0351602a89ec" alt="Login Screen - English" width="200"/>
-  <img src="assets/images/screenshots/ar/login.png" alt="Login Screen - Arabic" width="200"/>
+  <table>
+    <tr>
+      <td><img src="https://github.com/user-attachments/assets/dd8b3c0f-28f0-4a84-a666-0351602a89ec" alt="Login Screen - English" width="200"/></td>
+      <td><img src="https://github.com/user-attachments/assets/3d4949c0-83d1-4205-a0c1-9f981418dfde" alt="Login Screen - Arabic" width="200"/></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/user-attachments/assets/6e0a87df-9108-48d6-b573-40ff7c669839" alt="Register Screen - English" width="200"/></td>
+      <td><img src="https://github.com/user-attachments/assets/c4d691a7-a976-46a9-9f82-7936dad57d33" alt="Register Screen - Arabic" width="200"/></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/user-attachments/assets/6c4dd30e-1de7-4dfb-aa01-8b7f4320e037" alt="Verification Screen - English" width="200"/></td>
+    </tr>
+  </table>
 </div>
 
-<div align="center">
-  <img src="https://github.com/user-attachments/assets/6e0a87df-9108-48d6-b573-40ff7c669839" alt="Register Screen - English" width="200"/>
-  <img src="assets/images/screenshots/ar/register.png" alt="Register Screen - Arabic" width="200"/>
-</div>
-
-<div align="center">
-  <img src="https://github.com/user-attachments/assets/6c4dd30e-1de7-4dfb-aa01-8b7f4320e037" alt="Verification Screen - English" width="200"/>
-  <img src="assets/images/screenshots/ar/verification.png" alt="Verification Screen - Arabic" width="200"/>
-</div>
 
 ### Home Screen
 <div align="center">
   <table>
     <tr>
       <td><img src="https://github.com/user-attachments/assets/ed857f10-a2fc-45e2-b8c7-875cd655ff27" alt="Home Screen - English" width="200"/></td>
-      <td><img src="assets/images/screenshots/ar/home.png" alt="Home Screen - Arabic" width="200"/></td>
+      <td><img src="https://github.com/user-attachments/assets/60ea4ff9-ebbd-4e3d-8f9c-a62d65cddd82" alt="Home Screen - Arabic" width="200"/></td>
     </tr>
     <tr>
       <td><img src="https://github.com/user-attachments/assets/f885407e-0386-46c5-b4b6-a8d1ea59f07b" alt="Home Screen - English" width="200"/></td>
-      <td><img src="assets/images/screenshots/ar/home.png" alt="Home Screen - Arabic" width="200"/></td>
+      <td><img src="https://github.com/user-attachments/assets/34d0d847-0df9-4826-aaee-d59236989658" alt="Home Screen - Arabic" width="200"/></td>
     </tr>
   </table>
 </div>
@@ -94,7 +96,7 @@ Movie Zone is a comprehensive movie and TV show application that provides users 
   <table>
     <tr>
       <td><img src="https://github.com/user-attachments/assets/e91bafa8-fcc1-4e87-a5c8-606f3b8ff47c" alt="Movie Details - English" width="200"/></td>
-      <td><img src="assets/images/screenshots/ar/movie_details.png" alt="Movie Details - Arabic" width="200"/></td>
+      <td><img src="https://github.com/user-attachments/assets/bdf0d990-25d5-4d4c-b098-8b9bceecf31c" alt="Movie Details - Arabic" width="200"/></td>
     </tr>
   </table>
 </div>
@@ -104,11 +106,11 @@ Movie Zone is a comprehensive movie and TV show application that provides users 
   <table>
     <tr>
       <td><img src="https://github.com/user-attachments/assets/0f3c9f03-311d-4a5b-8295-e99771e39094" alt="Profile Screen - English" width="200"/></td>
-      <td><img src="assets/images/screenshots/ar/profile.png" alt="Profile Screen - Arabic" width="200"/></td>
+      <td><img src="https://github.com/user-attachments/assets/9571cb6d-23cd-4c19-b26c-c673e3c2d588" alt="Profile Screen - Arabic" width="200"/></td>
     </tr>
         <tr>
       <td><img src="https://github.com/user-attachments/assets/b8968007-a360-4212-ad2a-bb36211571f2" alt="Profile Screen - English" width="200"/></td>
-      <td><img src="assets/images/screenshots/ar/profile.png" alt="Profile Screen - Arabic" width="200"/></td>
+      <td><img src="https://github.com/user-attachments/assets/13ad252b-36e3-4b14-b850-e29ce4955fcb" alt="Profile Screen - Arabic" width="200"/></td>
     </tr>
 
   </table>
