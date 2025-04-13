@@ -5,7 +5,7 @@
 ![License](https://img.shields.io/badge/license-MIT-purple.svg)
 
 <div align="center">
-  <img src="assets/images/app_cover.png" alt="Movie Zone App Cover" width="800"/>
+  <img src="https://github.com/user-attachments/assets/9bdb14d3-bd0b-49f6-be54-f478e12e692d" alt="Movie Zone App Cover" width="800"/>
 </div>
 
 ## 📝 Table of Contents
