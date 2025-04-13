@@ -59,29 +59,69 @@ Movie Zone is a comprehensive movie and TV show application that provides users 
 - Multi-language support
 
 ## 📸 Screenshots
+### Authentication Screens
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/dd8b3c0f-28f0-4a84-a666-0351602a89ec" alt="Login Screen - English" width="200"/>
+  <img src="assets/images/screenshots/ar/login.png" alt="Login Screen - Arabic" width="200"/>
+</div>
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/6e0a87df-9108-48d6-b573-40ff7c669839" alt="Register Screen - English" width="200"/>
+  <img src="assets/images/screenshots/ar/register.png" alt="Register Screen - Arabic" width="200"/>
+</div>
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/6c4dd30e-1de7-4dfb-aa01-8b7f4320e037" alt="Verification Screen - English" width="200"/>
+  <img src="assets/images/screenshots/ar/verification.png" alt="Verification Screen - Arabic" width="200"/>
+</div>
 
 ### Home Screen
 <div align="center">
-  <img src="assets/images/screenshots/en/home.png" alt="Home Screen - English" width="200"/>
-  <img src="assets/images/screenshots/ar/home.png" alt="Home Screen - Arabic" width="200"/>
+  <table>
+    <tr>
+      <td><img src="https://github.com/user-attachments/assets/ed857f10-a2fc-45e2-b8c7-875cd655ff27" alt="Home Screen - English" width="200"/></td>
+      <td><img src="assets/images/screenshots/ar/home.png" alt="Home Screen - Arabic" width="200"/></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/user-attachments/assets/f885407e-0386-46c5-b4b6-a8d1ea59f07b" alt="Home Screen - English" width="200"/></td>
+      <td><img src="assets/images/screenshots/ar/home.png" alt="Home Screen - Arabic" width="200"/></td>
+    </tr>
+  </table>
 </div>
 
 ### Movie Details
 <div align="center">
-  <img src="assets/images/screenshots/en/movie_details.png" alt="Movie Details - English" width="200"/>
-  <img src="assets/images/screenshots/ar/movie_details.png" alt="Movie Details - Arabic" width="200"/>
+  <table>
+    <tr>
+      <td><img src="https://github.com/user-attachments/assets/e91bafa8-fcc1-4e87-a5c8-606f3b8ff47c" alt="Movie Details - English" width="200"/></td>
+      <td><img src="assets/images/screenshots/ar/movie_details.png" alt="Movie Details - Arabic" width="200"/></td>
+    </tr>
+  </table>
 </div>
 
 ### Profile Screen
 <div align="center">
-  <img src="assets/images/screenshots/en/profile.png" alt="Profile Screen - English" width="200"/>
-  <img src="assets/images/screenshots/ar/profile.png" alt="Profile Screen - Arabic" width="200"/>
+  <table>
+    <tr>
+      <td><img src="https://github.com/user-attachments/assets/0f3c9f03-311d-4a5b-8295-e99771e39094" alt="Profile Screen - English" width="200"/></td>
+      <td><img src="assets/images/screenshots/ar/profile.png" alt="Profile Screen - Arabic" width="200"/></td>
+    </tr>
+        <tr>
+      <td><img src="https://github.com/user-attachments/assets/b8968007-a360-4212-ad2a-bb36211571f2" alt="Profile Screen - English" width="200"/></td>
+      <td><img src="assets/images/screenshots/ar/profile.png" alt="Profile Screen - Arabic" width="200"/></td>
+    </tr>
+
+  </table>
 </div>
 
 ### Search Screen
 <div align="center">
-  <img src="assets/images/screenshots/en/search.png" alt="Search Screen - English" width="200"/>
-  <img src="assets/images/screenshots/ar/search.png" alt="Search Screen - Arabic" width="200"/>
+  <table>
+    <tr>
+      <td><img src="https://github.com/user-attachments/assets/e52c0166-6a4e-4359-a788-e4163ccf64be" alt="Search Screen - English" width="200"/></td>
+      <td><img src="assets/images/screenshots/ar/search.png" alt="Search Screen - Arabic" width="200"/></td>
+    </tr>
+  </table>
 </div>
 
 ## 🚀 Installation
