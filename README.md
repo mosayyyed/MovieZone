@@ -193,8 +193,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For support, please:
 - Open an issue
-- Join our Discord community
-- Contact us at support@moviezone.com
+- Contact us at mosayyyed@gmail.com
 
 ## 🌟 Acknowledgments
 
