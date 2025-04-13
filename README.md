@@ -5,7 +5,7 @@
 ![License](https://img.shields.io/badge/license-MIT-purple.svg)
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/9bdb14d3-bd0b-49f6-be54-f478e12e692d" alt="Movie Zone App Cover" width="800"/>
+  <img src="assets/images/app_cover.png" alt="Movie Zone App Cover" width="800"/>
 </div>
 
 ## 📝 Table of Contents
@@ -60,10 +60,44 @@ Movie Zone is a comprehensive movie and TV show application that provides users 
 
 ## 📸 Screenshots
 
+### Home Screen
 <div align="center">
-  <img src="assets/images/screenshots/home.png" alt="Home Screen" width="200"/>
-  <img src="assets/images/screenshots/movie_details.png" alt="Movie Details" width="200"/>
-  <img src="assets/images/screenshots/profile.png" alt="Profile Screen" width="200"/>
+  <table>
+    <tr>
+      <td><img src="assets/images/screenshots/en/home.png" alt="Home Screen - English" width="200"/></td>
+      <td><img src="assets/images/screenshots/ar/home.png" alt="Home Screen - Arabic" width="200"/></td>
+    </tr>
+  </table>
+</div>
+
+### Movie Details
+<div align="center">
+  <table>
+    <tr>
+      <td><img src="assets/images/screenshots/en/movie_details.png" alt="Movie Details - English" width="200"/></td>
+      <td><img src="assets/images/screenshots/ar/movie_details.png" alt="Movie Details - Arabic" width="200"/></td>
+    </tr>
+  </table>
+</div>
+
+### Profile Screen
+<div align="center">
+  <table>
+    <tr>
+      <td><img src="assets/images/screenshots/en/profile.png" alt="Profile Screen - English" width="200"/></td>
+      <td><img src="assets/images/screenshots/ar/profile.png" alt="Profile Screen - Arabic" width="200"/></td>
+    </tr>
+  </table>
+</div>
+
+### Search Screen
+<div align="center">
+  <table>
+    <tr>
+      <td><img src="assets/images/screenshots/en/search.png" alt="Search Screen - English" width="200"/></td>
+      <td><img src="assets/images/screenshots/ar/search.png" alt="Search Screen - Arabic" width="200"/></td>
+    </tr>
+  </table>
 </div>
 
 ## 🚀 Installation
