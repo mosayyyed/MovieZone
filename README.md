@@ -62,42 +62,26 @@ Movie Zone is a comprehensive movie and TV show application that provides users 
 
 ### Home Screen
 <div align="center">
-  <table>
-    <tr>
-      <td><img src="assets/images/screenshots/en/home.png" alt="Home Screen - English" width="200"/></td>
-      <td><img src="assets/images/screenshots/ar/home.png" alt="Home Screen - Arabic" width="200"/></td>
-    </tr>
-  </table>
+  <img src="assets/images/screenshots/en/home.png" alt="Home Screen - English" width="200"/>
+  <img src="assets/images/screenshots/ar/home.png" alt="Home Screen - Arabic" width="200"/>
 </div>
 
 ### Movie Details
 <div align="center">
-  <table>
-    <tr>
-      <td><img src="assets/images/screenshots/en/movie_details.png" alt="Movie Details - English" width="200"/></td>
-      <td><img src="assets/images/screenshots/ar/movie_details.png" alt="Movie Details - Arabic" width="200"/></td>
-    </tr>
-  </table>
+  <img src="assets/images/screenshots/en/movie_details.png" alt="Movie Details - English" width="200"/>
+  <img src="assets/images/screenshots/ar/movie_details.png" alt="Movie Details - Arabic" width="200"/>
 </div>
 
 ### Profile Screen
 <div align="center">
-  <table>
-    <tr>
-      <td><img src="assets/images/screenshots/en/profile.png" alt="Profile Screen - English" width="200"/></td>
-      <td><img src="assets/images/screenshots/ar/profile.png" alt="Profile Screen - Arabic" width="200"/></td>
-    </tr>
-  </table>
+  <img src="assets/images/screenshots/en/profile.png" alt="Profile Screen - English" width="200"/>
+  <img src="assets/images/screenshots/ar/profile.png" alt="Profile Screen - Arabic" width="200"/>
 </div>
 
 ### Search Screen
 <div align="center">
-  <table>
-    <tr>
-      <td><img src="assets/images/screenshots/en/search.png" alt="Search Screen - English" width="200"/></td>
-      <td><img src="assets/images/screenshots/ar/search.png" alt="Search Screen - Arabic" width="200"/></td>
-    </tr>
-  </table>
+  <img src="assets/images/screenshots/en/search.png" alt="Search Screen - English" width="200"/>
+  <img src="assets/images/screenshots/ar/search.png" alt="Search Screen - Arabic" width="200"/>
 </div>
 
 ## 🚀 Installation
