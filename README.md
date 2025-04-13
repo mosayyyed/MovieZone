@@ -105,7 +105,7 @@ Movie Zone is a comprehensive movie and TV show application that provides users 
 <div align="center">
   <table>
     <tr>
-      <td><img src="https://github.com/user-attachments/assets/0f3c9f03-311d-4a5b-8295-e99771e39094" alt="Profile Screen - English" width="200"/></td>
+      <td><img src="https://github.com/user-attachments/assets/bca8cf45-a237-4239-be31-58daa85be302" alt="Profile Screen - English" width="200"/></td>
       <td><img src="https://github.com/user-attachments/assets/9571cb6d-23cd-4c19-b26c-c673e3c2d588" alt="Profile Screen - Arabic" width="200"/></td>
     </tr>
         <tr>
