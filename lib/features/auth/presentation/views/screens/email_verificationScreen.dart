@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/ui/custom_progress_h_u_d.dart';
-import '../../../onboarding/presentation/widgets/skip_button.dart';
-import 'widgets/email_verification/email_verification_body.dart';
+import '../../../../../core/ui/custom_progress_h_u_d.dart';
+import '../../../../onboarding/presentation/widgets/skip_button.dart';
+import '../widgets/email_verification/email_verification_body.dart';
 
 class EmailVerificationScreen extends StatelessWidget {
   const EmailVerificationScreen({super.key});
