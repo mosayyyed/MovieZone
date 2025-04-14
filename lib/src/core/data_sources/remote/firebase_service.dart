@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:movie_app/src/features/profile/data/models/user_model.dart';
 
-
 class FirebaseService {
   final FirebaseAuth _firebaseAuthInstance;
   final FirebaseFirestore _firebaseFirestoreInstance;
