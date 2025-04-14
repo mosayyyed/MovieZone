@@ -1,9 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/src/core/ui/skeletonizer_placeholder_cached_network_image.dart';
 import 'package:movie_app/src/core/ui/gradient_overlay.dart';
+import 'package:movie_app/src/features/bookmark/data/models/bookmark_model.dart';
+import 'package:movie_app/src/features/bookmark/presentation/controller/bookmark_cubit.dart';
+import 'package:movie_app/src/features/bookmark/presentation/controller/bookmark_state.dart';
 
 import '../../../../../../core/themes/app_assets.dart';
 import '../../../../data/models/movie_details_model.dart';
@@ -25,9 +29,34 @@ class MovieDetailsSliverAppBar extends StatelessWidget {
           icon: SvgPicture.asset(AppAssets.icons.share, color: Colors.white),
         ),
         IconButton(
-          onPressed: () {},
-          icon: SvgPicture.asset(AppAssets.icons.bookmarkAdd,
-              color: Colors.white),
+          onPressed: () {
+            final state = context.read<BookmarkCubit>().state;
+            if (state is BookmarkLoaded &&
+                state.bookmarks.any((b) => b.movieId == movie.id.toString())) {
+              context.read<BookmarkCubit>().removeBookmark(movie.id.toString());
+            } else {
+              context.read<BookmarkCubit>().addBookmark(
+                    BookmarkModel(
+                      movieId: movie.id.toString(),
+                      title: movie.title,
+                      releaseDate: movie.releaseDate,
+                      posterPath: movie.posterPath,
+                    ),
+                  );
+            }
+          },
+          icon: BlocBuilder<BookmarkCubit, BookmarkState>(
+            builder: (context, state) {
+              final isBookmarked = state is BookmarkLoaded &&
+                  state.bookmarks.any((b) => b.movieId == movie.id.toString());
+              return SvgPicture.asset(
+                isBookmarked
+                    ? AppAssets.icons.bookmarkRemove
+                    : AppAssets.icons.bookmarkAdd,
+                color: Colors.white,
+              );
+            },
+          ),
         ),
       ],
       leading: IconButton(

@@ -10,6 +10,9 @@ import '../../features/explore/data/repositories/search_repo/search_movies_repo_
 import '../../features/home/data/repositories/movie_details_repo/movie_details_repo_impl.dart';
 import '../data_sources/remote/api_service/http_api_service.dart';
 import '../data_sources/remote/firebase_service.dart';
+import 'package:movie_app/src/features/bookmark/data/repositories/bookmark_repository_impl.dart';
+import 'package:movie_app/src/features/bookmark/domain/repositories/bookmark_repository.dart';
+import 'package:movie_app/src/features/bookmark/presentation/controller/bookmark_cubit.dart';
 
 final GetIt getIt = GetIt.instance;
 
@@ -43,5 +46,17 @@ Future<void> setupServiceLocator() async {
       FirebaseFirestore.instance,
       FirebaseAuth.instance,
     ),
+  );
+
+  // Bookmark
+  getIt.registerLazySingleton<BookmarkRepository>(
+    () => BookmarkRepositoryImpl(
+      FirebaseFirestore.instance,
+      FirebaseAuth.instance,
+    ),
+  );
+
+  getIt.registerFactory(
+    () => BookmarkCubit(getIt<BookmarkRepository>()),
   );
 }

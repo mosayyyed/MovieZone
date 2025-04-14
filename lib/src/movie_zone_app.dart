@@ -6,6 +6,8 @@ import 'package:movie_app/src/core/routing/routes.dart';
 import 'package:movie_app/src/core/themes/app_themes.dart';
 import 'package:movie_app/src/core/controllers/theme_controller.dart';
 import 'package:movie_app/src/core/utils/service_locator.dart';
+import 'package:movie_app/src/features/bookmark/domain/repositories/bookmark_repository.dart';
+import 'package:movie_app/src/features/bookmark/presentation/controller/bookmark_cubit.dart';
 import 'package:movie_app/src/features/profile/data/repositories/user_repo_impl.dart';
 import 'package:movie_app/src/features/profile/presentation/controller/cubit/user_cubit_cubit.dart';
 import 'package:movie_app/generated/l10n.dart';
@@ -22,6 +24,7 @@ class MovieZoneApp extends StatelessWidget {
         BlocProvider(create: (_) => LocaleCubit(getIt<SharedPreferences>())),
         BlocProvider(
             create: (_) => UserCubit(getIt<UserRepoImpl>())..getUser()),
+        BlocProvider(create: (_) => BookmarkCubit(getIt<BookmarkRepository>())),
       ],
       child: BlocBuilder<LocaleCubit, Locale>(
         builder: (context, locale) {

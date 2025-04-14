@@ -9,6 +9,9 @@ import 'package:movie_app/src/features/auth/presentation/controller/signup/signu
 import 'package:movie_app/src/features/auth/presentation/views/screens/email_verificationScreen.dart';
 import 'package:movie_app/src/features/auth/presentation/views/screens/login_screen.dart';
 import 'package:movie_app/src/features/auth/presentation/views/screens/signup_screen.dart';
+import 'package:movie_app/src/features/bookmark/domain/repositories/bookmark_repository.dart';
+import 'package:movie_app/src/features/bookmark/presentation/controller/bookmark_cubit.dart';
+import 'package:movie_app/src/features/bookmark/presentation/screens/bookmark_screen.dart';
 import 'package:movie_app/src/features/explore/data/repositories/search_repo/search_movies_repo_impl.dart';
 import 'package:movie_app/src/features/explore/presentation/controller/cast/search_cubit.dart';
 import 'package:movie_app/src/features/explore/presentation/views/screen/explore_screen.dart';
@@ -39,7 +42,7 @@ abstract class AppRoutes {
   static const kHomeRoute = '/home';
   static const kMovieDetailsRoute = '/movieDetails/:id';
   static const kExploreRoute = '/explore';
-  // static const kBookmarkRoute = '/bookmark';
+  static const kBookmarkRoute = '/bookmark';
   static const kProfileRoute = '/profile';
   static const kSeeAllRoute = '/see-all';
 
@@ -214,6 +217,13 @@ abstract class AppRoutes {
               child: child,
             );
           },
+        ),
+      ),
+      GoRoute(
+        path: kBookmarkRoute,
+        builder: (context, state) => BlocProvider(
+          create: (context) => BookmarkCubit(getIt.get<BookmarkRepository>()),
+          child: const BookmarkScreen(),
         ),
       ),
     ],

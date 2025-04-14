@@ -10,7 +10,10 @@ class _AppIcons {
   String get home => "assets/icons/home-04-stroke-rounded.svg";
   String get discover => "assets/icons/discover-circle-stroke-rounded.svg";
   String get bookmark => "assets/icons/bookmark-02-stroke-rounded.svg";
+  String get bookmarkFilled => "assets/icons/all-bookmark-stroke-rounded.svg";
   String get bookmarkAdd => "assets/icons/bookmark-add-02-stroke-rounded.svg";
+  String get bookmarkRemove =>
+      "assets/icons/bookmark-remove-02-solid-rounded.svg";
   String get profile => "assets/icons/user-stroke-rounded.svg";
   String get search => "assets/icons/search-01-stroke-rounded.svg";
   String get download => "assets/icons/download-05-stroke-rounded.svg";

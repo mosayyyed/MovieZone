@@ -75,8 +75,10 @@ class MovieDetailsModel extends Equatable {
         id: 1126166,
         title: "Flight Risk",
         originalTitle: "Flight Risk",
-        backdropPath: "${AppConstants.api.imageUrl}/b3mdmjYTEL70j7nuXATUAD9qgu4.jpg",
-        posterPath: "${AppConstants.api.imageUrl}/srmH9BNiZp43NMhWCZy2ZARfxpC.jpg",
+        backdropPath:
+            "${AppConstants.api.imageUrl}/b3mdmjYTEL70j7nuXATUAD9qgu4.jpg",
+        posterPath:
+            "${AppConstants.api.imageUrl}/srmH9BNiZp43NMhWCZy2ZARfxpC.jpg",
         voteAverage: 8.6,
         voteCount: 396,
         budget: 354,
@@ -95,7 +97,7 @@ class MovieDetailsModel extends Equatable {
           {"iso_3166_1": "US", "name": "United States of America"}
         ].map((x) => ProductionCompaniesModel.fromJson(x)).toList());
   }
-  
+
   @override
   List<Object?> get props => [
         id,

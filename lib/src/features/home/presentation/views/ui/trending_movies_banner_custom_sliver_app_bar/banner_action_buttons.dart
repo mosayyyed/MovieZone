@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:movie_app/generated/l10n.dart';
+import 'package:movie_app/src/features/bookmark/presentation/controller/bookmark_cubit.dart';
+import 'package:movie_app/src/features/bookmark/presentation/controller/bookmark_state.dart';
+import 'package:movie_app/src/features/bookmark/data/models/bookmark_model.dart';
 
 import '../../../../../../core/themes/app_assets.dart';
 import '../../../../../../core/utils/show_video_diolog.dart';
@@ -18,16 +21,39 @@ class BannerActionButtons extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        IconButton(
-          onPressed: () {},
-          icon: SvgPicture.asset(
-            AppAssets.icons.bookmarkAdd,
-            colorFilter: ColorFilter.mode(
-              Theme.of(context).colorScheme.onSurfaceVariant,
-              BlendMode.srcIn,
-            ),
-            width: 20,
-          ),
+        BlocBuilder<BookmarkCubit, BookmarkState>(
+          builder: (context, state) {
+            final isBookmarked = state is BookmarkLoaded &&
+                state.bookmarks.any((b) => b.movieId == movieId.toString());
+            return IconButton(
+              onPressed: () {
+                if (isBookmarked) {
+                  context
+                      .read<BookmarkCubit>()
+                      .removeBookmark(movieId.toString());
+                } else {
+                  context.read<BookmarkCubit>().addBookmark(
+                        BookmarkModel(
+                          movieId: movieId.toString(),
+                          title: '',
+                          releaseDate: '',
+                          posterPath: '',
+                        ),
+                      );
+                }
+              },
+              icon: SvgPicture.asset(
+                isBookmarked
+                    ? AppAssets.icons.bookmarkRemove
+                    : AppAssets.icons.bookmarkAdd,
+                colorFilter: ColorFilter.mode(
+                  Theme.of(context).colorScheme.onSurfaceVariant,
+                  BlendMode.srcIn,
+                ),
+                width: 20,
+              ),
+            );
+          },
         ),
         const SizedBox(width: 16),
         ElevatedButton.icon(
