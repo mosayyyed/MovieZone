@@ -6,14 +6,16 @@ import 'package:movie_app/generated/l10n.dart';
 import 'package:movie_app/src/features/bookmark/presentation/controller/bookmark_cubit.dart';
 import 'package:movie_app/src/features/bookmark/presentation/controller/bookmark_state.dart';
 import 'package:movie_app/src/features/bookmark/data/models/bookmark_model.dart';
+import 'package:movie_app/src/features/home/data/models/movie_model.dart';
 
 import '../../../../../../core/themes/app_assets.dart';
+import '../../../../../../core/utils/app_constants.dart';
 import '../../../../../../core/utils/show_video_diolog.dart';
 import '../../../controller/MovieVideos/movie_videos_cubit.dart';
 
 class BannerActionButtons extends StatelessWidget {
-  final int movieId;
-  const BannerActionButtons({super.key, required this.movieId});
+  final MovieModel movie;
+  const BannerActionButtons({super.key, required this.movie});
 
   @override
   Widget build(BuildContext context) {
@@ -24,20 +26,22 @@ class BannerActionButtons extends StatelessWidget {
         BlocBuilder<BookmarkCubit, BookmarkState>(
           builder: (context, state) {
             final isBookmarked = state is BookmarkLoaded &&
-                state.bookmarks.any((b) => b.movieId == movieId.toString());
+                state.bookmarks.any((b) => b.movieId == movie.id.toString());
             return IconButton(
               onPressed: () {
                 if (isBookmarked) {
                   context
                       .read<BookmarkCubit>()
-                      .removeBookmark(movieId.toString());
+                      .removeBookmark(movie.id.toString());
                 } else {
                   context.read<BookmarkCubit>().addBookmark(
                         BookmarkModel(
-                          movieId: movieId.toString(),
-                          title: '',
-                          releaseDate: '',
-                          posterPath: '',
+                          movieId: movie.id.toString(),
+                          title: movie.title,
+                          genreIds: movie.genreIds,
+                          posterPath: movie.posterPath
+                              .replaceAll(AppConstants.api.imageUrl, ''),
+                          voteAverage: movie.voteAverage,
                         ),
                       );
                 }
@@ -58,7 +62,7 @@ class BannerActionButtons extends StatelessWidget {
         const SizedBox(width: 16),
         ElevatedButton.icon(
           onPressed: () async {
-            await movieVideosCubit.fetchMovieVideos(movieId);
+            await movieVideosCubit.fetchMovieVideos(movie.id);
 
             if (movieVideosCubit.state is MovieVideosSuccess &&
                 movieVideosCubit.videosList.isNotEmpty) {

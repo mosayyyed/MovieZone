@@ -8,6 +8,7 @@ import 'package:movie_app/src/core/ui/gradient_overlay.dart';
 import 'package:movie_app/src/features/bookmark/data/models/bookmark_model.dart';
 import 'package:movie_app/src/features/bookmark/presentation/controller/bookmark_cubit.dart';
 import 'package:movie_app/src/features/bookmark/presentation/controller/bookmark_state.dart';
+import 'package:movie_app/src/core/utils/app_constants.dart';
 
 import '../../../../../../core/themes/app_assets.dart';
 import '../../../../data/models/movie_details_model.dart';
@@ -39,8 +40,10 @@ class MovieDetailsSliverAppBar extends StatelessWidget {
                     BookmarkModel(
                       movieId: movie.id.toString(),
                       title: movie.title,
-                      releaseDate: movie.releaseDate,
-                      posterPath: movie.posterPath,
+                      genreIds: movie.genres.map((e) => e.id).toList(),
+                      posterPath: movie.posterPath
+                          .replaceAll(AppConstants.api.imageUrl, ''),
+                      voteAverage: movie.voteAverage,
                     ),
                   );
             }

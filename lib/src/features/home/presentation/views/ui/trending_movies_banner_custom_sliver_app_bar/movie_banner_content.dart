@@ -40,7 +40,7 @@ class MovieBannerContent extends StatelessWidget {
           _buildMovieInfo(context, genresCubit),
           const SizedBox(height: 16),
           BannerActionButtons(
-            movieId: movie.id,
+            movie: movie,
           ),
           const SizedBox(height: 16),
           _buildPageIndicator(context),
