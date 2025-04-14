@@ -7,7 +7,10 @@ class ArrowBackWithTitleAppBar extends StatelessWidget
     implements PreferredSizeWidget {
   final String title;
 
-  const ArrowBackWithTitleAppBar({super.key, required this.title});
+  const ArrowBackWithTitleAppBar({
+    super.key,
+    required this.title,
+  });
 
   @override
   Widget build(BuildContext context) {

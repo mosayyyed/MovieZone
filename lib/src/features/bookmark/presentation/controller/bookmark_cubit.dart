@@ -12,7 +12,12 @@ class BookmarkCubit extends Cubit<BookmarkState> {
 
   Future<void> loadBookmarks() async {
     try {
-      emit(BookmarkLoading());
+      emit(BookmarkLoading(
+        List.generate(
+          10,
+          (index) => BookmarkModel.fake(),
+        ),
+      ));
       final bookmarks = await _repository.getBookmarks();
       bookmarks.fold(
         (failure) => emit(BookmarkError(failure.message)),

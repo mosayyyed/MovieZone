@@ -1,11 +1,13 @@
-class BookmarkModel {
+import 'package:equatable/equatable.dart';
+
+class BookmarkModel extends Equatable {
   final String movieId;
   final String title;
   final String posterPath;
   final List<int> genreIds;
   final double voteAverage;
 
-  BookmarkModel({
+  const BookmarkModel({
     required this.movieId,
     required this.title,
     required this.posterPath,
@@ -32,4 +34,18 @@ class BookmarkModel {
       'voteAverage': voteAverage,
     };
   }
+
+  factory BookmarkModel.fake() {
+    return BookmarkModel(
+      movieId: '1',
+      title: 'Title',
+      posterPath: 'Poster Path',
+      genreIds: [1, 2, 3],
+      voteAverage: 5.0,
+    );
+  }
+
+  @override
+  List<Object?> get props =>
+      [movieId, title, posterPath, genreIds, voteAverage];
 }
