@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/src/core/routing/routes.dart';
+import 'package:movie_app/src/core/themes/app_styles.dart';
 import 'package:movie_app/src/core/themes/app_values.dart';
 import 'package:movie_app/src/core/utils/app_constants.dart';
 import 'package:movie_app/src/features/home/presentation/controller/MovieVideos/movie_videos_cubit.dart';
@@ -22,13 +23,16 @@ class HomeSliverAppBar extends StatelessWidget {
       expandedHeight: MediaQuery.of(context).size.height * 0.50,
       pinned: true,
       stretch: true,
-      title: Text(S.of(context).home),
+      title: Text(
+        S.of(context).home,
+        style: Styles.boldTextStyle20,
+      ),
       titleSpacing: 0,
       actions: [
         IconButton(
             onPressed: () {
               GoRouter.of(context).push(
-                AppRoutes.kSearchRoute,
+                AppRoutes.kExploreRoute,
                 extra: {
                   'trendingCubit': context.read<TrendingCubit>(),
                   'genresCubit': context.read<GenresCubit>(),
