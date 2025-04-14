@@ -22,6 +22,7 @@ class HomeSliverAppBar extends StatelessWidget {
       pinned: true,
       stretch: true,
       title: Text(S.of(context).home),
+      titleSpacing: 0,
       actions: [
         IconButton(
             onPressed: () {
@@ -55,7 +56,10 @@ class HomeSliverAppBar extends StatelessWidget {
       leading: GestureDetector(
         onTap: () => GoRouter.of(context).push(AppRoutes.kProfileRoute),
         child: Padding(
-          padding: const EdgeInsets.all(AppSize.s6),
+          padding: const EdgeInsets.symmetric(
+            horizontal: AppSize.s6,
+            vertical: AppSize.s6,
+          ),
           child: CircleAvatar(
             backgroundColor: Theme.of(context).colorScheme.secondary,
             backgroundImage: AssetImage("assets/avatar.png"),
