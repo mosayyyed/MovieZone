@@ -41,7 +41,7 @@
   
     "fullNameRequiredError": "Full Name is required",
     "fullNameTooShortError": "Full Name is too short",
-    "fullNameInvalidError": "Full Name can only contain letters, numbers, and #",
+    "fullNameInvalidError": "Full Name can only contain letters and spaces",
   
     "emailRequiredError": "Email is required",
     "emailInvalidError": "Email is invalid",

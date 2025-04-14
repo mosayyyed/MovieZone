@@ -62,7 +62,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Error loading data"),
         "fullName": MessageLookupByLibrary.simpleMessage("Full Name"),
         "fullNameInvalidError": MessageLookupByLibrary.simpleMessage(
-            "Full Name can only contain letters, numbers, and #"),
+            "Full Name can only contain letters and spaces"),
         "fullNameRequiredError":
             MessageLookupByLibrary.simpleMessage("Full Name is required"),
         "fullNameTooShortError":

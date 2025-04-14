@@ -41,7 +41,7 @@
   
     "fullNameRequiredError": "الاسم الكامل مطلوب",
     "fullNameTooShortError": "الاسم الكامل قصير جدًا",
-    "fullNameInvalidError": "الاسم الكامل يجب أن يحتوي فقط على حروف، أرقام، و#",
+    "fullNameInvalidError": "الاسم الكامل يجب أن يحتوي فقط على حروف ومسافات",
   
     "emailRequiredError": "البريد الإلكتروني مطلوب",
     "emailInvalidError": "البريد الإلكتروني غير صحيح",

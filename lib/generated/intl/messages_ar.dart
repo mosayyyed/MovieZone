@@ -59,7 +59,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("حدث خطأ في تحميل البيانات"),
         "fullName": MessageLookupByLibrary.simpleMessage("الاسم الكامل"),
         "fullNameInvalidError": MessageLookupByLibrary.simpleMessage(
-            "الاسم الكامل يجب أن يحتوي فقط على حروف، أرقام، و#"),
+            "الاسم الكامل يجب أن يحتوي فقط على حروف ومسافات"),
         "fullNameRequiredError":
             MessageLookupByLibrary.simpleMessage("الاسم الكامل مطلوب"),
         "fullNameTooShortError":

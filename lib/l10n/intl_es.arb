@@ -41,7 +41,7 @@
   
     "fullNameRequiredError": "El nombre completo es obligatorio",
     "fullNameTooShortError": "El nombre completo es demasiado corto",
-    "fullNameInvalidError": "El nombre completo solo puede contener letras, números y #",
+    "fullNameInvalidError": "El nombre completo solo puede contener letras y espacios",
   
     "emailRequiredError": "El correo electrónico es obligatorio",
     "emailInvalidError": "El correo electrónico no es válido",

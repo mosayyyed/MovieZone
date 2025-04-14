@@ -400,10 +400,10 @@ class S {
     );
   }
 
-  /// `Full Name can only contain letters, numbers, and #`
+  /// `Full Name can only contain letters and spaces`
   String get fullNameInvalidError {
     return Intl.message(
-      'Full Name can only contain letters, numbers, and #',
+      'Full Name can only contain letters and spaces',
       name: 'fullNameInvalidError',
       desc: '',
       args: [],
