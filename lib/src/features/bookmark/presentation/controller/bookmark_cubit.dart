@@ -1,8 +1,9 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/src/core/errors/failures.dart';
 import 'package:movie_app/src/features/bookmark/domain/repositories/bookmark_repository.dart';
 import 'package:movie_app/src/features/bookmark/data/models/bookmark_model.dart';
 import 'package:movie_app/src/features/bookmark/presentation/controller/bookmark_state.dart';
-
 
 class BookmarkCubit extends Cubit<BookmarkState> {
   final BookmarkRepository _repository;
@@ -13,7 +14,10 @@ class BookmarkCubit extends Cubit<BookmarkState> {
     try {
       emit(BookmarkLoading());
       final bookmarks = await _repository.getBookmarks();
-      emit(BookmarkLoaded(bookmarks));
+      bookmarks.fold(
+        (failure) => emit(BookmarkError(failure.message)),
+        (bookmarks) => emit(BookmarkLoaded(bookmarks)),
+      );
     } catch (e) {
       emit(BookmarkError(e.toString()));
     }
@@ -37,7 +41,7 @@ class BookmarkCubit extends Cubit<BookmarkState> {
     }
   }
 
-  Future<bool> isBookmarked(String movieId) async {
+  Future<Either<Failure, bool>> isBookmarked(String movieId) async {
     return await _repository.isBookmarked(movieId);
   }
 }

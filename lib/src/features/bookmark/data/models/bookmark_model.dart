@@ -2,13 +2,15 @@ class BookmarkModel {
   final String movieId;
   final String title;
   final String posterPath;
-  final String releaseDate;
+  final List<int> genreIds;
+  final double voteAverage;
 
   BookmarkModel({
     required this.movieId,
     required this.title,
     required this.posterPath,
-    required this.releaseDate,
+    required this.genreIds,
+    required this.voteAverage,
   });
 
   factory BookmarkModel.fromJson(Map<String, dynamic> json) {
@@ -16,7 +18,8 @@ class BookmarkModel {
       movieId: json['movieId'] as String,
       title: json['title'] as String,
       posterPath: json['posterPath'] as String,
-      releaseDate: json['releaseDate'] as String,
+      genreIds: (json['genreIds'] as List).map((e) => e as int).toList(),
+      voteAverage: (json['voteAverage'] ?? 0).toDouble(),
     );
   }
 
@@ -25,7 +28,8 @@ class BookmarkModel {
       'movieId': movieId,
       'title': title,
       'posterPath': posterPath,
-      'releaseDate': releaseDate,
+      'genreIds': genreIds,
+      'voteAverage': voteAverage,
     };
   }
 }
