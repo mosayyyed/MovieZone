@@ -39,12 +39,6 @@ Movie Zone is a comprehensive movie and TV show application that provides users 
   - View detailed movie information
   - Watch trailers and clips
 
-- **TV Shows**
-  - Track ongoing series
-  - Episode guides
-  - Season overviews
-  - Release schedules
-
 - **User Experience**
   - Dark/Light mode
   - Customizable watchlists
