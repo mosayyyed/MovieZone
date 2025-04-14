@@ -83,6 +83,7 @@ class BookmarkScreen extends StatelessWidget {
                         AppAssets.icons.bookmark,
                         width: 64,
                         height: 64,
+                        color: Theme.of(context).colorScheme.onSurface,
                       ),
                       const SizedBox(height: 16),
                       Text(
