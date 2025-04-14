@@ -221,8 +221,16 @@ abstract class AppRoutes {
       ),
       GoRoute(
         path: kBookmarkRoute,
-        builder: (context, state) => BlocProvider(
-          create: (context) => BookmarkCubit(getIt.get<BookmarkRepository>()),
+        builder: (context, state) => MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) =>
+                  BookmarkCubit(getIt.get<BookmarkRepository>()),
+            ),
+            BlocProvider(
+              create: (context) => GenresCubit(getIt.get<MovieRepoImpl>()),
+            ),
+          ],
           child: const BookmarkScreen(),
         ),
       ),
