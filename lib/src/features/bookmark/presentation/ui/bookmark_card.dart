@@ -27,14 +27,16 @@ class BookmarkCard extends StatelessWidget {
       background: Container(
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.error,
-          borderRadius: BorderRadius.circular(AppSize.s16),
+          borderRadius: BorderRadius.circular(AppSize.s12),
         ),
-        alignment: Alignment.centerRight,
-        padding: const EdgeInsets.only(right: AppPadding.p20),
+        alignment: Localizations.localeOf(context).languageCode == 'ar'
+            ? Alignment.centerLeft
+            : Alignment.centerRight,
+        padding: const EdgeInsets.all(AppPadding.p16),
         child: Icon(
           Icons.delete,
           color: Colors.white,
-          size: AppSize.s32,
+          size: AppSize.s24,
         ),
       ),
       onDismissed: (direction) {
@@ -42,14 +44,14 @@ class BookmarkCard extends StatelessWidget {
       },
       child: Container(
         margin: EdgeInsets.symmetric(
-            vertical: AppPadding.p4, horizontal: AppPadding.p8),
+            vertical: AppPadding.p2, horizontal: AppPadding.p4),
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.surface,
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.1),
-              blurRadius: 8,
+              blurRadius: 4,
               offset: const Offset(0, 4),
             ),
           ],
@@ -57,26 +59,26 @@ class BookmarkCard extends StatelessWidget {
         child: Material(
           color: Colors.transparent,
           child: InkWell(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(12),
             onTap: () {},
             child: Padding(
-              padding: const EdgeInsets.all(AppPadding.p12),
+              padding: const EdgeInsets.all(AppPadding.p8),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   ClipRRect(
-                    borderRadius: BorderRadius.circular(AppSize.s12),
+                    borderRadius: BorderRadius.circular(AppSize.s8),
                     child: CachedNetworkImage(
                       imageUrl:
                           '${AppConstants.api.imageUrl}${bookmark.posterPath}',
-                      width: 90,
-                      height: 130,
+                      width: 70,
+                      height: 100,
                       fit: BoxFit.cover,
                       placeholder: (context, url) =>
                           SkeletonizerPlaceholderCachedNetworkImage(),
                       errorWidget: (_, __, ___) => Container(
-                        width: 90,
-                        height: 130,
+                        width: 70,
+                        height: 100,
                         color: Theme.of(context)
                             .colorScheme
                             .surfaceContainerHighest,
@@ -87,7 +89,7 @@ class BookmarkCard extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(width: 12),
+                  const SizedBox(width: 8),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -98,10 +100,10 @@ class BookmarkCard extends StatelessWidget {
                               .textTheme
                               .titleMedium
                               ?.copyWith(fontWeight: FontWeight.bold),
-                          maxLines: 2,
+                          maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                         ),
-                        const SizedBox(height: 6),
+                        const SizedBox(height: 4),
                         MovieInfoRow(
                           voteAverage: bookmark.voteAverage,
                           genreIds: bookmark.genreIds,
@@ -114,7 +116,7 @@ class BookmarkCard extends StatelessWidget {
                   IconButton(
                     icon: Icon(
                       Icons.bookmark_remove_outlined,
-                      size: 20,
+                      size: 18,
                       color: Theme.of(context).colorScheme.error,
                     ),
                     onPressed: () {
