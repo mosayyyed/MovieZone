@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/src/core/utils/service_locator.dart';
@@ -37,8 +38,8 @@ abstract class AppRoutes {
   static const kEmailVerificationRoute = '/email-verification';
   static const kHomeRoute = '/home';
   static const kMovieDetailsRoute = '/movieDetails/:id';
-  static const kSearchRoute = '/search';
-  static const kBookmarkRoute = '/bookmark';
+  static const kExploreRoute = '/explore';
+  // static const kBookmarkRoute = '/bookmark';
   static const kProfileRoute = '/profile';
   static const kSeeAllRoute = '/see-all';
 
@@ -147,25 +148,39 @@ abstract class AppRoutes {
         ),
       ),
       GoRoute(
-        path: kSearchRoute,
-        builder: (context, state) {
+        path: kExploreRoute,
+        pageBuilder: (context, state) {
           final extra = state.extra as Map<String, dynamic>?;
 
-          return MultiBlocProvider(
-            providers: [
-              BlocProvider(
-                create: (context) =>
-                    SearchMoiveCubit(getIt.get<SearchMoviesRepoImpl>()),
-              ),
-              if (extra != null) ...[
-                BlocProvider.value(
-                    value: extra['trendingCubit'] as TrendingCubit),
-                BlocProvider.value(value: extra['genresCubit'] as GenresCubit),
-                BlocProvider.value(
-                    value: extra['movieVideosCubit'] as MovieVideosCubit),
+          return CustomTransitionPage(
+            key: state.pageKey,
+            transitionsBuilder:
+                (context, animation, secondaryAnimation, child) {
+              return SlideTransition(
+                position: Tween<Offset>(
+                  begin: const Offset(1, 0),
+                  end: Offset.zero,
+                ).animate(animation),
+                child: child,
+              );
+            },
+            child: MultiBlocProvider(
+              providers: [
+                BlocProvider(
+                  create: (context) =>
+                      SearchMoiveCubit(getIt.get<SearchMoviesRepoImpl>()),
+                ),
+                if (extra != null) ...[
+                  BlocProvider.value(
+                      value: extra['trendingCubit'] as TrendingCubit),
+                  BlocProvider.value(
+                      value: extra['genresCubit'] as GenresCubit),
+                  BlocProvider.value(
+                      value: extra['movieVideosCubit'] as MovieVideosCubit),
+                ],
               ],
-            ],
-            child: const ExploreScreen(),
+              child: const ExploreScreen(),
+            ),
           );
         },
       ),
@@ -187,16 +202,19 @@ abstract class AppRoutes {
         },
       ),
       GoRoute(
-        path: kBookmarkRoute,
-        builder: (context, state) {
-          return const ExploreScreen();
-        },
-      ),
-      GoRoute(
         path: kProfileRoute,
-        builder: (context, state) {
-          return const ProfileScreen();
-        },
+        pageBuilder: (context, state) => CustomTransitionPage(
+          child: const ProfileScreen(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return SlideTransition(
+              position: Tween<Offset>(
+                begin: const Offset(1, 0),
+                end: Offset.zero,
+              ).animate(animation),
+              child: child,
+            );
+          },
+        ),
       ),
     ],
   );
