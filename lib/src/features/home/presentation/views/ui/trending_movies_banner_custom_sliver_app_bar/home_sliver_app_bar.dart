@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/src/core/routing/routes.dart';
 import 'package:movie_app/src/core/themes/app_values.dart';
+import 'package:movie_app/src/core/utils/app_constants.dart';
 import 'package:movie_app/src/features/home/presentation/controller/MovieVideos/movie_videos_cubit.dart';
 import 'package:movie_app/src/features/home/presentation/controller/genres/genres_cubit.dart';
 import 'package:movie_app/src/features/home/presentation/controller/trending/trending_cubit.dart';
@@ -62,7 +63,7 @@ class HomeSliverAppBar extends StatelessWidget {
           ),
           child: CircleAvatar(
             backgroundColor: Theme.of(context).colorScheme.secondary,
-            backgroundImage: AssetImage("assets/avatar.png"),
+            backgroundImage: AssetImage(AppConstants.avatarPlaceholder),
           ),
         ),
       ),

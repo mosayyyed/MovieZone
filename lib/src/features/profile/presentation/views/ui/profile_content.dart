@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/src/core/themes/app_styles.dart';
 import 'package:movie_app/src/core/themes/app_values.dart';
+import 'package:movie_app/src/core/utils/app_constants.dart';
 import 'package:movie_app/src/features/profile/data/models/user_model.dart';
 import 'package:movie_app/src/features/profile/presentation/views/screens/edit_profile_screen.dart';
 import 'package:movie_app/src/features/profile/presentation/views/ui/account_status_indicator.dart';
@@ -32,7 +33,7 @@ class ProfileContent extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                     color: Theme.of(context).colorScheme.secondary,
                     image: const DecorationImage(
-                      image: AssetImage("assets/avatar.png"),
+                      image: AssetImage(AppConstants.avatarPlaceholder),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -42,14 +43,27 @@ class ProfileContent extends StatelessWidget {
                 top: 4,
                 right: 4,
                 child: GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    showModalBottomSheet(
+                      context: context,
+                      isScrollControlled: true,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.vertical(
+                          top: Radius.circular(AppSize.s18),
+                        ),
+                      ),
+                      backgroundColor:
+                          Theme.of(context).scaffoldBackgroundColor,
+                      builder: (context) => EditProfileScreen(user: user!),
+                    );
+                  },
                   child: CircleAvatar(
-                    backgroundColor: Theme.of(context).colorScheme.surface,
-                    radius: 16,
+                    backgroundColor: Colors.transparent,
+                    radius: 14,
                     child: Icon(
-                      Icons.camera_alt_rounded,
-                      color: Theme.of(context).colorScheme.onSurface,
-                      size: 18,
+                      Icons.change_circle_rounded,
+                      color: Theme.of(context).colorScheme.onSecondary,
+                      size: 30,
                     ),
                   ),
                 ),
