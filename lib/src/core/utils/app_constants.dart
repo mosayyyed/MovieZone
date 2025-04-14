@@ -7,6 +7,7 @@ class AppConstants {
   static const languages = AppLocalizationConstants();
   static const sharedPreferences = _SharedPreferencesConstants();
   static const String appName = "Movie App";
+  static const String avatarPlaceholder = "assets/avatar.png";
 }
 
 class _ApiConstants {
