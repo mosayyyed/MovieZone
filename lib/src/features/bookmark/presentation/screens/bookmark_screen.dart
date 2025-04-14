@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:movie_app/generated/l10n.dart';
 import 'package:movie_app/src/core/themes/app_assets.dart';
+import 'package:movie_app/src/core/themes/app_styles.dart';
 import 'package:movie_app/src/core/themes/app_values.dart';
 import 'package:movie_app/src/core/ui/arrow_back_with_title_app_bar.dart';
 import 'package:movie_app/src/features/bookmark/presentation/controller/bookmark_cubit.dart';
@@ -21,7 +23,7 @@ class BookmarkScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: ArrowBackWithTitleAppBar(
-        title: 'My Bookmarks',
+        title: S.of(context).myBookmarks,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: AppPadding.p16),
@@ -64,7 +66,7 @@ class BookmarkScreen extends StatelessWidget {
                       onPressed: () {
                         context.read<BookmarkCubit>().loadBookmarks();
                       },
-                      child: const Text('Try Again'),
+                      child: Text(S.of(context).tryAgain),
                     ),
                   ],
                 ),
@@ -83,13 +85,19 @@ class BookmarkScreen extends StatelessWidget {
                         height: 64,
                       ),
                       const SizedBox(height: 16),
-                      const Text('No bookmarked movies yet',
-                          style: TextStyle(fontSize: 18)),
-                      const SizedBox(height: 8),
-                      const Text(
-                        'Add movies to your bookmarks to see them here',
+                      Text(
+                        S.of(context).noBookmarkedMovies,
+                        style: Styles.textStyle18.copyWith(
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        S.of(context).addMoviesToBookmarks,
                         textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.grey),
+                        style: Styles.textStyle14.copyWith(
+                          color: Theme.of(context).colorScheme.onSurface,
+                        ),
                       ),
                     ],
                   ),
