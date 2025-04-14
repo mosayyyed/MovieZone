@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 import 'package:go_router/go_router.dart';
+import 'package:movie_app/src/core/utils/form_validator.dart';
 import 'package:movie_app/src/features/auth/data/models/login_request_model.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
@@ -54,8 +55,7 @@ class LoginForm extends StatelessWidget {
                     labelText: S.of(context).email,
                     keyboardType: TextInputType.emailAddress,
                     controller: loginCubit.emailController,
-                    validator: (value) =>
-                        authCubit.emailValidator(value, context),
+                    validator: (value) => FormValidator.validateEmail(value),
                   ),
                   CustomTextField(
                     labelText: S.of(context).password,
@@ -64,8 +64,7 @@ class LoginForm extends StatelessWidget {
                     onSuffixIconPressed: authCubit.togglePasswordVisibility,
                     obscureText: !authCubit.isPasswordVisible,
                     controller: loginCubit.passwordController,
-                    validator: (value) =>
-                        authCubit.passwordValidator(value, context),
+                    validator: (value) => FormValidator.validatePassword(value),
                   ),
                   CustomTextButton(
                     text: S.of(context).loginForgotPassword,

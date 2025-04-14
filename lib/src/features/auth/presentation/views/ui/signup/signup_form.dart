@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 import 'package:go_router/go_router.dart';
+import 'package:movie_app/src/core/utils/form_validator.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
@@ -55,15 +56,13 @@ class SignupForm extends StatelessWidget {
                     labelText: S.of(context).fullName,
                     keyboardType: TextInputType.name,
                     controller: signupCubit.fullNameController,
-                    validator: (value) =>
-                        authCubit.nicknameValidator(value, context),
+                    validator: (value) => FormValidator.validateFullName(value),  
                   ),
                   CustomTextField(
                     labelText: S.of(context).email,
                     keyboardType: TextInputType.emailAddress,
                     controller: signupCubit.emailController,
-                    validator: (value) =>
-                        authCubit.emailValidator(value, context),
+                    validator: (value) => FormValidator.validateEmail(value),
                   ),
                   CustomTextField(
                     labelText: S.of(context).password,
@@ -73,7 +72,7 @@ class SignupForm extends StatelessWidget {
                     suffixIconVisibility: true,
                     onSuffixIconPressed: authCubit.togglePasswordVisibility,
                     validator: (value) =>
-                        authCubit.passwordValidator(value, context),
+                        FormValidator.validatePassword(value),
                   ),
                   CustomTextField(
                     labelText: S.of(context).confirmPassword,
@@ -83,16 +82,14 @@ class SignupForm extends StatelessWidget {
                     suffixIconVisibility: true,
                     onSuffixIconPressed:
                         authCubit.toggleConfirmPasswordVisibility,
-                    validator: (value) => authCubit.confirmPasswordValidator(
+                    validator: (value) => FormValidator.validateConfirmPassword(
                       value,
                       signupCubit.passwordController.text,
-                      context,
                     ),
                   ),
                   CustomPhoneField(
                     labelText: S.of(context).phoneNumber,
-                    validator: (value) => authCubit.phoneValidator(
-                        value?.completeNumber, context),
+                    validator: (value) => FormValidator.validatePhone(value?.completeNumber),
                     onChanged: (phone) {
                       signupCubit.phoneController.text = phone.completeNumber;
                     },

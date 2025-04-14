@@ -5,15 +5,16 @@ class AppRegExp {
   }
 
   static bool isPasswordValid(String password) {
-    return RegExp(r"^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&]).{9,}$")
+    return RegExp(
+            r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$')
         .hasMatch(password);
   }
 
-  static bool isNicknameValid(String nickname) {
-    return RegExp(r'^[a-zA-Z0-9#]+$').hasMatch(nickname);
+  static bool isNameValid(String fullName) {
+    return RegExp(r'^[\p{L}\s]{2,}$', unicode: true).hasMatch(fullName);
   }
 
   static bool isPhoneValid(String phone) {
-    return RegExp(r'^\+?\d{10,15}$').hasMatch(phone);
+    return RegExp(r'^\+?[0-9]{10,15}$').hasMatch(phone);
   }
 }

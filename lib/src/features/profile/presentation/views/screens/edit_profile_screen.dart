@@ -5,6 +5,7 @@ import 'package:movie_app/src/core/themes/app_values.dart';
 import 'package:movie_app/src/core/ui/custom_elevated_button.dart';
 import 'package:movie_app/src/core/ui/custom_text_field.dart';
 import 'package:movie_app/src/core/ui/my_single_child_scroll_view.dart';
+import 'package:movie_app/src/core/utils/form_validator.dart';
 import 'package:movie_app/src/features/profile/data/models/user_model.dart';
 import 'package:movie_app/src/features/profile/presentation/controller/cubit/user_cubit_cubit.dart';
 import 'package:movie_app/generated/l10n.dart';
@@ -82,12 +83,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 CustomTextField(
                   controller: _nameController,
                   labelText: S.of(context).fullName,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return S.of(context).fullNameRequiredError;
-                    }
-                    return null;
-                  },
+                  validator: FormValidator.validateFullName,
                 ),
                 const SizedBox(height: 16),
                 CustomTextField(
@@ -95,24 +91,14 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   keyboardType: TextInputType.emailAddress,
                   labelText: S.of(context).email,
                   readOnly: true,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return S.of(context).emailRequiredError;
-                    }
-                    return null;
-                  },
+                  validator: FormValidator.validateEmail,
                 ),
                 const SizedBox(height: 16),
                 CustomTextField(
                   controller: _phoneController,
                   keyboardType: TextInputType.phone,
                   labelText: S.of(context).phoneNumber,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return S.of(context).phoneNumberRequiredError;
-                    }
-                    return null;
-                  },
+                  validator: FormValidator.validatePhone,
                 ),
                 const SizedBox(height: 24),
                 CustomElevatedButton(
