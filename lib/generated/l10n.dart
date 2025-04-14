@@ -1029,6 +1029,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Try Again`
+  String get tryAgain {
+    return Intl.message(
+      'Try Again',
+      name: 'tryAgain',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My Bookmarks`
+  String get myBookmarks {
+    return Intl.message(
+      'My Bookmarks',
+      name: 'myBookmarks',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No bookmarked movies yet`
+  String get noBookmarkedMovies {
+    return Intl.message(
+      'No bookmarked movies yet',
+      name: 'noBookmarkedMovies',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add movies to your bookmarks to see them here`
+  String get addMoviesToBookmarks {
+    return Intl.message(
+      'Add movies to your bookmarks to see them here',
+      name: 'addMoviesToBookmarks',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

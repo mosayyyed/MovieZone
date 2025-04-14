@@ -23,6 +23,8 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "accountStatus": MessageLookupByLibrary.simpleMessage("Actif"),
+        "addMoviesToBookmarks": MessageLookupByLibrary.simpleMessage(
+            "Ajouter des films à vos favoris pour les voir ici"),
         "allowNotifications":
             MessageLookupByLibrary.simpleMessage("Autoriser les notifications"),
         "appDescription": MessageLookupByLibrary.simpleMessage(
@@ -90,8 +92,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "loginOrDivider": MessageLookupByLibrary.simpleMessage("OU"),
         "logout": MessageLookupByLibrary.simpleMessage("Se déconnecter"),
         "more": MessageLookupByLibrary.simpleMessage("Plus"),
+        "myBookmarks":
+            MessageLookupByLibrary.simpleMessage("Mes films enregistrés"),
         "networkRequestFailed": MessageLookupByLibrary.simpleMessage(
             "Erreur réseau: Veuillez vérifier votre connexion internet et réessayer."),
+        "noBookmarkedMovies":
+            MessageLookupByLibrary.simpleMessage("Aucun film enregistré"),
         "noCastAvailable":
             MessageLookupByLibrary.simpleMessage("Aucun casting disponible"),
         "noDataAvailable": MessageLookupByLibrary.simpleMessage(
@@ -164,6 +170,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Tendances cette semaine"),
         "trendingToday":
             MessageLookupByLibrary.simpleMessage("Tendances aujourd\'hui"),
+        "tryAgain": MessageLookupByLibrary.simpleMessage("Réessayer"),
         "unknownError": MessageLookupByLibrary.simpleMessage(
             "Une erreur inconnue est survenue. Veuillez réessayer."),
         "upcoming": MessageLookupByLibrary.simpleMessage("À venir"),

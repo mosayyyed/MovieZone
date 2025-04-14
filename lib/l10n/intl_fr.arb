@@ -112,6 +112,12 @@
     "allowNotifications": "Autoriser les notifications",
     "logout": "Se déconnecter",
 
-    "searchForYourFavoriteMovies": "Rechercher vos films préférés"
+    "searchForYourFavoriteMovies": "Rechercher vos films préférés",
+
+    "tryAgain": "Réessayer",
+
+    "myBookmarks": "Mes films enregistrés",
+    "noBookmarkedMovies": "Aucun film enregistré",
+    "addMoviesToBookmarks": "Ajouter des films à vos favoris pour les voir ici"
   }
   

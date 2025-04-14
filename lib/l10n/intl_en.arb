@@ -112,7 +112,13 @@
     "allowNotifications": "Allow Notifications",
     "logout": "Logout",
 
-    "searchForYourFavoriteMovies": "Search for your favorite movies"
+    "searchForYourFavoriteMovies": "Search for your favorite movies",
+
+    "tryAgain": "Try Again",
+
+    "myBookmarks": "My Bookmarks",
+    "noBookmarkedMovies": "No bookmarked movies yet",
+    "addMoviesToBookmarks": "Add movies to your bookmarks to see them here"
 
   }
   

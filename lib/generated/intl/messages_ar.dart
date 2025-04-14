@@ -23,6 +23,8 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "accountStatus": MessageLookupByLibrary.simpleMessage("نشط"),
+        "addMoviesToBookmarks": MessageLookupByLibrary.simpleMessage(
+            "أضف أفلامًا إلى مفضلاتك لرؤيتها هنا"),
         "allowNotifications":
             MessageLookupByLibrary.simpleMessage("السماح بالإشعارات"),
         "appDescription": MessageLookupByLibrary.simpleMessage(
@@ -84,8 +86,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "loginOrDivider": MessageLookupByLibrary.simpleMessage("أو"),
         "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
         "more": MessageLookupByLibrary.simpleMessage("المزيد"),
+        "myBookmarks": MessageLookupByLibrary.simpleMessage("أفلامي المحفوظة"),
         "networkRequestFailed": MessageLookupByLibrary.simpleMessage(
             "خطأ في الشبكة: يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى."),
+        "noBookmarkedMovies":
+            MessageLookupByLibrary.simpleMessage("لا يوجد أفلام محفوظة بعد"),
         "noCastAvailable":
             MessageLookupByLibrary.simpleMessage("لا يوجد طاقم تمثيل متاح"),
         "noDataAvailable":
@@ -156,6 +161,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "trendingThisWeek":
             MessageLookupByLibrary.simpleMessage("الرائجة هذا الأسبوع"),
         "trendingToday": MessageLookupByLibrary.simpleMessage("الرائجة اليوم"),
+        "tryAgain": MessageLookupByLibrary.simpleMessage("حاول مرة أخرى"),
         "unknownError": MessageLookupByLibrary.simpleMessage(
             "حدث خطأ غير معروف. يرجى المحاولة مرة أخرى."),
         "upcoming": MessageLookupByLibrary.simpleMessage("القادمة"),
