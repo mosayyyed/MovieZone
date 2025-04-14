@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:movie_app/src/core/themes/app_styles.dart';
 import 'package:movie_app/src/core/themes/app_values.dart';
 import 'package:movie_app/src/features/explore/presentation/views/ui/explore/movies_grid_view.dart';
 import 'package:movie_app/src/features/home/data/models/movie_model.dart';
@@ -38,11 +39,7 @@ class SeeAllScreen extends StatelessWidget {
               const SizedBox(width: AppSize.s8),
               Text(
                 title,
-                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                      color: Theme.of(context).colorScheme.onSurface,
-                      fontSize: AppSize.s20,
-                      fontWeight: FontWeight.w600,
-                    ),
+                style: Styles.boldTextStyle20,
               ),
             ],
           ),
