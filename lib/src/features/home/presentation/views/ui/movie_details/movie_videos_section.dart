@@ -5,7 +5,7 @@ import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../../../core/themes/app_styles.dart';
 import '../../../../../../core/utils/escape_parent_padding.dart';
-import '../../../../../../core/utils/showVideoDiolog.dart';
+import '../../../../../../core/utils/show_video_diolog.dart';
 import '../../../../data/models/movie_videos_model.dart';
 import '../../../controller/MovieVideos/movie_videos_cubit.dart';
 

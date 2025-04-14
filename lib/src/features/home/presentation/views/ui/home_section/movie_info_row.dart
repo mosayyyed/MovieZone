@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/src/core/utils/getGenresNames.dart';
+import 'package:movie_app/src/core/utils/get_genres_names.dart';
 import 'package:movie_app/src/features/home/data/models/genre_model.dart';
 
 class MovieInfoRow extends StatelessWidget {

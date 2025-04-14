@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/src/core/ui/blurred_play_button.dart';
 import 'package:movie_app/src/core/ui/progress_bar_with_percentage.dart';
 import 'package:movie_app/src/core/ui/skeletonizer_placeholder_cached_network_image.dart';
-import 'package:movie_app/src/core/utils/showVideoDiolog.dart';
+import 'package:movie_app/src/core/utils/show_video_diolog.dart';
 import 'package:movie_app/src/features/home/data/models/movie_model.dart';
 import 'package:movie_app/src/features/home/data/models/movie_videos_model.dart';
 import 'package:movie_app/src/features/home/presentation/controller/MovieVideos/movie_videos_cubit.dart';

@@ -5,7 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:movie_app/generated/l10n.dart';
 
 import '../../../../../../core/themes/app_assets.dart';
-import '../../../../../../core/utils/showVideoDiolog.dart';
+import '../../../../../../core/utils/show_video_diolog.dart';
 import '../../../controller/MovieVideos/movie_videos_cubit.dart';
 
 class BannerActionButtons extends StatelessWidget {
