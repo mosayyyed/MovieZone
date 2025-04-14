@@ -125,9 +125,13 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         phone: _phoneController.text,
       );
 
-      context.read<UserCubit>().updateUser(updatedUser).then((_) {
+      if (updatedUser == widget.user) {
         Navigator.pop(context);
-      });
+      } else {
+        context.read<UserCubit>().updateUser(updatedUser).then((_) {
+          Navigator.pop(context);
+        });
+      }
     }
   }
 }
