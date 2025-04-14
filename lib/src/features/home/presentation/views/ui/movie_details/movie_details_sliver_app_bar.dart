@@ -53,19 +53,17 @@ class MovieDetailsSliverAppBar extends StatelessWidget {
               final isBookmarked = state is BookmarkLoaded &&
                   state.bookmarks.any((b) => b.movieId == movie.id.toString());
               return SvgPicture.asset(
-                isBookmarked
-                    ? AppAssets.icons.bookmarkRemove
-                    : AppAssets.icons.bookmarkAdd,
-                color: Colors.white,
-              );
+                  isBookmarked
+                      ? AppAssets.icons.bookmarkRemove
+                      : AppAssets.icons.bookmarkAdd,
+                  color: Colors.white);
             },
           ),
         ),
       ],
       leading: IconButton(
         onPressed: () => GoRouter.of(context).pop(),
-        icon: Icon(Icons.arrow_back_ios_new_rounded,
-            color: Theme.of(context).colorScheme.onSurface),
+        icon: const Icon(Icons.arrow_back_ios_new_rounded, color: Colors.white),
       ),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
