@@ -32,7 +32,6 @@ import 'package:movie_app/src/features/profile/presentation/views/screens/profil
 import 'package:movie_app/src/features/splash/presentation/views/splash_screen.dart';
 
 abstract class AppRoutes {
-  
   static const kInitialRoute = '/';
   static const kOnboardingRoute = '/onboarding';
   static const kSignupRoute = '/signup';
@@ -227,9 +226,8 @@ abstract class AppRoutes {
         path: kBookmarkRoute,
         builder: (context, state) => MultiBlocProvider(
           providers: [
-            BlocProvider(
-              create: (context) =>
-                  GenresCubit(getIt.get<MovieRepoImpl>())..fetchGenres(),
+            BlocProvider.value(
+              value: state.extra as GenresCubit,
             ),
           ],
           child: const BookmarkScreen(),
