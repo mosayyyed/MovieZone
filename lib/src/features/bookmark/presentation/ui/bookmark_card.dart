@@ -25,6 +25,7 @@ class BookmarkCard extends StatelessWidget {
       key: Key(bookmark.movieId),
       direction: DismissDirection.endToStart,
       background: Container(
+        margin: EdgeInsets.symmetric(vertical: AppPadding.p2),
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.error,
           borderRadius: BorderRadius.circular(AppSize.s12),
@@ -43,18 +44,10 @@ class BookmarkCard extends StatelessWidget {
         context.read<BookmarkCubit>().removeBookmark(bookmark.movieId);
       },
       child: Container(
-        margin: EdgeInsets.symmetric(
-            vertical: AppPadding.p2, horizontal: AppPadding.p4),
+        margin: EdgeInsets.symmetric(vertical: AppPadding.p2),
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.surface,
           borderRadius: BorderRadius.circular(12),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.1),
-              blurRadius: 4,
-              offset: const Offset(0, 4),
-            ),
-          ],
         ),
         child: Material(
           color: Colors.transparent,
@@ -70,7 +63,7 @@ class BookmarkCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(AppSize.s8),
                     child: CachedNetworkImage(
                       imageUrl:
-                          '${AppConstants.api.imageUrl}${bookmark.posterPath}',
+                          '${AppConstants.api.imageUrl}/${bookmark.posterPath}',
                       width: 70,
                       height: 100,
                       fit: BoxFit.cover,

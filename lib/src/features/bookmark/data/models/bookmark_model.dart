@@ -43,7 +43,7 @@ class BookmarkModel extends Equatable {
     return BookmarkModel(
       movieId: '1',
       title: 'Title',
-      posterPath: 'Poster Path',
+      posterPath: '/zfbjgQE1uSd9wiPTX4VzsLi0rGG.jpg',
       genreIds: [1, 2, 3],
       voteAverage: 5.0,
       createdAt: DateTime.now(),
