@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:movie_app/src/core/themes/app_assets.dart';
 
 import '../../../../core/routing/routes.dart';
 import '../ui/onboarding_fixed_container.dart';
@@ -41,9 +42,9 @@ class OnboardingScreenState extends State<OnboardingScreen> {
           PageView(
             controller: _pageController,
             children: [
-              OnboardingPage(imageAsset: 'assets/onboarding.png'),
-              OnboardingPage(imageAsset: 'assets/onboarding1.jpg'),
-              OnboardingPage(imageAsset: 'assets/background.png'),
+              OnboardingPage(imageAsset: AppAssets.onboarding.onboarding1),
+              OnboardingPage(imageAsset: AppAssets.onboarding.onboarding2),
+              OnboardingPage(imageAsset: AppAssets.onboarding.onboarding3),
             ],
           ),
           Align(

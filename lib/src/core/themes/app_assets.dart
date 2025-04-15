@@ -2,6 +2,7 @@ class AppAssets {
   static const String appLogo = "assets/movieisme-logo.svg";
 
   static const icons = _AppIcons();
+  static const onboarding = _AppOnboarding();
 }
 
 class _AppIcons {
@@ -22,4 +23,12 @@ class _AppIcons {
   String get playArrow => "assets/icons/play-stroke-rounded.svg";
   String get moreHorizontalCircle =>
       "assets/icons/more-horizontal-circle-01-stroke-rounded.svg";
+}
+
+class _AppOnboarding {
+  const _AppOnboarding();
+
+  String get onboarding1 => "assets/onboarding/onboarding.png";
+  String get onboarding2 => "assets/onboarding/onboarding1.jpg";
+  String get onboarding3 => "assets/onboarding/background.png";
 }
