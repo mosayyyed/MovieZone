@@ -48,7 +48,8 @@ class HomeSliverAppBar extends StatelessWidget {
               ),
             )),
         IconButton(
-          onPressed: () => GoRouter.of(context).push(AppRoutes.kBookmarkRoute),
+          onPressed: () => GoRouter.of(context).push(AppRoutes.kBookmarkRoute,
+              extra: context.read<GenresCubit>()),
           icon: SvgPicture.asset(
             AppAssets.icons.bookmarkFilled,
             colorFilter: ColorFilter.mode(
