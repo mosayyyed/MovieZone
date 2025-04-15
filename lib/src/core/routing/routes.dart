@@ -9,8 +9,6 @@ import 'package:movie_app/src/features/auth/presentation/controller/signup/signu
 import 'package:movie_app/src/features/auth/presentation/views/screens/email_verificationScreen.dart';
 import 'package:movie_app/src/features/auth/presentation/views/screens/login_screen.dart';
 import 'package:movie_app/src/features/auth/presentation/views/screens/signup_screen.dart';
-import 'package:movie_app/src/features/bookmark/domain/repositories/bookmark_repository.dart';
-import 'package:movie_app/src/features/bookmark/presentation/controller/bookmark_cubit.dart';
 import 'package:movie_app/src/features/bookmark/presentation/screens/bookmark_screen.dart';
 import 'package:movie_app/src/features/explore/data/repositories/search_repo/search_movies_repo_impl.dart';
 import 'package:movie_app/src/features/explore/presentation/controller/cast/search_cubit.dart';
@@ -34,6 +32,7 @@ import 'package:movie_app/src/features/profile/presentation/views/screens/profil
 import 'package:movie_app/src/features/splash/presentation/views/splash_screen.dart';
 
 abstract class AppRoutes {
+  
   static const kInitialRoute = '/';
   static const kOnboardingRoute = '/onboarding';
   static const kSignupRoute = '/signup';
@@ -93,29 +92,45 @@ abstract class AppRoutes {
       ),
       GoRoute(
         path: kMovieDetailsRoute,
-        builder: (context, state) => MultiBlocProvider(
-          providers: [
-            BlocProvider.value(
-              value: MovieVideosCubit(getIt.get<MovieDetailsRepoImpl>())
-                ..fetchMovieVideos(int.parse(state.pathParameters['id']!)),
-            ),
-            BlocProvider(
-              create: (context) =>
-                  MovieDetailsCubit(getIt.get<MovieDetailsRepoImpl>())
-                    ..fetchMovieDetails(int.parse(state.pathParameters['id']!)),
-            ),
-            BlocProvider(
-              create: (context) =>
-                  MovieCastCubit(getIt.get<MovieDetailsRepoImpl>())
-                    ..fetchMovieCast(
-                      int.parse(state.pathParameters['id']!),
-                    ),
-            ),
-          ],
-          child: MovieDetailsScreen(
-            movieId: int.parse(state.pathParameters['id']!),
-          ),
-        ),
+        builder: (context, state) {
+          final id = state.pathParameters['id'];
+          if (id == null || id.isEmpty) {
+            return const Scaffold(
+              body: Center(
+                child: Text('Invalid movie ID'),
+              ),
+            );
+          }
+
+          try {
+            final movieId = int.parse(id);
+            return MultiBlocProvider(
+              providers: [
+                BlocProvider.value(
+                  value: MovieVideosCubit(getIt.get<MovieDetailsRepoImpl>())
+                    ..fetchMovieVideos(movieId),
+                ),
+                BlocProvider(
+                  create: (context) =>
+                      MovieDetailsCubit(getIt.get<MovieDetailsRepoImpl>())
+                        ..fetchMovieDetails(movieId),
+                ),
+                BlocProvider(
+                  create: (context) =>
+                      MovieCastCubit(getIt.get<MovieDetailsRepoImpl>())
+                        ..fetchMovieCast(movieId),
+                ),
+              ],
+              child: MovieDetailsScreen(movieId: movieId),
+            );
+          } catch (e) {
+            return const Scaffold(
+              body: Center(
+                child: Text('Invalid movie ID format'),
+              ),
+            );
+          }
+        },
       ),
       GoRoute(
         path: kHomeRoute,
@@ -206,18 +221,7 @@ abstract class AppRoutes {
       ),
       GoRoute(
         path: kProfileRoute,
-        pageBuilder: (context, state) => CustomTransitionPage(
-          child: const ProfileScreen(),
-          transitionsBuilder: (context, animation, secondaryAnimation, child) {
-            return SlideTransition(
-              position: Tween<Offset>(
-                begin: const Offset(1, 0),
-                end: Offset.zero,
-              ).animate(animation),
-              child: child,
-            );
-          },
-        ),
+        builder: (context, state) => const ProfileScreen(),
       ),
       GoRoute(
         path: kBookmarkRoute,
@@ -225,10 +229,7 @@ abstract class AppRoutes {
           providers: [
             BlocProvider(
               create: (context) =>
-                  BookmarkCubit(getIt.get<BookmarkRepository>()),
-            ),
-            BlocProvider(
-              create: (context) => GenresCubit(getIt.get<MovieRepoImpl>()),
+                  GenresCubit(getIt.get<MovieRepoImpl>())..fetchGenres(),
             ),
           ],
           child: const BookmarkScreen(),
