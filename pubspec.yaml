@@ -30,6 +30,7 @@ dependencies:
   go_router: ^14.6.2
   hive: ^2.2.3
   hive_flutter: ^1.1.0
+  intl: ^0.20.2
   intl_phone_field: ^3.2.0
   loop_page_view: ^1.2.5
   persistent_bottom_nav_bar_v2: ^5.3.1
