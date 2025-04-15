@@ -118,8 +118,18 @@
 
     "myBookmarks": "أفلامي المحفوظة",
     "noBookmarkedMovies": "لا يوجد أفلام محفوظة بعد",
-    "addMoviesToBookmarks": "أضف أفلامًا إلى مفضلاتك لرؤيتها هنا"
+    "addMoviesToBookmarks": "أضف أفلامًا إلى مفضلاتك لرؤيتها هنا",
 
-    
+    "today": "اليوم",
+    "yesterday": "أمس",
+    "thisWeek": "هذا الأسبوع",
+    "thisMonth": "هذا الشهر",
+    "lastMonth": "الشهر الماضي",
+    "older": "الأقدم",
+
+    "confirm": "تأكيد",
+    "deleteBookmark": "هل أنت متأكد أنك تريد حذف هذه المفضلة؟",
+    "cancel": "إلغاء",
+    "delete": "حذف"
   }
   

@@ -34,9 +34,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "appName": MessageLookupByLibrary.simpleMessage("Zone Cinéma"),
         "appearance": MessageLookupByLibrary.simpleMessage("Apparence"),
         "autoAppearance": MessageLookupByLibrary.simpleMessage("Auto"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Annuler"),
         "cast": MessageLookupByLibrary.simpleMessage("Casting"),
         "chooseLanguage":
             MessageLookupByLibrary.simpleMessage("Choisir la langue"),
+        "confirm": MessageLookupByLibrary.simpleMessage("Confirmer"),
         "confirmChanges":
             MessageLookupByLibrary.simpleMessage("Confirmer les modifications"),
         "confirmPassword":
@@ -51,6 +53,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "darkMode": MessageLookupByLibrary.simpleMessage("Mode sombre"),
         "defultQuality":
             MessageLookupByLibrary.simpleMessage("Qualité par défaut"),
+        "delete": MessageLookupByLibrary.simpleMessage("Supprimer"),
+        "deleteBookmark": MessageLookupByLibrary.simpleMessage(
+            "Êtes-vous sûr de vouloir supprimer ce favori?"),
         "description": MessageLookupByLibrary.simpleMessage("Description"),
         "dontReceive":
             MessageLookupByLibrary.simpleMessage("N\'avez pas reçu l\'email?"),
@@ -80,6 +85,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "invalidEmail": MessageLookupByLibrary.simpleMessage(
             "L\'adresse email n\'est pas valide."),
         "languageCode": MessageLookupByLibrary.simpleMessage("fr"),
+        "lastMonth": MessageLookupByLibrary.simpleMessage("Mois dernier"),
         "less": MessageLookupByLibrary.simpleMessage("Moins"),
         "lightAppearance": MessageLookupByLibrary.simpleMessage("Clair"),
         "loginButton": MessageLookupByLibrary.simpleMessage("Se connecter"),
@@ -105,6 +111,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "noDescriptionAvailable": MessageLookupByLibrary.simpleMessage(
             "Aucune description disponible"),
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
+        "older": MessageLookupByLibrary.simpleMessage("Plus ancien"),
         "onboardingContinue": MessageLookupByLibrary.simpleMessage("Continuer"),
         "onboardingDescription1": MessageLookupByLibrary.simpleMessage(
             "Débloquez le monde de l\'amusement avec Zone Cinéma. Diffusez vos films préférés partout, à chaque instant."),
@@ -162,6 +169,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "termsAndConditionsText3": MessageLookupByLibrary.simpleMessage(" et "),
         "termsAndConditionsText4": MessageLookupByLibrary.simpleMessage(
             "Politique de confidentialité."),
+        "thisMonth": MessageLookupByLibrary.simpleMessage("Ce mois"),
+        "thisWeek": MessageLookupByLibrary.simpleMessage("Cette semaine"),
+        "today": MessageLookupByLibrary.simpleMessage("Aujourd\'hui"),
         "tooManyRequests": MessageLookupByLibrary.simpleMessage(
             "Trop de requêtes. Veuillez réessayer plus tard."),
         "topRated": MessageLookupByLibrary.simpleMessage("Top Noté"),
@@ -190,6 +200,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Le mot de passe est trop faible. Veuillez choisir un mot de passe plus fort."),
         "wifiOnly": MessageLookupByLibrary.simpleMessage("Wifi uniquement"),
         "wrongPassword": MessageLookupByLibrary.simpleMessage(
-            "Mot de passe incorrect. Veuillez réessayer.")
+            "Mot de passe incorrect. Veuillez réessayer."),
+        "yesterday": MessageLookupByLibrary.simpleMessage("Hier")
       };
 }

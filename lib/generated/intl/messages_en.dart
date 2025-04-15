@@ -33,9 +33,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "appName": MessageLookupByLibrary.simpleMessage("Movie Zone"),
         "appearance": MessageLookupByLibrary.simpleMessage("Appearance"),
         "autoAppearance": MessageLookupByLibrary.simpleMessage("Auto"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "cast": MessageLookupByLibrary.simpleMessage("Cast"),
         "chooseLanguage":
             MessageLookupByLibrary.simpleMessage("Choose Language"),
+        "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
         "confirmChanges":
             MessageLookupByLibrary.simpleMessage("Confirm Changes"),
         "confirmPassword":
@@ -49,6 +51,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "darkMode": MessageLookupByLibrary.simpleMessage("Dark Mode"),
         "defultQuality":
             MessageLookupByLibrary.simpleMessage("Default Quality"),
+        "delete": MessageLookupByLibrary.simpleMessage("Delete"),
+        "deleteBookmark": MessageLookupByLibrary.simpleMessage(
+            "Are you sure you want to delete this bookmark?"),
         "description": MessageLookupByLibrary.simpleMessage("Description"),
         "dontReceive":
             MessageLookupByLibrary.simpleMessage("Didn\'t receive the email?"),
@@ -77,6 +82,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "invalidEmail": MessageLookupByLibrary.simpleMessage(
             "The email address is not valid."),
         "languageCode": MessageLookupByLibrary.simpleMessage("en"),
+        "lastMonth": MessageLookupByLibrary.simpleMessage("Last Month"),
         "less": MessageLookupByLibrary.simpleMessage("Less"),
         "lightAppearance": MessageLookupByLibrary.simpleMessage("Light"),
         "loginButton": MessageLookupByLibrary.simpleMessage("Log In"),
@@ -101,6 +107,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "noDescriptionAvailable":
             MessageLookupByLibrary.simpleMessage("No description available"),
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
+        "older": MessageLookupByLibrary.simpleMessage("Older"),
         "onboardingContinue": MessageLookupByLibrary.simpleMessage("Continue"),
         "onboardingDescription1": MessageLookupByLibrary.simpleMessage(
             "Unlock the world of entertainment with LetsSee. Stream your favorite films from anywhere, anytime."),
@@ -158,6 +165,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(" and "),
         "termsAndConditionsText4":
             MessageLookupByLibrary.simpleMessage("Privacy Policy."),
+        "thisMonth": MessageLookupByLibrary.simpleMessage("This Month"),
+        "thisWeek": MessageLookupByLibrary.simpleMessage("This Week"),
+        "today": MessageLookupByLibrary.simpleMessage("Today"),
         "tooManyRequests": MessageLookupByLibrary.simpleMessage(
             "Too many requests. Please try again later."),
         "topRated": MessageLookupByLibrary.simpleMessage("Top Rated"),
@@ -185,6 +195,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "The password is too weak. Please choose a stronger one."),
         "wifiOnly": MessageLookupByLibrary.simpleMessage("Wifi Only"),
         "wrongPassword": MessageLookupByLibrary.simpleMessage(
-            "Incorrect password. Please try again.")
+            "Incorrect password. Please try again."),
+        "yesterday": MessageLookupByLibrary.simpleMessage("Yesterday")
       };
 }

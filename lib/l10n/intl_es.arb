@@ -118,6 +118,18 @@
 
     "myBookmarks": "Mis películas guardadas",
     "noBookmarkedMovies": "No hay películas guardadas",
-    "addMoviesToBookmarks": "Añade películas a tus favoritos para verlas aquí"
+    "addMoviesToBookmarks": "Añade películas a tus favoritos para verlas aquí",
+
+    "today": "Hoy",
+    "yesterday": "Ayer",
+    "thisWeek": "Esta semana",
+    "thisMonth": "Este mes",
+    "lastMonth": "Último mes",
+    "older": "Más antiguo",
+
+    "confirm": "Confirmar",
+    "deleteBookmark": "¿Estás seguro de querer eliminar esta película de tus favoritos?",
+    "cancel": "Cancelar",
+    "delete": "Eliminar"
   }
   

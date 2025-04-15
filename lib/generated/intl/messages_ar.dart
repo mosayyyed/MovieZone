@@ -33,8 +33,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "appName": MessageLookupByLibrary.simpleMessage("Movie Zone"),
         "appearance": MessageLookupByLibrary.simpleMessage("المظهر"),
         "autoAppearance": MessageLookupByLibrary.simpleMessage("تلقائي"),
+        "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
         "cast": MessageLookupByLibrary.simpleMessage("طاقم العمل"),
         "chooseLanguage": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
+        "confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
         "confirmChanges":
             MessageLookupByLibrary.simpleMessage("تأكيد التغييرات"),
         "confirmPassword":
@@ -47,6 +49,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "darkMode": MessageLookupByLibrary.simpleMessage("الوضع الليلي"),
         "defultQuality":
             MessageLookupByLibrary.simpleMessage("الجودة الافتراضية"),
+        "delete": MessageLookupByLibrary.simpleMessage("حذف"),
+        "deleteBookmark": MessageLookupByLibrary.simpleMessage(
+            "هل أنت متأكد أنك تريد حذف هذه المفضلة؟"),
         "description": MessageLookupByLibrary.simpleMessage("الوصف"),
         "dontReceive": MessageLookupByLibrary.simpleMessage("لم تستلم البريد؟"),
         "editProfile": MessageLookupByLibrary.simpleMessage("تعديل الحساب"),
@@ -74,6 +79,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "invalidEmail":
             MessageLookupByLibrary.simpleMessage("البريد الإلكتروني غير صحيح."),
         "languageCode": MessageLookupByLibrary.simpleMessage("ar"),
+        "lastMonth": MessageLookupByLibrary.simpleMessage("الشهر الماضي"),
         "less": MessageLookupByLibrary.simpleMessage("أقل"),
         "lightAppearance": MessageLookupByLibrary.simpleMessage("فاتح"),
         "loginButton": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
@@ -98,6 +104,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "noDescriptionAvailable":
             MessageLookupByLibrary.simpleMessage("لا يوجد وصف"),
         "notifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
+        "older": MessageLookupByLibrary.simpleMessage("الأقدم"),
         "onboardingContinue": MessageLookupByLibrary.simpleMessage("استمر"),
         "onboardingDescription1": MessageLookupByLibrary.simpleMessage(
             "اكتشف عالم الترفيه مع LetsSee. استمتع بأفلامك المفضلة من أي مكان وأي وقت."),
@@ -154,6 +161,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "termsAndConditionsText3": MessageLookupByLibrary.simpleMessage(" و "),
         "termsAndConditionsText4":
             MessageLookupByLibrary.simpleMessage("سياسة الخصوصية."),
+        "thisMonth": MessageLookupByLibrary.simpleMessage("هذا الشهر"),
+        "thisWeek": MessageLookupByLibrary.simpleMessage("هذا الأسبوع"),
+        "today": MessageLookupByLibrary.simpleMessage("اليوم"),
         "tooManyRequests": MessageLookupByLibrary.simpleMessage(
             "عدد كبير جدًا من الطلبات. يرجى المحاولة لاحقًا."),
         "topRated": MessageLookupByLibrary.simpleMessage("الأعلى تقييمًا"),
@@ -182,6 +192,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "wifiOnly":
             MessageLookupByLibrary.simpleMessage("الاتصال بالإنترنت فقط"),
         "wrongPassword": MessageLookupByLibrary.simpleMessage(
-            "كلمة المرور غير صحيحة. يرجى المحاولة مرة أخرى.")
+            "كلمة المرور غير صحيحة. يرجى المحاولة مرة أخرى."),
+        "yesterday": MessageLookupByLibrary.simpleMessage("أمس")
       };
 }
