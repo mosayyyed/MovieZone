@@ -34,6 +34,7 @@ dependencies:
   loop_page_view: ^1.2.5
   persistent_bottom_nav_bar_v2: ^5.3.1
   readmore: ^3.0.0
+  share_plus: ^10.1.4
   shared_preferences: ^2.5.2
   skeletonizer: ^1.4.3
   smooth_page_indicator: ^1.2.0+3
@@ -78,4 +79,4 @@ flutter:
           weight: 700
 
 flutter_intl:
-    enabled: true
+  enabled: true

@@ -42,6 +42,7 @@ class BannerActionButtons extends StatelessWidget {
                           posterPath: movie.posterPath
                               .replaceAll(AppConstants.api.imageUrl, ''),
                           voteAverage: movie.voteAverage,
+                          createdAt: DateTime.now(),
                         ),
                       );
                 }

@@ -20,7 +20,10 @@ class BookmarkRepositoryImpl implements BookmarkRepository {
   @override
   Future<Either<Failure, List<BookmarkModel>>> getBookmarks() async {
     try {
-      final snapshot = await _bookmarksCollection.get();
+      final snapshot = await _bookmarksCollection
+          .orderBy('createdAt', descending: true)
+          .get();
+
       return Right(snapshot.docs
           .map((doc) =>
               BookmarkModel.fromJson(doc.data() as Map<String, dynamic>))

@@ -6,6 +6,7 @@ class BookmarkModel extends Equatable {
   final String posterPath;
   final List<int> genreIds;
   final double voteAverage;
+  final DateTime createdAt;
 
   const BookmarkModel({
     required this.movieId,
@@ -13,6 +14,7 @@ class BookmarkModel extends Equatable {
     required this.posterPath,
     required this.genreIds,
     required this.voteAverage,
+    required this.createdAt,
   });
 
   factory BookmarkModel.fromJson(Map<String, dynamic> json) {
@@ -22,6 +24,7 @@ class BookmarkModel extends Equatable {
       posterPath: json['posterPath'] as String,
       genreIds: (json['genreIds'] as List).map((e) => e as int).toList(),
       voteAverage: (json['voteAverage'] ?? 0).toDouble(),
+      createdAt: DateTime.parse(json['createdAt']),
     );
   }
 
@@ -32,6 +35,7 @@ class BookmarkModel extends Equatable {
       'posterPath': posterPath,
       'genreIds': genreIds,
       'voteAverage': voteAverage,
+      'createdAt': createdAt.toIso8601String(),
     };
   }
 
@@ -42,10 +46,11 @@ class BookmarkModel extends Equatable {
       posterPath: 'Poster Path',
       genreIds: [1, 2, 3],
       voteAverage: 5.0,
+      createdAt: DateTime.now(),
     );
   }
 
   @override
   List<Object?> get props =>
-      [movieId, title, posterPath, genreIds, voteAverage];
+      [movieId, title, posterPath, genreIds, voteAverage, createdAt];
 }

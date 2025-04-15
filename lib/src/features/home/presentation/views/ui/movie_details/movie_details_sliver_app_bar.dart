@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:movie_app/src/core/ui/skeletonizer_placeholder_cached_network_image.dart';
 import 'package:movie_app/src/core/ui/gradient_overlay.dart';
 import 'package:movie_app/src/features/bookmark/data/models/bookmark_model.dart';
@@ -26,7 +27,11 @@ class MovieDetailsSliverAppBar extends StatelessWidget {
       automaticallyImplyLeading: false,
       actions: [
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Share.share(
+              'Check out this movie: ${movie.title}\n${AppConstants.api.baseUrl}/movie/${movie.id}\n${AppConstants.api.imageUrl}/${movie.posterPath}',
+            );
+          },
           icon: SvgPicture.asset(AppAssets.icons.share, color: Colors.white),
         ),
         IconButton(
@@ -44,6 +49,7 @@ class MovieDetailsSliverAppBar extends StatelessWidget {
                       posterPath: movie.posterPath
                           .replaceAll(AppConstants.api.imageUrl, ''),
                       voteAverage: movie.voteAverage,
+                      createdAt: DateTime.now(),
                     ),
                   );
             }
