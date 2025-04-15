@@ -24,7 +24,9 @@ class MovieZoneApp extends StatelessWidget {
         BlocProvider(create: (_) => LocaleCubit(getIt<SharedPreferences>())),
         BlocProvider(
             create: (_) => UserCubit(getIt<UserRepoImpl>())..getUser()),
-        BlocProvider(create: (_) => BookmarkCubit(getIt<BookmarkRepository>())),
+        BlocProvider(
+            create: (_) =>
+                BookmarkCubit(getIt<BookmarkRepository>())..loadBookmarks()),
       ],
       child: BlocBuilder<LocaleCubit, Locale>(
         builder: (context, locale) {
