@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/src/core/ui/custom_progress_h_u_d.dart';
@@ -23,14 +24,14 @@ class LoginBody extends StatelessWidget {
     return CustomProgressHUD(
       child: MySingleChildScrollView(
         child: Column(
-          spacing: 32,
+          spacing: 32.h,
           children: [
             SizedBox(height: MediaQuery.of(context).size.height * 0.1),
             SvgPicture.asset(
               'assets/movieisme-logo.svg',
-              width: 100,
-              colorFilter:
-                  ColorFilter.mode(Theme.of(context).colorScheme.primary, BlendMode.srcIn),
+              width: 100.w,
+              colorFilter: ColorFilter.mode(
+                  Theme.of(context).colorScheme.primary, BlendMode.srcIn),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.05),
             LoginForm(),

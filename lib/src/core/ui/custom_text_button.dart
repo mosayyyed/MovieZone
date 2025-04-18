@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/src/core/themes/app_styles.dart';
 import 'package:movie_app/src/core/themes/app_values.dart';
 
@@ -22,11 +23,11 @@ class CustomTextButton extends StatelessWidget {
       style: ButtonStyle(
         alignment: alignment,
         minimumSize: WidgetStateProperty.all<Size>(
-          const Size(double.infinity, 0),
+          Size(double.infinity, 0.h),
         ),
         shape: WidgetStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(AppSize.s12),
+            borderRadius: BorderRadius.circular(AppSize.s12.r),
           ),
         ),
       ),

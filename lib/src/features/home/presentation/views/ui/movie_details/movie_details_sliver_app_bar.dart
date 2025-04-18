@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/src/core/ui/skeletonizer_placeholder_cached_network_image.dart';
 import 'package:movie_app/src/core/ui/gradient_overlay.dart';
 import 'package:movie_app/src/features/bookmark/data/models/bookmark_model.dart';
@@ -32,7 +33,11 @@ class MovieDetailsSliverAppBar extends StatelessWidget {
               'Check out this movie: ${movie.title}\n${AppConstants.api.baseUrl}/movie/${movie.id}\n${AppConstants.api.imageUrl}/${movie.posterPath}',
             );
           },
-          icon: SvgPicture.asset(AppAssets.icons.share, color: Colors.white),
+          icon: SvgPicture.asset(
+            AppAssets.icons.share,
+            color: Colors.white,
+            width: 24.sp,
+          ),
         ),
         IconButton(
           onPressed: () {
@@ -59,22 +64,28 @@ class MovieDetailsSliverAppBar extends StatelessWidget {
               final isBookmarked = state is BookmarkLoaded &&
                   state.bookmarks.any((b) => b.movieId == movie.id.toString());
               return SvgPicture.asset(
-                  isBookmarked
-                      ? AppAssets.icons.bookmarkRemove
-                      : AppAssets.icons.bookmarkAdd,
-                  color: Colors.white);
+                isBookmarked
+                    ? AppAssets.icons.bookmarkRemove
+                    : AppAssets.icons.bookmarkAdd,
+                color: Colors.white,
+                width: 24.sp,
+              );
             },
           ),
         ),
       ],
       leading: IconButton(
         onPressed: () => GoRouter.of(context).pop(),
-        icon: const Icon(Icons.arrow_back_ios_new_rounded, color: Colors.white),
+        icon: Icon(
+          Icons.arrow_back_ios_new_rounded,
+          color: Colors.white,
+          size: 24.sp,
+        ),
       ),
-      shape: const RoundedRectangleBorder(
+      shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(20),
-          bottomRight: Radius.circular(20),
+          bottomLeft: Radius.circular(20.r),
+          bottomRight: Radius.circular(20.r),
         ),
       ),
       pinned: true,
@@ -84,8 +95,15 @@ class MovieDetailsSliverAppBar extends StatelessWidget {
         centerTitle: true,
         collapseMode: CollapseMode.parallax,
         expandedTitleScale: 1.3,
-        titlePadding: const EdgeInsets.only(right: 16, left: 16, bottom: 16),
-        stretchModes: const [StretchMode.zoomBackground, StretchMode.fadeTitle],
+        titlePadding: EdgeInsets.only(
+          right: 16.sp,
+          left: 16.sp,
+          bottom: 16.sp,
+        ),
+        stretchModes: const [
+          StretchMode.zoomBackground,
+          StretchMode.fadeTitle,
+        ],
         background: Stack(
           children: [
             Positioned.fill(
@@ -94,7 +112,11 @@ class MovieDetailsSliverAppBar extends StatelessWidget {
                 placeholder: (context, url) =>
                     SkeletonizerPlaceholderCachedNetworkImage(),
                 fit: BoxFit.cover,
-                errorWidget: (_, __, ___) => const Icon(Icons.error, size: 50),
+                errorWidget: (_, __, ___) => Icon(
+                  Icons.error,
+                  size: 50.sp,
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                ),
               ),
             ),
             GradientOverlay(),

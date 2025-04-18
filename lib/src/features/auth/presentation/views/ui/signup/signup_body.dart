@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../../core/ui/custom_progress_h_u_d.dart';
@@ -34,15 +35,15 @@ class SignupBody extends StatelessWidget {
               style: Styles.textStyle12.copyWith(),
             ),
             SizedBox(
-              height: 32,
+              height: 32.h,
             ),
             SignupForm(),
             SizedBox(
-              height: 22,
+              height: 22.h,
             ),
             TermsAndConditions(),
             SizedBox(
-              height: 22,
+              height: 22.h,
             ),
             CustomTextButton(
               text: S.of(context).signupHaveAccText,

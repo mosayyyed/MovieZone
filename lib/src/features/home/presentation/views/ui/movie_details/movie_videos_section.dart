@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/src/core/ui/blurred_play_button.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
@@ -22,12 +23,15 @@ class MovieVideosSection extends StatelessWidget {
               .toList();
 
           if (officialVideos.isEmpty) {
-            return const SizedBox(
-              height: 150,
+            return SizedBox(
+              height: 150.h,
               child: Center(
                 child: Text(
                   "لا يوجد فيديوهات",
-                  style: TextStyle(fontSize: 16, color: Colors.white70),
+                  style: Styles.textStyle16.copyWith(
+                    fontSize: 16.sp,
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  ),
                 ),
               ),
             );
@@ -38,20 +42,20 @@ class MovieVideosSection extends StatelessWidget {
             enabled: true,
             containersColor: Colors.black12,
             child: SizedBox(
-              height: 160,
+              height: 160.h,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 4,
-                padding: const EdgeInsets.symmetric(horizontal: 16),
+                padding: EdgeInsets.symmetric(horizontal: 16.w),
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    padding: EdgeInsets.symmetric(horizontal: 8.w),
                     child: Container(
-                      width: 140,
-                      height: 160,
+                      width: 140.w,
+                      height: 160.h,
                       decoration: BoxDecoration(
                         color: Colors.grey.shade300,
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(12.r),
                       ),
                     ),
                   );
@@ -60,12 +64,15 @@ class MovieVideosSection extends StatelessWidget {
             ),
           );
         } else {
-          return const SizedBox(
-            height: 150,
+          return SizedBox(
+            height: 150.h,
             child: Center(
               child: Text(
                 "حدث خطأ في تحميل البيانات",
-                style: TextStyle(fontSize: 16, color: Colors.white70),
+                style: Styles.textStyle16.copyWith(
+                  fontSize: 16.sp,
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                ),
               ),
             ),
           );
@@ -86,7 +93,7 @@ class MovieVideosSection extends StatelessWidget {
         separatorBuilder: (context, index) => const SizedBox(width: 12),
         itemBuilder: (context, index) {
           final video = officialVideos[index];
-          return GestureDetector( 
+          return GestureDetector(
             onTap: () => showVideoDialog(context,
                 videoKey: video.key, videoName: video.name),
             child: ClipRRect(

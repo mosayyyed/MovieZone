@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/src/core/themes/app_values.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import 'package:movie_app/generated/l10n.dart';
@@ -19,10 +20,10 @@ class ProductionCompaniesSection extends StatelessWidget {
           S.of(context).productionCompanies,
           style: Styles.textStyle22.copyWith(
               fontWeight: FontWeight.bold,
-              fontSize: 20,
+              fontSize: 20.sp,
               color: Theme.of(context).colorScheme.onSurface),
         ),
-        const SizedBox(height: 4),
+        SizedBox(height: AppSize.s4.h),
         GridView.builder(
           padding: const EdgeInsets.symmetric(horizontal: 0),
           shrinkWrap: true,
@@ -37,12 +38,12 @@ class ProductionCompaniesSection extends StatelessWidget {
           itemBuilder: (context, index) {
             final company = movie.productionCompanies[index];
             return ClipRRect(
-              borderRadius: BorderRadius.circular(AppSize.s12),
+              borderRadius: BorderRadius.circular(AppSize.s12.r),
               child: Card(
                 elevation: 0,
                 color: Theme.of(context).colorScheme.surface,
                 child: Container(
-                  padding: const EdgeInsets.all(AppSize.s12),
+                  padding: EdgeInsets.all(AppSize.s12.h),
                   child: CachedNetworkImage(
                     imageUrl: company.logoPath,
                     color: Theme.of(context).colorScheme.onSurface,

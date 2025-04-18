@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/src/core/themes/app_values.dart';
 
 import '../themes/app_styles.dart';
@@ -24,11 +25,11 @@ class CustomElevatedButton extends StatelessWidget {
         shadowColor: Colors.transparent,
         elevation: 0,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AppSize.s12),
+          borderRadius: BorderRadius.circular(AppSize.s12.r),
         ),
-        minimumSize: const Size(double.infinity, 45),
+        minimumSize: Size(double.infinity, 45.h),
         backgroundColor: backgroundColor,
-        padding: const EdgeInsets.symmetric(vertical: 15),
+        padding: EdgeInsets.symmetric(vertical: 15.h),
       ),
       onPressed: onPressed,
       child: Text(
@@ -36,6 +37,7 @@ class CustomElevatedButton extends StatelessWidget {
         style: Styles.textStyle16.copyWith(
           color: textColor,
           fontWeight: FontWeight.w600,
+          fontSize: 16.sp,
         ),
       ),
     );

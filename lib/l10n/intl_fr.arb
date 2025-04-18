@@ -61,6 +61,7 @@
     "dontReceive": "N'avez pas reçu l'email?",
     "resend": "Renvoyer",
     "verificationSuccess": "Email vérifié avec succès",
+    "resendSuccess": "Email renvoyé avec succès",
     "invalidDataInput": "Veuillez vérifier les informations que vous avez entrées et réessayer.",
   
     "networkRequestFailed": "Erreur réseau: Veuillez vérifier votre connexion internet et réessayer.",
@@ -130,6 +131,8 @@
     "confirm": "Confirmer",
     "deleteBookmark": "Êtes-vous sûr de vouloir supprimer ce favori?",
     "cancel": "Annuler",
-    "delete": "Supprimer"
+    "delete": "Supprimer",
+
+    "noMovies": "Aucun film disponible"
   }
   

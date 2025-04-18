@@ -70,7 +70,7 @@ class EmailVerificationStreamBuilderState
             showTopSnackBar(
               Overlay.of(context),
               CustomSnackBar.success(
-                message: "تم إعادة إرسال البريد الإلكتروني",
+                message: S.of(context).resendSuccess,
               ),
             );
           },

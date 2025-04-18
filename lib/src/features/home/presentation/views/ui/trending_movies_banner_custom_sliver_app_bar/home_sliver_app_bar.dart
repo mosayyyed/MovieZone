@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/src/core/routing/routes.dart';
 import 'package:movie_app/src/core/themes/app_styles.dart';
-import 'package:movie_app/src/core/themes/app_values.dart';
 import 'package:movie_app/src/core/utils/app_constants.dart';
 import 'package:movie_app/src/features/home/presentation/controller/MovieVideos/movie_videos_cubit.dart';
 import 'package:movie_app/src/features/home/presentation/controller/genres/genres_cubit.dart';
@@ -25,7 +25,9 @@ class HomeSliverAppBar extends StatelessWidget {
       stretch: true,
       title: Text(
         S.of(context).home,
-        style: Styles.boldTextStyle20,
+        style: Styles.boldTextStyle20.copyWith(
+          fontSize: 20.sp,
+        ),
       ),
       titleSpacing: 0,
       actions: [
@@ -46,6 +48,7 @@ class HomeSliverAppBar extends StatelessWidget {
                 Colors.white,
                 BlendMode.srcIn,
               ),
+              width: 24.sp,
             )),
         IconButton(
           onPressed: () => GoRouter.of(context).push(AppRoutes.kBookmarkRoute,
@@ -56,15 +59,16 @@ class HomeSliverAppBar extends StatelessWidget {
               Colors.white,
               BlendMode.srcIn,
             ),
+            width: 24.sp,
           ),
         ),
       ],
       leading: GestureDetector(
         onTap: () => GoRouter.of(context).push(AppRoutes.kProfileRoute),
         child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: AppSize.s6,
-            vertical: AppSize.s6,
+          padding: EdgeInsets.symmetric(
+            horizontal: 6.w,
+            vertical: 6.h,
           ),
           child: CircleAvatar(
             backgroundColor: Theme.of(context).colorScheme.secondary,

@@ -60,6 +60,7 @@
     "verificationInfoText2": "Por favor, verifica tu correo electrónico y haz clic en el enlace para confirmar tu dirección de correo.",
     "dontReceive": "¿No recibiste el correo?",
     "resend": "Reenviar",
+    "resendSuccess": "Correo electrónico reenviado con éxito",
     "verificationSuccess": "Correo electrónico verificado con éxito",
     "invalidDataInput": "Por favor, verifica la información que ingresaste e inténtalo de nuevo.",
   
@@ -130,6 +131,8 @@
     "confirm": "Confirmar",
     "deleteBookmark": "¿Estás seguro de querer eliminar esta película de tus favoritos?",
     "cancel": "Cancelar",
-    "delete": "Eliminar"
+    "delete": "Eliminar",
+
+    "noMovies": "No hay películas disponibles"
   }
   

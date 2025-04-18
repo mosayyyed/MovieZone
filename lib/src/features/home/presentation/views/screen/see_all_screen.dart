@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/src/core/themes/app_values.dart';
 import 'package:movie_app/src/core/ui/arrow_back_with_title_app_bar.dart';
 import 'package:movie_app/src/features/explore/presentation/views/ui/explore/movies_grid_view.dart';
@@ -17,8 +18,10 @@ class SeeAllScreen extends StatelessWidget {
     return Scaffold(
       appBar: ArrowBackWithTitleAppBar(title: title),
       body: Padding(
-        padding: const EdgeInsets.symmetric(
-            horizontal: AppPadding.p16, vertical: 4.0),
+        padding: EdgeInsets.symmetric(
+          horizontal: AppPadding.p16.w,
+          vertical: AppPadding.p4.h,
+        ),
         child: MoviesGridView(genresCubit: genresCubit, movies: movies),
       ),
     );

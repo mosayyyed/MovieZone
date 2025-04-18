@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/src/core/themes/app_values.dart';
 import 'package:movie_app/src/core/utils/build_input_decoration.dart';
@@ -50,19 +51,19 @@ class _ExploreScreenState extends State<ExploreScreen> {
         automaticallyImplyLeading: false,
         titleSpacing: 0,
         title: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 100),
+          padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 100.h),
           child: Row(
             children: [
               SkipButton(
                 icon: Icon(
                   Icons.arrow_back_ios_new_rounded,
                   color: Theme.of(context).colorScheme.onSurface,
-                  size: 22,
+                  size: 22.sp,
                 ),
                 hasBorderSide: true,
                 onPressed: () => GoRouter.of(context).pop(),
               ),
-              const SizedBox(width: 8),
+              SizedBox(width: 8.w),
               Expanded(
                 child: TextField(
                   keyboardType: TextInputType.text,
@@ -80,8 +81,10 @@ class _ExploreScreenState extends State<ExploreScreen> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(
-            horizontal: AppPadding.p16, vertical: 4.0),
+        padding: EdgeInsets.symmetric(
+          horizontal: AppPadding.p16.w,
+          vertical: AppPadding.p4.h,
+        ),
         child: Column(
           children: [
             Expanded(

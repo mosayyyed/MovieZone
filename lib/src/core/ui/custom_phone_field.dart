@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_field/country_picker_dialog.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:intl_phone_field/phone_number.dart';
@@ -34,7 +35,6 @@ class CustomPhoneField extends StatelessWidget {
       cursorColor: Theme.of(context).colorScheme.primary,
       textAlign: TextAlign.start,
       invalidNumberMessage: S.of(context).phoneNumberInvalidError,
-      initialValue: "01",
       validator: validator,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       controller: controller,
@@ -46,18 +46,18 @@ class CustomPhoneField extends StatelessWidget {
       languageCode: Localizations.localeOf(context).languageCode,
       dropdownTextStyle: Styles.textStyle16,
       pickerDialogStyle: PickerDialogStyle(
-        searchFieldPadding: const EdgeInsets.all(10),
+        searchFieldPadding: EdgeInsets.all(10.r),
         countryCodeStyle: Styles.textStyle14,
-        listTileDivider: const Divider(
-          indent: 20,
-          endIndent: 20,
+        listTileDivider: Divider(
+          indent: 20.w,
+          endIndent: 20.w,
           color: Colors.transparent,
         ),
         searchFieldCursorColor: Theme.of(context).colorScheme.primary,
         searchFieldInputDecoration: buildInputDecoration(
           labelText: S.of(context).phoneSearchLabel,
           hintText: S.of(context).phoneSearchHint,
-          prefixIcon: const Icon(Icons.search_rounded),
+          prefixIcon: Icon(Icons.search_rounded),
           context: context,
         ),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,

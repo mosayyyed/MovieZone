@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../core/themes/app_styles.dart';
 import '../../../../data/models/movie_details_model.dart';
 
@@ -12,13 +13,13 @@ class MovieTitleRow extends StatelessWidget {
     return RichText(
       text: TextSpan(
         style: Styles.textStyle22
-            .copyWith(fontWeight: FontWeight.bold, fontSize: 26),
+            .copyWith(fontWeight: FontWeight.bold, fontSize: 26.sp),
         children: [
           TextSpan(
             text: movie.title,
             style: Styles.textStyle22.copyWith(
                 fontWeight: FontWeight.bold,
-                fontSize: 26,
+                fontSize: 26.sp,
                 fontFamily: 'Cairo',
                 color: Theme.of(context).colorScheme.onSurface),
           ),
@@ -26,7 +27,7 @@ class MovieTitleRow extends StatelessWidget {
             text: ' (${DateTime.parse(movie.releaseDate).year.toString()})',
             style: Styles.textStyle22.copyWith(
                 fontWeight: FontWeight.w600,
-                fontSize: 16,
+                fontSize: 16.sp,
                 fontFamily: 'Cairo',
                 color: Theme.of(context).colorScheme.onSurface),
           ),

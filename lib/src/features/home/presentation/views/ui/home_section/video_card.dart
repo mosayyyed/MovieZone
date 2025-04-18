@@ -1,6 +1,6 @@
-import 'dart:ui';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/src/core/ui/blurred_play_button.dart';
 import 'package:movie_app/src/core/ui/progress_bar_with_percentage.dart';
 import 'package:movie_app/src/core/ui/skeletonizer_placeholder_cached_network_image.dart';
@@ -30,20 +30,20 @@ class VideoCard extends StatelessWidget {
     return GestureDetector(
       onTap: () => _onTap(context, movie.id),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(16.sp),
         child: Stack(
           children: [
             _MovieImage(imageUrl: movie.backdropPath),
             Container(
-              width: 200,
+              width: 200.w,
               decoration: BoxDecoration(
                 color: Colors.black.withAlpha(100),
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(16.sp),
               ),
             ),
             Positioned.fill(
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(8.w),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -95,10 +95,14 @@ class _MovieImage extends StatelessWidget {
       imageUrl: imageUrl,
       placeholder: (context, url) =>
           SkeletonizerPlaceholderCachedNetworkImage(),
-      errorWidget: (context, url, error) => const Icon(Icons.error, size: 50),
+      errorWidget: (context, url, error) => Icon(
+        Icons.error,
+        size: 50.sp,
+        color: Theme.of(context).colorScheme.onSurfaceVariant,
+      ),
       fit: BoxFit.cover,
-      width: 200,
-      height: 150,
+      width: 200.w,
+      height: 150.h,
     );
   }
 }
@@ -114,9 +118,9 @@ class _MovieCardTitle extends StatelessWidget {
       alignment: AlignmentDirectional.centerStart,
       child: Text(
         title,
-        style: const TextStyle(
+        style: TextStyle(
           color: Colors.white,
-          fontSize: 12,
+          fontSize: 12.sp,
           fontWeight: FontWeight.bold,
           shadows: [
             Shadow(offset: Offset(0, 1), blurRadius: 4, color: Colors.black45),
@@ -128,4 +132,3 @@ class _MovieCardTitle extends StatelessWidget {
     );
   }
 }
-

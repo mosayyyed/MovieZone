@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import 'package:movie_app/generated/l10n.dart';
 
@@ -17,14 +18,17 @@ class MovieCastList extends StatelessWidget {
     return BlocBuilder<MovieCastCubit, MovieCastState>(
       builder: (context, state) {
         if (state is MovieCastSuccess) {
-          return _buildCastList(state.movieCastList);
+          return _buildCastList(state.movieCastList, context);
         } else if (state is MovieCastError) {
-          return const SizedBox(
-            height: 150,
+          return SizedBox(
+            height: 150.h,
             child: Center(
               child: Text(
                 "حدث خطأ في تحميل البيانات",
-                style: TextStyle(fontSize: 16, color: Colors.white70),
+                style: Styles.textStyle16.copyWith(
+                  fontSize: 16.sp,
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                ),
               ),
             ),
           );
@@ -36,36 +40,39 @@ class MovieCastList extends StatelessWidget {
     );
   }
 
-  Widget _buildCastList(List<MovieCastModel>? cast) {
+  Widget _buildCastList(List<MovieCastModel>? cast, BuildContext context) {
     if (cast == null || cast.isEmpty) {
-      return const SizedBox(
-        height: 150,
+      return SizedBox(
+        height: 150.h,
         child: Center(
           child: Text(
             "No cast available",
-            style: TextStyle(fontSize: 16, color: Colors.white70),
+            style: Styles.textStyle16.copyWith(
+              fontSize: 16.sp,
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
+            ),
           ),
         ),
       );
     }
 
     return EscapeParentPadding(
-      height: 150,
+      height: 150.h,
       child: ListView.separated(
         itemCount: cast.length,
         physics: const BouncingScrollPhysics(),
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           final actor = cast[index];
           return Column(
             children: [
               ClipRRect(
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(12.r),
                 child: CachedNetworkImage(
                   imageUrl: actor.profilePath,
-                  height: 90,
-                  width: 90,
+                  height: 90.h,
+                  width: 90.h,
                   fit: BoxFit.cover,
                   placeholder: (context, url) => Skeletonizer(
                       enabled: true,
@@ -75,20 +82,20 @@ class MovieCastList extends StatelessWidget {
                         color: Colors.white,
                       )),
                   errorWidget: (_, __, ___) => Container(
-                    height: 90,
-                    width: 90,
+                    height: 90.h,
+                    width: 90.h,
                     decoration: BoxDecoration(
                       color: Theme.of(context).colorScheme.onPrimary,
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(12.r),
                     ),
                     child: const Icon(Icons.person,
                         size: 50, color: Colors.white70),
                   ),
                 ),
               ),
-              const SizedBox(height: 6),
+              SizedBox(height: 6.h),
               SizedBox(
-                width: 90,
+                width: 90.w,
                 child: Text(
                   actor.name,
                   textAlign: TextAlign.center,
@@ -99,7 +106,7 @@ class MovieCastList extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                width: 90,
+                width: 90.w,
                 child: Text(
                   actor.character,
                   textAlign: TextAlign.center,
@@ -111,7 +118,7 @@ class MovieCastList extends StatelessWidget {
             ],
           );
         },
-        separatorBuilder: (context, index) => const SizedBox(width: 8),
+        separatorBuilder: (context, index) => SizedBox(width: 8.w),
       ),
     );
   }

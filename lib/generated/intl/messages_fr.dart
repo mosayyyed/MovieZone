@@ -110,6 +110,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Aucune donnée disponible pour le moment"),
         "noDescriptionAvailable": MessageLookupByLibrary.simpleMessage(
             "Aucune description disponible"),
+        "noMovies":
+            MessageLookupByLibrary.simpleMessage("Aucun film disponible"),
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
         "older": MessageLookupByLibrary.simpleMessage("Plus ancien"),
         "onboardingContinue": MessageLookupByLibrary.simpleMessage("Continuer"),
@@ -152,6 +154,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "registerDescriptionText": MessageLookupByLibrary.simpleMessage(
             "Créez un compte maintenant et commencez à explorer tout ce que notre application a à offrir. Nous sommes impatients de vous accueillir dans notre communauté!"),
         "resend": MessageLookupByLibrary.simpleMessage("Renvoyer"),
+        "resendSuccess":
+            MessageLookupByLibrary.simpleMessage("Email renvoyé avec succès"),
         "searchForYourFavoriteMovies": MessageLookupByLibrary.simpleMessage(
             "Rechercher vos films préférés"),
         "seeMore": MessageLookupByLibrary.simpleMessage("Voir plus"),

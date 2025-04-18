@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/src/core/themes/app_values.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/src/features/home/data/models/movie_model.dart';
 import 'package:movie_app/src/features/home/presentation/views/ui/home_section/video_card.dart';
 
@@ -22,12 +22,12 @@ class ContinueWatchingList extends StatelessWidget {
     final movieVideosCubit = context.watch<MovieVideosCubit>();
 
     return SizedBox(
-      height: 150,
+      height: 150.h,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
         itemCount: movies.length,
-        padding: const EdgeInsets.symmetric(horizontal: AppPadding.p16),
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
         itemBuilder: (context, index) {
           return VideoCard(
               movies: movies,
@@ -35,7 +35,7 @@ class ContinueWatchingList extends StatelessWidget {
               progress: progress,
               index: index);
         },
-        separatorBuilder: (context, index) => const SizedBox(width: 8),
+        separatorBuilder: (context, index) => SizedBox(width: 8.w),
       ),
     );
   }

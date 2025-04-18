@@ -61,6 +61,7 @@
     "dontReceive": "Didn't receive the email?",
     "resend": "Resend",
     "verificationSuccess": "Email verified successfully",
+    "resendSuccess": "Email resended successfully",
     "invalidDataInput": "Please check the information you entered and try again.",
   
     "networkRequestFailed": "Network error: Please check your internet connection and try again.",
@@ -130,6 +131,8 @@
     "confirm": "Confirm",
     "deleteBookmark": "Are you sure you want to delete this bookmark?",
     "cancel": "Cancel",
-    "delete": "Delete"
+    "delete": "Delete",
+
+    "noMovies": "No movies available"
   }
   

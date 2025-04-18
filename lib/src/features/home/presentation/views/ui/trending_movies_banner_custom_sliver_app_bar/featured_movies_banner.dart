@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/generated/l10n.dart';
 
@@ -166,7 +167,7 @@ class MovieCarouselBanner extends StatelessWidget {
       },
       onHorizontalDragEnd: onSwipe,
       child: SizedBox(
-        height: 400,
+        height: 400.h,
         child: Stack(
           children: [
             MovieBannerBackground(

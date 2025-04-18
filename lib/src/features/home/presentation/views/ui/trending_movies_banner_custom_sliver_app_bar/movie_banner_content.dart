@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/src/core/themes/app_values.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/src/features/home/presentation/views/ui/home_section/movie_info_row.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:movie_app/generated/l10n.dart';
 
 import '../../../../../../core/themes/app_styles.dart';
@@ -26,24 +25,22 @@ class MovieBannerContent extends StatelessWidget {
   Widget build(BuildContext context) {
     final genresCubit = context.watch<GenresCubit>();
     return Positioned(
-      bottom: AppSize.s20,
-      left: AppSize.s24,
-      right: AppSize.s24,
+      bottom: 20.h,
+      left: 24.w,
+      right: 24.w,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           _buildTitle(context),
-          const SizedBox(height: AppSize.s8),
+          SizedBox(height: 8.h),
           _buildMovieTitle(context),
-          const SizedBox(height: 4),
+          SizedBox(height: 4.h),
           _buildMovieInfo(context, genresCubit),
-          const SizedBox(height: 16),
+          SizedBox(height: 16.h),
           BannerActionButtons(
             movie: movie,
           ),
-          const SizedBox(height: 16),
-          _buildPageIndicator(context),
         ],
       ),
     );
@@ -87,20 +84,6 @@ class MovieBannerContent extends StatelessWidget {
       genreIds: movie.genreIds,
       voteAverage: movie.voteAverage,
       genres: genresCubit.genres,
-    );
-  }
-
-  Widget _buildPageIndicator(BuildContext context) {
-    return SmoothPageIndicator(
-      controller: pageController,
-      count: totalMovies,
-      effect: ExpandingDotsEffect(
-        dotColor: Theme.of(context).colorScheme.onSurface.withAlpha(100),
-        activeDotColor: Theme.of(context).colorScheme.primary,
-        dotHeight: 8,
-        dotWidth: 8,
-        spacing: 8,
-      ),
     );
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../core/themes/app_styles.dart';
 
 class AppBarSection extends StatelessWidget implements PreferredSizeWidget {
@@ -25,6 +25,6 @@ class AppBarSection extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Size get preferredSize {
-    return const Size.fromHeight(60);
+    return Size(double.infinity, 60.h);
   }
 }

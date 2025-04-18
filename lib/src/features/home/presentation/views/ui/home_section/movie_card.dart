@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/src/core/routing/routes.dart';
 import 'package:movie_app/src/core/ui/skeletonizer_placeholder_cached_network_image.dart';
@@ -27,7 +28,6 @@ class MovieCard extends StatelessWidget {
     GoRouter.of(context).push(
       AppRoutes.kMovieDetailsRoute.replaceFirst(":id", movie.id.toString()),
       extra: context.read<MovieVideosCubit>(),
-      
     );
   }
 
@@ -35,28 +35,25 @@ class MovieCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => _navigateToDetails(context),
-      child: SizedBox(
-        width: MediaQuery.sizeOf(context).height / 5.5,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _buildMovieImage(movie.posterPath, index, context),
-            const SizedBox(height: 8),
-            Text(
-              movie.title,
-              style: const TextStyle(fontWeight: FontWeight.bold),
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-            ),
-            const SizedBox(height: 4),
-            MovieInfoRow(
-              voteAverage: movie.voteAverage,
-              genreIds: movie.genreIds,
-              genres: genres,
-              isExpanded: true,
-            ),
-          ],
-        ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _buildMovieImage(movie.posterPath, index, context),
+          SizedBox(height: 8.h),
+          Text(
+            movie.title,
+            style: const TextStyle(fontWeight: FontWeight.bold),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
+          SizedBox(height: 4.h),
+          MovieInfoRow(
+            voteAverage: movie.voteAverage,
+            genreIds: movie.genreIds,
+            genres: genres,
+            isExpanded: true,
+          ),
+        ],
       ),
     );
   }
@@ -67,14 +64,14 @@ class MovieCard extends StatelessWidget {
       child: Stack(
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(12.r),
             child: CachedNetworkImage(
               imageUrl: posterPath ?? "",
-              fadeInDuration: Duration(milliseconds: 100),
+              fadeInDuration: const Duration(milliseconds: 100),
               placeholder: (context, url) =>
                   SkeletonizerPlaceholderCachedNetworkImage(),
               errorWidget: (context, url, error) =>
-                  const Icon(Icons.error, size: 50),
+                  Icon(Icons.error, size: 50.sp),
               fit: BoxFit.cover,
               width: double.infinity,
             ),
@@ -83,13 +80,13 @@ class MovieCard extends StatelessWidget {
             Positioned(
               left: 0,
               child: Container(
-                width: 35,
-                height: 35,
+                width: 35.w,
+                height: 35.h,
                 decoration: BoxDecoration(
                   color: Theme.of(context).colorScheme.secondary,
-                  borderRadius: const BorderRadius.only(
-                    bottomRight: Radius.circular(12),
-                    topLeft: Radius.circular(12),
+                  borderRadius: BorderRadius.only(
+                    bottomRight: Radius.circular(12.r),
+                    topLeft: Radius.circular(12.r),
                   ),
                 ),
                 child: Center(
@@ -97,7 +94,7 @@ class MovieCard extends StatelessWidget {
                     "${index + 1}",
                     style: TextStyle(
                         color: Theme.of(context).colorScheme.primary,
-                        fontSize: 18,
+                        fontSize: 18.sp,
                         fontWeight: FontWeight.w900),
                   ),
                 ),

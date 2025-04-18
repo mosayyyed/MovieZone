@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/src/core/themes/app_styles.dart';
 import 'package:movie_app/src/core/themes/app_values.dart';
 import 'app_colors.dart';
@@ -63,10 +64,10 @@ class AppTheme {
         fontWeight: FontWeight.w600,
         fontFamily: 'Cairo',
       ),
-      shape: const RoundedRectangleBorder(
+      shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(20),
-          bottomRight: Radius.circular(20),
+          bottomLeft: Radius.circular(20.r),
+          bottomRight: Radius.circular(20.r),
         ),
       ),
       elevation: 0,
@@ -82,44 +83,46 @@ class AppTheme {
   }) {
     return InputDecorationTheme(
       contentPadding: EdgeInsets.symmetric(
-        horizontal: AppPadding.p16,
-        vertical: AppPadding.p8,
+        horizontal: AppPadding.p16.w,
+        vertical: AppPadding.p14.h,
       ),
       errorMaxLines: 2,
       errorStyle: TextStyle(
         color: AppColors.errorColor.withAlpha(180),
-        fontSize: 12,
+        fontSize: 12.sp,
         overflow: TextOverflow.ellipsis,
       ),
       filled: true,
       fillColor: fillColor,
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(10.r),
         borderSide: BorderSide.none,
       ),
       focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(10.r),
         borderSide: BorderSide(color: borderColor, width: 1.5),
       ),
       enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(10.r),
         borderSide: BorderSide.none,
       ),
       errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(10.r),
         borderSide: BorderSide(color: AppColors.errorColor, width: 1.5),
       ),
       focusedErrorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(10.r),
         borderSide: BorderSide(color: AppColors.errorColor, width: 1.5),
       ),
       labelStyle: Styles.textStyle12.copyWith(
         color: fillColor.computeLuminance() > 0.5 ? Colors.black : Colors.white,
         fontWeight: FontWeight.bold,
+        fontSize: 12.sp,
       ),
       hintStyle: Styles.textStyle12.copyWith(
         color: fillColor.computeLuminance() > 0.5 ? Colors.black : Colors.white,
         fontWeight: FontWeight.bold,
+        fontSize: 12.sp,
       ),
     );
   }

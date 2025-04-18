@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../core/ui/my_single_child_scroll_view.dart';
 import '../../../../../../core/themes/app_styles.dart';
 import '../../../../../../../generated/l10n.dart';
@@ -26,9 +26,9 @@ class EmailVerificationBody extends StatelessWidget {
             style: Styles.textStyle32.copyWith(
                 color: Theme.of(context).colorScheme.primary, fontWeight: FontWeight.w600),
           ),
-          const SizedBox(height: 20),
+          SizedBox(height: 20.h),
           VerificationInfoText(email: email),
-          const SizedBox(height: 50),
+          SizedBox(height: 50.h),
           Text(
             S.of(context).dontReceive,
             style: Styles.textStyle16,

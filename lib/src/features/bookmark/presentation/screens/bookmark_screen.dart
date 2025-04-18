@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/generated/l10n.dart';
 import 'package:movie_app/src/core/themes/app_values.dart';
 import 'package:movie_app/src/core/ui/arrow_back_with_title_app_bar.dart';
@@ -24,7 +25,7 @@ class BookmarkScreen extends StatelessWidget {
         title: S.of(context).myBookmarks,
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: AppPadding.p16),
+        padding: EdgeInsets.symmetric(horizontal: AppPadding.p16.w),
         child: MultiBlocListener(
           listeners: [
             BlocListener<BookmarkCubit, BookmarkState>(

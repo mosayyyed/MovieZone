@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/src/core/utils/form_validator.dart';
@@ -41,6 +42,7 @@ class SignupForm extends StatelessWidget {
           GoRouter.of(context).push(
               '${AppRoutes.kEmailVerificationRoute}?email=${signupCubit.emailController.text}',
               extra: context.read<AuthCubit>());
+          BlocProvider.of<AuthCubit>(context).resendEmailVerification();
         }
       },
       builder: (context, state) {
@@ -50,13 +52,13 @@ class SignupForm extends StatelessWidget {
               key: signupCubit.formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                spacing: 16,
+                spacing: 16.h,
                 children: [
                   CustomTextField(
                     labelText: S.of(context).fullName,
                     keyboardType: TextInputType.name,
                     controller: signupCubit.fullNameController,
-                    validator: (value) => FormValidator.validateFullName(value),  
+                    validator: (value) => FormValidator.validateFullName(value),
                   ),
                   CustomTextField(
                     labelText: S.of(context).email,
@@ -71,8 +73,7 @@ class SignupForm extends StatelessWidget {
                     obscureText: !authCubit.isPasswordVisible,
                     suffixIconVisibility: true,
                     onSuffixIconPressed: authCubit.togglePasswordVisibility,
-                    validator: (value) =>
-                        FormValidator.validatePassword(value),
+                    validator: (value) => FormValidator.validatePassword(value),
                   ),
                   CustomTextField(
                     labelText: S.of(context).confirmPassword,
@@ -89,7 +90,8 @@ class SignupForm extends StatelessWidget {
                   ),
                   CustomPhoneField(
                     labelText: S.of(context).phoneNumber,
-                    validator: (value) => FormValidator.validatePhone(value?.completeNumber),
+                    validator: (value) =>
+                        FormValidator.validatePhone(value?.completeNumber),
                     onChanged: (phone) {
                       signupCubit.phoneController.text = phone.completeNumber;
                     },

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:movie_app/generated/l10n.dart';
 import 'package:movie_app/src/features/bookmark/presentation/controller/bookmark_cubit.dart';
@@ -55,12 +56,12 @@ class BannerActionButtons extends StatelessWidget {
                   Theme.of(context).colorScheme.onSurfaceVariant,
                   BlendMode.srcIn,
                 ),
-                width: 20,
+                width: 20.sp,
               ),
             );
           },
         ),
-        const SizedBox(width: 16),
+        SizedBox(width: 16.w),
         ElevatedButton.icon(
           onPressed: () async {
             await movieVideosCubit.fetchMovieVideos(movie.id);
@@ -109,7 +110,7 @@ class BannerActionButtons extends StatelessWidget {
             style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
           ),
         ),
-        const SizedBox(width: 16),
+        SizedBox(width: 16.w),
         IconButton(
           onPressed: () {},
           icon: SvgPicture.asset(
@@ -118,7 +119,7 @@ class BannerActionButtons extends StatelessWidget {
               Theme.of(context).colorScheme.onSurfaceVariant,
               BlendMode.srcIn,
             ),
-            width: 20,
+            width: 20.sp,
           ),
         ),
       ],

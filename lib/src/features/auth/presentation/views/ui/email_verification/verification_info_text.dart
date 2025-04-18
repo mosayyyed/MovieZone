@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../core/themes/app_styles.dart';
 import '../../../../../../../generated/l10n.dart';
 
@@ -17,7 +17,7 @@ class VerificationInfoText extends StatelessWidget {
       text: TextSpan(
         text: S.of(context).verificationInfoText1,
         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-            fontSize: 16, color: Theme.of(context).colorScheme.onSurface),
+            fontSize: 16.sp, color: Theme.of(context).colorScheme.onSurface),
         children: [
           TextSpan(
             text: "\n$email. \n",
@@ -29,7 +29,8 @@ class VerificationInfoText extends StatelessWidget {
           TextSpan(
             text: S.of(context).verificationInfoText2,
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                fontSize: 16, color: Theme.of(context).colorScheme.onSurface),
+                fontSize: 16.sp,
+                color: Theme.of(context).colorScheme.onSurface),
           ),
         ],
       ),

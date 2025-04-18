@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../themes/app_styles.dart';
 import '../utils/build_input_decoration.dart';
 
@@ -43,7 +43,7 @@ class CustomTextField extends StatelessWidget {
       autovalidateMode: AutovalidateMode.onUserInteraction,
       keyboardType: keyboardType,
       obscureText: obscureText,
-      style: Styles.textStyle16,
+      style: Styles.textStyle16.copyWith(fontSize: 16.sp),
       decoration: buildInputDecoration(
           labelText: labelText,
           hintText: hintText,

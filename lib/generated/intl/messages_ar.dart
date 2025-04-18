@@ -103,6 +103,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("لا توجد بيانات لعرضها الآن"),
         "noDescriptionAvailable":
             MessageLookupByLibrary.simpleMessage("لا يوجد وصف"),
+        "noMovies": MessageLookupByLibrary.simpleMessage("لا يوجد أفلام متاحة"),
         "notifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
         "older": MessageLookupByLibrary.simpleMessage("الأقدم"),
         "onboardingContinue": MessageLookupByLibrary.simpleMessage("استمر"),
@@ -144,6 +145,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "registerDescriptionText": MessageLookupByLibrary.simpleMessage(
             "سجل الآن وابدأ في استكشاف كل ما نقدمه في تطبيقنا. نحن متحمسون للترحيب بك في مجتمعنا!"),
         "resend": MessageLookupByLibrary.simpleMessage("إعادة إرسال"),
+        "resendSuccess": MessageLookupByLibrary.simpleMessage(
+            "تم إعادة إرسال البريد الإلكتروني بنجاح"),
         "searchForYourFavoriteMovies":
             MessageLookupByLibrary.simpleMessage("ابحث عن أفلامك المفضلة"),
         "seeMore": MessageLookupByLibrary.simpleMessage("عرض المزيد"),

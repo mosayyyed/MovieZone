@@ -1,5 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movie_app/generated/l10n.dart';
 import 'package:movie_app/src/core/ui/skeletonizer_placeholder_cached_network_image.dart';
 
 import '../../../../data/models/movie_model.dart';
@@ -62,9 +64,9 @@ class _MovieBannerBackgroundState extends State<MovieBannerBackground> {
     if (widget.movies.isEmpty) {
       return Center(
         child: Text(
-          "لا توجد أفلام",
+          S.of(context).noMovies,
           style: TextStyle(
-              fontSize: 18, color: Theme.of(context).colorScheme.onSurface),
+              fontSize: 18.sp, color: Theme.of(context).colorScheme.onSurface),
         ),
       );
     }
@@ -94,11 +96,11 @@ class _MovieBannerBackgroundState extends State<MovieBannerBackground> {
             fit: BoxFit.cover,
             placeholder: (context, url) =>
                 SkeletonizerPlaceholderCachedNetworkImage(),
-            errorWidget: (_, __, ___) => const Center(
+            errorWidget: (_, __, ___) => Center(
               child: Icon(
                 Icons.error,
                 color: Colors.white,
-                size: 40,
+                size: 40.sp,
               ),
             ),
           );

@@ -13,7 +13,6 @@ class AuthCubit extends Cubit<AuthState> {
 
   AuthCubit(this.authRepo) : super(AuthInitial());
 
-
   void togglePasswordVisibility() {
     isPasswordVisible = !isPasswordVisible;
     emit(PasswordVisibilityChanged(isPasswordVisible));
@@ -28,7 +27,6 @@ class AuthCubit extends Cubit<AuthState> {
     emit(AuthLoading());
 
     final result = await authRepo.getCurrentUser();
-    // TODO: Fix send email
     result.fold(
       (failure) => emit(AuthError(failure.message)),
       (currentUser) async {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/src/core/utils/form_validator.dart';
@@ -41,6 +42,7 @@ class LoginForm extends StatelessWidget {
         } else if (state is LoginSuccess) {
           progress?.dismiss();
           navigate(context, authCubit);
+          BlocProvider.of<AuthCubit>(context).resendEmailVerification();
         }
       },
       builder: (context, state) {
@@ -49,7 +51,7 @@ class LoginForm extends StatelessWidget {
             return Form(
               key: loginCubit.formKey,
               child: Column(
-                spacing: 16,
+                spacing: 16.h,
                 children: [
                   CustomTextField(
                     labelText: S.of(context).email,

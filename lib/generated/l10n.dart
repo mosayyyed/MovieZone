@@ -550,6 +550,16 @@ class S {
     );
   }
 
+  /// `Email resended successfully`
+  String get resendSuccess {
+    return Intl.message(
+      'Email resended successfully',
+      name: 'resendSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Please check the information you entered and try again.`
   String get invalidDataInput {
     return Intl.message(
@@ -1165,6 +1175,16 @@ class S {
     return Intl.message(
       'Delete',
       name: 'delete',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No movies available`
+  String get noMovies {
+    return Intl.message(
+      'No movies available',
+      name: 'noMovies',
       desc: '',
       args: [],
     );
