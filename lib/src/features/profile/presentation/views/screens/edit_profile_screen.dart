@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/src/core/themes/app_styles.dart';
 import 'package:movie_app/src/core/themes/app_values.dart';
 import 'package:movie_app/src/core/ui/custom_elevated_button.dart';
@@ -73,7 +74,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               ),
             ],
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16.h),
           // Form
           Form(
             key: _formKey,
@@ -85,7 +86,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   labelText: S.of(context).fullName,
                   validator: FormValidator.validateFullName,
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16.h),
                 CustomTextField(
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
@@ -93,14 +94,14 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   readOnly: true,
                   validator: FormValidator.validateEmail,
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16.h),
                 CustomTextField(
                   controller: _phoneController,
                   keyboardType: TextInputType.phone,
                   labelText: S.of(context).phoneNumber,
                   validator: FormValidator.validatePhone,
                 ),
-                const SizedBox(height: 24),
+                SizedBox(height: 24.h),
                 CustomElevatedButton(
                   onPressed: _saveChanges,
                   text: S.of(context).confirmChanges,
@@ -110,7 +111,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               ],
             ),
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16.h),
         ],
       ),
     );

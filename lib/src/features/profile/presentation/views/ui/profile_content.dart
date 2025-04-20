@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/src/core/themes/app_styles.dart';
 import 'package:movie_app/src/core/themes/app_values.dart';
 import 'package:movie_app/src/core/utils/app_constants.dart';
@@ -21,16 +22,16 @@ class ProfileContent extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
-          width: 100,
-          height: 140,
+          width: 100.w,
+          height: 140.h,
           child: Stack(
             children: [
               InkWell(
                 onTap: () {},
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(10.r),
                 child: Container(
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(10.r),
                     color: Theme.of(context).colorScheme.secondary,
                     image: const DecorationImage(
                       image: AssetImage(AppConstants.avatarPlaceholder),
@@ -49,7 +50,7 @@ class ProfileContent extends StatelessWidget {
                       isScrollControlled: true,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.vertical(
-                          top: Radius.circular(AppSize.s18),
+                          top: Radius.circular(AppSize.s18.h),
                         ),
                       ),
                       backgroundColor:
@@ -59,11 +60,11 @@ class ProfileContent extends StatelessWidget {
                   },
                   child: CircleAvatar(
                     backgroundColor: Colors.transparent,
-                    radius: 14,
+                    radius: 14.r,
                     child: Icon(
                       Icons.change_circle_rounded,
                       color: Theme.of(context).colorScheme.onSecondary,
-                      size: 30,
+                      size: 30.sp,
                     ),
                   ),
                 ),
@@ -71,7 +72,7 @@ class ProfileContent extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(width: 12),
+        SizedBox(width: 12.w),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -83,7 +84,7 @@ class ProfileContent extends StatelessWidget {
                 style: Styles.boldTextStyle18
                     .copyWith(fontWeight: FontWeight.bold),
               ),
-              const SizedBox(height: 4),
+              SizedBox(height: 4.w),
               Text(
                 user?.email ?? '',
                 overflow: TextOverflow.ellipsis,
@@ -92,9 +93,9 @@ class ProfileContent extends StatelessWidget {
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8.w),
               const AccountStatusIndicator(),
-              const SizedBox(height: 8),
+              SizedBox(height: 8.w),
               ElevatedButton.icon(
                 onPressed: () {
                   if (user != null) {
@@ -103,7 +104,7 @@ class ProfileContent extends StatelessWidget {
                       isScrollControlled: true,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.vertical(
-                          top: Radius.circular(AppSize.s18),
+                          top: Radius.circular(AppSize.s18.h),
                         ),
                       ),
                       backgroundColor:
@@ -112,7 +113,7 @@ class ProfileContent extends StatelessWidget {
                     );
                   }
                 },
-                icon: const Icon(Icons.edit, size: 18),
+                icon: Icon(Icons.edit, size: 18.sp),
                 label: Text(
                   S.of(context).editProfile,
                   style:
@@ -124,9 +125,9 @@ class ProfileContent extends StatelessWidget {
                   disabledBackgroundColor:
                       Theme.of(context).colorScheme.onSurface.withOpacity(0.2),
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                      EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(8.r),
                   ),
                 ),
               ),
