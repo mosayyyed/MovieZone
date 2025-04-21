@@ -1,0 +1,18 @@
+default_platform(:android)
+
+platform :android do
+  desc "Lane for Android Firebase App Distribution"
+  lane :distribute_to_firebase do
+    sh("flutter clean && flutter pub get")
+    sh("flutter build apk --release --no-tree-shake-icons")
+
+    firebase_app_distribution(
+      app: "1:1067285567354:android:eddc9a233be08ed95428c3",
+      firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"],
+      android_artifact_path: "../build/app/outputs/flutter-apk/app-release.apk",
+      android_artifact_type: "APK",
+      groups: "movie_zone_test",
+      release_notes: "This is a test release #{Time.now}"
+    )
+  end
+end
