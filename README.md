@@ -1,8 +1,6 @@
 # Movie Zone 🎬
+![Movie Zone App Cover](https://github.com/user-attachments/assets/5dfce2d0-7595-43f4-bf7d-6093eb2fe297" alt="Movie Zone App Cover)
 
-<div align="center">
-  <img src="https://github.com/user-attachments/assets/5dfce2d0-7595-43f4-bf7d-6093eb2fe297" alt="Movie Zone App Cover" width="800"/>
-</div>
 ![Flutter Version](https://img.shields.io/badge/Flutter-3.6.0-blue.svg)
 ![Dart Version](https://img.shields.io/badge/Dart-3.6.0-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-purple.svg)
