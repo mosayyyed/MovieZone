@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/src/features/home/presentation/controller/popular/popular_cubit.dart';
 import 'package:movie_app/src/features/home/presentation/controller/trending/trending_cubit.dart';
 import 'package:movie_app/src/features/home/presentation/controller/top_rated/top_rated_cubit.dart';
@@ -55,6 +56,11 @@ class HomeScreen extends StatelessWidget {
               cubit: context.read<UpcomingCubit>(),
               selector: (state) =>
                   state is UpcomingSuccess ? state.upcomingMovies : [],
+            ),
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: MediaQuery.of(context).padding.bottom + 16.h,
+              ),
             ),
           ],
         ),

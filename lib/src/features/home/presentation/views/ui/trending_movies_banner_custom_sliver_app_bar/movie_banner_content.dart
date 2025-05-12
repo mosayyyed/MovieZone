@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:loop_page_view/loop_page_view.dart';
 import 'package:movie_app/src/features/home/presentation/views/ui/home_section/movie_info_row.dart';
 import 'package:movie_app/generated/l10n.dart';
 
@@ -18,7 +19,7 @@ class MovieBannerContent extends StatelessWidget {
   });
 
   final MovieModel movie;
-  final PageController pageController;
+  final LoopPageController pageController;
   final int totalMovies;
 
   @override
