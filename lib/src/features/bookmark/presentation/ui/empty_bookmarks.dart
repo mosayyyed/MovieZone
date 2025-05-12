@@ -32,6 +32,7 @@ class EmptyBookmarks extends StatelessWidget {
           Text(
             S.of(context).addMoviesToBookmarks,
             style: Styles.textStyle16,
+            textAlign: TextAlign.center,
           ),
         ],
       ),
