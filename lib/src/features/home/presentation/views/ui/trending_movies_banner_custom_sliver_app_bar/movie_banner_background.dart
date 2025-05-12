@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/generated/l10n.dart';
 import 'package:movie_app/src/core/ui/skeletonizer_placeholder_cached_network_image.dart';
+import 'package:loop_page_view/loop_page_view.dart';
 
 import '../../../../data/models/movie_model.dart';
 
@@ -15,7 +16,7 @@ class MovieBannerBackground extends StatefulWidget {
   });
 
   final List<MovieModel> movies;
-  final PageController controller;
+  final LoopPageController controller;
   final ValueChanged<int> onPageChanged;
 
   @override
@@ -74,12 +75,12 @@ class _MovieBannerBackgroundState extends State<MovieBannerBackground> {
     return NotificationListener<ScrollNotification>(
       onNotification: (ScrollNotification notification) {
         if (notification is ScrollEndNotification) {
-          final index = widget.controller.page?.round() ?? 0;
+          final index = widget.controller.page.round();
           _precacheNextImage(index);
         }
         return false;
       },
-      child: PageView.builder(
+      child: LoopPageView.builder(
         controller: widget.controller,
         physics: const BouncingScrollPhysics(),
         itemCount: widget.movies.length,

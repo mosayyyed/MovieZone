@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:loop_page_view/loop_page_view.dart';
 import 'package:movie_app/generated/l10n.dart';
 
 import 'package:movie_app/src/core/ui/gradient_overlay.dart';
@@ -24,13 +25,13 @@ class FeaturedMoviesBanner extends StatefulWidget {
 
 class _FeaturedMoviesBannerState extends State<FeaturedMoviesBanner> {
   int currentIndex = 0;
-  late PageController _pageController;
+  late LoopPageController _pageController;
   Timer? _timer;
 
   @override
   void initState() {
     super.initState();
-    _pageController = PageController(initialPage: 0);
+    _pageController = LoopPageController(initialPage: 0);
     _startAutoScroll();
   }
 
@@ -47,7 +48,7 @@ class _FeaturedMoviesBannerState extends State<FeaturedMoviesBanner> {
     setState(() {
       currentIndex = 0;
       _pageController.dispose();
-      _pageController = PageController(initialPage: 0);
+      _pageController = LoopPageController(initialPage: 0);
     });
     _startAutoScroll();
   }
@@ -64,10 +65,10 @@ class _FeaturedMoviesBannerState extends State<FeaturedMoviesBanner> {
 
     _timer?.cancel();
     _timer = Timer.periodic(const Duration(seconds: 5), (timer) {
-      if (!mounted || _pageController.page == null) return;
+      if (!mounted) return;
 
       final nextIndex =
-          (_pageController.page!.round() + 1) % widget.trendingMovies.length;
+          (_pageController.page.round() + 1) % widget.trendingMovies.length;
       _pageController.animateToPage(
         nextIndex,
         duration: const Duration(milliseconds: 600),
@@ -79,8 +80,7 @@ class _FeaturedMoviesBannerState extends State<FeaturedMoviesBanner> {
   void _handleSwipe(DragEndDetails details) {
     _timer?.cancel();
 
-    final double? currentPage = _pageController.page;
-    if (currentPage == null) return;
+    final double currentPage = _pageController.page;
 
     int nextIndex;
     if (details.primaryVelocity! < 0) {
@@ -141,7 +141,7 @@ class _FeaturedMoviesBannerState extends State<FeaturedMoviesBanner> {
 class MovieCarouselBanner extends StatelessWidget {
   final List<MovieModel> movies;
   final int currentIndex;
-  final PageController controller;
+  final LoopPageController controller;
   final ValueChanged<int> onPageChanged;
   final void Function(DragEndDetails) onSwipe;
 
