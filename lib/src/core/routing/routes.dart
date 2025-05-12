@@ -166,38 +166,24 @@ abstract class AppRoutes {
       ),
       GoRoute(
         path: kExploreRoute,
-        pageBuilder: (context, state) {
+        builder: (context, state) {
           final extra = state.extra as Map<String, dynamic>?;
 
-          return CustomTransitionPage(
-            key: state.pageKey,
-            transitionsBuilder:
-                (context, animation, secondaryAnimation, child) {
-              return SlideTransition(
-                position: Tween<Offset>(
-                  begin: const Offset(1, 0),
-                  end: Offset.zero,
-                ).animate(animation),
-                child: child,
-              );
-            },
-            child: MultiBlocProvider(
-              providers: [
-                BlocProvider(
-                  create: (context) =>
-                      SearchMoiveCubit(getIt.get<SearchMoviesRepoImpl>()),
-                ),
-                if (extra != null) ...[
-                  BlocProvider.value(
-                      value: extra['trendingCubit'] as TrendingCubit),
-                  BlocProvider.value(
-                      value: extra['genresCubit'] as GenresCubit),
-                  BlocProvider.value(
-                      value: extra['movieVideosCubit'] as MovieVideosCubit),
-                ],
+          return MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) =>
+                    SearchMovieCubit(getIt.get<SearchMoviesRepoImpl>()),
+              ),
+              if (extra != null) ...[
+                BlocProvider.value(
+                    value: extra['trendingCubit'] as TrendingCubit),
+                BlocProvider.value(value: extra['genresCubit'] as GenresCubit),
+                BlocProvider.value(
+                    value: extra['movieVideosCubit'] as MovieVideosCubit),
               ],
-              child: const ExploreScreen(),
-            ),
+            ],
+            child: const ExploreScreen(),
           );
         },
       ),
