@@ -77,17 +77,24 @@ class _FeaturedMoviesBannerState extends State<FeaturedMoviesBanner> {
     });
   }
 
-  void _handleSwipe(DragEndDetails details) {
+  void _handleSwipe(BuildContext context, DragEndDetails details) {
     _timer?.cancel();
 
     final double currentPage = _pageController.page;
+    final isRtl = Directionality.of(context) == TextDirection.rtl;
 
     int nextIndex;
+
     if (details.primaryVelocity! < 0) {
-      nextIndex = (currentPage.round() - 1 + widget.trendingMovies.length) %
-          widget.trendingMovies.length;
+      nextIndex = isRtl
+          ? (currentPage.round() - 1 + widget.trendingMovies.length) %
+              widget.trendingMovies.length
+          : (currentPage.round() + 1) % widget.trendingMovies.length;
     } else {
-      nextIndex = (currentPage.round() + 1) % widget.trendingMovies.length;
+      nextIndex = isRtl
+          ? (currentPage.round() + 1) % widget.trendingMovies.length
+          : (currentPage.round() - 1 + widget.trendingMovies.length) %
+              widget.trendingMovies.length;
     }
 
     _pageController.animateToPage(
@@ -115,7 +122,7 @@ class _FeaturedMoviesBannerState extends State<FeaturedMoviesBanner> {
               onPageChanged: (index) {
                 setState(() => currentIndex = index);
               },
-              onSwipe: _handleSwipe,
+              onSwipe: (details) => _handleSwipe(context, details),
             ),
           );
         } else if (state is TrendingSuccess) {
@@ -129,7 +136,7 @@ class _FeaturedMoviesBannerState extends State<FeaturedMoviesBanner> {
             onPageChanged: (index) {
               setState(() => currentIndex = index);
             },
-            onSwipe: _handleSwipe,
+            onSwipe: (details) => _handleSwipe(context, details),
           );
         }
         return const SizedBox();
