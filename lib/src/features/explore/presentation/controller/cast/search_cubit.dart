@@ -5,11 +5,11 @@ import '../../../data/repositories/search_repo/search_movies_repo.dart';
 
 part 'search_state.dart';
 
-class SearchMoiveCubit extends Cubit<MovieSearchState> {
+class SearchMovieCubit extends Cubit<MovieSearchState> {
   final SearchMoviesRepo searchMovieRepo;
   final List<MovieModel> searchMovies = [];
 
-  SearchMoiveCubit(this.searchMovieRepo) : super(MovieSearchInitial());
+  SearchMovieCubit(this.searchMovieRepo) : super(MovieSearchInitial());
 
   Future<void> fetchMoviesByQuery(String q) async {
     emit(MovieSearchLoading());

@@ -24,7 +24,7 @@ class ExploreScreen extends StatefulWidget {
 class _ExploreScreenState extends State<ExploreScreen> {
   Timer? _debounce;
 
-  void _onSearchChanged(String query, SearchMoiveCubit searchMoiveCubit) {
+  void _onSearchChanged(String query, SearchMovieCubit searchMoiveCubit) {
     _debounce?.cancel();
     _debounce = Timer(const Duration(milliseconds: 500), () {
       searchMoiveCubit.fetchMoviesByQuery(query);
@@ -41,7 +41,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
   Widget build(BuildContext context) {
     final genresCubit = context.read<GenresCubit>();
     final trendingCubit = context.read<TrendingCubit>();
-    final searchMoiveCubit = context.read<SearchMoiveCubit>();
+    final searchMoiveCubit = context.read<SearchMovieCubit>();
 
     return Scaffold(
       appBar: AppBar(
@@ -88,7 +88,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
         child: Column(
           children: [
             Expanded(
-              child: BlocBuilder<SearchMoiveCubit, MovieSearchState>(
+              child: BlocBuilder<SearchMovieCubit, MovieSearchState>(
                 builder: (context, state) {
                   if (state is MovieSearchLoading) {
                     return Skeletonizer(
