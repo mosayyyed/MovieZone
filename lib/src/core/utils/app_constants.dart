@@ -1,6 +1,5 @@
 import 'dart:ui';
-
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'dart:io';
 
 class AppConstants {
   static const api = _ApiConstants();
@@ -15,7 +14,7 @@ class _ApiConstants {
 
   String get baseUrl => "https://api.themoviedb.org/3";
   String get imageUrl => "https://image.tmdb.org/t/p/original";
-  String get apiKey => dotenv.env["API_KEY"] ?? '';
+  String get apiKey => Platform.environment['API_KEY'] ?? '';
 }
 
 class _SharedPreferencesConstants {
